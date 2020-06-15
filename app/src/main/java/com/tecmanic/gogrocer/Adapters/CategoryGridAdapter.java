@@ -3,6 +3,7 @@ package com.tecmanic.gogrocer.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -185,6 +186,8 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
         double price = Double.parseDouble(CategoryGridList.get(position).getPrice());
         double mrp = Double.parseDouble(CategoryGridList.get(position).getMrp());
 
+        holder.pdiscountOff.setText(((int)(mrp-price))+" "+"Off");
+        holder.pMrp.setPaintFlags(holder.pMrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,7 +200,7 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
                 intent.putExtra("mrp", cc.getMrp());
                 intent.putExtra("unit", cc.getUnit());
                 intent.putExtra("qty", cc.getQuantity());
-                intent.putExtra("image", BaseURL.IMG_URL + cc.getVarient_image());
+                intent.putExtra("image", cc.getVarient_image());
                 intent.putExtra("sVariant_id", cc.getVarient_id());
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

@@ -61,6 +61,8 @@ public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyView
         holder.pMrp.setText(cc.getpMrp());
         holder.pMrp.setPaintFlags(holder.pMrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
+
+
         int qtyd = Integer.parseInt(dbcart.getInCartItemQtys(cartList.get(position).getVarient_id()));
         if (qtyd > 0) {
             holder.btn_Add.setVisibility(View.GONE);
@@ -95,7 +97,7 @@ public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyView
             intent.putExtra("mrp", cartList.get(position).getpMrp());
             intent.putExtra("unit", cartList.get(position).getUnit());
             intent.putExtra("qty", cartList.get(position).getpQuan());
-            intent.putExtra("image", BaseURL.IMG_URL + cartList.get(position).getpImage());
+            intent.putExtra("image", cartList.get(position).getpImage());
 
             v.getContext().startActivity(intent);
 

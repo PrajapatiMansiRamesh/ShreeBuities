@@ -28,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tecmanic.gogrocer.Adapters.Adapter_popup;
+import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.varient_product;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
@@ -42,6 +43,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.tecmanic.gogrocer.Config.BaseURL.BASE_URL;
 import static com.tecmanic.gogrocer.Config.BaseURL.ProductVarient;
 
 public class ProductDetails extends AppCompatActivity {
@@ -165,7 +167,7 @@ public class ProductDetails extends AppCompatActivity {
 //            varientUrl(varientId);
 
             Glide.with(this)
-                    .load(varientimage)
+                    .load(BaseURL.IMG_URL+varientimage)
                     .centerCrop()
                     .crossFade()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)

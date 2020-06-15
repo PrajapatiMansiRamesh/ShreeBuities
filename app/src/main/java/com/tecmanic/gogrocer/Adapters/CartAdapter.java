@@ -201,7 +201,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.MyViewHolder> 
                 intent.putExtra("mrp",cartList.get(position).getpMrp());
                 intent.putExtra("unit",cartList.get(position).getUnit());
                 intent.putExtra("qty",cartList.get(position).getpQuan());
-                intent.putExtra("image", BaseURL.IMG_URL+cartList.get(position).getpImage());
+                intent.putExtra("image", cartList.get(position).getpImage());
 
                 v.getContext().startActivity(intent);
 

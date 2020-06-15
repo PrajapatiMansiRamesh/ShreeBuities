@@ -115,7 +115,7 @@ public class SearchFragment extends Fragment {
                 intent.putExtra("mrp", searchlist.get(position).getSubprodList().getMrp());
                 intent.putExtra("unit", searchlist.get(position).getSubprodList().getUnit());
                 intent.putExtra("qty", searchlist.get(position).getSubprodList().getQuantity());
-                intent.putExtra("image", IMG_URL+searchlist.get(position).getSubprodList().getVarient_image());
+                intent.putExtra("image", searchlist.get(position).getSubprodList().getVarient_image());
                 startActivity(intent);
             }
 
