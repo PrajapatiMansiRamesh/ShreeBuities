@@ -8,6 +8,7 @@ import com.tecmanic.gogrocer.Activity.MainActivity;
 
 import java.util.HashMap;
 
+import static com.tecmanic.gogrocer.Config.BaseURL.APP_OTP_STATUS;
 import static com.tecmanic.gogrocer.Config.BaseURL.CART_ID_FINAL;
 import static com.tecmanic.gogrocer.Config.BaseURL.IS_LOGIN;
 import static com.tecmanic.gogrocer.Config.BaseURL.KEY_EMAIL;
@@ -348,6 +349,14 @@ public class Session_management {
     public void setCurrency(String name, String currency) {
         pref.setString(USER_CURRENCY, currency);
         pref.setString(USER_CURRENCY_CNTRY, name);
+    }
+
+    public String getOtpSatus() {
+        return pref.getString(APP_OTP_STATUS, "1");
+    }
+
+    public void setOtpStatus(String value) {
+        pref.setString(APP_OTP_STATUS, value);
     }
 
 }

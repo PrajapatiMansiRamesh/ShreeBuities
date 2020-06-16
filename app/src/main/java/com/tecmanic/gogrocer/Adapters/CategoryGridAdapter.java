@@ -186,7 +186,7 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
         double price = Double.parseDouble(CategoryGridList.get(position).getPrice());
         double mrp = Double.parseDouble(CategoryGridList.get(position).getMrp());
 
-        holder.pdiscountOff.setText(((int)(mrp-price))+" "+"Off");
+        holder.pdiscountOff.setText(session_management.getCurrency()+""+((int)(mrp-price))+" "+"Off");
         holder.pMrp.setPaintFlags(holder.pMrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override

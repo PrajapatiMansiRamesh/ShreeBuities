@@ -30,6 +30,7 @@ public class BaseURL {
     public static final String USER_SKIP = "user_skip";
     public static final String USER_CURRENCY_CNTRY = "user_currency_country";
     public static final String USER_CURRENCY = "user_currency";
+    public static final String APP_OTP_STATUS = "user_otp_search";
 
 
     //adreeessss
@@ -69,11 +70,11 @@ public class BaseURL {
 //    https://gogrocer.tecmanic.com/api/
 
     public static String BASE_URL = "https://thecodecafe.in/gogrocer-ver2.0/api/";
-//    public static String BASE_URL = "https://gogrocer.tecmanic.com/api/";
+//    public static String BASE_URL = "https://grophy.in/gogrocer/api/";
 
 
 
-//    public static String IMG_URL = "https://gogrocer.tecmanic.com/";
+//    public static String IMG_URL = "https://grophy.in/gogrocer/image/";
     public static String IMG_URL = "https://thecodecafe.in/gogrocer-ver2.0/";
 //    public static String IMG_URL = "https://gogrocer.tecmanic.com/";
     public static String BANN_IMG_URL = "https://gogrocer.tecmanic.com/";

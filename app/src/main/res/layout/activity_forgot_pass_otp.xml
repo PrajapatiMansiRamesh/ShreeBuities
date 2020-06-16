@@ -67,6 +67,34 @@
                 />
 
         </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
+            android:visibility="gone"
+            app:cardUseCompatPadding="true"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="38dp"
+            android:layout_marginTop="5dp">
+
+            <EditText
+                android:id="@+id/et_mail"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter your email"
+                android:textSize="14sp"
+                android:backgroundTint="@android:color/transparent"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:paddingLeft="24dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:inputType="textWebPassword" />
+
+        </androidx.cardview.widget.CardView>
 
 
 

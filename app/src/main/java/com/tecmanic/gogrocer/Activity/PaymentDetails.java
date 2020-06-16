@@ -226,8 +226,14 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     }
 
                 } else {
-                    progressDialog.dismiss();
-                    Toast.makeText(PaymentDetails.this, "Select One plz", Toast.LENGTH_SHORT).show();
+                    if (checkBox_coupon.isChecked()) {
+                        if (Double.parseDouble(payable_amt) > 0.0) {
+                            progressDialog.dismiss();
+                            Toast.makeText(PaymentDetails.this, "Select One plz", Toast.LENGTH_SHORT).show();
+                        } else {
+                            makeAddOrderRequest(getuser_id, cart_id, payment_method, wallet_status, "success");
+                        }
+                    }
                 }
 
 //                if (rb_Cod.isChecked()||checkBox_Wallet.isChecked()||checkBox_coupon.isChecked()){
@@ -359,7 +365,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         rb_card.setClickable(true);
                         rb_Cod.setClickable(true);
                         checkBox_coupon.setClickable(true);
-                        startActivityForResult(new Intent(PaymentDetails.this, RechargeWallet.class),5);
+                        startActivityForResult(new Intent(PaymentDetails.this, RechargeWallet.class), 5);
                     }
 
                 } else {
@@ -419,7 +425,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         }
                     } else {
                         wallet_status = "no";
-                        payment_method = "";
+                        payment_method = "promocode";
                     }
                 }
             }
@@ -651,7 +657,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         intent.putExtra("msg", message);
                         startActivity(intent);
                         Toast.makeText(PaymentDetails.this, "" + message, Toast.LENGTH_SHORT).show();
-                    } else if (status.equalsIgnoreCase("2")){
+                    } else if (status.equalsIgnoreCase("2")) {
                         sessionManagement.setCartID("");
                         JSONObject jsonObject = response.getJSONObject("data");
                         db_cart.clearCart();
@@ -659,7 +665,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         intent.putExtra("msg", message);
                         startActivity(intent);
                         Toast.makeText(PaymentDetails.this, "" + message, Toast.LENGTH_SHORT).show();
-                    }else {
+                    } else {
                         Toast.makeText(PaymentDetails.this, "" + message, Toast.LENGTH_SHORT).show();
                     }
                     progressDialog.dismiss();
@@ -937,10 +943,9 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     apply();
                 }
             }
-        }
-        else if (requestCode == 5){
-            if (data!=null && data.getExtras()!=null){
-                if (Objects.requireNonNull(data.getStringExtra("recharge")).equalsIgnoreCase("success")){
+        } else if (requestCode == 5) {
+            if (data != null && data.getExtras() != null) {
+                if (Objects.requireNonNull(data.getStringExtra("recharge")).equalsIgnoreCase("success")) {
                     getRefresrh();
                 }
             }

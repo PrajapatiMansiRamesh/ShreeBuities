@@ -1,7 +1,9 @@
 package com.tecmanic.gogrocer.Activity;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -71,9 +73,12 @@ import com.tecmanic.gogrocer.Fragments.Reward_fragment;
 import com.tecmanic.gogrocer.Fragments.SearchFragment;
 import com.tecmanic.gogrocer.Fragments.Terms_and_Condition_fragment;
 import com.tecmanic.gogrocer.Fragments.Wallet_fragment;
+import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
 import com.tecmanic.gogrocer.ModelClass.NewPastOrderSubModel;
 import com.tecmanic.gogrocer.ModelClass.NewPendingDataModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.network.ApiInterface;
+import com.tecmanic.gogrocer.util.ConnectivityReceiver;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
 import com.tecmanic.gogrocer.util.FetchAddressTask;
 import com.tecmanic.gogrocer.util.GPSTracker;
@@ -89,6 +94,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.moshi.MoshiConverterFactory;
 
 import static com.tecmanic.gogrocer.Config.BaseURL.ADDRESS;
 import static com.tecmanic.gogrocer.Config.BaseURL.CITY;
@@ -302,15 +312,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         My_Walllet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (sessionManagement.isLoggedIn() && sessionManagement.userBlockStatus().equalsIgnoreCase("2")) {
-
+                if (sessionManagement.isLoggedIn()) {
                     drawer.closeDrawer(GravityCompat.START);
+                    if (sessionManagement.userBlockStatus().equalsIgnoreCase("2")){
+                        Wallet_fragment fm = new Wallet_fragment();
+                        FragmentManager manager = getSupportFragmentManager();
+                        FragmentTransaction transaction = manager.beginTransaction();
+                        transaction.replace(R.id.contentPanel, fm);
+                        transaction.commit();
+                    }else {
+                        showBloackDialog();
+                    }
 
-                    Wallet_fragment fm = new Wallet_fragment();
-                    FragmentManager manager = getSupportFragmentManager();
-                    FragmentTransaction transaction = manager.beginTransaction();
-                    transaction.replace(R.id.contentPanel, fm);
-                    transaction.commit();
+
+
+
 
 
 //                    Wallet_fragment fm = new Wallet_fragment();
@@ -359,6 +375,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sideMenu();
 
         new Thread(this::getCurrency).start();
+        new Thread(this::checkOtpStatus).start();
 
         // checkConnection();
 
@@ -497,6 +514,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
+    }
+
+    private void showBloackDialog() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+        alertDialog.setCancelable(true);
+        alertDialog.setMessage("You are blocked from backend.\n Please Contact with customer care!");
+//        alertDialog.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.dismiss();
+//            }
+//        });
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        alertDialog.show();
     }
 
     @Override
@@ -1041,6 +1078,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.getCache().clear();
         requestQueue.add(stringRequest);
+    }
+
+    private void checkOtpStatus() {
+
+        Retrofit emailOtp = new Retrofit.Builder()
+                .baseUrl(BaseURL.BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build();
+
+        ApiInterface apiInterface = emailOtp.create(ApiInterface.class);
+
+        Call<ForgotEmailModel> checkOtpStatus = apiInterface.getOtpOnOffStatus();
+        checkOtpStatus.enqueue(new Callback<ForgotEmailModel>() {
+            @Override
+            public void onResponse(@NonNull Call<ForgotEmailModel> call, @NonNull retrofit2.Response<ForgotEmailModel> response) {
+                if (response.isSuccessful()) {
+                    ForgotEmailModel model = response.body();
+                    if (model != null) {
+                        if (model.getStatus().equalsIgnoreCase("0")) {
+                            sessionManagement.setOtpStatus("0");
+                        } else {
+                            sessionManagement.setOtpStatus("1");
+                        }
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ForgotEmailModel> call, @NonNull Throwable t) {
+
+            }
+        });
+
     }
 
 }

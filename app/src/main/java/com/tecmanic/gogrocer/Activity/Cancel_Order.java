@@ -1,5 +1,8 @@
 package com.tecmanic.gogrocer.Activity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +43,7 @@ public class Cancel_Order extends AppCompatActivity {
     List<ComplainModel> complainModels = new ArrayList<>();
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    private ProgressDialog progressDialog;
 
     String reason;
     String cart_id;
@@ -51,7 +55,9 @@ public class Cancel_Order extends AppCompatActivity {
 
         cart_id = Objects.requireNonNull(getIntent().getExtras()).getString("cart_id");
 //        cart_id = My_Pending_Order.cart_id;
-
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading....");
         rc_complain = findViewById(R.id.rc_complain);
         LinearLayoutManager gridLayoutManagercat1 = new LinearLayoutManager(Cancel_Order.this, LinearLayoutManager.VERTICAL, false);
         rc_complain.setLayoutManager(gridLayoutManagercat1);
@@ -61,6 +67,7 @@ public class Cancel_Order extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 try {
+                    progressDialog.show();
                     reason = complainModels.get(position).getReason();
                     deleteorder();
                 } catch (IndexOutOfBoundsException e) {
@@ -171,21 +178,22 @@ public class Cancel_Order extends AppCompatActivity {
                     String status = response.getString("status");
 
                     String message = response.getString("message");
-
-
                     if (status.contains("1")) {
+                        showCancelDialog();
                         Toast.makeText(Cancel_Order.this, "" + message, Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }finally {
+                    progressDialog.dismiss();
                 }
-
 
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
                 error.printStackTrace();
                 VolleyLog.d("", "Error: " + error.getMessage());
                 if (error instanceof TimeoutError || error instanceof NoConnectionError) {
@@ -196,5 +204,26 @@ public class Cancel_Order extends AppCompatActivity {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(jsonObjReq, tag_json_obj);
 
+    }
+
+
+    private void showCancelDialog() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Cancel_Order.this);
+        alertDialog.setCancelable(true);
+        alertDialog.setMessage("You product has been cancel!");
+//        alertDialog.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.dismiss();
+//            }
+//        });
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        alertDialog.show();
     }
 }

@@ -1,7 +1,9 @@
 package com.tecmanic.gogrocer.Fragments;
 
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Build;
@@ -98,13 +100,18 @@ public class CartFragment extends Fragment {
         });
         ll_Checkout.setOnClickListener(v -> {
             if (isOnline()) {
-                if (sessionManagement.isLoggedIn() && sessionManagement.userBlockStatus().equalsIgnoreCase("2")) {
-                    if (db.getCartCount() == 0) {
-                        noData.setVisibility(View.VISIBLE);
-                        viewCart.setVisibility(View.GONE);
-                    } else {
-                        Intent intent = new Intent(getActivity(), OrderSummary.class);
-                        startActivity(intent);
+                if (sessionManagement.isLoggedIn()) {
+
+                    if (sessionManagement.userBlockStatus().equalsIgnoreCase("2")){
+                        if (db.getCartCount() == 0) {
+                            noData.setVisibility(View.VISIBLE);
+                            viewCart.setVisibility(View.GONE);
+                        } else {
+                            Intent intent = new Intent(getActivity(), OrderSummary.class);
+                            startActivity(intent);
+                        }
+                    }else {
+                        showBloackDialog();
                     }
                 } else {
 //                if (db.getCartCount() == 0) {
@@ -163,6 +170,27 @@ public class CartFragment extends Fragment {
         }
 
     }
+
+    private void showBloackDialog() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+        alertDialog.setCancelable(true);
+        alertDialog.setMessage("You are blocked from backend.\n Please Contact with customer care!");
+//        alertDialog.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.dismiss();
+//            }
+//        });
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        alertDialog.show();
+    }
+
 
 
     private boolean isOnline() {

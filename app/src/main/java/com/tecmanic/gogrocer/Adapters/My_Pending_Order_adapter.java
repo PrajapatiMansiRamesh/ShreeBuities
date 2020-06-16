@@ -1,15 +1,14 @@
 package com.tecmanic.gogrocer.Adapters;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,9 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tecmanic.gogrocer.Activity.Cancel_Order;
-import com.tecmanic.gogrocer.Activity.MainActivity;
 import com.tecmanic.gogrocer.Activity.Myorderdetails;
-import com.tecmanic.gogrocer.Activity.OrderSummary;
 import com.tecmanic.gogrocer.ModelClass.My_Pending_order_model;
 import com.tecmanic.gogrocer.ModelClass.NewPendingOrderModel;
 import com.tecmanic.gogrocer.R;
@@ -42,6 +39,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
     private Fragment currentFragment;
     private Context context;
     private Session_management session_management;
+    private MyPendingReorderClick myPendingReorderClick;
 
     public My_Pending_Order_adapter(Context context, List<My_Pending_order_model> modemodelList, final Fragment currentFragment) {
 
@@ -52,8 +50,6 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         session_management = new Session_management(context);
 
     }
-
-    private MyPendingReorderClick myPendingReorderClick;
 
     public My_Pending_Order_adapter(List<NewPendingOrderModel> modelList, MyPendingReorderClick myPendingReorderClick) {
         this.modelList = modelList;
@@ -75,7 +71,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
 
         holder.tv_orderno.setText(mList.getCart_id());
 
-        if (mList.getOrder_status().equalsIgnoreCase("Completed")){
+        if (mList.getOrder_status().equalsIgnoreCase("Completed")) {
             holder.relativetextstatus.setText("Completed");
             holder.l1.setVisibility(View.VISIBLE);
             holder.btn_lay.setVisibility(View.VISIBLE);
@@ -88,8 +84,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.Out_For_Deliverde1.setVisibility(View.VISIBLE);
             holder.Delivered1.setVisibility(View.VISIBLE);
 
-        }
-        else if (mList.getOrder_status().equalsIgnoreCase("Pending")){
+        } else if (mList.getOrder_status().equalsIgnoreCase("Pending")) {
             holder.relativetextstatus.setText("Pending");
             holder.l1.setVisibility(View.VISIBLE);
             holder.btn_lay.setVisibility(View.VISIBLE);
@@ -102,8 +97,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.Out_For_Deliverde1.setVisibility(View.GONE);
             holder.Delivered1.setVisibility(View.GONE);
 
-        }
-        else if (mList.getOrder_status().equalsIgnoreCase("Confirmed")){
+        } else if (mList.getOrder_status().equalsIgnoreCase("Confirmed")) {
             holder.relativetextstatus.setText("Confirmed");
             holder.l1.setVisibility(View.VISIBLE);
             holder.btn_lay.setVisibility(View.VISIBLE);
@@ -115,8 +109,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.Confirm1.setVisibility(View.VISIBLE);
             holder.Out_For_Deliverde1.setVisibility(View.GONE);
             holder.Delivered1.setVisibility(View.GONE);
-        }
-        else if (mList.getOrder_status().equalsIgnoreCase("Out_For_Delivery")){
+        } else if (mList.getOrder_status().equalsIgnoreCase("Out_For_Delivery")) {
             holder.relativetextstatus.setText("Out For Delivery");
             holder.btn_lay.setVisibility(View.VISIBLE);
             holder.canclebtn.setVisibility(View.GONE);
@@ -128,22 +121,20 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.Confirm1.setVisibility(View.VISIBLE);
             holder.Out_For_Deliverde1.setVisibility(View.VISIBLE);
             holder.Delivered1.setVisibility(View.GONE);
-        }
-        else if (mList.getOrder_status().equalsIgnoreCase("Cancelled")){
+        } else if (mList.getOrder_status().equalsIgnoreCase("Cancelled")) {
             holder.relativetextstatus.setText("Cancelled");
             holder.btn_lay.setVisibility(View.GONE);
             holder.canclebtn.setVisibility(View.GONE);
             holder.reorder_btn.setVisibility(View.GONE);
             holder.l1.setVisibility(View.GONE);
         }
-        if (mList.getPayment_status()==null){
+        if (mList.getPayment_status() == null) {
             holder.tv_status.setText("Payment:-" + " " + "Pending");
-        }else {
-            if (mList.getPayment_status().equalsIgnoreCase("success")||mList.getPayment_status().equalsIgnoreCase("failed")||mList.getPayment_status().equalsIgnoreCase("COD")){
+        } else {
+            if (mList.getPayment_status().equalsIgnoreCase("success") || mList.getPayment_status().equalsIgnoreCase("failed") || mList.getPayment_status().equalsIgnoreCase("COD")) {
                 holder.tv_status.setText("Payment:-" + " " + mList.getPayment_status());
             }
         }
-
 
 
         holder.tv_pending_date.setText(mList.getDelivery_date());
@@ -159,10 +150,9 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.tv_methid1.setText("PrePaid");
         } else if (mList.getPayment_method().equalsIgnoreCase("net_banking")) {
             holder.tv_methid1.setText("PrePaid");
-        }else if (mList.getPayment_method().equalsIgnoreCase("Wallet")) {
+        } else if (mList.getPayment_method().equalsIgnoreCase("Wallet")) {
             holder.tv_methid1.setText("Wallet");
         }
-
 
 
 //        if (mList.getOrder_status().equals("0")) {
@@ -267,9 +257,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         });
 
         holder.canclebtn.setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), Cancel_Order.class);
-            intent.putExtra("cart_id",modelList.get(0).getCart_id());
-            v.getContext().startActivity(intent);
+            showDeleteDialog(position);
         });
 
     }
@@ -278,6 +266,21 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         modelList.remove(postion);
         notifyItemRemoved(postion);
         notifyItemRangeChanged(postion, getItemCount());
+    }
+
+    private void showDeleteDialog(int position) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+        alertDialog.setMessage(context.getResources().getString(R.string.cancle_order_note));
+        alertDialog.setNegativeButton(context.getResources().getString(R.string.no), (dialogInterface, i) -> dialogInterface.dismiss());
+        alertDialog.setPositiveButton(context.getResources().getString(R.string.yes), (dialogInterface, i) -> {
+
+            Intent intent = new Intent(context, Cancel_Order.class);
+            intent.putExtra("cart_id", modelList.get(position).getCart_id());
+            context.startActivity(intent);
+            dialogInterface.dismiss();
+        });
+
+        alertDialog.show();
     }
 
     @Override

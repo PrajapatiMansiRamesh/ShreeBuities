@@ -1,7 +1,9 @@
 package com.tecmanic.gogrocer.Fragments;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.tecmanic.gogrocer.Activity.LoginActivity;
-import com.tecmanic.gogrocer.Activity.MainActivity;
 import com.tecmanic.gogrocer.Activity.RechargeWallet;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.Config.SharedPref;
@@ -40,22 +41,19 @@ import java.util.Objects;
 public class Wallet_fragment extends Fragment {
 
     private static String TAG = Wallet_fragment.class.getSimpleName();
-
-    TextView Wallet_Ammount;
-
-
-    TextView Recharge_Wallet;
+    private TextView Wallet_Ammount;
+    private TextView Recharge_Wallet;
     private Session_management sessionManagement;
     private Context context;
     private ProgressDialog progressDialog;
 
     public Wallet_fragment() {
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -74,9 +72,14 @@ public class Wallet_fragment extends Fragment {
         Recharge_Wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (sessionManagement.isLoggedIn() && sessionManagement.userBlockStatus().equalsIgnoreCase("2")) {
-                    Intent intent = new Intent(v.getContext(), RechargeWallet.class);
-                    startActivityForResult(intent, 5);
+                if (sessionManagement.isLoggedIn()) {
+                    if (sessionManagement.userBlockStatus().equalsIgnoreCase("2")) {
+                        Intent intent = new Intent(v.getContext(), RechargeWallet.class);
+                        startActivityForResult(intent, 5);
+                    } else {
+                        showBloackDialog();
+                    }
+
                 } else {
                     Intent intent = new Intent(v.getContext(), LoginActivity.class);
                     startActivity(intent);
@@ -84,6 +87,7 @@ public class Wallet_fragment extends Fragment {
 
             }
         });
+
         if (ConnectivityReceiver.isConnected()) {
             getRefresrh();
         } else {
@@ -95,7 +99,27 @@ public class Wallet_fragment extends Fragment {
 
     }
 
-    public void getRefresrh() {
+    private void showBloackDialog() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
+        alertDialog.setCancelable(true);
+        alertDialog.setMessage("You are blocked from backend.\n Please Contact with customer care!");
+//        alertDialog.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.dismiss();
+//            }
+//        });
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+        alertDialog.show();
+    }
+
+    private void getRefresrh() {
         progressDialog.show();
         String user_id = sessionManagement.getUserDetails().get(BaseURL.KEY_ID);
         RequestQueue rq = Volley.newRequestQueue(requireActivity());

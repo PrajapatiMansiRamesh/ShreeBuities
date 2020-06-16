@@ -100,8 +100,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
                             android:layout_marginBottom="10dp"
                             android:textStyle="bold" />
 
@@ -110,8 +110,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
                             android:fontFamily="@font/opensans_semibold"
                             android:hint="Add delivery address here .." />
 
@@ -290,14 +290,13 @@
                             android:layout_marginLeft="5dp"
                             android:fontFamily="@font/opensans_regular"
                             android:gravity="center|left"
-                            android:visibility="gone"
                             android:text="Rs.1028"
                             android:textColor="@color/lightGrey"
-                            android:textSize="13sp" />
+                            android:textSize="13sp"
+                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/pSave"
-                            android:visibility="gone"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
@@ -307,7 +306,8 @@
                             android:padding="5dp"
                             android:text="Rs.217"
                             android:textColor="@color/green"
-                            android:textSize="13sp" />
+                            android:textSize="13sp"
+                            android:visibility="gone" />
 
 
                     </LinearLayout>
@@ -318,8 +318,8 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/opensans_semibold"
                         android:gravity="start"
-                        android:text="Choose a Delivery Slot"
                         android:padding="5dp"
+                        android:text="Choose a Delivery Slot"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -330,19 +330,28 @@
                         android:background="@color/lightGrey" />
 
 
-                        <devs.mulham.horizontalcalendar.HorizontalCalendarView
-                            android:id="@+id/calendarView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:background="@color/white"
-                            app:textColorSelected="@color/black" />
+                    <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@color/white"
+                        android:visibility="gone"
+                        app:textColorSelected="@color/black" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/calendarview2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:visibility="visible" />
 
 
-<!--
-                    </com.google.android.material.appbar.AppBarLayout>
--->
+                    <!--
+                                        </com.google.android.material.appbar.AppBarLayout>
+                    -->
 
                     <View
                         android:layout_width="match_parent"
@@ -352,11 +361,14 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerTimeSlot"
-                        android:layout_width="366dp"
+                        android:layout_width="match_parent"
                         android:layout_height="185dp"
                         android:layout_gravity="center"
-                        android:layout_margin="5dp"
-                        android:layout_marginTop="10dp" />
+                        android:overScrollMode="never"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="10dp"/>
 
 
                     <View
@@ -482,8 +494,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                     >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"

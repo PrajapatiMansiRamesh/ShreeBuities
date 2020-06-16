@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
@@ -23,7 +24,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.tecmanic.gogrocer.Config.BaseURL;
+import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.network.ApiInterface;
 import com.tecmanic.gogrocer.util.LocaleHelper;
 import com.tecmanic.gogrocer.util.Session_management;
 
@@ -33,6 +36,11 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.moshi.MoshiConverterFactory;
 
 import static com.tecmanic.gogrocer.Config.BaseURL.Login;
 
@@ -85,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         forgotPAss = findViewById(R.id.btn_ForgotPass);
         btnignUp = findViewById(R.id.btn_Signup);
         skip = findViewById(R.id.skip);
-
+        checkOtpStatus();
         skip.setOnClickListener(v -> {
             sessionManagement.createLoginSession("", "", "", "", "", true);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -206,6 +214,41 @@ public class LoginActivity extends AppCompatActivity {
                         loginUrl();
                     });
         }
+
+    }
+
+    private void checkOtpStatus() {
+        progressDialog.show();
+        Retrofit emailOtp = new Retrofit.Builder()
+                .baseUrl(BaseURL.BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build();
+
+        ApiInterface apiInterface = emailOtp.create(ApiInterface.class);
+
+        Call<ForgotEmailModel> checkOtpStatus = apiInterface.getOtpOnOffStatus();
+        checkOtpStatus.enqueue(new Callback<ForgotEmailModel>() {
+            @Override
+            public void onResponse(@NonNull Call<ForgotEmailModel> call, @NonNull retrofit2.Response<ForgotEmailModel> response) {
+                if (response.isSuccessful()) {
+                    ForgotEmailModel model = response.body();
+                    if (model != null) {
+                        if (model.getStatus().equalsIgnoreCase("0")) {
+                            sessionManagement.setOtpStatus("0");
+                        } else {
+                            sessionManagement.setOtpStatus("1");
+                        }
+                    }
+
+                }
+                progressDialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ForgotEmailModel> call, @NonNull Throwable t) {
+                progressDialog.dismiss();
+            }
+        });
 
     }
 

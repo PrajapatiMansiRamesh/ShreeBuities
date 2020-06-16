@@ -18,9 +18,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -37,7 +37,9 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.tecmanic.gogrocer.Activity.MainActivity;
 import com.tecmanic.gogrocer.Config.BaseURL;
+import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.network.ApiInterface;
 import com.tecmanic.gogrocer.util.AppController;
 import com.tecmanic.gogrocer.util.CustomVolleyJsonRequest;
 import com.tecmanic.gogrocer.util.Session_management;
@@ -49,6 +51,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.moshi.MoshiConverterFactory;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.tecmanic.gogrocer.Config.BaseURL.EDIT_PROFILE_URL;
@@ -86,6 +93,7 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
     private SwitchCompat email_toggle;
     private SwitchCompat sms_toggle;
     private SwitchCompat inapp_toggle;
+    private LinearLayout sms_lay;
 
     public Edit_profile_fragment() {
         // Required empty public constructor
@@ -117,7 +125,7 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
 
         getActivity().setTitle("Edit Profile");
 
-
+        checkOtpStatus();
         Email_Status = sharedPreferences.getBoolean("Email", true);
         Sms_Status = sharedPreferences.getBoolean("Sms", true);
         In_App = sharedPreferences.getBoolean("App", true);
@@ -125,6 +133,7 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
         user_id = sessionManagement.userId();
 
         et_phone = view.findViewById(R.id.et_pro_phone);
+        sms_lay = view.findViewById(R.id.sms_lay);
         email_yes = view.findViewById(R.id.email_yes);
         email_no = view.findViewById(R.id.email_no);
         sms_yes = view.findViewById(R.id.sms_yes);
@@ -155,6 +164,12 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
         et_phone.setText(getphone);
         update_profile = view.findViewById(R.id.update_profile);
         //   ,,,,,;)
+
+        if (sessionManagement.getOtpSatus().equalsIgnoreCase("1")) {
+            sms_lay.setVisibility(View.VISIBLE);
+        } else {
+            sms_lay.setVisibility(View.GONE);
+        }
 
         email_yes.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
@@ -543,6 +558,46 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
         AppController.getInstance().addToRequestQueue(jsonObjectRequest, tag_json_obj);
     }
 
+    private void checkOtpStatus() {
+
+        Retrofit emailOtp = new Retrofit.Builder()
+                .baseUrl(BaseURL.BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build();
+
+        ApiInterface apiInterface = emailOtp.create(ApiInterface.class);
+
+        Call<ForgotEmailModel> checkOtpStatus = apiInterface.getOtpOnOffStatus();
+        checkOtpStatus.enqueue(new Callback<ForgotEmailModel>() {
+            @Override
+            public void onResponse(@NonNull Call<ForgotEmailModel> call, @NonNull retrofit2.Response<ForgotEmailModel> response) {
+                if (response.isSuccessful()) {
+                    ForgotEmailModel model = response.body();
+                    if (model != null) {
+                        if (model.getStatus().equalsIgnoreCase("0")) {
+                            sessionManagement.setOtpStatus("0");
+                            sms_lay.setVisibility(View.GONE);
+                            smsdata = "0";
+                            sessionManagement.setUserSMSService("0");
+                        } else {
+                            sessionManagement.setOtpStatus("1");
+                            sessionManagement.setUserSMSService("1");
+                            smsdata = "1";
+                            sms_lay.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ForgotEmailModel> call, @NonNull Throwable t) {
+
+            }
+        });
+
+    }
+
     @Override
     public void onClick(View view) {
         int id = view.getId();
@@ -557,7 +612,7 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
                     getemail = et_email.getText().toString();
 
 //                    storeImage(bitmap);
-
+                    progressDialog.show();
                     updateprofile();
 
                 } else {
@@ -703,7 +758,7 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
             @Override
             public void onResponse(JSONObject response) {
                 Log.d("Tag", response.toString());
-
+                progressDialog.dismiss();
                 try {
 
                     String status = response.getString("status");
@@ -729,13 +784,11 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
                             sessionManagement.createLoginSession(user_id, user_email, user_fullname, user_phone, password);
                             Intent intent = new Intent(getContext(), MainActivity.class);
                             startActivity(intent);
-
-
                             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
 
 
                         } catch (Exception e) {
-
+                            e.printStackTrace();
                         }
 
 
@@ -761,7 +814,7 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                progressDialog.dismiss();
 //                Toast.makeText(Search.this, "" + error, Toast.LENGTH_SHORT).show();
             }
         });

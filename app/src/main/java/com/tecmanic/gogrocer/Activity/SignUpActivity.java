@@ -158,6 +158,7 @@ public class SignUpActivity extends AppCompatActivity {
 //                            }
                             session_management.createLoginSession(id,user_email,user_name,user_phone,password,false,"");
                             session_management.setOtp(otp_value);
+                            session_management.setOtpStatus("1");
                             session_management.setUserBlockStatus(block);
 
                             //  Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
@@ -180,6 +181,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                             session_management.createLoginSession(id,user_email,user_name,user_phone,password);
                             session_management.setUserBlockStatus(block);
+                            session_management.setOtpStatus("0");
                             Intent intent= new Intent(SignUpActivity.this,MainActivity.class);
                             startActivity(intent);
                             finish();
