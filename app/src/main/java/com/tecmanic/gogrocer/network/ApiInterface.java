@@ -1,6 +1,7 @@
 package com.tecmanic.gogrocer.network;
 
 import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
+import com.tecmanic.gogrocer.ModelClass.NotifyModelUser;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -16,5 +17,9 @@ public interface ApiInterface {
 
     @GET("checkotponoff")
     Call<ForgotEmailModel> getOtpOnOffStatus();
+
+    @POST("notifyby")
+    @FormUrlEncoded
+    Call<NotifyModelUser> getNotifyUser(@Field("user_id") String user_id);
 
 }

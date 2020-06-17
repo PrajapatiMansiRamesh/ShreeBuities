@@ -1,11 +1,10 @@
 package com.tecmanic.gogrocer.ModelClass;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 public class NewPendingDataModel implements Serializable {
+    String store_order_id;
+    String store_approval;
     String product_name;
     String varient_image;
     String qty;
@@ -13,8 +12,10 @@ public class NewPendingDataModel implements Serializable {
     String unit;
     String quantity;
     String order_cart_id;
+    String order_date;
     String price;
-    String mrp;
+    String total_mrp;
+    String varient_id;
 
     public String getProduct_name() {
         return product_name;
@@ -41,11 +42,18 @@ public class NewPendingDataModel implements Serializable {
     }
 
     public String getDescription() {
+        if (description == null) {
+            return "";
+        }
         return description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        if (description == null) {
+            this.description = "";
+        } else {
+            this.description = description;
+        }
     }
 
     public String getUnit() {
@@ -80,12 +88,43 @@ public class NewPendingDataModel implements Serializable {
         this.price = price;
     }
 
-    public String getMrp() {
-        return mrp;
+    public String getStore_order_id() {
+        return store_order_id;
     }
 
-    public void setMrp(String mrp) {
-        this.mrp = mrp;
+    public void setStore_order_id(String store_order_id) {
+        this.store_order_id = store_order_id;
     }
 
+    public String getStore_approval() {
+        return store_approval;
+    }
+
+    public void setStore_approval(String store_approval) {
+        this.store_approval = store_approval;
+    }
+
+    public String getOrder_date() {
+        return order_date;
+    }
+
+    public void setOrder_date(String order_date) {
+        this.order_date = order_date;
+    }
+
+    public String getTotal_mrp() {
+        return total_mrp;
+    }
+
+    public void setTotal_mrp(String total_mrp) {
+        this.total_mrp = total_mrp;
+    }
+
+    public String getVarient_id() {
+        return varient_id;
+    }
+
+    public void setVarient_id(String varient_id) {
+        this.varient_id = varient_id;
+    }
 }

@@ -184,7 +184,7 @@ public class OrderSummary extends AppCompatActivity implements ForClicktimings {
             }
         }));
 
-        todaydatee = calendarModelList.get(0).getYear()+"-"+calendarModelList.get(0).getMonthValue()+"-"+calendarModelList.get(0).getDay();
+        todaydatee = calendarModelList.get(0).getYear()+"-"+calendarModelList.get(0).getMonthValue()+"-"+calendarModelList.get(0).getDate();
         makeGetAddressRequests(todaydatee);
 
 

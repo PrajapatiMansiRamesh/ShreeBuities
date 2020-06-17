@@ -21,7 +21,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tecmanic.gogrocer.Adapters.My_Pending_Order_adapter;
 import com.tecmanic.gogrocer.Config.BaseURL;
-import com.tecmanic.gogrocer.ModelClass.My_Pending_order_model;
 import com.tecmanic.gogrocer.ModelClass.NewPendingOrderModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.AppController;
@@ -48,7 +47,6 @@ public class My_Pending_Order extends Fragment {
     Session_management sessionManagement;
     TabHost tHost;
     private RecyclerView rv_myorder;
-    private List<My_Pending_order_model> my_order_modelList = new ArrayList<>();
     private List<NewPendingOrderModel> listModelNew = new ArrayList<>();
     private MyPendingReorderClick myPendingReorderClick;
 
@@ -184,7 +182,7 @@ public class My_Pending_Order extends Fragment {
 
                     listModelNew = gson.fromJson(response.toString(), listType);
 
-                    My_Pending_Order_adapter myPendingOrderAdapter = new My_Pending_Order_adapter(listModelNew,myPendingReorderClick);
+                    My_Pending_Order_adapter myPendingOrderAdapter = new My_Pending_Order_adapter(listModelNew, myPendingReorderClick);
                     rv_myorder.setAdapter(myPendingOrderAdapter);
                     myPendingOrderAdapter.notifyDataSetChanged();
 

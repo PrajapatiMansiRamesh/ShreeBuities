@@ -3,7 +3,6 @@ package com.tecmanic.gogrocer.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tecmanic.gogrocer.Activity.CategoryPage;
-import com.tecmanic.gogrocer.ModelClass.CategoryGrid;
 import com.tecmanic.gogrocer.ModelClass.HomeCate;
 import com.tecmanic.gogrocer.ModelClass.SubCatModel;
 import com.tecmanic.gogrocer.R;
@@ -38,29 +36,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 
     private List<HomeCate> homeCateList;
     private Context context;
-    private List<SubCatModel>subCatModels =  new ArrayList<>();
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView prodNAme,pdetails;
-        ImageView image,pimage,image1;
-        boolean mines = true;
-        RecyclerView recyclerSubCate;
-        CardView cardView;
-        LinearLayout linearLayout;
-
-
-        public MyViewHolder(View view) {
-            super(view);
-            prodNAme = (TextView) view.findViewById(R.id.pNAme);
-            pdetails = (TextView) view.findViewById(R.id.pDetails);
-            pimage = view.findViewById(R.id.image);
-            image1 = view.findViewById(R.id.image1);
-            image = (ImageView) view.findViewById(R.id.Pimage);
-            recyclerSubCate=view.findViewById(R.id.recyclerSubCate);
-            cardView=view.findViewById(R.id.cardView);
-            linearLayout=view.findViewById(R.id.ll1);
-        }
-    }
+    private List<SubCatModel> subCatModels = new ArrayList<>();
 
     public HomeCategoryAdapter(List<HomeCate> homeCateList, Context context) {
         this.homeCateList = homeCateList;
@@ -98,7 +74,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         holder.pdetails.setText(cc.getDetail());
         holder.image.setImageResource(R.drawable.splashicon);
         Glide.with(context)
-                .load(IMG_URL+ cc.getImages())
+                .load(IMG_URL + cc.getImages())
                 .centerCrop()
                 .placeholder(R.drawable.splashicon)
                 .crossFade()
@@ -106,7 +82,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
                 .dontAnimate()
                 .into(holder.image);
 
-        if (cc.getSub_array()== null||cc.getSub_array().length()==0){
+        if (cc.getSub_array() == null || cc.getSub_array().length() == 0) {
 
 
             holder.pimage.setVisibility(View.GONE);
@@ -117,7 +93,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
             @Override
             public void onClick(View v) {
                 if (holder.mines) {
-                    holder.  mines = false;
+                    holder.mines = false;
                     if (cc.getSub_array() == null) {
 
 
@@ -127,10 +103,8 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
                         holder.image1.setVisibility(View.VISIBLE);
                         get_subcateory(cc.getSub_array(), holder.recyclerSubCate, cc.getId());
                     }
-                }
-                else
-                {
-                    holder.    mines = true;
+                } else {
+                    holder.mines = true;
                     holder.recyclerSubCate.setVisibility(View.GONE);
                     holder.pimage.setVisibility(View.VISIBLE);
                     holder.image1.setVisibility(View.GONE);
@@ -146,19 +120,17 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         return homeCateList.size();
     }
 
-
-    private void get_subcateory(JSONArray response,RecyclerView  recyclerView,String cat_id) {
+    private void get_subcateory(JSONArray response, RecyclerView recyclerView, String cat_id) {
 
         subCatModels.clear();
 
-        JSONArray array  = response;
+        JSONArray array = response;
 
-        if (array.length()==0){
+        if (array.length() == 0) {
             Intent intent = new Intent(context, CategoryPage.class);
-            intent.putExtra("cat_id",cat_id);
+            intent.putExtra("cat_id", cat_id);
             context.startActivity(intent);
-        }
-        else {
+        } else {
 
 
             for (int i = 0; i < array.length(); i++) {
@@ -197,6 +169,28 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
             }
 
 
+        }
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView prodNAme, pdetails;
+        ImageView image, pimage, image1;
+        boolean mines = true;
+        RecyclerView recyclerSubCate;
+        CardView cardView;
+        LinearLayout linearLayout;
+
+
+        public MyViewHolder(View view) {
+            super(view);
+            prodNAme = view.findViewById(R.id.pNAme);
+            pdetails = view.findViewById(R.id.pDetails);
+            pimage = view.findViewById(R.id.image);
+            image1 = view.findViewById(R.id.image1);
+            image = view.findViewById(R.id.Pimage);
+            recyclerSubCate = view.findViewById(R.id.recyclerSubCate);
+            cardView = view.findViewById(R.id.cardView);
+            linearLayout = view.findViewById(R.id.ll1);
         }
     }
 

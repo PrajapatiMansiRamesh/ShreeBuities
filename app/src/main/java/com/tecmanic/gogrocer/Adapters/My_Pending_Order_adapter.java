@@ -9,10 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -56,6 +57,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         this.myPendingReorderClick = myPendingReorderClick;
     }
 
+    @NonNull
     @Override
     public My_Pending_Order_adapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listtem_pendingorder, parent, false);
@@ -128,13 +130,44 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.reorder_btn.setVisibility(View.GONE);
             holder.l1.setVisibility(View.GONE);
         }
+
         if (mList.getPayment_status() == null) {
-            holder.tv_status.setText("Payment:-" + " " + "Pending");
+            holder.tv_status.setText("Payment" + " " + "Pending");
         } else {
             if (mList.getPayment_status().equalsIgnoreCase("success") || mList.getPayment_status().equalsIgnoreCase("failed") || mList.getPayment_status().equalsIgnoreCase("COD")) {
-                holder.tv_status.setText("Payment:-" + " " + mList.getPayment_status());
+                holder.tv_status.setText("Payment" + " " + mList.getPayment_status());
             }
         }
+
+        if (mList.getPaid_by_wallet() != null && !mList.getPaid_by_wallet().equalsIgnoreCase("") && !mList.getPaid_by_wallet().equalsIgnoreCase("0")) {
+            holder.wallet_layout.setVisibility(View.VISIBLE);
+            holder.tv_wallet_amount.setText("- " + session_management.getCurrency() + "" + mList.getPaid_by_wallet());
+        } else {
+            holder.wallet_layout.setVisibility(View.GONE);
+        }
+
+        if (mList.getCoupon_discount() != null && !mList.getCoupon_discount().equalsIgnoreCase("") && !mList.getCoupon_discount().equalsIgnoreCase("0")) {
+            holder.coupon_layout.setVisibility(View.VISIBLE);
+            holder.tv_coupon_amount.setText("- " + session_management.getCurrency() + "" + mList.getCoupon_discount());
+        } else {
+            holder.coupon_layout.setVisibility(View.GONE);
+        }
+
+        if (mList.getDel_charge() != null && !mList.getDel_charge().equalsIgnoreCase("")) {
+            holder.tv_delivery_amount.setText(session_management.getCurrency() + "" + mList.getDel_charge());
+            holder.tv_order_price_2.setText(session_management.getCurrency() + "" + ((int) (Double.parseDouble(mList.getPrice()) - Double.parseDouble(mList.getDel_charge()))));
+        } else {
+            holder.tv_order_price_2.setText(session_management.getCurrency() + "" + mList.getPrice());
+            holder.tv_delivery_amount.setText(session_management.getCurrency() + " 0");
+        }
+
+        holder.info_price.setOnClickListener(v -> {
+            if (holder.price_deatils.getVisibility() == View.VISIBLE) {
+                holder.price_deatils.setVisibility(View.GONE);
+            } else {
+                holder.price_deatils.setVisibility(View.VISIBLE);
+            }
+        });
 
 
         holder.tv_pending_date.setText(mList.getDelivery_date());
@@ -205,8 +238,15 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.tv_time.setText(mList.getTime_slot());
         }
 
-        holder.tv_price.setText(session_management.getCurrency() + mList.getPrice());
-        holder.tv_item.setText(context.getResources().getString(R.string.tv_cart_item) + mList.getData().size());
+        holder.tv_price.setText(session_management.getCurrency() + "" + mList.getPrice());
+        if (mList.getRemaining_amount() != null && !mList.getRemaining_amount().equalsIgnoreCase("")) {
+            holder.tv_pay_ableamount.setText(session_management.getCurrency() + "" + mList.getRemaining_amount());
+            holder.tv_total_pay.setText(session_management.getCurrency() + "" + mList.getRemaining_amount());
+        } else {
+            holder.tv_pay_ableamount.setText(session_management.getCurrency() + "" + mList.getPrice());
+        }
+
+        holder.tv_item.setText("" + mList.getData().size());
 
         holder.rr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -289,24 +329,38 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_orderno, tv_status, tv_date, tv_time, tv_price, tv_item, relativetextstatus, tv_tracking_date;
+        public TextView tv_orderno, tv_status, tv_date, tv_time, tv_price, tv_item, relativetextstatus, tv_tracking_date, tv_pay_ableamount, tv_order_price_2, tv_wallet_amount, tv_coupon_amount, tv_delivery_amount, tv_total_pay;
         public TextView tv_pending_date, tv_pending_time, tv_confirm_date, tv_confirm_time, tv_delevered_date, tv_delevered_time, tv_cancel_date, tv_cancel_time;
         public View view1, view2, view3, view4, view5, view6;
-        public RelativeLayout relative_background, rr;
+        public CardView relative_background;
+        public LinearLayout rr, price_deatils;
         public CircleImageView Confirm, Out_For_Deliverde, Delivered;
         public CircleImageView Confirm1, Out_For_Deliverde1, Delivered1;
         public TextView tv_methid1;
+        public ImageView info_price;
         public String method;
-        CardView cardView;
+        //        CardView cardView;
         Button canclebtn, reorder_btn;
-        LinearLayout linearLayout;
+        //        LinearLayout linearLayout;
         LinearLayout l1;
-        RelativeLayout btn_lay;
+        LinearLayout btn_lay;
+        LinearLayout wallet_layout, coupon_layout, delivery_layout;
 
         public MyViewHolder(View view) {
 
             super(view);
             tv_orderno = view.findViewById(R.id.tv_order_no);
+            tv_pay_ableamount = view.findViewById(R.id.tv_pay_ableamount);
+            tv_order_price_2 = view.findViewById(R.id.tv_order_price_2);
+            tv_coupon_amount = view.findViewById(R.id.tv_coupon_amount);
+            tv_total_pay = view.findViewById(R.id.tv_total_pay);
+            tv_delivery_amount = view.findViewById(R.id.tv_delivery_amount);
+            tv_wallet_amount = view.findViewById(R.id.tv_wallet_amount);
+            delivery_layout = view.findViewById(R.id.delivery_layout);
+            wallet_layout = view.findViewById(R.id.wallet_layout);
+            coupon_layout = view.findViewById(R.id.coupon_layout);
+            price_deatils = view.findViewById(R.id.price_deatils);
+            info_price = view.findViewById(R.id.info_price);
             tv_status = view.findViewById(R.id.tv_order_status);
             relativetextstatus = view.findViewById(R.id.status);
             tv_tracking_date = view.findViewById(R.id.tracking_date);
@@ -320,9 +374,9 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             btn_lay = view.findViewById(R.id.btn_lay);
             rr = view.findViewById(R.id.rrrr);
 
-            cardView = view.findViewById(R.id.card_view);
+//            cardView = view.findViewById(R.id.card_view);
 
-            linearLayout = view.findViewById(R.id.l2);
+//            linearLayout = view.findViewById(R.id.l2);
 //            //Payment Method
             tv_methid1 = view.findViewById(R.id.method1);
             //Date And Time

@@ -2,7 +2,6 @@ package com.tecmanic.gogrocer.ModelClass;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class NewPendingOrderModel implements Serializable {
 
@@ -16,6 +15,10 @@ public class NewPendingOrderModel implements Serializable {
     String cart_id;
     String price;
     String del_charge;
+    String remaining_amount;
+    String coupon_discount;
+    String dboy_name;
+    String dboy_phone;
     ArrayList<NewPendingDataModel> data;
 
     public String getOrder_status() {
@@ -55,9 +58,9 @@ public class NewPendingOrderModel implements Serializable {
     }
 
     public void setPayment_status(String payment_status) {
-        if (payment_status==null){
+        if (payment_status == null) {
             this.payment_status = "";
-        }else {
+        } else {
             this.payment_status = payment_status;
         }
 
@@ -101,5 +104,43 @@ public class NewPendingOrderModel implements Serializable {
 
     public void setData(ArrayList<NewPendingDataModel> data) {
         this.data = data;
+    }
+
+    public String getRemaining_amount() {
+        return remaining_amount;
+    }
+
+    public void setRemaining_amount(String remaining_amount) {
+        this.remaining_amount = remaining_amount;
+    }
+
+    public String getCoupon_discount() {
+        return coupon_discount;
+    }
+
+    public void setCoupon_discount(String coupon_discount) {
+        this.coupon_discount = coupon_discount;
+    }
+
+    public String getDboy_name() {
+        if (dboy_name == null) {
+            return "";
+        }
+        return dboy_name;
+    }
+
+    public void setDboy_name(String dboy_name) {
+        this.dboy_name = dboy_name;
+    }
+
+    public String getDboy_phone() {
+        if (dboy_phone == null) {
+            return "";
+        }
+        return dboy_phone;
+    }
+
+    public void setDboy_phone(String dboy_phone) {
+        this.dboy_phone = dboy_phone;
     }
 }

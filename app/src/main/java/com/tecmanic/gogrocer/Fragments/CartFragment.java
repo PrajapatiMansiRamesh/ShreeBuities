@@ -36,6 +36,7 @@ import com.tecmanic.gogrocer.Activity.MainActivity;
 import com.tecmanic.gogrocer.Activity.OrderSummary;
 import com.tecmanic.gogrocer.Adapters.CartAdapter;
 import com.tecmanic.gogrocer.Adapters.Cart_adapter;
+import com.tecmanic.gogrocer.Adapters.NewCartAdapter;
 import com.tecmanic.gogrocer.Adapters.Timing_Adapter;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
@@ -65,7 +66,7 @@ public class CartFragment extends Fragment {
     Button btn_ShopNOw;
     RecyclerView recyclerView;
     LinearLayout ll_Checkout;
-    CartAdapter cartAdapter;
+    NewCartAdapter cartAdapter;
     RelativeLayout noData,viewCart;
     TextView totalItems;
   public static   TextView tv_total ;
@@ -88,7 +89,6 @@ public class CartFragment extends Fragment {
         tv_total=view.findViewById(R.id.txt_totalamount);
         totalItems=view.findViewById(R.id.txt_totalQuan);
         noData=view.findViewById(R.id.noData);
-//        ((MainActivity) getActivity()).setTitle(getResources().getString(R.string.cart));
         sessionManagement = new Session_management(getActivity());
         sessionManagement.cleardatetime();
         db = new DatabaseHandler(getActivity());

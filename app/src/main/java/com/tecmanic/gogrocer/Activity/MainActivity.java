@@ -76,6 +76,7 @@ import com.tecmanic.gogrocer.Fragments.Wallet_fragment;
 import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
 import com.tecmanic.gogrocer.ModelClass.NewPastOrderSubModel;
 import com.tecmanic.gogrocer.ModelClass.NewPendingDataModel;
+import com.tecmanic.gogrocer.ModelClass.NotifyModelUser;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.network.ApiInterface;
 import com.tecmanic.gogrocer.util.ConnectivityReceiver;
@@ -376,6 +377,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         new Thread(this::getCurrency).start();
         new Thread(this::checkOtpStatus).start();
+        new Thread(this::checkUserNotify).start();
 
         // checkConnection();
 
@@ -627,6 +629,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             Log.d(TAG, "getLocation: permissions granted");
         }
+    }
+
+    private void checkUserNotify() {
+        Retrofit emailOtp = new Retrofit.Builder()
+                .baseUrl(BaseURL.BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build();
+
+        ApiInterface apiInterface = emailOtp.create(ApiInterface.class);
+
+        Call<NotifyModelUser> checkOtpStatus = apiInterface.getNotifyUser(sessionManagement.userId());
+
+        checkOtpStatus.enqueue(new Callback<NotifyModelUser>() {
+            @Override
+            public void onResponse(@NonNull Call<NotifyModelUser> call, @NonNull retrofit2.Response<NotifyModelUser> response) {
+
+                if (response.isSuccessful()){
+                    if (response.body()!=null){
+                        NotifyModelUser modelUser = response.body();
+                        if (modelUser.getStatus().equalsIgnoreCase("1")){
+                            sessionManagement.setEmailServer(modelUser.getData().getEmail());
+                            sessionManagement.setUserSMSService(modelUser.getData().getSms());
+                            sessionManagement.setUserInAppService(modelUser.getData().getApp());
+                        }else {
+                            sessionManagement.setEmailServer("0");
+                            sessionManagement.setUserSMSService("0");
+                            sessionManagement.setUserInAppService("0");
+                        }
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<NotifyModelUser> call, @NonNull Throwable t) {
+
+            }
+        });
+
     }
 
     @Override

@@ -8,12 +8,20 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
-import android.location.Geocoder;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -27,16 +35,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
@@ -46,18 +44,15 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import androidx.cardview.widget.CardView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.tecmanic.gogrocer.Activity.CategoryPage;
-import com.tecmanic.gogrocer.Activity.MainActivity;
 import com.tecmanic.gogrocer.Adapters.BannerAdapter;
 import com.tecmanic.gogrocer.Adapters.DealsAdapter;
 import com.tecmanic.gogrocer.Adapters.HomeCategoryAdapter;
@@ -65,29 +60,22 @@ import com.tecmanic.gogrocer.Adapters.Home_adapter;
 import com.tecmanic.gogrocer.Adapters.PageAdapter;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.Constans.RecyclerTouchListener;
-import com.tecmanic.gogrocer.ModelClass.CategoryGrid;
 import com.tecmanic.gogrocer.ModelClass.Category_model;
 import com.tecmanic.gogrocer.ModelClass.HomeCate;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.AppController;
-import com.tecmanic.gogrocer.util.ConnectivityReceiver;
 import com.tecmanic.gogrocer.util.CustomSlider;
 import com.tecmanic.gogrocer.util.CustomVolleyJsonRequest;
-import com.tecmanic.gogrocer.util.GPSTracker;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.android.volley.VolleyLog.TAG;
@@ -96,57 +84,43 @@ import static com.tecmanic.gogrocer.Config.BaseURL.BANNER;
 import static com.tecmanic.gogrocer.Config.BaseURL.BANNER_IMG_URL;
 import static com.tecmanic.gogrocer.Config.BaseURL.BANN_IMG_URL;
 import static com.tecmanic.gogrocer.Config.BaseURL.CITY;
-import static com.tecmanic.gogrocer.Config.BaseURL.COUNTRY;
-import static com.tecmanic.gogrocer.Config.BaseURL.IMG_URL;
-import static com.tecmanic.gogrocer.Config.BaseURL.KEY_PINCODE;
 import static com.tecmanic.gogrocer.Config.BaseURL.LAT;
 import static com.tecmanic.gogrocer.Config.BaseURL.LONG;
 import static com.tecmanic.gogrocer.Config.BaseURL.MyPrefreance;
-import static com.tecmanic.gogrocer.Config.BaseURL.STATE;
 import static com.tecmanic.gogrocer.Config.BaseURL.secondary_banner;
 
 public class HomeeeFragment extends Fragment implements View.OnClickListener {
+    private static final String TAG1 = "MainActivity";
     ViewPager viewPager;
     TabLayout tabLayout;
     PageAdapter pageAdapter;
-
     TabItem tab1, tab2, tab3, tab4;
     Float translationY = 100f;
     FloatingActionButton fabMain, fabOne, fabTwo, fabThree, fabfour;
     LinearLayout parent_lay;
-
     CardView Search_layout;
     ScrollView scrollView;
-    RecyclerView  rv_items;
+    RecyclerView rv_items;
     SliderLayout banner_slider, featuredslider;
-
     OvershootInterpolator interpolator = new OvershootInterpolator();
-
-    private static final String TAG1 = "MainActivity";
-
     Boolean isMenuOpen = false;
-
-
-    private RecyclerView recyclerImages;
-
-
     RecyclerView recyclerViewCate, recyclerViewDEal;
     HomeCategoryAdapter cateListAdapter;
-    private List<HomeCate> cateList = new ArrayList<>();
     DealsAdapter dealAdapter;
-    private List<CategoryGrid> dealList = new ArrayList<>();
-    private List<Category_model> category_modelList = new ArrayList<>();
-    private Home_adapter adapter;
-    private boolean isSubcat = false;
     String productId;
-
-    private BannerAdapter bannerAdapter,bannerAdapter1;
     TextView loc;
     List<Address> addresses = new ArrayList<>();
-    String latitude,longitude,address, city, state, country, postalCode;
+    String latitude, longitude, address, city, state, country, postalCode;
     LocationManager locationManager;
     SharedPreferences sharedPreferences;
     ArrayList<String> imageString = new ArrayList<>();
+    private RecyclerView recyclerImages;
+    private List<HomeCate> cateList = new ArrayList<>();
+    //    private List<CategoryGrid> dealList = new ArrayList<>();
+    private List<Category_model> category_modelList = new ArrayList<>();
+    private Home_adapter adapter;
+    private boolean isSubcat = false;
+    private BannerAdapter bannerAdapter, bannerAdapter1;
     private LinearLayout banner_layount;
     private ArrayList<String> imageString1 = new ArrayList<>();
     private RecyclerView recyclerImages1;
@@ -159,28 +133,28 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.home, container, false);
-        ((MainActivity) requireActivity()).setTitle(getResources().getString(R.string.app_name));
+        requireActivity().setTitle(getResources().getString(R.string.app_name));
 
-        sharedPreferences = requireActivity().getSharedPreferences(MyPrefreance,MODE_PRIVATE);
-        latitude = sharedPreferences.getString(LAT,null);
-        longitude = sharedPreferences.getString(LONG,null);
-        address = sharedPreferences.getString(ADDRESS,null);
-        city = sharedPreferences.getString(CITY,null);
+        sharedPreferences = requireActivity().getSharedPreferences(MyPrefreance, MODE_PRIVATE);
+        latitude = sharedPreferences.getString(LAT, null);
+        longitude = sharedPreferences.getString(LONG, null);
+        address = sharedPreferences.getString(ADDRESS, null);
+        city = sharedPreferences.getString(CITY, null);
 
-        bannerAdapter = new BannerAdapter(getActivity(),imageString);
+        bannerAdapter = new BannerAdapter(getActivity(), imageString);
 
-       // loc.setText(address+", "+city+", "+postalCode);
-        rv_items = (RecyclerView) view.findViewById(R.id.rv_home);
+        // loc.setText(address+", "+city+", "+postalCode);
+        rv_items = view.findViewById(R.id.rv_home);
         banner_layount = view.findViewById(R.id.banner_layount);
 
-        recyclerImages =  view.findViewById(R.id.recycler_image_slider);
-        recyclerImages.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        recyclerImages = view.findViewById(R.id.recycler_image_slider);
+        recyclerImages.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         recyclerImages.setAdapter(bannerAdapter);
         // home_list.setLayoutManager(new GridLayoutManager(getContext(), 1, LinearLayoutManager.HORIZONTAL, false));
 
-        banner_slider = (SliderLayout) view.findViewById(R.id.relative_banner);
-        featuredslider = (SliderLayout) view.findViewById(R.id.featured_img_slider);
-        rv_items = (RecyclerView) view.findViewById(R.id.rv_home);
+        banner_slider = view.findViewById(R.id.relative_banner);
+        featuredslider = view.findViewById(R.id.featured_img_slider);
+        rv_items = view.findViewById(R.id.rv_home);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
         rv_items.setLayoutManager(gridLayoutManager);
         rv_items.setItemAnimator(new DefaultItemAnimator());
@@ -188,13 +162,13 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
         rv_items.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), rv_items, new RecyclerTouchListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-               String getid = category_modelList.get(position).getCat_id();
+                String getid = category_modelList.get(position).getCat_id();
 
-               Intent intent = new Intent(getActivity(), CategoryPage.class);
+                Intent intent = new Intent(getActivity(), CategoryPage.class);
                 intent.putExtra("cat_id", getid);
                 intent.putExtra("title", category_modelList.get(position).getTitle());
                 intent.putExtra("image", category_modelList.get(position).getImage());
-              startActivity(intent);
+                startActivity(intent);
 
             }
 
@@ -204,13 +178,13 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
             }
         }));
 
-        recyclerImages1 =  view.findViewById(R.id.recycler_image_slider1);
-        bannerAdapter1 = new BannerAdapter(getActivity(),imageString1);
-        recyclerImages1.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
+        recyclerImages1 = view.findViewById(R.id.recycler_image_slider1);
+        bannerAdapter1 = new BannerAdapter(getActivity(), imageString1);
+        recyclerImages1.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         recyclerImages1.setAdapter(bannerAdapter1);
 //        loc=view.findViewById(R.id.loc);
-        Search_layout =  view.findViewById(R.id.ll3);
-        scrollView = (ScrollView) view.findViewById(R.id.scroll_view);
+        Search_layout = view.findViewById(R.id.ll3);
+        scrollView = view.findViewById(R.id.scroll_view);
         scrollView.setSmoothScrollingEnabled(true);
         if (isOnline()) {
             makeGetSliderRequest();
@@ -239,7 +213,6 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
         fabThree = view.findViewById(R.id.fabThree);
         fabfour = view.findViewById(R.id.fabfour);
         parent_lay = view.findViewById(R.id.parent_lay);
-
 
 
         fabOne.setAlpha(0f);
@@ -564,46 +537,44 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
         String tag_json_obj = "json_category_req";
         Map<String, String> params = new HashMap<String, String>();
         params.put("parent", "");
-        CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,BANNER,params,
+        CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET, BANNER, params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d("fghgh", response.toString());
                         try {
                             ArrayList<HashMap<String, String>> listarray = new ArrayList<>();
-                            JSONArray jsonArray=response.getJSONArray("data");
-                           if (jsonArray.length()<=0)
-                           {
-                               recyclerImages.setVisibility(View.GONE);
-                           }
-                           else {
-                               for (int i = 0; i < jsonArray.length(); i++) {
-                                   JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                   HashMap<String, String> url_maps = new HashMap<String, String>();
-                                   url_maps.put("banner_name", jsonObject.getString("banner_name"));
-                                   url_maps.put("banner_id", jsonObject.getString("banner_id"));
-                                   url_maps.put("banner_image", BANN_IMG_URL + jsonObject.getString("banner_image"));
-                                   imageString.add(BANN_IMG_URL + jsonObject.getString("banner_image"));
-                                   listarray.add(url_maps);
-                               }
+                            JSONArray jsonArray = response.getJSONArray("data");
+                            if (jsonArray.length() <= 0) {
+                                recyclerImages.setVisibility(View.GONE);
+                            } else {
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                                    HashMap<String, String> url_maps = new HashMap<String, String>();
+                                    url_maps.put("banner_name", jsonObject.getString("banner_name"));
+                                    url_maps.put("banner_id", jsonObject.getString("banner_id"));
+                                    url_maps.put("banner_image", BANN_IMG_URL + jsonObject.getString("banner_image"));
+                                    imageString.add(BANN_IMG_URL + jsonObject.getString("banner_image"));
+                                    listarray.add(url_maps);
+                                }
 
 
-                               bannerAdapter.notifyDataSetChanged();
+                                bannerAdapter.notifyDataSetChanged();
 
 
-                               for (HashMap<String, String> name : listarray) {
-                                   CustomSlider textSliderView = new CustomSlider(getActivity());
-                                   textSliderView.description(name.get("")).image(name.get("banner_image")).setScaleType(BaseSliderView.ScaleType.Fit);
-                                   textSliderView.bundle(new Bundle());
-                                   textSliderView.getBundle().putString("extra", name.get("banner_name"));
-                                   textSliderView.getBundle().putString("extra", name.get("banner_id"));
+                                for (HashMap<String, String> name : listarray) {
+                                    CustomSlider textSliderView = new CustomSlider(getActivity());
+                                    textSliderView.description(name.get("")).image(name.get("banner_image")).setScaleType(BaseSliderView.ScaleType.Fit);
+                                    textSliderView.bundle(new Bundle());
+                                    textSliderView.getBundle().putString("extra", name.get("banner_name"));
+                                    textSliderView.getBundle().putString("extra", name.get("banner_id"));
 //                                home_list_banner.addSlider(textSliderView);
-                                   //   banner_slider.addSlider(textSliderView);
-                                   final String sub_cat = (String) textSliderView.getBundle().get("extra");
-                                   textSliderView.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
-                                       @Override
-                                       public void onSliderClick(BaseSliderView slider) {
-                                           //   Toast.makeText(getActivity(), "" + sub_cat, Toast.LENGTH_SHORT).show();
+                                    //   banner_slider.addSlider(textSliderView);
+                                    final String sub_cat = (String) textSliderView.getBundle().get("extra");
+                                    textSliderView.setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+                                        @Override
+                                        public void onSliderClick(BaseSliderView slider) {
+                                            //   Toast.makeText(getActivity(), "" + sub_cat, Toast.LENGTH_SHORT).show();
 //                                        Bundle args = new Bundle();
 //                                        android.app.Fragment fm = new Product_fragment();
 //                                        args.putString("id", sub_cat);
@@ -611,10 +582,10 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
 //                                        FragmentManager fragmentManager = getFragmentManager();
 //                                        fragmentManager.beginTransaction().replace(R.id.contentPanel, fm)
 //                                                .addToBackStack(null).commit();
-                                       }
-                                   });
-                               }
-                           }
+                                        }
+                                    });
+                                }
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -623,10 +594,10 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onErrorResponse(VolleyError error) {
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String,String> param = new HashMap<>();
+                HashMap<String, String> param = new HashMap<>();
                 return param;
             }
         };
@@ -713,19 +684,17 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
         String tag_json_obj = "json_category_req";
         Map<String, String> params = new HashMap<String, String>();
         params.put("parent", "");
-        CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET,secondary_banner,params,
+        CustomVolleyJsonRequest jsonObjReq = new CustomVolleyJsonRequest(Request.Method.GET, secondary_banner, params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d("fghgh", response.toString());
                         try {
                             ArrayList<HashMap<String, String>> listarray = new ArrayList<>();
-                            JSONArray jsonArray=response.getJSONArray("data");
-                            if (jsonArray.length()<=0)
-                            {
+                            JSONArray jsonArray = response.getJSONArray("data");
+                            if (jsonArray.length() <= 0) {
                                 recyclerImages1.setVisibility(View.GONE);
-                            }
-                            else {
+                            } else {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                                     HashMap<String, String> url_maps = new HashMap<String, String>();
@@ -756,10 +725,10 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onErrorResponse(VolleyError error) {
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String,String> param = new HashMap<>();
+                HashMap<String, String> param = new HashMap<>();
                 return param;
             }
         };
@@ -769,6 +738,7 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
 
 
     }
+
     private void makeGetCategoryRequest() {
         String tag_json_obj = "json_category_req";
         isSubcat = false;

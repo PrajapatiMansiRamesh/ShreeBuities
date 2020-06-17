@@ -9,13 +9,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.tecmanic.gogrocer.Activity.CategoryPage;
-import com.tecmanic.gogrocer.ModelClass.CategoryGrid;
-import com.tecmanic.gogrocer.ModelClass.HomeCate;
 import com.tecmanic.gogrocer.ModelClass.SubCatModel;
 import com.tecmanic.gogrocer.ModelClass.SubChildCatModel;
 import com.tecmanic.gogrocer.R;
@@ -29,26 +26,9 @@ import java.util.List;
 
 public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.MyViewHolder> {
 
-    private List<SubChildCatModel>  subChildCatModels = new ArrayList<>();
-    private List<SubCatModel> homeCateList;
     Context context;
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView prodNAme,pdetails;
-        ImageView image;
-        RecyclerView recyclerSubCate;
-        LinearLayout cardView;
-
-        public MyViewHolder(View view) {
-            super(view);
-            prodNAme = (TextView) view.findViewById(R.id.pNAme);
-            pdetails = (TextView) view.findViewById(R.id.pDetails);
-            image = (ImageView) view.findViewById(R.id.Pimage);
-            recyclerSubCate=view.findViewById(R.id.recyclerSubCate);
-            cardView=view.findViewById(R.id.cardView);
-        }
-    }
-
+    private List<SubChildCatModel> subChildCatModels = new ArrayList<>();
+    private List<SubCatModel> homeCateList;
 
     public SubCatAdapter(List<SubCatModel> homeCateList, Context context) {
         this.homeCateList = homeCateList;
@@ -73,7 +53,7 @@ public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.MyViewHold
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                get_subcateory(cc.getSub_array(),holder.recyclerSubCate,cc.getId());
+                get_subcateory(cc.getSub_array(), holder.recyclerSubCate, cc.getId());
             }
 
         });
@@ -84,18 +64,16 @@ public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.MyViewHold
         return homeCateList.size();
     }
 
+    private void get_subcateory(JSONArray response, RecyclerView recyclerView, String cat_id) {
 
-    private void get_subcateory(JSONArray response,RecyclerView  recyclerView,String cat_id) {
 
+        JSONArray array = response;
 
-        JSONArray array  = response;
-
-        if (array.length()==0){
+        if (array.length() == 0) {
             Intent intent = new Intent(context, CategoryPage.class);
-            intent.putExtra("cat_id",cat_id);
+            intent.putExtra("cat_id", cat_id);
             context.startActivity(intent);
-        }
-        else {
+        } else {
 
 
             for (int i = 0; i < array.length(); i++) {
@@ -129,6 +107,22 @@ public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.MyViewHold
 
         }
 
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView prodNAme, pdetails;
+        ImageView image;
+        RecyclerView recyclerSubCate;
+        LinearLayout cardView;
+
+        public MyViewHolder(View view) {
+            super(view);
+            prodNAme = view.findViewById(R.id.pNAme);
+            pdetails = view.findViewById(R.id.pDetails);
+            image = view.findViewById(R.id.Pimage);
+            recyclerSubCate = view.findViewById(R.id.recyclerSubCate);
+            cardView = view.findViewById(R.id.cardView);
+        }
     }
 
 }

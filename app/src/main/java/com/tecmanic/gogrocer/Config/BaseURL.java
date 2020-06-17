@@ -2,9 +2,7 @@ package com.tecmanic.gogrocer.Config;
 
 
 public class BaseURL {
-    static final String APP_NAME = "GoGrocer";
     public static final String MyPrefreance = "my_preprence";
-
     public static final String PREFS_NAME = "GroceryLoginPrefs";
     public static final String PREFS_NAME2 = "GroceryLoginPrefs2";
     public static final String IS_LOGIN = "isLogin";
@@ -31,52 +29,44 @@ public class BaseURL {
     public static final String USER_CURRENCY_CNTRY = "user_currency_country";
     public static final String USER_CURRENCY = "user_currency";
     public static final String APP_OTP_STATUS = "user_otp_search";
+    public static final String ADDRESS = "address";
 
 
     //adreeessss
-
-
-    public static final String ADDRESS = "address";
     public static final String CITY = "city";
     public static final String STATE = "state";
     public static final String COUNTRY = "country";
     public static final String LAT = "lat";
     public static final String LONG = "long";
+    public static final String KEY_STORE_COUNT = "STORE_COUNT";
 
     //Store Selection
-
-    public static final String KEY_STORE_COUNT = "STORE_COUNT";
     public static final String KEY_NOTIFICATION_COUNT = "NOTIFICATION_COUNT";
-
     //Firebase
     public static final String SHARED_PREF = "ah_firebase";
     public static final String TOPIC_GLOBAL = "global";
     public static final int NOTIFICATION_ID = 100;
     public static final int NOTIFICATION_ID_BIG_IMAGE = 101;
-
-
     public static final String KEY_PASSWORD = "password";
     public static final String USER_STATUS = "user_status";
     public static final String USER_OTP = "user_otp";
     public static final String USER_EMAIL_SERVICE = "user_email_service";
     public static final String USER_SMS_SERVICE = "user_sms_service";
     public static final String USER_INAPP_SERVICE = "user_inapp_service";
-
     //City and Store Id
     public static final String CITY_ID = "CITY_ID";
     public static final String STORE_ID = "STORE_ID";
+    static final String APP_NAME = "GoGrocer";
 
 
 //    https://gogrocer.tecmanic.com/api/
-
     public static String BASE_URL = "https://thecodecafe.in/gogrocer-ver2.0/api/";
 //    public static String BASE_URL = "https://grophy.in/gogrocer/api/";
 
 
-
-//    public static String IMG_URL = "https://grophy.in/gogrocer/image/";
+    //    public static String IMG_URL = "https://grophy.in/gogrocer/image/";
     public static String IMG_URL = "https://thecodecafe.in/gogrocer-ver2.0/";
-//    public static String IMG_URL = "https://gogrocer.tecmanic.com/";
+    //    public static String IMG_URL = "https://gogrocer.tecmanic.com/";
     public static String BANN_IMG_URL = "https://gogrocer.tecmanic.com/";
     public static String BANNER_IMG_URL = "https://thecodecafe.in/gogrocer-ver2.0/";
     public static String SignUp = BASE_URL + "register";
@@ -93,7 +83,7 @@ public class BaseURL {
     public static String HomeDeal = BASE_URL + "dealproduct";
     public static String redeem_rewards = BASE_URL + "redeem_rewards";
     public static String BANNER = BASE_URL + "banner";
-    public static String secondary_banner = BASE_URL +"secondary_banner";
+    public static String secondary_banner = BASE_URL + "secondary_banner";
 
     public static String Categories = BASE_URL + "catee";
     public static String ProductVarient = BASE_URL + "varient";
@@ -118,7 +108,7 @@ public class BaseURL {
     public static String PendingOrderUrl = BASE_URL + "ongoing_orders";
 
     public static String AboutUrl = BASE_URL + "appaboutus";
-    public static String topsix = BASE_URL +"topsix";
+    public static String topsix = BASE_URL + "topsix";
     public static String TermsUrl = BASE_URL + "appterms";
 
     public static String delete_all_notification = BASE_URL + "delete_all_notification";
@@ -127,44 +117,18 @@ public class BaseURL {
     public static String EDIT_PROFILE_URL = BASE_URL + "profile_edit";
     public static String cat_product = BASE_URL + "cat_product";
     public static String OrderContinue = BASE_URL + "make_an_order";
-   public static String MinMaxOrder = BASE_URL + "minmax";
+    public static String MinMaxOrder = BASE_URL + "minmax";
     public static String rewardlines = BASE_URL + "rewardlines";
 
     public static String Wallet_CHECKOUT = BASE_URL + "";
     public static String ADD_ORDER_URL = BASE_URL + "checkout";
-   public static String COUPON_CODE = BASE_URL + "couponlist";
-   public static String apply_coupon = BASE_URL+"apply_coupon";
+    public static String COUPON_CODE = BASE_URL + "couponlist";
+    public static String apply_coupon = BASE_URL + "apply_coupon";
     public static String whatsnew = BASE_URL + "whatsnew";
 
     public static String NoticeURl = BASE_URL + "notificationlist";
     public static String updatenotifyby = BASE_URL + "updatenotifyby";
     public static String currencyApi = BASE_URL + "currency";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -172,9 +172,8 @@
                     android:orientation="vertical"
                     android:gravity="end|center">
 
-                    <LinearLayout
+                    <LinearLayout android:id="@+id/btn_Add"
                         android:visibility="gone"
-                        android:id="@+id/btn_Add"
                         android:layout_width="wrap_content"
                         android:layout_height="32dp"
                         android:backgroundTint="@color/green"
@@ -206,8 +205,7 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/ll_addQuan"
+                    <LinearLayout android:id="@+id/ll_addQuan"
                         android:visibility="visible"
                         android:layout_width="wrap_content"
                         android:layout_height="32dp"

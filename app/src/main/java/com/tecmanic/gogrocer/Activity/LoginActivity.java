@@ -25,6 +25,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
+import com.tecmanic.gogrocer.ModelClass.NotifyModelUser;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.network.ApiInterface;
 import com.tecmanic.gogrocer.util.LocaleHelper;
@@ -39,6 +40,7 @@ import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
@@ -77,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                     token = task.getResult().getToken();
                 });
         sessionManagement = new Session_management(LoginActivity.this);
+        new Thread(this::checkUserNotify).start();
         init();
     }
 
@@ -257,5 +260,40 @@ public class LoginActivity extends AppCompatActivity {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+    }
+
+    private void checkUserNotify() {
+        Retrofit emailOtp = new Retrofit.Builder()
+                .baseUrl(BaseURL.BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build();
+
+        ApiInterface apiInterface = emailOtp.create(ApiInterface.class);
+
+        Call<NotifyModelUser> checkOtpStatus = apiInterface.getNotifyUser(sessionManagement.userId());
+
+        checkOtpStatus.enqueue(new Callback<NotifyModelUser>() {
+            @Override
+            public void onResponse(@NonNull Call<NotifyModelUser> call, @NonNull Response<NotifyModelUser> response) {
+
+                if (response.isSuccessful()){
+                    if (response.body()!=null){
+                        NotifyModelUser modelUser = response.body();
+                        if (modelUser.getStatus().equalsIgnoreCase("1")){
+                            sessionManagement.setEmailServer(modelUser.getData().getEmail());
+                            sessionManagement.setUserSMSService(modelUser.getData().getSms());
+                            sessionManagement.setUserInAppService(modelUser.getData().getApp());
+                        }
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<NotifyModelUser> call, @NonNull Throwable t) {
+
+            }
+        });
+
     }
 }

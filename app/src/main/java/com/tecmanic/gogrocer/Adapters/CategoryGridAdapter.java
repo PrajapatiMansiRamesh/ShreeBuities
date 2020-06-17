@@ -20,8 +20,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tecmanic.gogrocer.Activity.ProductDetails;
 import com.tecmanic.gogrocer.Categorygridquantity;
-import com.tecmanic.gogrocer.Config.BaseURL;
-import com.tecmanic.gogrocer.ModelClass.CategoryGrid;
+import com.tecmanic.gogrocer.ModelClass.NewCategoryShowList;
 import com.tecmanic.gogrocer.ModelClass.varient_product;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
@@ -39,12 +38,12 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
     RecyclerView recyler_popup;
     LinearLayout cancl;
     Categorygridquantity categorygridquantity;
-    private List<CategoryGrid> CategoryGridList;
+    private List<NewCategoryShowList> CategoryGridList;
     private DatabaseHandler dbcart;
     private List<varient_product> varientProducts = new ArrayList<>();
     private Session_management session_management;
 
-    public CategoryGridAdapter(List<CategoryGrid> categoryGridList, Context context, Categorygridquantity categorygridquantity) {
+    public CategoryGridAdapter(List<NewCategoryShowList> categoryGridList, Context context, Categorygridquantity categorygridquantity) {
         this.CategoryGridList = categoryGridList;
         this.dbcart = new DatabaseHandler(context);
         this.session_management = new Session_management(context);
@@ -148,68 +147,65 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        CategoryGrid cc = CategoryGridList.get(position);
+        NewCategoryShowList cc = CategoryGridList.get(position);
 
         holder.currency_indicator.setText(session_management.getCurrency());
         holder.currency_indicator_2.setText(session_management.getCurrency());
-        holder.prodNAme.setText(cc.getName());
-        holder.pPrice.setText(cc.getPrice());
-        holder.txt_unitvalue.setText(cc.getUnit());
-        holder.pQuan.setText(cc.getQuantity());
-        holder.pMrp.setText(cc.getMrp());
+        holder.prodNAme.setText(cc.getProduct_name());
+        holder.pPrice.setText(cc.getList().getPrice());
+        holder.txt_unitvalue.setText(cc.getList().getUnit());
+        holder.pQuan.setText(cc.getList().getQuantity());
+        holder.pMrp.setText(cc.getList().getMrp());
 
-        int qtyd = Integer.parseInt(dbcart.getInCartItemQtys(CategoryGridList.get(position).getVarient_id()));
+        int qtyd = Integer.parseInt(dbcart.getInCartItemQtys(cc.getList().getVarient_id()));
+        double priced = Double.parseDouble(cc.getList().getPrice());
+        double mrpd = Double.parseDouble(cc.getList().getMrp());
         if (qtyd > 0) {
             holder.btn_Add.setVisibility(View.GONE);
             holder.ll_addQuan.setVisibility(View.VISIBLE);
             holder.txtQuan.setText("" + qtyd);
-            double priced = Double.parseDouble(CategoryGridList.get(position).getPrice());
-            double mrpd = Double.parseDouble(CategoryGridList.get(position).getMrp());
             holder.pPrice.setText("" + (priced * qtyd));
             holder.pMrp.setText("" + (mrpd * qtyd));
         } else {
             holder.btn_Add.setVisibility(View.VISIBLE);
             holder.ll_addQuan.setVisibility(View.GONE);
-            holder.pPrice.setText(CategoryGridList.get(position).getPrice());
-            holder.pMrp.setText(CategoryGridList.get(position).getMrp());
+            holder.pPrice.setText(cc.getList().getPrice());
+            holder.pMrp.setText(cc.getList().getMrp());
             holder.txtQuan.setText("" + 0);
         }
 
         Glide.with(context)
-                .load(IMG_URL + cc.getImage())
+                .load(IMG_URL + cc.getList().getVarient_image())
                 .centerCrop()
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into(holder.image);
 
-        double price = Double.parseDouble(CategoryGridList.get(position).getPrice());
-        double mrp = Double.parseDouble(CategoryGridList.get(position).getMrp());
 
-        holder.pdiscountOff.setText(session_management.getCurrency()+""+((int)(mrp-price))+" "+"Off");
+        holder.pdiscountOff.setText(session_management.getCurrency() + "" + ((int) (mrpd - priced)) + " " + "Off");
         holder.pMrp.setPaintFlags(holder.pMrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, ProductDetails.class);
-                intent.putExtra("sId", cc.getId());
-                intent.putExtra("sName", cc.getName());
-                intent.putExtra("descrip", cc.getDescription());
-                intent.putExtra("price", cc.getPrice());
-                intent.putExtra("mrp", cc.getMrp());
-                intent.putExtra("unit", cc.getUnit());
-                intent.putExtra("qty", cc.getQuantity());
-                intent.putExtra("image", cc.getVarient_image());
-                intent.putExtra("sVariant_id", cc.getVarient_id());
+                intent.putExtra("sId", cc.getProductId());
+                intent.putExtra("sName", cc.getProduct_name());
+                intent.putExtra("descrip", cc.getList().getDescription());
+                intent.putExtra("price", cc.getList().getPrice());
+                intent.putExtra("mrp", cc.getList().getMrp());
+                intent.putExtra("unit", cc.getList().getUnit());
+                intent.putExtra("qty", cc.getList().getQuantity());
+                intent.putExtra("image", cc.getList().getVarient_image());
+                intent.putExtra("sVariant_id", cc.getList().getVarient_id());
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
                 context.startActivity(intent);
             }
         });
 
         Glide.with(context)
-                .load(IMG_URL + cc.getVarient_image())
+                .load(IMG_URL + cc.getList().getVarient_image())
                 .centerCrop()
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -220,7 +216,7 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
         holder.rlQuan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                categorygridquantity.onClick(view, position, cc.getId(), cc.getName());
+                categorygridquantity.onClick(view, position, cc.getProductId(), cc.getProduct_name());
 //                final Dialog dialog = new Dialog(context);
 //                Window window = dialog.getWindow();
 //                WindowManager.LayoutParams wlp = window.getAttributes();
@@ -289,28 +285,28 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
         holder.plus.setOnClickListener(v -> {
             holder.btn_Add.setVisibility(View.GONE);
             holder.ll_addQuan.setVisibility(View.VISIBLE);
-            int i = Integer.parseInt(dbcart.getInCartItemQtys(cc.getVarient_id()));
+            int i = Integer.parseInt(dbcart.getInCartItemQtys(cc.getList().getVarient_id()));
 //            CategoryGridList.get(position).setQuantity(String.valueOf(i + 1));
             holder.txtQuan.setText("" + (i + 1));
-            holder.pPrice.setText("" + (price * (i + 1)));
-            holder.pMrp.setText("" + (mrp * (i + 1)));
+            holder.pPrice.setText("" + (priced * (i + 1)));
+            holder.pMrp.setText("" + (mrpd * (i + 1)));
             updateMultiply(position, i + 1);
 //            notifyItemChanged(position);
         });
         holder.minus.setOnClickListener(v -> {
 //            int i = Integer.parseInt(cc.getQuantity());
-            int i = Integer.parseInt(dbcart.getInCartItemQtys(cc.getVarient_id()));
+            int i = Integer.parseInt(dbcart.getInCartItemQtys(cc.getList().getVarient_id()));
 //            CategoryGridList.get(position).setQuantity(String.valueOf(i - 1));
             if ((i - 1) < 0 || (i - 1) == 0) {
                 holder.btn_Add.setVisibility(View.VISIBLE);
                 holder.ll_addQuan.setVisibility(View.GONE);
                 holder.txtQuan.setText("" + 0);
-                holder.pPrice.setText("" + price);
-                holder.pMrp.setText("" + mrp);
+                holder.pPrice.setText("" + priced);
+                holder.pMrp.setText("" + mrpd);
             } else {
                 holder.txtQuan.setText("" + (i - 1));
-                holder.pPrice.setText("" + (price * (i - 1)));
-                holder.pMrp.setText("" + (mrp * (i - 1)));
+                holder.pPrice.setText("" + (priced * (i - 1)));
+                holder.pMrp.setText("" + (mrpd * (i - 1)));
             }
             updateMultiply(position, i - 1);
         });
@@ -328,22 +324,22 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
     private void updateMultiply(int pos, int i) {
         HashMap<String, String> map = new HashMap<>();
 //            map.put("varient_id",cartList.get(position).getpId());
-        map.put("varient_id", CategoryGridList.get(pos).getVarient_id());
-        map.put("product_name", CategoryGridList.get(pos).getName());
-        map.put("category_id", CategoryGridList.get(pos).getId());
-        map.put("title", CategoryGridList.get(pos).getName());
-        map.put("price", CategoryGridList.get(pos).getPrice());
-        map.put("mrp", CategoryGridList.get(pos).getMrp());
+        map.put("varient_id", CategoryGridList.get(pos).getList().getVarient_id());
+        map.put("product_name", CategoryGridList.get(pos).getProduct_name());
+        map.put("category_id", CategoryGridList.get(pos).getProductId());
+        map.put("title", CategoryGridList.get(pos).getProduct_name());
+        map.put("price", CategoryGridList.get(pos).getList().getPrice());
+        map.put("mrp", CategoryGridList.get(pos).getList().getMrp());
 //        Log.d("fd",CategoryGridList.get(pos).getImage());
-        map.put("product_image", CategoryGridList.get(pos).getImage());
+        map.put("product_image", CategoryGridList.get(pos).getList().getVarient_image());
         map.put("status", "0");
         map.put("in_stock", "");
-        map.put("unit_value", "");
-        map.put("unit", CategoryGridList.get(pos).getUnit());
+        map.put("unit_value", CategoryGridList.get(pos).getList().getQuantity()+""+(CategoryGridList.get(pos).getList().getUnit() != null ? CategoryGridList.get(pos).getList().getUnit() : ""));
+        map.put("unit", CategoryGridList.get(pos).getList().getUnit() != null ? CategoryGridList.get(pos).getList().getUnit() : "");
         map.put("increament", "0");
         map.put("rewards", "0");
         map.put("stock", "0");
-        map.put("product_description", CategoryGridList.get(pos).getDescription());
+        map.put("product_description", CategoryGridList.get(pos).getList().getDescription());
 
 //        Log.d("fgh",cartList.get(position).getUnit()+cartList.get(position).getpQuan());
 //        Log.d("fghfgh",cartList.get(position).getpPrice());
@@ -465,7 +461,7 @@ public class CategoryGridAdapter extends RecyclerView.Adapter<CategoryGridAdapte
 //
 //
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView prodNAme, pDescrptn, pQuan, pPrice, pdiscountOff, pMrp, minus, plus, txtQuan, txt_unitvalue,currency_indicator,currency_indicator_2;
+        public TextView prodNAme, pDescrptn, pQuan, pPrice, pdiscountOff, pMrp, minus, plus, txtQuan, txt_unitvalue, currency_indicator, currency_indicator_2;
         ImageView image;
         LinearLayout btn_Add, ll_addQuan;
         int minteger = 0;

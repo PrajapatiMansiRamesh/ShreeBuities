@@ -38,6 +38,7 @@ import com.android.volley.VolleyError;
 import com.tecmanic.gogrocer.Activity.MainActivity;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
+import com.tecmanic.gogrocer.ModelClass.NotifyModelUser;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.network.ApiInterface;
 import com.tecmanic.gogrocer.util.AppController;
@@ -120,17 +121,19 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
         progressDialog = new ProgressDialog(contexts);
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
-        sharedPreferences = contexts.getSharedPreferences("User_profile", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+//        sharedPreferences = contexts.getSharedPreferences("User_profile", MODE_PRIVATE);
+//        editor = sharedPreferences.edit();
 
         getActivity().setTitle("Edit Profile");
 
         checkOtpStatus();
-        Email_Status = sharedPreferences.getBoolean("Email", true);
-        Sms_Status = sharedPreferences.getBoolean("Sms", true);
-        In_App = sharedPreferences.getBoolean("App", true);
+//        Email_Status = sharedPreferences.getBoolean("Email", true);
+//        Sms_Status = sharedPreferences.getBoolean("Sms", true);
+//        In_App = sharedPreferences.getBoolean("App", true);
         sessionManagement = new Session_management(getActivity());
         user_id = sessionManagement.userId();
+
+        new Thread(this::checkUserNotify).start();
 
         et_phone = view.findViewById(R.id.et_pro_phone);
         sms_lay = view.findViewById(R.id.sms_lay);
@@ -948,6 +951,46 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
 
         }
         return false;
+    }
+
+
+    private void checkUserNotify() {
+        Retrofit emailOtp = new Retrofit.Builder()
+                .baseUrl(BaseURL.BASE_URL)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .build();
+
+        ApiInterface apiInterface = emailOtp.create(ApiInterface.class);
+
+        Call<NotifyModelUser> checkOtpStatus = apiInterface.getNotifyUser(user_id);
+
+        checkOtpStatus.enqueue(new Callback<NotifyModelUser>() {
+            @Override
+            public void onResponse(@NonNull Call<NotifyModelUser> call, @NonNull retrofit2.Response<NotifyModelUser> response) {
+
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        NotifyModelUser modelUser = response.body();
+                        if (modelUser.getStatus().equalsIgnoreCase("1")) {
+                            sessionManagement.setEmailServer(modelUser.getData().getEmail());
+                            sessionManagement.setUserSMSService(modelUser.getData().getSms());
+                            sessionManagement.setUserInAppService(modelUser.getData().getApp());
+                        } else {
+                            sessionManagement.setEmailServer("0");
+                            sessionManagement.setUserSMSService("0");
+                            sessionManagement.setUserInAppService("0");
+                        }
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<NotifyModelUser> call, @NonNull Throwable t) {
+
+            }
+        });
+
     }
 
 }

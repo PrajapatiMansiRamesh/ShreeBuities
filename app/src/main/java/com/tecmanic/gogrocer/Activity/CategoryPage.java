@@ -1,18 +1,16 @@
 package com.tecmanic.gogrocer.Activity;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NoConnectionError;
@@ -25,12 +23,15 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.tecmanic.gogrocer.Adapters.Adapter_popup;
 import com.tecmanic.gogrocer.Adapters.CategoryGridAdapter;
 import com.tecmanic.gogrocer.Categorygridquantity;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.Fragments.Recent_Details_Fragment;
-import com.tecmanic.gogrocer.ModelClass.CategoryGrid;
+import com.tecmanic.gogrocer.ModelClass.NewCategoryDataModel;
+import com.tecmanic.gogrocer.ModelClass.NewCategoryShowList;
 import com.tecmanic.gogrocer.ModelClass.varient_product;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.AppController;
@@ -40,22 +41,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.tecmanic.gogrocer.Config.BaseURL.IMG_URL;
 import static com.tecmanic.gogrocer.Config.BaseURL.ProductVarient;
 
 public class CategoryPage extends AppCompatActivity {
 
     RecyclerView recycler_product;
     CategoryGridAdapter adapter;
-    List<CategoryGrid> model = new ArrayList<>();
+    //    List<CategoryGrid> model = new ArrayList<>();
+    List<NewCategoryShowList> newModelList = new ArrayList<>();
     String cat_id, image, title;
-    private List<varient_product> varientProducts = new ArrayList<>();
     BottomSheetBehavior behavior;
+    private List<varient_product> varientProducts = new ArrayList<>();
     private LinearLayout bottom_sheet;
     private LinearLayout back;
 
@@ -102,14 +104,14 @@ public class CategoryPage extends AppCompatActivity {
                 RecyclerView recyler_popup = findViewById(R.id.recyclerVarient);
                 recyler_popup.setLayoutManager(new LinearLayoutManager(CategoryPage.this));
 
-                Varient_product(ccId, recyler_popup,id);
+                Varient_product(ccId, recyler_popup, id);
 
             }
         };
 
 
         recycler_product.setLayoutManager(new GridLayoutManager(this, 1));
-        adapter = new CategoryGridAdapter(model, CategoryPage.this, categorygridquantity);
+        adapter = new CategoryGridAdapter(newModelList, CategoryPage.this, categorygridquantity);
         recycler_product.setAdapter(adapter);
 
 
@@ -160,7 +162,7 @@ public class CategoryPage extends AppCompatActivity {
 
                             varientProducts.add(selectCityModel);
 
-                            Adapter_popup selectCityAdapter = new Adapter_popup(CategoryPage.this,varientProducts,id);
+                            Adapter_popup selectCityAdapter = new Adapter_popup(CategoryPage.this, varientProducts, id);
                             recyler_popup.setAdapter(selectCityAdapter);
 
 
@@ -197,7 +199,7 @@ public class CategoryPage extends AppCompatActivity {
     }
 
     private void product(String cat_id) {
-
+        newModelList.clear();
         // Tag used to cancel the request
         String tag_json_obj = "json_order_detail_req";
 
@@ -219,53 +221,69 @@ public class CategoryPage extends AppCompatActivity {
 
                     if (status.contains("1")) {
 
-                        JSONArray data = response.getJSONArray("data");
-                        for (int i = 0; i < data.length(); i++) {
+                        Gson gson = new Gson();
+                        Type listType = new TypeToken<List<NewCategoryDataModel>>() {
+                        }.getType();
+                        List<NewCategoryDataModel> listorl = gson.fromJson(response.getString("data"), listType);
 
-                            JSONObject object = data.getJSONObject(i);
-
-                            CategoryGrid models = new CategoryGrid();
-
-                            models.setId(object.getString("product_id"));
-
-                            models.setImage(object.getString("product_image"));
-                            models.setName(object.getString("product_name"));
-
-
-                            JSONArray dataobj2 = object.getJSONArray("varients");
-
-                            String qty = "";
-                            String unit = "";
-                            String description = "";
-                            String mrp = "";
-                            String price = "";
-                            String varient_id = "";
-                            String varient_image = "";
-                            if (dataobj2.length() > 0) {
-                                JSONObject jsonObject = dataobj2.getJSONObject(0);
-
-                                qty = jsonObject.getString("quantity");
-                                unit = jsonObject.getString("unit");
-                                mrp = jsonObject.getString("mrp");
-                                description = jsonObject.getString("description");
-
-                                varient_id = jsonObject.getString("varient_id");
-                                price = jsonObject.getString("price");
-                                varient_image = jsonObject.getString("varient_image");
-                                models.setVarient_id(varient_id);
-                                models.setVarient_image(varient_image);
-                                models.setPrice(price);
-                                models.setMrp(mrp);
-                                models.setUnit(unit);
-                                models.setQuantity(qty);
-                                models.setDescription(description);
-                                model.add(models);
-
-                                adapter.notifyDataSetChanged();
+                        for (int i = 0; i < listorl.size(); i++) {
+                            for (int j = 0; j < listorl.get(i).getVarients().size(); j++) {
+                                NewCategoryShowList newCategoryShowList = new NewCategoryShowList(listorl.get(i).getProduct_id(), listorl.get(i).getProduct_name(), listorl.get(i).getProduct_image(), listorl.get(i).getVarients().get(j));
+                                newModelList.add(newCategoryShowList);
                             }
-
-//                        adapter.notify();
                         }
+
+                        adapter.notifyDataSetChanged();
+
+//                        JSONArray data = response.getJSONArray("data");
+
+
+//                        for (int i = 0; i < data.length(); i++) {
+//
+//                            JSONObject object = data.getJSONObject(i);
+//
+//                            CategoryGrid models = new CategoryGrid();
+//
+//                            models.setId(object.getString("product_id"));
+//
+//                            models.setImage(object.getString("product_image"));
+//                            models.setName(object.getString("product_name"));
+//
+//
+//                            JSONArray dataobj2 = object.getJSONArray("varients");
+//
+//                            String qty = "";
+//                            String unit = "";
+//                            String description = "";
+//                            String mrp = "";
+//                            String price = "";
+//                            String varient_id = "";
+//                            String varient_image = "";
+//                            if (dataobj2.length() > 0) {
+//                                JSONObject jsonObject = dataobj2.getJSONObject(0);
+//
+//                                qty = jsonObject.getString("quantity");
+//                                unit = jsonObject.getString("unit");
+//                                mrp = jsonObject.getString("mrp");
+//                                description = jsonObject.getString("description");
+//
+//                                varient_id = jsonObject.getString("varient_id");
+//                                price = jsonObject.getString("price");
+//                                varient_image = jsonObject.getString("varient_image");
+//                                models.setVarient_id(varient_id);
+//                                models.setVarient_image(varient_image);
+//                                models.setPrice(price);
+//                                models.setMrp(mrp);
+//                                models.setUnit(unit);
+//                                models.setQuantity(qty);
+//                                models.setDescription(description);
+//                                model.add(models);
+//
+//                                adapter.notifyDataSetChanged();
+//                            }
+//
+////                        adapter.notify();
+//                        }
 
 
                     } else {

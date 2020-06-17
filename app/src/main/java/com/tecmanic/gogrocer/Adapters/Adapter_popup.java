@@ -64,16 +64,28 @@ public class Adapter_popup extends RecyclerView.Adapter<Adapter_popup.holder> {
         holder.unit.setText(selectAreaModel.getVariant_unit());
 
         holder.unitvalue.setText(selectAreaModel.getVariant_unit_value());
-
-        holder.mprice.setText(session_management.getCurrency() + " " + selectAreaModel.getVariant_price());
 //        holder.mrp.setText("" + selectAreaModel.getVariant_mrp());
         Picasso.with(context).load(IMG_URL + selectAreaModel.getVarient_imqge()).into(holder.prodImage);
 
         double price = Double.parseDouble(varientProductList.get(i).getVariant_price());
         double mrp = Double.parseDouble(varientProductList.get(i).getVariant_mrp());
 
-        holder.mrp.setText(session_management.getCurrency() + " " + selectAreaModel.getVariant_mrp());
-        holder.mrp.setPaintFlags(holder.mrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        int qtyd = Integer.parseInt(dbcart.getInCartItemQtys(selectAreaModel.getVariant_id()));
+        if (qtyd > 0) {
+            holder.btn_Add.setVisibility(View.GONE);
+            holder.ll_addQuan.setVisibility(View.VISIBLE);
+            holder.txtQuan.setText("" +qtyd);
+            holder.mprice.setText(session_management.getCurrency() + " " + (price * qtyd));
+            holder.mrp.setText(session_management.getCurrency() + " " + (mrp * qtyd));
+            holder.mrp.setPaintFlags(holder.mrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        } else {
+            holder.btn_Add.setVisibility(View.VISIBLE);
+            holder.ll_addQuan.setVisibility(View.GONE);
+            holder.mprice.setText(session_management.getCurrency() + " " + selectAreaModel.getVariant_price());
+            holder.mrp.setText(session_management.getCurrency() + " " + selectAreaModel.getVariant_mrp());
+            holder.mrp.setPaintFlags(holder.mrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.txtQuan.setText("" +0);
+        }
         holder.plus.setOnClickListener(v -> {
             int qnty = (int) Double.parseDouble(dbcart.getInCartItemQty(selectAreaModel.getVariant_id()));
             holder.btn_Add.setVisibility(View.GONE);

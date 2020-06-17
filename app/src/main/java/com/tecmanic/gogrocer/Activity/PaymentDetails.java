@@ -194,8 +194,12 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
 //        checkBox_coupon.setTypeface(font);
 
         Apply_Coupon_Code.setOnClickListener(v -> {
-            startActivity(new Intent(PaymentDetails.this, Coupen.class));
-            apply();
+            if (!coupuntxt.getText().toString().trim().equalsIgnoreCase("Applied")) {
+//                startActivity(new Intent(PaymentDetails.this, Coupen.class));
+                code = et_Coupon.getText().toString().trim();
+                apply();
+            }
+//            apply();
         });
 
 
@@ -210,14 +214,24 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
             public void onClick(View v) {
                 progressDialog.show();
                 if (rb_Cod.isChecked() && checkBox_Wallet.isChecked()) {
+                    wallet_status = "yes";
+                    payment_method = "COD";
                     makeAddOrderRequest(getuser_id, cart_id, payment_method, wallet_status, "success");
                 } else if (rb_card.isChecked() && checkBox_Wallet.isChecked()) {
+                    wallet_status = "yes";
+                    payment_method = "card";
                     startPayment(name, total_amount, email, mobile);
                 } else if (rb_card.isChecked()) {
+                    wallet_status = "no";
+                    payment_method = "card";
                     startPayment(name, total_amount, email, mobile);
                 } else if (rb_Cod.isChecked()) {
+                    wallet_status = "no";
+                    payment_method = "COD";
                     makeAddOrderRequest(getuser_id, cart_id, payment_method, wallet_status, "success");
                 } else if (checkBox_Wallet.isChecked()) {
+                    wallet_status = "yes";
+                    payment_method = "wallet";
                     if (walletbalnce == 0 && Double.parseDouble(total_amount) > 0.0) {
                         progressDialog.dismiss();
                         Toast.makeText(PaymentDetails.this, "Select Card Or COD", Toast.LENGTH_SHORT).show();
@@ -227,10 +241,12 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
 
                 } else {
                     if (checkBox_coupon.isChecked()) {
-                        if (Double.parseDouble(payable_amt) > 0.0) {
+                        if (Double.parseDouble(total_amount) > 0.0) {
                             progressDialog.dismiss();
                             Toast.makeText(PaymentDetails.this, "Select One plz", Toast.LENGTH_SHORT).show();
                         } else {
+                            wallet_status = "no";
+                            payment_method = "promocode";
                             makeAddOrderRequest(getuser_id, cart_id, payment_method, wallet_status, "success");
                         }
                     }
@@ -395,38 +411,12 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     Intent coupounIntent = new Intent(PaymentDetails.this, Coupen.class);
                     startActivityForResult(coupounIntent, 2);
                 } else {
-                    code = "";
-                    status = 1;
                     llpromocode.setBackgroundResource(R.drawable.border_rounded1);
                     tpromocode.setTextColor(getResources().getColor(R.color.black));
                     et_Coupon.setText("");
                     Promo_code_layout.setVisibility(View.GONE);
                     Promo_code_layout.setClickable(true);
-                    if (checkBox_Wallet.isChecked()) {
-                        int amt = Integer.parseInt(payable_amt);
-                        int wallet = Integer.parseInt(wallet_amount);
-                        if (wallet > 0) {
-                            if (amt <= wallet) {
-                                walletbalnce = wallet - amt;
-                                total_amount = "0";
-                                rb_card.setClickable(false);
-                                rb_Cod.setClickable(false);
-                                checkBox_coupon.setClickable(false);
-                                my_wallet_ammount.setText(sessionManagement.getCurrency() + "" + walletbalnce);
-                                order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
-                            } else {
-                                walletbalnce = 0;
-                                total_amount = String.valueOf((amt - wallet));
-                                order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
-//                        startActivity(new Intent(getApplicationContext(), RechargeWallet.class));
-                            }
-                            wallet_status = "yes";
-                            payment_method = "wallet";
-                        }
-                    } else {
-                        wallet_status = "no";
-                        payment_method = "promocode";
-                    }
+                    apply();
                 }
             }
         });
@@ -509,8 +499,8 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
 
 
     private void apply() {
+        progressDialog.show();
         String tag_json_obj = "json_order_detail_req";
-
         Map<String, String> params = new HashMap<String, String>();
         params.put("cart_id", cart_id);
         params.put("coupon_code", code);
@@ -528,7 +518,6 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
 
                     String statuss = response.getString("status");
                     String message = response.getString("message");
-
                     if (statuss.contains("1")) {
                         coupounApplied = true;
                         JSONObject jsonObject = response.getJSONObject("data");
@@ -564,7 +553,35 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                             order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
                         }
                         Toast.makeText(getApplicationContext(), "" + message, Toast.LENGTH_SHORT).show();
+                    } else if (statuss.contains("2")) {
+                        coupounApplied = false;
+                        code = "";
+                        status = 1;
+                        if (checkBox_Wallet.isChecked()) {
+                            int amt = Integer.parseInt(payable_amt);
+                            int wallet = Integer.parseInt(wallet_amount);
+                            if (wallet > 0) {
+                                if (amt <= wallet) {
+                                    walletbalnce = wallet - amt;
+                                    total_amount = "0";
+                                    rb_card.setClickable(false);
+                                    rb_Cod.setClickable(false);
+                                    checkBox_coupon.setClickable(false);
+                                    my_wallet_ammount.setText(sessionManagement.getCurrency() + "" + walletbalnce);
+                                    order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
+                                } else {
+                                    walletbalnce = 0;
+                                    total_amount = String.valueOf((amt - wallet));
+                                    order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
+//                        startActivity(new Intent(getApplicationContext(), RechargeWallet.class));
+                                }
+                            }
+                        } else {
+                            total_amount = payable_amt;
+                            order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
+                        }
                     } else {
+                        coupounApplied = false;
                         code = "";
                         status = 1;
                         Promo_code_layout.setVisibility(View.GONE);
@@ -577,6 +594,8 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                } finally {
+                    progressDialog.dismiss();
                 }
             }
         }, new Response.ErrorListener() {
@@ -584,6 +603,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.d("TAG", "Error: " + error.getMessage());
+                progressDialog.dismiss();
                 if (error instanceof TimeoutError || error instanceof NoConnectionError) {
                 }
             }

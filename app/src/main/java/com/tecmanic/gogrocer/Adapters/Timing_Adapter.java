@@ -35,10 +35,12 @@ public class Timing_Adapter extends RecyclerView.Adapter<Timing_Adapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         RadioButton time;
+        TextView slotname;
 
         public MyViewHolder(View view) {
             super(view);
             time = view.findViewById(R.id.time);
+            slotname = view.findViewById(R.id.slotname);
         }
 
     }
@@ -48,6 +50,7 @@ public class Timing_Adapter extends RecyclerView.Adapter<Timing_Adapter.MyViewHo
         this.OfferList = offerList;
         this.context = context;
         this.forClicktimings = forClicktimings;
+        lastSelectedPosition =0;
     }
 
     @NonNull
@@ -67,29 +70,27 @@ public class Timing_Adapter extends RecyclerView.Adapter<Timing_Adapter.MyViewHo
         holder.time.setText(lists.getTiming());
 
 
-        if (myPos == position) {
+        if (lastSelectedPosition == position) {
             timeslot = lists.getTiming();
-
             holder.time.setTextColor(Color.parseColor("#FE8100"));
-//            holder.linear.setBackgroundResource(R.drawable.blue_dateday_rect);
+            holder.slotname.setTextColor(Color.parseColor("#FE8100"));
         } else {
-
             holder.time.setTextColor(Color.parseColor("#8f909e"));
-//            holder.linear.setBackgroundResource(R.drawable.gray_dateday_rect);
+            holder.slotname.setTextColor(Color.parseColor("#8f909e"));
         }
         holder.time.setChecked(lastSelectedPosition==position);
 
         holder.time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                try{
+                    lastSelectedPosition = position;
+                    notifyDataSetChanged();
+                    forClicktimings.getTimeSlot(OfferList.get(lastSelectedPosition).getTiming());
+                }catch (IndexOutOfBoundsException ex){
+                    ex.printStackTrace();
+                }
 
-//                myPos = position;
-
-                Log.e("TimingAdapter", "Timeslot: " + OfferList.get(position).getTiming());
-                lastSelectedPosition = position;
-                notifyDataSetChanged();
-
-                forClicktimings.getTimeSlot(OfferList.get(position).getTiming());
 
 
             }
