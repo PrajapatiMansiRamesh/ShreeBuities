@@ -59,16 +59,16 @@ public class BaseURL {
     static final String APP_NAME = "GoGrocer";
 
 
-//    https://gogrocer.tecmanic.com/api/
+//    public static String BASE_URL = "https://gogrocer.tecmanic.com/api/";
+//    public static String IMG_URL = "https://gogrocer.tecmanic.com/";
+//    public static String BANN_IMG_URL = "https://gogrocer.tecmanic.com/";
+//    public static String BANNER_IMG_URL = "https://gogrocer.tecmanic.com/";
+
     public static String BASE_URL = "https://thecodecafe.in/gogrocer-ver2.0/api/";
-//    public static String BASE_URL = "https://grophy.in/gogrocer/api/";
-
-
-    //    public static String IMG_URL = "https://grophy.in/gogrocer/image/";
     public static String IMG_URL = "https://thecodecafe.in/gogrocer-ver2.0/";
-    //    public static String IMG_URL = "https://gogrocer.tecmanic.com/";
     public static String BANN_IMG_URL = "https://gogrocer.tecmanic.com/";
     public static String BANNER_IMG_URL = "https://thecodecafe.in/gogrocer-ver2.0/";
+
     public static String SignUp = BASE_URL + "register";
     public static String SignUpOtp = BASE_URL + "verify_phone";
 
@@ -130,89 +130,4 @@ public class BaseURL {
     public static String updatenotifyby = BASE_URL + "updatenotifyby";
     public static String currencyApi = BASE_URL + "currency";
 
-
-
-  /*  public static String REGISTER_URL = BASE_URL + "register";
-    public static String Otp = BASE_URL + "verify_otp";
-    public static String LOGIN_URL = BASE_URL + "login";
-
-    public static String IMG_SLIDER_URL = BASE_URL + "uploads/sliders/";
-    public static String IMG_CATEGORY_URL = BASE_URL + "uploads/category/";
-    public static String IMG_PRODUCT_URL = BASE_URL + "uploads/products/";
-
-    public static String IMG_PROFILE_URL = BASE_URL + "uploads/profile/";
-    public static String GET_SLIDER_URL = BASE_URL + "index.php/api/get_sliders";
-    public static String GET_FEAATURED_SLIDER_URL = BASE_URL + "index.php/api/get_feature_banner";
-    public static String GET_BANNER_URL = BASE_URL + "index.php/api/get_banner";
-
-    public static String WALLET_REFRESH = BASE_URL + "index.php/api/wallet?user_id=";
-    public static String REWARDS_REFRESH = BASE_URL + "index.php/api/rewards?user_id=";
-
-    public static String GET_CATEGORY_URL = BASE_URL + "index.php/api/get_categories";
-    public static String GET_SLIDER_CATEGORY_URL = BASE_URL + "index.php/api/get_sub_cat";
-    public static String GET_CATEGORY_ICON_URL = BASE_URL + "index.php/api/icon";
-    public static String COUPON_CODE = BASE_URL + "index.php/api/get_coupons";
-
-    //Home PAGE
-
-    public static String GET_MENU_PRODUCTS = BASE_URL + "index.php/api/icon";
-    public static String GET_MENU_ICON_PRODUCT_URL = BASE_URL + "index.php/api/get_header_products";
-    public static String GET_DEAL_OF_DAY_PRODUCTS = BASE_URL + "index.php/api/deal_product";
-    public static String GET_ALL_DEAL_OF_DAY_PRODUCTS = BASE_URL + "index.php/api/get_all_deal_product";
-    public static String GET_TOP_SELLING_PRODUCTS = BASE_URL + "index.php/api/top_selling_product";
-    public static String GET_ALL_TOP_SELLING_PRODUCTS = BASE_URL + "index.php/api/get_all_top_selling_product";
-
-
-    public static String GET_PRODUCT_URL = BASE_URL + "index.php/api/get_products";
-
-    public static String GET_ABOUT_URL = BASE_URL + "index.php/api/aboutus";
-
-    public static String GET_SUPPORT_URL = BASE_URL + "index.php/api/support";
-
-    public static String GET_TERMS_URL = BASE_URL + "index.php/api/terms";
-
-    public static String GET_TIME_SLOT_URL = BASE_URL + "index.php/api/get_time_slot";
-
-
-
-
-
-    public static String GET_SOCITY_URL = BASE_URL + "index.php/api/get_society";
-
-    public static String EDIT_PROFILE_URL = BASE_URL + "index.php/api/update_userdata";
-
-    public static String ADD_ORDER_URL = BASE_URL + "index.php/api/send_order";
-    public static String Wallet_CHECKOUT = BASE_URL + "index.php/api/wallet_at_checkout";
-    public static String GET_ORDER_URL = BASE_URL + "index.php/api/my_orders";
-
-    public static String GET_DELIVERD_ORDER_URL = BASE_URL + "index.php/api/delivered_complete";
-
-    public static String ORDER_DETAIL_URL = BASE_URL + "index.php/api/order_details";
-
-    public static String DELETE_ORDER_URL = BASE_URL + "index.php/api/cancel_order";
-
-    public static String GET_LIMITE_SETTING_URL = BASE_URL + "index.php/api/get_limit_settings";
-
-    public static String ADD_ADDRESS_URL = BASE_URL + "index.php/api/add_address";
-
-    public static String GET_ADDRESS_URL = BASE_URL + "index.php/api/get_address";
-
-    public static String FORGOT_URL = BASE_URL + "index.php/api/forgot_password";
-
-    public static String JSON_RIGISTER_FCM = BASE_URL + "index.php/api/register_fcm";
-
-    public static String CHANGE_PASSWORD_URL = BASE_URL + "index.php/api/change_password";
-
-    public static String DELETE_ADDRESS_URL = BASE_URL + "index.php/api/delete_address";
-
-    public static String EDIT_ADDRESS_URL = BASE_URL + "index.php/api/edit_address";
-
-
-    // global topic to receive app wide push notifications
-
-    // broadcast receiver intent filters
-    public static final String REGISTRATION_COMPLETE = "registrationComplete";
-
-    public static final String PUSH_NOTIFICATION = "pushNotification";
-*/
 }

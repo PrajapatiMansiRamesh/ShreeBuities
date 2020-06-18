@@ -282,16 +282,21 @@ public class OrderSummary extends AppCompatActivity implements ForClicktimings {
             @Override
             public void onClick(View v) {
 //                timeslot = bAdapter1.gettimeslot();
-                progressDialog.show();
-                if (Integer.parseInt(txt_totalPrice.getText().toString()) <= Integer.parseInt(minVAlue)) {
-                    Snackbar.make(v, "Please order more than" + " " + minVAlue, Snackbar.LENGTH_LONG).show();
-                    progressDialog.dismiss();
-                } else if (Integer.parseInt(txt_totalPrice.getText().toString()) >= Integer.parseInt(maxValue)) {
-                    Snackbar.make(v, "Please order less than" + " " + maxValue, Snackbar.LENGTH_LONG).show();
-                    progressDialog.dismiss();
-                } else {
-                    continueUrl(todaydatee, timeslot, map);
+                if (txt_totalPrice.getText().toString()!=null && !txt_totalPrice.getText().toString().equalsIgnoreCase("")){
+                    progressDialog.show();
+                    if (Integer.parseInt(txt_totalPrice.getText().toString()) <= Integer.parseInt(minVAlue)) {
+                        Snackbar.make(v, "Please order more than" + " " + minVAlue, Snackbar.LENGTH_LONG).show();
+                        progressDialog.dismiss();
+                    } else if (Integer.parseInt(txt_totalPrice.getText().toString()) >= Integer.parseInt(maxValue)) {
+                        Snackbar.make(v, "Please order less than" + " " + maxValue, Snackbar.LENGTH_LONG).show();
+                        progressDialog.dismiss();
+                    } else {
+                        continueUrl(todaydatee, timeslot, map);
+                    }
+                }else {
+                    Snackbar.make(v, "Please wait", Snackbar.LENGTH_LONG).show();
                 }
+
                 /*if(txt_totalPrice.getText().toString()!=minVAlue){
                     Toast.makeText(getApplicationContext(),"Cart amount must be more than "+minVAlue,Toast.LENGTH_SHORT).show();
                 }else {

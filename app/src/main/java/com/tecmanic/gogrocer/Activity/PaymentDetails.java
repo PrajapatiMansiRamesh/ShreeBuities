@@ -104,8 +104,11 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
     private String remaingprice = "";
     private boolean coupounApplied = false;
     private String payable_amt = "";
-    private int walletbalnce = 0;
+    private double walletbalnce = 0;
     private ProgressDialog progressDialog;
+    private String coupon_amount = "";
+
+    private TextView coupon_apply_t;
 
     @Override
     public void onBackPressed() {
@@ -127,6 +130,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
         progressDialog.setMessage("Payment is in processing...");
         progressDialog.setCancelable(false);
         llwallet = findViewById(R.id.llwallet);
+        coupon_apply_t = findViewById(R.id.coupon_apply_t);
         llpromocode = findViewById(R.id.llpromocode);
         llcod = findViewById(R.id.llcod);
         llcards = findViewById(R.id.llcards);
@@ -195,6 +199,10 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                 rb_card.setChecked(false);
                 llcards.setBackgroundResource(R.drawable.border_rounded1);
                 tcards.setTextColor(getResources().getColor(R.color.black));
+                et_Coupon.setText("");
+                Promo_code_layout.setVisibility(View.GONE);
+                coupon_apply_t.setVisibility(View.VISIBLE);
+                Promo_code_layout.setClickable(true);
             }
         });
         total_amount = getIntent().getStringExtra("order_amt");
@@ -263,7 +271,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                 } else if (checkBox_Wallet.isChecked()) {
                     wallet_status = "yes";
                     payment_method = "wallet";
-                    if (walletbalnce == 0 && Double.parseDouble(total_amount) > 0.0) {
+                    if (walletbalnce == 0.0 && Double.parseDouble(total_amount) > 0.0) {
                         progressDialog.dismiss();
                         Toast.makeText(PaymentDetails.this, "Select Card Or COD", Toast.LENGTH_SHORT).show();
                     } else {
@@ -330,31 +338,37 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
         llcards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!rb_card.isChecked()) {
-                    rb_card.setChecked(true);
-                    rb_Cod.setChecked(false);
-                    llcards.setBackgroundResource(R.drawable.gradientbg);
-                    tcards.setTextColor(getResources().getColor(R.color.white));
-                    llcod.setBackgroundResource(R.drawable.border_rounded1);
-                    tcod.setTextColor(getResources().getColor(R.color.black));
-                    if (checkBox_Wallet.isChecked()) {
-                        wallet_status = "yes";
-                    } else {
-                        wallet_status = "no";
+                if (total_amount.equalsIgnoreCase("0")||total_amount.equalsIgnoreCase("0.0")||total_amount.equalsIgnoreCase("")){
+
+                }else {
+                    if (!rb_card.isChecked()) {
+                        rb_card.setChecked(true);
+                        rb_Cod.setChecked(false);
+                        llcards.setBackgroundResource(R.drawable.gradientbg);
+                        tcards.setTextColor(getResources().getColor(R.color.white));
+                        llcod.setBackgroundResource(R.drawable.border_rounded1);
+                        tcod.setTextColor(getResources().getColor(R.color.black));
+                        if (checkBox_Wallet.isChecked()) {
+                            wallet_status = "yes";
+                        } else {
+                            wallet_status = "no";
+                        }
+                        payment_method = "cards";
                     }
-                    payment_method = "cards";
-                } else {
-                    rb_card.setChecked(false);
-                    llcards.setBackgroundResource(R.drawable.border_rounded1);
-                    tcards.setTextColor(getResources().getColor(R.color.black));
-                    if (checkBox_Wallet.isChecked()) {
-                        wallet_status = "yes";
-                        payment_method = "wallet";
-                    } else {
-                        payment_method = "";
-                        wallet_status = "no";
+                    else {
+                        rb_card.setChecked(false);
+                        llcards.setBackgroundResource(R.drawable.border_rounded1);
+                        tcards.setTextColor(getResources().getColor(R.color.black));
+                        if (checkBox_Wallet.isChecked()) {
+                            wallet_status = "yes";
+                            payment_method = "wallet";
+                        } else {
+                            payment_method = "";
+                            wallet_status = "no";
+                        }
                     }
                 }
+
 
                 checkBox_Wallet.setClickable(false);
                 rb_card.setClickable(false);
@@ -366,30 +380,34 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
         llcod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!rb_Cod.isChecked()) {
-                    rb_Cod.setChecked(true);
-                    rb_card.setChecked(false);
-                    llcod.setBackgroundResource(R.drawable.gradientbg);
-                    tcod.setTextColor(getResources().getColor(R.color.white));
-                    llcards.setBackgroundResource(R.drawable.border_rounded1);
-                    tcards.setTextColor(getResources().getColor(R.color.black));
-                    if (checkBox_Wallet.isChecked()) {
-                        wallet_status = "yes";
+                if (total_amount.equalsIgnoreCase("0")||total_amount.equalsIgnoreCase("0.0")||total_amount.equalsIgnoreCase("")){
+
+                }else {
+                    if (!rb_Cod.isChecked()) {
+                        rb_Cod.setChecked(true);
+                        rb_card.setChecked(false);
+                        llcod.setBackgroundResource(R.drawable.gradientbg);
+                        tcod.setTextColor(getResources().getColor(R.color.white));
+                        llcards.setBackgroundResource(R.drawable.border_rounded1);
+                        tcards.setTextColor(getResources().getColor(R.color.black));
+                        if (checkBox_Wallet.isChecked()) {
+                            wallet_status = "yes";
+                        } else {
+                            wallet_status = "no";
+                        }
+                        payment_method = "COD";
                     } else {
-                        wallet_status = "no";
-                    }
-                    payment_method = "COD";
-                } else {
-                    rb_Cod.setChecked(false);
-                    rb_card.setChecked(false);
-                    llcod.setBackgroundResource(R.drawable.border_rounded1);
-                    tcod.setTextColor(getResources().getColor(R.color.black));
-                    if (checkBox_Wallet.isChecked()) {
-                        wallet_status = "yes";
-                        payment_method = "wallet";
-                    } else {
-                        wallet_status = "no";
-                        payment_method = "";
+                        rb_Cod.setChecked(false);
+                        rb_card.setChecked(false);
+                        llcod.setBackgroundResource(R.drawable.border_rounded1);
+                        tcod.setTextColor(getResources().getColor(R.color.black));
+                        if (checkBox_Wallet.isChecked()) {
+                            wallet_status = "yes";
+                            payment_method = "wallet";
+                        } else {
+                            wallet_status = "no";
+                            payment_method = "";
+                        }
                     }
                 }
 
@@ -415,15 +433,15 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     llwallet.setBackgroundResource(R.drawable.gradientbg);
                     twallet.setTextColor(getResources().getColor(R.color.white));
                     my_wallet_ammount.setTextColor(getResources().getColor(R.color.white));
-                    int amt = Integer.parseInt(total_amount);
-                    int wallet = Integer.parseInt(wallet_amount);
+                    double amt = Double.parseDouble(total_amount);
+                    double wallet = Double.parseDouble(wallet_amount);
                     if (wallet > 0) {
                         if (amt <= wallet) {
                             walletbalnce = wallet - amt;
                             total_amount = "0";
-                            rb_card.setClickable(false);
-                            rb_Cod.setClickable(false);
-                            checkBox_coupon.setClickable(false);
+                            llcards.setClickable(false);
+                            llcod.setClickable(false);
+                            llpromocode.setClickable(false);
                             my_wallet_ammount.setText(sessionManagement.getCurrency() + "" + walletbalnce);
                             order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
                         } else {
@@ -442,16 +460,16 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         llwallet.setBackgroundResource(R.drawable.border_rounded1);
                         twallet.setTextColor(getResources().getColor(R.color.black));
                         my_wallet_ammount.setTextColor(getResources().getColor(R.color.black));
-                        int wallett = Integer.parseInt(wallet_amount);
+                        double wallett = Double.parseDouble(wallet_amount);
                         my_wallet_ammount.setText(sessionManagement.getCurrency() + wallett);
                         total_amount = payable_amt;
                         walletbalnce = wallet;
                         order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
                         wallet_status = "no";
                         payment_method = "";
-                        rb_card.setClickable(true);
-                        rb_Cod.setClickable(true);
-                        checkBox_coupon.setClickable(true);
+                        llcod.setClickable(true);
+                        llcards.setClickable(true);
+                        llpromocode.setClickable(true);
                         startActivityForResult(new Intent(PaymentDetails.this, RechargeWallet.class), 5);
                     }
 
@@ -461,16 +479,35 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     llwallet.setBackgroundResource(R.drawable.border_rounded1);
                     twallet.setTextColor(getResources().getColor(R.color.black));
                     my_wallet_ammount.setTextColor(getResources().getColor(R.color.black));
-                    int wallet = Integer.parseInt(wallet_amount);
+                    double wallet = Double.parseDouble(wallet_amount);
                     my_wallet_ammount.setText(sessionManagement.getCurrency() + "" + wallet);
-                    total_amount = payable_amt;
-                    walletbalnce = wallet;
-                    order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
-                    wallet_status = "no";
-                    payment_method = "";
-                    rb_card.setClickable(true);
-                    rb_Cod.setClickable(true);
-                    checkBox_coupon.setClickable(true);
+
+                    if (checkBox_coupon.isChecked()){
+                        if (coupon_amount!=null && !coupon_amount.equalsIgnoreCase("")){
+                            double amountd = Double.parseDouble(payable_amt)- Double.parseDouble(coupon_amount);
+                            total_amount = String.valueOf(amountd);
+                            walletbalnce = wallet;
+                            order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
+                            wallet_status = "no";
+                            payment_method = "promocode";
+                        }else {
+                            total_amount = payable_amt;
+                            walletbalnce = wallet;
+                            order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
+                            wallet_status = "no";
+                            payment_method = "";
+                        }
+
+                    }else {
+                        total_amount = payable_amt;
+                        walletbalnce = wallet;
+                        order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
+                        wallet_status = "no";
+                        payment_method = "";
+                    }
+                    llcod.setClickable(true);
+                    llcards.setClickable(true);
+                    llpromocode.setClickable(true);
                 }
 
                 checkBox_Wallet.setClickable(false);
@@ -484,12 +521,14 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
             @Override
             public void onClick(View v) {
                 if (!checkBox_coupon.isChecked()) {
+                    coupon_apply_t.setVisibility(View.GONE);
                     checkBox_coupon.setChecked(true);
                     llpromocode.setBackgroundResource(R.drawable.gradientbg);
                     tpromocode.setTextColor(getResources().getColor(R.color.white));
                     Intent coupounIntent = new Intent(PaymentDetails.this, Coupen.class);
                     startActivityForResult(coupounIntent, 2);
                 } else {
+                    coupon_apply_t.setVisibility(View.VISIBLE);
                     checkBox_coupon.setChecked(false);
                     llpromocode.setBackgroundResource(R.drawable.border_rounded1);
                     tpromocode.setTextColor(getResources().getColor(R.color.black));
@@ -619,7 +658,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         remaingprice = jsonObject.getString("rem_price");
                         String deliverycharge = jsonObject.getString("delivery_charge");
                         coupuntxt.setText("Applied");
-
+                        coupon_amount = jsonObject.getString("coupon_discount");
                         if (checkBox_Wallet.isChecked()) {
                             double remInt = Double.parseDouble(remaingprice);
                             double wallet = Double.parseDouble(wallet_amount);
@@ -655,8 +694,8 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         code = "";
                         status = 1;
                         if (checkBox_Wallet.isChecked()) {
-                            int amt = Integer.parseInt(payable_amt);
-                            int wallet = Integer.parseInt(wallet_amount);
+                            double amt = Double.parseDouble(payable_amt);
+                            double wallet = Double.parseDouble(wallet_amount);
                             if (wallet > 0) {
                                 if (amt <= wallet) {
                                     walletbalnce = wallet - amt;
@@ -683,6 +722,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         code = "";
                         status = 1;
                         Promo_code_layout.setVisibility(View.GONE);
+                        coupon_apply_t.setVisibility(View.VISIBLE);
                         checkBox_coupon.setChecked(false);
                         llpromocode.setBackgroundResource(R.drawable.border_rounded1);
                         tpromocode.setTextColor(getResources().getColor(R.color.black));
@@ -999,7 +1039,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
             options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
             options.put("currency", "INR");
 
-            options.put("amount", Integer.parseInt(amount) * 100);
+            options.put("amount", Double.parseDouble(amount) * 100);
 
             JSONObject preFill = new JSONObject();
 
@@ -1041,6 +1081,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     code = "";
                     status = 1;
                     Promo_code_layout.setVisibility(View.GONE);
+                    coupon_apply_t.setVisibility(View.VISIBLE);
                     checkBox_coupon.setChecked(false);
                     llpromocode.setBackgroundResource(R.drawable.border_rounded1);
                     tpromocode.setTextColor(getResources().getColor(R.color.black));
@@ -1048,6 +1089,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     code = "";
                     status = 1;
                     Promo_code_layout.setVisibility(View.GONE);
+                    coupon_apply_t.setVisibility(View.VISIBLE);
                     checkBox_coupon.setChecked(false);
                     llpromocode.setBackgroundResource(R.drawable.border_rounded1);
                     tpromocode.setTextColor(getResources().getColor(R.color.black));

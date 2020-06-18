@@ -1010,12 +1010,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     for (int i = 0; i < orderSubModels.size(); i++) {
                         NewPendingDataModel odModel = orderSubModels.get(i);
                         if (odModel.getDescription()!=null && !odModel.getDescription().equalsIgnoreCase("")){
+                            double price = Double.parseDouble(odModel.getPrice())/Double.parseDouble(odModel.getQty());
                             HashMap<String, String> map = new HashMap<>();
                             map.put("varient_id", odModel.getVarient_id());
                             map.put("product_name", odModel.getProduct_name());
                             map.put("category_id", odModel.getVarient_id());
                             map.put("title", odModel.getProduct_name());
-                            map.put("price", odModel.getPrice());
+                            map.put("price", String.valueOf(price));
                             map.put("mrp", odModel.getTotal_mrp());
                             map.put("product_image", odModel.getVarient_image());
                             map.put("status", "1");

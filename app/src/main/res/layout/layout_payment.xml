@@ -284,12 +284,14 @@
                                 <TextView
                                     android:id="@+id/txtpromo"
                                     android:layout_width="wrap_content"
+                                    android:layout_centerVertical="true"
                                     android:layout_height="wrap_content"
                                     android:text="@string/promo"
                                     android:textColor="@color/black" />
 
 
                                 <CheckBox
+                                    android:visibility="gone"
                                     android:id="@+id/use_coupon"
                                     android:clickable="false"
                                     android:focusable="false"
@@ -302,6 +304,19 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
                                     tools:ignore="UnusedAttribute" />
+
+                                <TextView
+                                    android:id="@+id/coupon_apply_t"
+                                    android:layout_width="wrap_content"
+                                    android:minWidth="100dp"
+                                    android:layout_height="30dp"
+                                    android:gravity="center"
+                                    android:layout_centerVertical="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:background="@drawable/bg_rounded_button"
+                                    android:text="Apply"
+                                    android:textColor="#fff"
+                                    android:textSize="14sp" />
                             </RelativeLayout>
 
                             <LinearLayout

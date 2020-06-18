@@ -123,6 +123,7 @@ public class Cart_adapter extends RecyclerView.Adapter<Cart_adapter.ProductHolde
             dbHandler.removeItemFromCart(map.get("varient_id"));
             list.remove(position);
             notifyDataSetChanged();
+            tv_total.setText(session_management.getCurrency() + " " + dbHandler.getTotalAmount());
             updateintent(dbHandler, view.getContext());
         });
 
