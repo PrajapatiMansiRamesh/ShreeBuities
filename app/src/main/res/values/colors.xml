@@ -23,6 +23,8 @@
 
     <color name="color_2">#1b4ddc</color>
     <color name="color_3">#ff0023</color>
+    <color name="red">#FF0000</color>
+    <color name="green_orl">#008000</color>
     <color name="yelow">#ffee05</color>
     <color name="purple">#ed0bc0</color>
     <color name="grey">#C0C0C0</color>

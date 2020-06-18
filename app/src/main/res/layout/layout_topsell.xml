@@ -83,8 +83,6 @@
                     android:id="@+id/rlQuan"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
                     android:layout_gravity="center|left"
                     android:gravity="start"
                     android:layout_marginTop="5dp">
@@ -98,7 +96,7 @@
                         android:fontFamily="@font/opensans_regular"
                         android:text="1 kg"
                         android:textColor="@color/darkGrey"
-                        android:textSize="14sp"></TextView>
+                        android:textSize="14sp"/>
 
                     <TextView
                         android:id="@+id/time"

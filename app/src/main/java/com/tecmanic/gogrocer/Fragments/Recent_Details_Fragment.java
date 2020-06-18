@@ -32,6 +32,7 @@ import com.tecmanic.gogrocer.Adapters.CartAdapter;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
+import com.tecmanic.gogrocer.util.PagerNotifier;
 import com.tecmanic.gogrocer.util.Session_management;
 
 import org.json.JSONArray;

@@ -101,8 +101,7 @@
                         android:layout_height="15dp"
                         android:background="@drawable/ic_up_arrow"
                         android:backgroundTint="@color/white"
-                        android:layout_gravity="center|left"
-                        ></ImageView>
+                        android:layout_gravity="center|left"/>
 
                 </LinearLayout>
             </LinearLayout>

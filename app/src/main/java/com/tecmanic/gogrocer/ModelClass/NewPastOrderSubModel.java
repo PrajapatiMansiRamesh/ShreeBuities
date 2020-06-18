@@ -16,6 +16,7 @@ public class NewPastOrderSubModel implements Serializable {
     private String order_cart_id;
     private String order_date;
     private String store_approval;
+    private String description;
 
     public String getStore_order_id() {
         return store_order_id;
@@ -113,6 +114,20 @@ public class NewPastOrderSubModel implements Serializable {
         this.store_approval = store_approval;
     }
 
+    public String getDescription() {
+        if (description == null) {
+            return "";
+        }
+        return description;
+    }
+
+    public void setDescription(String description) {
+        if (description == null) {
+            this.description = "";
+        } else {
+            this.description = description;
+        }
+    }
 
     @Override
     public String toString() {
@@ -129,6 +144,7 @@ public class NewPastOrderSubModel implements Serializable {
                 ", order_cart_id='" + order_cart_id + '\'' +
                 ", order_date='" + order_date + '\'' +
                 ", store_approval='" + store_approval + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

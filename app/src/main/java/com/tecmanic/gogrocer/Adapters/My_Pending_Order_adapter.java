@@ -5,6 +5,10 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +19,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -71,14 +77,14 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
     public void onBindViewHolder(MyViewHolder holder, int position) {
         NewPendingOrderModel mList = modelList.get(position);
 
+        holder.reorder_btn.setVisibility(View.GONE);
         holder.tv_orderno.setText(mList.getCart_id());
-
         if (mList.getOrder_status().equalsIgnoreCase("Completed")) {
+            holder.relative_background.setCardBackgroundColor(getColor(0, 128, 0));
             holder.relativetextstatus.setText("Completed");
             holder.l1.setVisibility(View.VISIBLE);
             holder.btn_lay.setVisibility(View.VISIBLE);
             holder.canclebtn.setVisibility(View.GONE);
-            holder.reorder_btn.setVisibility(View.VISIBLE);
             holder.Confirm.setVisibility(View.GONE);
             holder.Out_For_Deliverde.setVisibility(View.GONE);
             holder.Delivered.setVisibility(View.GONE);
@@ -90,21 +96,18 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.relativetextstatus.setText("Pending");
             holder.l1.setVisibility(View.VISIBLE);
             holder.btn_lay.setVisibility(View.VISIBLE);
-            holder.canclebtn.setVisibility(View.VISIBLE);
-            holder.reorder_btn.setVisibility(View.VISIBLE);
             holder.Confirm.setVisibility(View.VISIBLE);
+            holder.canclebtn.setVisibility(View.VISIBLE);
             holder.Out_For_Deliverde.setVisibility(View.VISIBLE);
             holder.Delivered.setVisibility(View.VISIBLE);
             holder.Confirm1.setVisibility(View.GONE);
             holder.Out_For_Deliverde1.setVisibility(View.GONE);
             holder.Delivered1.setVisibility(View.GONE);
-
         } else if (mList.getOrder_status().equalsIgnoreCase("Confirmed")) {
             holder.relativetextstatus.setText("Confirmed");
             holder.l1.setVisibility(View.VISIBLE);
             holder.btn_lay.setVisibility(View.VISIBLE);
-            holder.canclebtn.setVisibility(View.VISIBLE);
-            holder.reorder_btn.setVisibility(View.VISIBLE);
+            holder.canclebtn.setVisibility(View.GONE);
             holder.Confirm.setVisibility(View.GONE);
             holder.Out_For_Deliverde.setVisibility(View.VISIBLE);
             holder.Delivered.setVisibility(View.VISIBLE);
@@ -115,7 +118,6 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.relativetextstatus.setText("Out For Delivery");
             holder.btn_lay.setVisibility(View.VISIBLE);
             holder.canclebtn.setVisibility(View.GONE);
-            holder.reorder_btn.setVisibility(View.VISIBLE);
             holder.l1.setVisibility(View.VISIBLE);
             holder.Confirm.setVisibility(View.GONE);
             holder.Out_For_Deliverde.setVisibility(View.GONE);
@@ -124,10 +126,12 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.Out_For_Deliverde1.setVisibility(View.VISIBLE);
             holder.Delivered1.setVisibility(View.GONE);
         } else if (mList.getOrder_status().equalsIgnoreCase("Cancelled")) {
+            holder.relative_background.setCardBackgroundColor(getColor(255, 0, 0));
             holder.relativetextstatus.setText("Cancelled");
-            holder.btn_lay.setVisibility(View.GONE);
+//            holder.btn_lay.setVisibility(View.GONE);
             holder.canclebtn.setVisibility(View.GONE);
-            holder.reorder_btn.setVisibility(View.GONE);
+            holder.reorder_btn.setVisibility(View.VISIBLE);
+            holder.order_details.setVisibility(View.VISIBLE);
             holder.l1.setVisibility(View.GONE);
         }
 
@@ -248,7 +252,14 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
 
         holder.tv_item.setText("" + mList.getData().size());
 
-        holder.rr.setOnClickListener(new View.OnClickListener() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            holder.reorder_btn.setBackgroundTintList(ColorStateList.valueOf(getColor(254,129,0)));
+//        }else {
+//
+//        }
+//        holder.reorder_btn.getBackground().setColorFilter(getColor(254,129,0), PorterDuff.Mode.SRC_ATOP);
+//        holder.reorder_btn.setText("Order Detail's");
+        holder.order_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sale_id = modelList.get(position).getCart_id();
@@ -273,26 +284,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         holder.reorder_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                context.startActivity(new Intent(context.getApplicationContext(), OrderSummary.class));
-
-//                String sale_id = modelList.get(position).getCart_id();
-//                String date = modelList.get(position).getDelivery_date();
-//                String time = modelList.get(position).getTime_slot();
-//                String total = modelList.get(position).getPrice();
-//                String status = modelList.get(position).getOrder_status();
-//                String deli_charge = modelList.get(position).getDel_charge();
-//                Intent intent = new Intent(v.getContext(), Myorderdetails.class);
-//                intent.putExtra("sale_id", sale_id);
-//                intent.putExtra("date", date);
-//                intent.putExtra("time", time);
-//                intent.putExtra("total", total);
-//                intent.putExtra("status", status);
-//                intent.putExtra("deli_charge", deli_charge);
-//                intent.putExtra("data", mList.getData());
-//                v.getContext().startActivity(intent);
-
                 myPendingReorderClick.onReorderClick(modelList.get(position).getData());
-
             }
         });
 
@@ -328,6 +320,10 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         return modelList.size();
     }
 
+    public int getColor(int r, int g, int b) {
+        return Color.rgb(r, g, b);
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView tv_orderno, tv_status, tv_date, tv_time, tv_price, tv_item, relativetextstatus, tv_tracking_date, tv_pay_ableamount, tv_order_price_2, tv_wallet_amount, tv_coupon_amount, tv_delivery_amount, tv_total_pay;
         public TextView tv_pending_date, tv_pending_time, tv_confirm_date, tv_confirm_time, tv_delevered_date, tv_delevered_time, tv_cancel_date, tv_cancel_time;
@@ -340,7 +336,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         public ImageView info_price;
         public String method;
         //        CardView cardView;
-        Button canclebtn, reorder_btn;
+        TextView canclebtn, reorder_btn, order_details;
         //        LinearLayout linearLayout;
         LinearLayout l1;
         LinearLayout btn_lay;
@@ -373,6 +369,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             l1 = view.findViewById(R.id.l1);
             btn_lay = view.findViewById(R.id.btn_lay);
             rr = view.findViewById(R.id.rrrr);
+            order_details = view.findViewById(R.id.order_details);
 
 //            cardView = view.findViewById(R.id.card_view);
 

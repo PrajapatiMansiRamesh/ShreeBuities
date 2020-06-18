@@ -156,6 +156,10 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
         used_coupon_ammount = findViewById(R.id.used_coupon_ammount);
         coupuntxt = findViewById(R.id.coupuntxt);
         coupuntxt.setText("Apply");
+        checkBox_Wallet.setClickable(false);
+        rb_card.setClickable(false);
+        rb_Cod.setClickable(false);
+        checkBox_coupon.setClickable(false);
 
         reset_text.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,6 +168,33 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
 //
 //                intent.putExtra("order_amt", total_amt);
 //                startActivity(intent);
+                checkBox_Wallet.setClickable(false);
+                rb_card.setClickable(false);
+                rb_Cod.setClickable(false);
+                checkBox_coupon.setClickable(false);
+                total_amount = getIntent().getStringExtra("order_amt");
+                payable_amt = getIntent().getStringExtra("order_amt");
+                code = "";
+                payment_method = "";
+                wallet_status = "no";
+                getwallet = SharedPref.getString(getApplicationContext(), BaseURL.KEY_WALLET_Ammount);
+                wallet_amount = getwallet;
+                walletbalnce = 0;
+                my_wallet_ammount.setText(sessionManagement.getCurrency() + "" + wallet_amount);
+                order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
+                my_wallet_ammount.setTextColor(getResources().getColor(R.color.black));
+                checkBox_Wallet.setChecked(false);
+                llwallet.setBackgroundResource(R.drawable.border_rounded1);
+                twallet.setTextColor(getResources().getColor(R.color.black));
+                checkBox_coupon.setChecked(false);
+                llpromocode.setBackgroundResource(R.drawable.border_rounded1);
+                tpromocode.setTextColor(getResources().getColor(R.color.black));
+                rb_Cod.setChecked(false);
+                llcod.setBackgroundResource(R.drawable.border_rounded1);
+                tcod.setTextColor(getResources().getColor(R.color.black));
+                rb_card.setChecked(false);
+                llcards.setBackgroundResource(R.drawable.border_rounded1);
+                tcards.setTextColor(getResources().getColor(R.color.black));
             }
         });
         total_amount = getIntent().getStringExtra("order_amt");
@@ -180,7 +211,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
         });
 
 
-        Prefrence_TotalAmmount = SharedPref.getString(getApplicationContext(), BaseURL.TOTAL_AMOUNT);
+//        Prefrence_TotalAmmount = SharedPref.getString(getApplicationContext(), BaseURL.TOTAL_AMOUNT);
 
 
         sharedPreferences12 = getSharedPreferences("loction", MODE_PRIVATE);
@@ -285,38 +316,27 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
         });
 //
 
-        rb_Cod.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                rb_card.setChecked(false);
-                llcod.setBackgroundResource(R.drawable.gradientbg);
-                tcod.setTextColor(getResources().getColor(R.color.white));
-                if (checkBox_Wallet.isChecked()) {
-                    wallet_status = "yes";
-                } else {
-                    wallet_status = "no";
-                }
-                payment_method = "COD";
-            } else {
-                rb_card.setChecked(false);
-                llcod.setBackgroundResource(R.drawable.border_rounded1);
-                tcod.setTextColor(getResources().getColor(R.color.black));
-                if (checkBox_Wallet.isChecked()) {
-                    wallet_status = "yes";
-                    payment_method = "wallet";
-                } else {
-                    wallet_status = "no";
-                    payment_method = "";
-                }
-            }
-        });
+//        rb_Cod.setOnCheckedChangeListener((buttonView, isChecked) -> {
+//
+//        });
 
-        rb_card.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//        rb_card.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//            }
+//        });
+
+        llcards.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onClick(View v) {
+                if (!rb_card.isChecked()) {
+                    rb_card.setChecked(true);
                     rb_Cod.setChecked(false);
                     llcards.setBackgroundResource(R.drawable.gradientbg);
                     tcards.setTextColor(getResources().getColor(R.color.white));
+                    llcod.setBackgroundResource(R.drawable.border_rounded1);
+                    tcod.setTextColor(getResources().getColor(R.color.black));
                     if (checkBox_Wallet.isChecked()) {
                         wallet_status = "yes";
                     } else {
@@ -324,6 +344,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     }
                     payment_method = "cards";
                 } else {
+                    rb_card.setChecked(false);
                     llcards.setBackgroundResource(R.drawable.border_rounded1);
                     tcards.setTextColor(getResources().getColor(R.color.black));
                     if (checkBox_Wallet.isChecked()) {
@@ -334,14 +355,63 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         wallet_status = "no";
                     }
                 }
+
+                checkBox_Wallet.setClickable(false);
+                rb_card.setClickable(false);
+                rb_Cod.setClickable(false);
+                checkBox_coupon.setClickable(false);
             }
         });
 
-
-        checkBox_Wallet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        llcod.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onClick(View v) {
+                if (!rb_Cod.isChecked()) {
+                    rb_Cod.setChecked(true);
+                    rb_card.setChecked(false);
+                    llcod.setBackgroundResource(R.drawable.gradientbg);
+                    tcod.setTextColor(getResources().getColor(R.color.white));
+                    llcards.setBackgroundResource(R.drawable.border_rounded1);
+                    tcards.setTextColor(getResources().getColor(R.color.black));
+                    if (checkBox_Wallet.isChecked()) {
+                        wallet_status = "yes";
+                    } else {
+                        wallet_status = "no";
+                    }
+                    payment_method = "COD";
+                } else {
+                    rb_Cod.setChecked(false);
+                    rb_card.setChecked(false);
+                    llcod.setBackgroundResource(R.drawable.border_rounded1);
+                    tcod.setTextColor(getResources().getColor(R.color.black));
+                    if (checkBox_Wallet.isChecked()) {
+                        wallet_status = "yes";
+                        payment_method = "wallet";
+                    } else {
+                        wallet_status = "no";
+                        payment_method = "";
+                    }
+                }
+
+                checkBox_Wallet.setClickable(false);
+                rb_card.setClickable(false);
+                rb_Cod.setClickable(false);
+                checkBox_coupon.setClickable(false);
+            }
+        });
+
+//        checkBox_Wallet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//            }
+//        });
+
+        llwallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!checkBox_Wallet.isChecked()) {
+                    checkBox_Wallet.setChecked(true);
                     llwallet.setBackgroundResource(R.drawable.gradientbg);
                     twallet.setTextColor(getResources().getColor(R.color.white));
                     my_wallet_ammount.setTextColor(getResources().getColor(R.color.white));
@@ -359,6 +429,7 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         } else {
                             walletbalnce = 0;
                             total_amount = String.valueOf((amt - wallet));
+                            my_wallet_ammount.setText(sessionManagement.getCurrency() + "" + walletbalnce);
                             order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
 //                        startActivity(new Intent(getApplicationContext(), RechargeWallet.class));
                         }
@@ -384,7 +455,9 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                         startActivityForResult(new Intent(PaymentDetails.this, RechargeWallet.class), 5);
                     }
 
-                } else {
+                }
+                else {
+                    checkBox_Wallet.setChecked(false);
                     llwallet.setBackgroundResource(R.drawable.border_rounded1);
                     twallet.setTextColor(getResources().getColor(R.color.black));
                     my_wallet_ammount.setTextColor(getResources().getColor(R.color.black));
@@ -399,27 +472,49 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     rb_Cod.setClickable(true);
                     checkBox_coupon.setClickable(true);
                 }
+
+                checkBox_Wallet.setClickable(false);
+                rb_card.setClickable(false);
+                rb_Cod.setClickable(false);
+                checkBox_coupon.setClickable(false);
             }
         });
 
-        checkBox_coupon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        llpromocode.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+            public void onClick(View v) {
+                if (!checkBox_coupon.isChecked()) {
+                    checkBox_coupon.setChecked(true);
                     llpromocode.setBackgroundResource(R.drawable.gradientbg);
                     tpromocode.setTextColor(getResources().getColor(R.color.white));
                     Intent coupounIntent = new Intent(PaymentDetails.this, Coupen.class);
                     startActivityForResult(coupounIntent, 2);
                 } else {
+                    checkBox_coupon.setChecked(false);
                     llpromocode.setBackgroundResource(R.drawable.border_rounded1);
                     tpromocode.setTextColor(getResources().getColor(R.color.black));
                     et_Coupon.setText("");
                     Promo_code_layout.setVisibility(View.GONE);
                     Promo_code_layout.setClickable(true);
-                    apply();
+                    if (code!=null && !code.equalsIgnoreCase("")){
+                        apply();
+                    }
+
                 }
+
+                checkBox_Wallet.setClickable(false);
+                rb_card.setClickable(false);
+                rb_Cod.setClickable(false);
+                checkBox_coupon.setClickable(false);
             }
         });
+
+//        checkBox_coupon.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//            }
+//        });
 
 
 //        checked();
@@ -548,12 +643,14 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                                 }
                             }
 
-                        } else {
+                        }
+                        else {
                             total_amount = remaingprice;
                             order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
                         }
                         Toast.makeText(getApplicationContext(), "" + message, Toast.LENGTH_SHORT).show();
-                    } else if (statuss.contains("2")) {
+                    }
+                    else if (statuss.contains("2")) {
                         coupounApplied = false;
                         code = "";
                         status = 1;
@@ -580,7 +677,8 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                             total_amount = payable_amt;
                             order_ammount.setText(total_amount + " " + sessionManagement.getCurrency());
                         }
-                    } else {
+                    }
+                    else {
                         coupounApplied = false;
                         code = "";
                         status = 1;
@@ -946,11 +1044,15 @@ public class PaymentDetails extends AppCompatActivity implements PaymentResultLi
                     checkBox_coupon.setChecked(false);
                     llpromocode.setBackgroundResource(R.drawable.border_rounded1);
                     tpromocode.setTextColor(getResources().getColor(R.color.black));
-                } else {
+                } else if (code.equalsIgnoreCase("")){
+                    code = "";
+                    status = 1;
+                    Promo_code_layout.setVisibility(View.GONE);
+                    checkBox_coupon.setChecked(false);
+                    llpromocode.setBackgroundResource(R.drawable.border_rounded1);
+                    tpromocode.setTextColor(getResources().getColor(R.color.black));
+                }else {
                     checkBox_coupon.setChecked(true);
-//                    llwallet.setBackgroundResource(R.drawable.border_rounded1);
-//                    llcards.setBackgroundResource(R.drawable.border_rounded1);
-//                    llcod.setBackgroundResource(R.drawable.border_rounded1);
                     llpromocode.setBackgroundResource(R.drawable.gradientbg);
                     tpromocode.setTextColor(getResources().getColor(R.color.white));
 //                    tcod.setTextColor(getResources().getColor(R.color.black));

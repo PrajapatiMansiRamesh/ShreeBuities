@@ -88,15 +88,13 @@
                     android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center|left"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
+                    android:layout_marginTop="5dp">
 
                     <TextView
                         android:id="@+id/txt_unit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
+                        android:layout_gravity="start"
                         android:fontFamily="@font/opensans_regular"
                         android:gravity="center|left"
                         android:maxLines="1"

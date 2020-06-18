@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.tecmanic.gogrocer.Config.BaseURL;
-import com.tecmanic.gogrocer.ModelClass.My_order_detail_model;
 import com.tecmanic.gogrocer.ModelClass.NewPendingDataModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.util.Session_management;
 
 import java.util.List;
 
@@ -27,21 +27,7 @@ public class My_order_detail_adapter extends RecyclerView.Adapter<My_order_detai
 
     private List<NewPendingDataModel> modelList;
     private Context context;
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView tv_title, tv_price, tv_qty,txtQty;
-        public ImageView iv_img;
-
-        public MyViewHolder(View view) {
-            super(view);
-            tv_title = (TextView) view.findViewById(R.id.tv_order_Detail_title);
-            tv_price = (TextView) view.findViewById(R.id.tv_order_Detail_price);
-            tv_qty = (TextView) view.findViewById(R.id.tv_order_Detail_qty);
-            txtQty = (TextView) view.findViewById(R.id.txtQty);
-            iv_img = (ImageView) view.findViewById(R.id.iv_order_detail_img);
-
-        }
-    }
+    private Session_management session_management;
 
     public My_order_detail_adapter(List<NewPendingDataModel> modelList) {
         this.modelList = modelList;
@@ -53,7 +39,7 @@ public class My_order_detail_adapter extends RecyclerView.Adapter<My_order_detai
                 .inflate(R.layout.row_my_order_detail_rv, parent, false);
 
         context = parent.getContext();
-
+        session_management = new Session_management(context);
         return new My_order_detail_adapter.MyViewHolder(itemView);
     }
 
@@ -70,15 +56,38 @@ public class My_order_detail_adapter extends RecyclerView.Adapter<My_order_detai
                 .dontAnimate()
                 .into(holder.iv_img);
 
+        if (mList.getDescription() != null && !mList.getDescription().equalsIgnoreCase("")) {
+            holder.tv_order_descrp.setVisibility(View.VISIBLE);
+            holder.tv_order_descrp.setText(mList.getDescription());
+        } else {
+            holder.tv_order_descrp.setVisibility(View.GONE);
+        }
+
         holder.tv_title.setText(mList.getProduct_name());
-        holder.tv_price.setText(mList.getPrice());
-        holder.txtQty.setText("Qty - "+""+mList.getQuantity()+""+mList.getUnit());
+        holder.tv_price.setText(session_management.getCurrency() + " " + mList.getPrice());
+        holder.txtQty.setText("Qty - " + "" + mList.getQuantity() + "" + mList.getUnit());
 
     }
 
     @Override
     public int getItemCount() {
         return modelList.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView tv_title, tv_price, tv_qty, txtQty, tv_order_descrp;
+        public ImageView iv_img;
+
+        public MyViewHolder(View view) {
+            super(view);
+            tv_title = view.findViewById(R.id.tv_order_Detail_title);
+            tv_price = view.findViewById(R.id.tv_order_Detail_price);
+//            tv_qty = (TextView) view.findViewById(R.id.tv_order_Detail_qty);
+            tv_order_descrp = view.findViewById(R.id.tv_order_descrp);
+            txtQty = view.findViewById(R.id.txtQty);
+            iv_img = view.findViewById(R.id.iv_order_detail_img);
+
+        }
     }
 
 }

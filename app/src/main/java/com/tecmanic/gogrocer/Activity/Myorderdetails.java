@@ -67,7 +67,7 @@ public class Myorderdetails extends AppCompatActivity {
     SharedPreferences preferences;
 //    private List<My_order_detail_model> my_order_detail_modelList = new ArrayList<>();
     private List<NewPendingDataModel> my_order_detail_modelList = new ArrayList<>();
-    private List<NewPastOrderSubModel> my_order_detail_modelList1 = new ArrayList<>();
+//    private List<NewPastOrderSubModel> my_order_detail_modelList1 = new ArrayList<>();
 
     private List<NewPendingDataModel> modelsList = new ArrayList<>();
     private String pastorder = "";
@@ -98,7 +98,7 @@ public class Myorderdetails extends AppCompatActivity {
             }
         });
 
-        pastorder = getIntent().getStringExtra("pastorder");
+//        pastorder = getIntent().getStringExtra("pastorder");
         sale_id = getIntent().getStringExtra("sale_id");
         String total_rs = getIntent().getStringExtra("total");
         String date = getIntent().getStringExtra("date");
@@ -106,12 +106,14 @@ public class Myorderdetails extends AppCompatActivity {
         String status = getIntent().getStringExtra("status");
         String deli_charge = getIntent().getStringExtra("deli_charge");
         my_order_detail_modelList.clear();
-        my_order_detail_modelList1.clear();
-        if (pastorder.equalsIgnoreCase("true")){
-            my_order_detail_modelList1 = (List<NewPastOrderSubModel>) getIntent().getSerializableExtra("data");
-        }else {
-            my_order_detail_modelList = (List<NewPendingDataModel>) getIntent().getSerializableExtra("data");
-        }
+//        my_order_detail_modelList1.clear();
+//        if (pastorder.equalsIgnoreCase("true")){
+//            my_order_detail_modelList1 = (List<NewPastOrderSubModel>) getIntent().getSerializableExtra("data");
+//        }else {
+//
+//        }
+
+        my_order_detail_modelList = (List<NewPendingDataModel>) getIntent().getSerializableExtra("data");
 
 
         if (status.equals("Completed")||status.equals("Out_For_Delivery")||status.equals("Cancelled")) {
@@ -132,32 +134,30 @@ public class Myorderdetails extends AppCompatActivity {
 
         }else {
 //            tv_time.setText(getResources().getString(R.string.time) + time);
-
-
         }
 
-        if (pastorder.equalsIgnoreCase("true")){
-            my_order_detail_modelList1 = (List<NewPastOrderSubModel>) getIntent().getSerializableExtra("data");
-            MyPendingOrderDetails adapter = new MyPendingOrderDetails(this,my_order_detail_modelList1);
-            rv_detail_order.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
-        }else {
-            my_order_detail_modelList = (List<NewPendingDataModel>) getIntent().getSerializableExtra("data");
-            My_order_detail_adapter adapter = new My_order_detail_adapter(my_order_detail_modelList);
-            rv_detail_order.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
-        }
+//        if (pastorder.equalsIgnoreCase("true")){
+//            my_order_detail_modelList1 = (List<NewPastOrderSubModel>) getIntent().getSerializableExtra("data");
+//            MyPendingOrderDetails adapter = new MyPendingOrderDetails(this,my_order_detail_modelList1);
+//            rv_detail_order.setAdapter(adapter);
+//            adapter.notifyDataSetChanged();
+//        }else {
+//
+//        }
 
-
+        my_order_detail_modelList = (List<NewPendingDataModel>) getIntent().getSerializableExtra("data");
+        My_order_detail_adapter adapter = new My_order_detail_adapter(my_order_detail_modelList);
+        rv_detail_order.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
 
         // check internet connection
-        if (ConnectivityReceiver.isConnected()) {
-//            makeGetOrderDetailRequest();
-        } else {
-            Toast.makeText(Myorderdetails.this, "Error Network Issues", Toast.LENGTH_SHORT).show();
-            // ((MainActivity) getApplication()).onNetworkConnectionChanged(false);
-        }
+//        if (ConnectivityReceiver.isConnected()) {
+////            makeGetOrderDetailRequest();
+//        } else {
+//            Toast.makeText(Myorderdetails.this, "Error Network Issues", Toast.LENGTH_SHORT).show();
+//            // ((MainActivity) getApplication()).onNetworkConnectionChanged(false);
+//        }
 
         btn_cancle.setOnClickListener(new View.OnClickListener() {
             @Override

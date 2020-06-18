@@ -1000,30 +1000,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //        }
         if (requestCode == 4) {
             if (data != null && data.getExtras() != null) {
-                String activityIdentify = data.getExtras().getString("actIdentfy");
-                if (activityIdentify != null && activityIdentify.equalsIgnoreCase("past")) {
-                    ArrayList<NewPastOrderSubModel> orderSubModels = (ArrayList<NewPastOrderSubModel>) data.getSerializableExtra("datalist");
-                    if (orderSubModels != null) {
-                        for (int i = 0; i < orderSubModels.size(); i++) {
-                            NewPastOrderSubModel odModel = orderSubModels.get(i);
-                            Log.i(TAG, odModel.toString());
+//                String activityIdentify = data.getExtras().getString("actIdentfy");
+//                if (activityIdentify != null && activityIdentify.equalsIgnoreCase("past")) {
+//
+//                }
+                ArrayList<NewPendingDataModel> orderSubModels = (ArrayList<NewPendingDataModel>) data.getSerializableExtra("datalist");
+                if (orderSubModels != null) {
+                    dbcart.clearCart();
+                    for (int i = 0; i < orderSubModels.size(); i++) {
+                        NewPendingDataModel odModel = orderSubModels.get(i);
+                        if (odModel.getDescription()!=null && !odModel.getDescription().equalsIgnoreCase("")){
                             HashMap<String, String> map = new HashMap<>();
-
                             map.put("varient_id", odModel.getVarient_id());
                             map.put("product_name", odModel.getProduct_name());
-                            map.put("category_id", odModel.getOrder_cart_id());
+                            map.put("category_id", odModel.getVarient_id());
                             map.put("title", odModel.getProduct_name());
                             map.put("price", odModel.getPrice());
                             map.put("mrp", odModel.getTotal_mrp());
                             map.put("product_image", odModel.getVarient_image());
                             map.put("status", "1");
                             map.put("in_stock", "");
-                            map.put("unit_value", "");
-                            map.put("unit", odModel.getUnit());
+                            map.put("unit_value", odModel.getQuantity()+""+odModel.getUnit());
+                            map.put("unit", "");
                             map.put("increament", "0");
                             map.put("rewards", "0");
                             map.put("stock", "0");
-                            map.put("product_description", "");
+                            map.put("product_description", odModel.getDescription());
 
                             if (!odModel.getQty().equalsIgnoreCase("0")) {
                                 dbcart.setCart(map, Integer.parseInt(odModel.getQty()));
@@ -1034,51 +1036,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                                 pref.edit().putInt("cardqnty", dbcart.getCartCount()).apply();
                             }
-
                         }
-
-                        loadFragment(new CartFragment());
-
                     }
-                } else if (activityIdentify != null && activityIdentify.equalsIgnoreCase("pending")) {
-                    ArrayList<NewPendingDataModel> orderSubModelss = (ArrayList<NewPendingDataModel>) data.getSerializableExtra("datalist");
-                    if (orderSubModelss != null) {
-//                        for (int i=0;i<orderSubModelss.size();i++){
-//                            NewPendingDataModel odModel = orderSubModelss.get(i);
-//                            Log.i(TAG, odModel.toString());
-//                            HashMap<String, String> map = new HashMap<>();
-//
-//                            map.put("varient_id",odModel.getOrder_cart_id());
-//                            map.put("product_name",odModel.getProduct_name());
-//                            map.put("category_id",odModel.getOrder_cart_id());
-//                            map.put("title",odModel.getProduct_name());
-//                            map.put("price",odModel.getPrice());
-//                            map.put("mrp",odModel.getMrp());
-//                            map.put("product_image",odModel.getVarient_image());
-//                            map.put("status","1");
-//                            map.put("in_stock","");
-//                            map.put("unit_value","");
-//                            map.put("unit",odModel.getUnit());
-//                            map.put("increament","0");
-//                            map.put("rewards","0");
-//                            map.put("stock","0");
-//                            map.put("product_description","0");
-//
-//                            if (!odModel.getQty().equalsIgnoreCase("0")) {
-//                                dbcart.setCart(map, Integer.parseInt(odModel.getQty()));
-//                            } else {
-//                                dbcart.removeItemFromCart(map.get("varient_id"));
-//                            }
-//
-//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                                pref.edit().putInt("cardqnty",dbcart.getCartCount()).apply();
-//                            }
-//
-//                        }
-//
-//                        loadFragment(new CartFragment());
 
-                    }
+                    loadFragment(new CartFragment());
+
                 }
 
             }

@@ -144,7 +144,14 @@ public class Coupen extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
+        Intent backResult = new Intent();
+        backResult.putExtra("code", "");
+        setResult(2, backResult);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            finishAndRemoveTask();
+        }else {
+            finish();
+        }
 //        super.onBackPressed();
     }
 }

@@ -32,6 +32,7 @@ import com.tecmanic.gogrocer.Activity.ViewAll_TopDeals;
 import com.tecmanic.gogrocer.Adapters.CartAdapter;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.util.PagerNotifier;
 import com.tecmanic.gogrocer.util.Session_management;
 
 import org.json.JSONArray;
@@ -59,9 +60,11 @@ public class Top_Deals_Fragment extends Fragment {
     private Context contexts;
     private RelativeLayout no_data;
     private Session_management session_management;
+    private PagerNotifier pagerNotifier;
 
     public Top_Deals_Fragment() {
         // Required empty public constructor
+        this.pagerNotifier = pagerNotifier;
     }
 
 
@@ -70,7 +73,6 @@ public class Top_Deals_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_top__deals_, container, false);
-
         contexts = container.getContext();
         session_management = new Session_management(contexts);
         rv_top_selling = view.findViewById(R.id.recyclerTopSelling);
@@ -180,8 +182,6 @@ public class Top_Deals_Fragment extends Fragment {
                         rv_top_selling.setVisibility(View.GONE);
                         viewall.setVisibility(View.GONE);
                         no_data.setVisibility(View.VISIBLE);
-//                        JSONObject resultObj = jsonObject.getJSONObject("results");
-//                        String msg = resultObj.getString("message");
                         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                     }
                     progressDialog.dismiss();

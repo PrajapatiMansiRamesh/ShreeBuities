@@ -88,25 +88,18 @@ public class My_Order_activity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerOrderAdapter adapter = new PagerOrderAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), new ForReorderListner() {
-            @Override
-            public void onReorderClick(ArrayList<NewPastOrderSubModel> pastOrderSubModelArrayList) {
-                Log.i("Order TAG",pastOrderSubModelArrayList.toString());
-                Intent backresult = new Intent();
-                backresult.putExtra("actIdentfy","past");
-                backresult.putExtra("datalist", pastOrderSubModelArrayList);
-                setResult(4,backresult);
-                finish();
-            }
-        }, new MyPendingReorderClick() {
-            @Override
-            public void onReorderClick(ArrayList<NewPendingDataModel> models) {
-                Intent backresult = new Intent();
-                backresult.putExtra("actIdentfy","pending");
-                backresult.putExtra("datalist", models);
-                setResult(4,backresult);
-                finish();
-            }
+        final PagerOrderAdapter adapter = new PagerOrderAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), pastOrderSubModelArrayList -> {
+            Intent backresult = new Intent();
+            backresult.putExtra("actIdentfy","past");
+            backresult.putExtra("datalist", pastOrderSubModelArrayList);
+            setResult(4,backresult);
+            finish();
+        }, models -> {
+            Intent backresult = new Intent();
+            backresult.putExtra("actIdentfy","pending");
+            backresult.putExtra("datalist", models);
+            setResult(4,backresult);
+            finish();
         });
         viewPager.setAdapter(adapter);
         wrapTabIndicatorToTitle(tabLayout,80,80);

@@ -9,13 +9,17 @@ import com.tecmanic.gogrocer.Fragments.Deals_Fragment;
 import com.tecmanic.gogrocer.Fragments.Recent_Details_Fragment;
 import com.tecmanic.gogrocer.Fragments.Top_Deals_Fragment;
 import com.tecmanic.gogrocer.Fragments.Whats_New_Fragment;
+import com.tecmanic.gogrocer.util.PagerNotifier;
 
 public class PageAdapter extends FragmentPagerAdapter {
     private int numsoftabs;
+//    private PagerNotifier pagerNotifier;
+//    private boolean data = true;
 
     public PageAdapter(FragmentManager fm, int numsoftabs) {
         super(fm);
         this.numsoftabs = numsoftabs;
+//        this.pagerNotifier = pagerNotifier;
     }
 
     @NonNull
@@ -40,4 +44,8 @@ public class PageAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return numsoftabs;
     }
+
+//    public void setDataNotifier(boolean data) {
+//        this.data = data;
+//    }
 }

@@ -25,13 +25,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
 import com.tecmanic.gogrocer.Activity.DealActivity;
-import com.tecmanic.gogrocer.Activity.ProductDetails;
-import com.tecmanic.gogrocer.Activity.ViewAll_TopDeals;
-import com.tecmanic.gogrocer.Adapters.CartAdapter;
 import com.tecmanic.gogrocer.Adapters.Deal_Adapter;
-import com.tecmanic.gogrocer.Constans.RecyclerTouchListener;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.util.PagerNotifier;
 import com.tecmanic.gogrocer.util.Session_management;
 
 import org.json.JSONArray;
@@ -44,46 +41,45 @@ import java.util.List;
 import java.util.Map;
 
 import static com.tecmanic.gogrocer.Config.BaseURL.HomeDeal;
-import static com.tecmanic.gogrocer.Config.BaseURL.HomeRecent;
 
 public class Deals_Fragment extends Fragment {
 
     ProgressDialog progressDialog;
     Deal_Adapter DealAdapter;
-    private List<CartModel> dealList = new ArrayList<>();
     ShimmerRecyclerView shimmerRecyclerView;
-    String catId,catName;
+    String catId, catName;
     TextView viewall;
+    private List<CartModel> dealList = new ArrayList<>();
     private RelativeLayout no_data;
     private Session_management session_management;
 
     public Deals_Fragment() {
-        // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =inflater.inflate(R.layout.fragment_deals, container, false);
-        progressDialog=new ProgressDialog(container.getContext());
-        session_management=new Session_management(container.getContext());
+        View view = inflater.inflate(R.layout.fragment_deals, container, false);
+        progressDialog = new ProgressDialog(container.getContext());
+        session_management = new Session_management(container.getContext());
         progressDialog.setMessage("Loading...");
         progressDialog.setCancelable(false);
 
-        viewall =view.findViewById(R.id.viewall);
+        viewall = view.findViewById(R.id.viewall);
         no_data = view.findViewById(R.id.no_data);
 
         viewall.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), DealActivity.class);
-            intent.putExtra("action_name","Deals_Fragment");
+            intent.putExtra("action_name", "Deals_Fragment");
             startActivity(intent);
         });
 
-        shimmerRecyclerView= view.findViewById(R.id.recyclerDealsDay);
-        if(isOnline()){
+        shimmerRecyclerView = view.findViewById(R.id.recyclerDealsDay);
+        if (isOnline()) {
             progressDialog.show();
-            DealUrl();}
+            DealUrl();
+        }
     /*    shimmerRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), shimmerRecyclerView, new RecyclerTouchListener.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
@@ -111,13 +107,13 @@ public class Deals_Fragment extends Fragment {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, HomeDeal, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("HomeDeal",response);
+                Log.d("HomeDeal", response);
                 progressDialog.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String status = jsonObject.getString("status");
                     String message = jsonObject.getString("message");
-                    if (status.equals("1")){
+                    if (status.equals("1")) {
                         dealList.clear();
                         JSONArray jsonArray = jsonObject.getJSONArray("data");
                         for (int i = 0; i < jsonArray.length(); i++) {
@@ -126,33 +122,33 @@ public class Deals_Fragment extends Fragment {
                             String product_id = jsonObject1.getString("product_id");
                             String varient_id = jsonObject1.getString("varient_id");
                             String product_name = jsonObject1.getString("product_name");
-                            String description= jsonObject1.getString("description");
-                            String pprice= jsonObject1.getString("price");
+                            String description = jsonObject1.getString("description");
+                            String pprice = jsonObject1.getString("price");
                             String quantity = jsonObject1.getString("quantity");
                             String product_image = jsonObject1.getString("varient_image");
                             String mmrp = jsonObject1.getString("mrp");
                             String unit = jsonObject1.getString("unit");
                             Long count = jsonObject1.getLong("timediff");
-                            String totalOff= String.valueOf(Integer.parseInt(String.valueOf(mmrp))-Integer.parseInt(String.valueOf(pprice)));
+                            String totalOff = String.valueOf(Integer.parseInt(mmrp) - Integer.parseInt(pprice));
 
-                            CartModel recentData= new CartModel(product_id,product_name,description,pprice,quantity+" "+unit,product_image,session_management.getCurrency()+totalOff+" "+"Off",mmrp," ",unit);
+                            CartModel recentData = new CartModel(product_id, product_name, description, pprice, quantity + " " + unit, product_image, session_management.getCurrency() + totalOff + " " + "Off", mmrp, " ", unit);
                             recentData.setVarient_id(varient_id);
                             recentData.setHoursmin(count);
                             dealList.add(recentData);
 
                         }
-                        DealAdapter = new Deal_Adapter(dealList,getActivity());
+                        DealAdapter = new Deal_Adapter(dealList, getActivity());
                         shimmerRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                         shimmerRecyclerView.setAdapter(DealAdapter);
                         DealAdapter.notifyDataSetChanged();
 
-                    }else {
+                    } else {
                         shimmerRecyclerView.setVisibility(View.GONE);
                         viewall.setVisibility(View.GONE);
                         no_data.setVisibility(View.VISIBLE);
 //                        JSONObject resultObj = jsonObject.getJSONObject("results");
 //                        String msg = resultObj.getString("message");
-                        Toast.makeText(getContext(),message,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                     }
                     progressDialog.dismiss();
                 } catch (JSONException e) {
@@ -170,10 +166,10 @@ public class Deals_Fragment extends Fragment {
                 progressDialog.dismiss();
 
             }
-        }){
+        }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String,String> params = new HashMap<>();
+                HashMap<String, String> params = new HashMap<>();
                 return params;
             }
         };
