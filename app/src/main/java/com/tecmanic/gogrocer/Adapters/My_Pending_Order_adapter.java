@@ -1,26 +1,27 @@
 package com.tecmanic.gogrocer.Adapters;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -70,6 +71,25 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         context = parent.getContext();
         session_management = new Session_management(context);
         return new My_Pending_Order_adapter.MyViewHolder(itemView);
+    }
+
+    public boolean isPermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (context.checkSelfPermission(android.Manifest.permission.CALL_PHONE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v("TAG", "Permission is granted");
+                return true;
+            } else {
+
+                Log.v("TAG", "Permission is revoked");
+//                ActivityCompat.requestPermissions(context.getApplicationContext(), new String[]{Manifest.permission.CALL_PHONE}, 1);
+                Toast.makeText(context, "Required call permission!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            Log.v("TAG", "Permission is granted");
+            return true;
+        }
     }
 
     @SuppressLint("ResourceAsColor")
@@ -164,6 +184,39 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.tv_order_price_2.setText(session_management.getCurrency() + "" + mList.getPrice());
             holder.tv_delivery_amount.setText(session_management.getCurrency() + " 0");
         }
+
+        if (mList.getDboy_name() != null && !mList.getDboy_name().equalsIgnoreCase("")) {
+            holder.order_assing_lay.setVisibility(View.VISIBLE);
+            holder.iv_order_boy_name.setText(mList.getDboy_name());
+            holder.iv_delivery_number.setText(mList.getDboy_phone());
+        } else {
+            holder.order_assing_lay.setVisibility(View.GONE);
+        }
+
+        holder.iv_order_detail_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.delivery_boy_details.getVisibility() == View.VISIBLE) {
+                    holder.delivery_boy_details.setVisibility(View.GONE);
+                } else {
+                    holder.delivery_boy_details.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        holder.iv_call_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isPermissionGranted()) {
+                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                    callIntent.setData(Uri.parse("tel:" + mList.getDboy_phone()));
+                    if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                    v.getContext().startActivity(callIntent);
+                }
+            }
+        });
 
         holder.info_price.setOnClickListener(v -> {
             if (holder.price_deatils.getVisibility() == View.VISIBLE) {
@@ -337,6 +390,10 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         public String method;
         //        CardView cardView;
         TextView canclebtn, reorder_btn, order_details;
+
+        TextView iv_order_boy_name, iv_delivery_number;
+        LinearLayout delivery_boy_details, order_assing_lay;
+        ImageView iv_call_order, iv_order_detail_img;
         //        LinearLayout linearLayout;
         LinearLayout l1;
         LinearLayout btn_lay;
@@ -347,6 +404,12 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             super(view);
             tv_orderno = view.findViewById(R.id.tv_order_no);
             tv_pay_ableamount = view.findViewById(R.id.tv_pay_ableamount);
+            order_assing_lay = view.findViewById(R.id.order_assing_lay);
+            iv_order_detail_img = view.findViewById(R.id.iv_order_detail_img);
+            iv_delivery_number = view.findViewById(R.id.iv_delivery_number);
+            iv_order_boy_name = view.findViewById(R.id.iv_order_boy_name);
+            delivery_boy_details = view.findViewById(R.id.delivery_boy_details);
+            iv_call_order = view.findViewById(R.id.iv_call_order);
             tv_order_price_2 = view.findViewById(R.id.tv_order_price_2);
             tv_coupon_amount = view.findViewById(R.id.tv_coupon_amount);
             tv_total_pay = view.findViewById(R.id.tv_total_pay);

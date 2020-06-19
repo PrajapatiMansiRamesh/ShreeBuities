@@ -20,8 +20,9 @@
         android:roundIcon="@drawable/splashicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.DealActivity"></activity>
+        android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup">
+        <activity android:name=".Activity.DealActivity" />
         <activity android:name=".Activity.MainActivityAgain" />
         <activity android:name=".Activity.add_address" />
         <activity android:name=".Activity.ViewAll_Whatsnew" />
@@ -31,8 +32,9 @@
         <activity android:name=".Activity.Forget_otp_verify" />
         <activity android:name=".Activity.About_us" />
         <activity android:name=".Activity.Coupen" />
-        <activity android:name=".Activity.Myorderdetails"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
+        <activity
+            android:name=".Activity.Myorderdetails"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
         <activity android:name=".Activity.Cancel_Order" />
         <activity
             android:name=".Activity.ForgotPassOtp"
@@ -119,8 +121,8 @@
             android:theme="@style/StatusBarOrange" />
         <activity
             android:name=".Activity.PaymentDetails"
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/StatusBarOrange" />
+            android:theme="@style/StatusBarOrange"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".Activity.InternetConnection"
             android:theme="@style/StatusBarOrange" />

@@ -14,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        flavorDimensions "default"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         dexOptions {
@@ -32,6 +33,18 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    productFlavors {
+        sandbox {
+            buildConfigField "String", "BASE_URL", "\"https://merchant-url-sandbox.com/\""
+            buildConfigField "String", "CLIENT_KEY", "\"SB-Mid-client-Zt-2-7osMnT8NIQA\""
+        }
+
+//        production {
+//            buildConfigField "String", "BASE_URL", "\"https://merchant-url-production.com/\""
+//            buildConfigField "String", "CLIENT_KEY", "\"VT-CLIENT-production-client-key\""
+//        }
     }
 
 }
@@ -76,5 +89,7 @@ dependencies {
     implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-moshi:2.8.1'
+    //    implementation 'com.midtrans:uikit:1.9.3' //  sample compiling production or
+    implementation 'com.midtrans:uikit:1.21.2-SANDBOX' // sample compiling sandbox
 }
 apply plugin: 'com.google.gms.google-services'
