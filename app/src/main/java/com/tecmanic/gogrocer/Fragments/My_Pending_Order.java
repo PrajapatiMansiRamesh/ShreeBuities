@@ -24,6 +24,7 @@ import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.NewPendingOrderModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.AppController;
+import com.tecmanic.gogrocer.util.CallToDeliveryBoy;
 import com.tecmanic.gogrocer.util.ConnectivityReceiver;
 import com.tecmanic.gogrocer.util.CustomVolleyJsonArrayRequest;
 import com.tecmanic.gogrocer.util.MyPendingReorderClick;
@@ -49,9 +50,11 @@ public class My_Pending_Order extends Fragment {
     private RecyclerView rv_myorder;
     private List<NewPendingOrderModel> listModelNew = new ArrayList<>();
     private MyPendingReorderClick myPendingReorderClick;
+    private CallToDeliveryBoy callToDeliveryBoy;
 
-    public My_Pending_Order(MyPendingReorderClick myPendingReorderClick) {
+    public My_Pending_Order(MyPendingReorderClick myPendingReorderClick, CallToDeliveryBoy callToDeliveryBoy) {
         this.myPendingReorderClick = myPendingReorderClick;
+        this.callToDeliveryBoy = callToDeliveryBoy;
     }
 
     @Override
@@ -182,7 +185,7 @@ public class My_Pending_Order extends Fragment {
 
                     listModelNew = gson.fromJson(response.toString(), listType);
 
-                    My_Pending_Order_adapter myPendingOrderAdapter = new My_Pending_Order_adapter(listModelNew, myPendingReorderClick);
+                    My_Pending_Order_adapter myPendingOrderAdapter = new My_Pending_Order_adapter(listModelNew, myPendingReorderClick,callToDeliveryBoy);
                     rv_myorder.setAdapter(myPendingOrderAdapter);
                     myPendingOrderAdapter.notifyDataSetChanged();
 

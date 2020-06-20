@@ -30,6 +30,7 @@ import com.tecmanic.gogrocer.Activity.Myorderdetails;
 import com.tecmanic.gogrocer.ModelClass.My_Pending_order_model;
 import com.tecmanic.gogrocer.ModelClass.NewPendingOrderModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.util.CallToDeliveryBoy;
 import com.tecmanic.gogrocer.util.MyPendingReorderClick;
 import com.tecmanic.gogrocer.util.Session_management;
 
@@ -48,6 +49,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
     private Context context;
     private Session_management session_management;
     private MyPendingReorderClick myPendingReorderClick;
+    private CallToDeliveryBoy callToDeliveryBoy;
 
     public My_Pending_Order_adapter(Context context, List<My_Pending_order_model> modemodelList, final Fragment currentFragment) {
 
@@ -59,9 +61,10 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
 
     }
 
-    public My_Pending_Order_adapter(List<NewPendingOrderModel> modelList, MyPendingReorderClick myPendingReorderClick) {
+    public My_Pending_Order_adapter(List<NewPendingOrderModel> modelList, MyPendingReorderClick myPendingReorderClick, CallToDeliveryBoy callToDeliveryBoy) {
         this.modelList = modelList;
         this.myPendingReorderClick = myPendingReorderClick;
+        this.callToDeliveryBoy = callToDeliveryBoy;
     }
 
     @NonNull
@@ -73,30 +76,10 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         return new My_Pending_Order_adapter.MyViewHolder(itemView);
     }
 
-    public boolean isPermissionGranted() {
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (context.checkSelfPermission(android.Manifest.permission.CALL_PHONE)
-                    == PackageManager.PERMISSION_GRANTED) {
-                Log.v("TAG", "Permission is granted");
-                return true;
-            } else {
-
-                Log.v("TAG", "Permission is revoked");
-//                ActivityCompat.requestPermissions(context.getApplicationContext(), new String[]{Manifest.permission.CALL_PHONE}, 1);
-                Toast.makeText(context, "Required call permission!", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        } else { //permission is automatically granted on sdk<23 upon installation
-            Log.v("TAG", "Permission is granted");
-            return true;
-        }
-    }
-
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         NewPendingOrderModel mList = modelList.get(position);
-
         holder.reorder_btn.setVisibility(View.GONE);
         holder.tv_orderno.setText(mList.getCart_id());
         if (mList.getOrder_status().equalsIgnoreCase("Completed")) {
@@ -207,14 +190,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         holder.iv_call_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isPermissionGranted()) {
-                    Intent callIntent = new Intent(Intent.ACTION_CALL);
-                    callIntent.setData(Uri.parse("tel:" + mList.getDboy_phone()));
-                    if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                        return;
-                    }
-                    v.getContext().startActivity(callIntent);
-                }
+                callToDeliveryBoy.onCallToDeliveryBoy(mList.getDboy_phone());
             }
         });
 

@@ -1,44 +1,32 @@
 package com.tecmanic.gogrocer.Activity;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.material.tabs.TabLayout;
 import com.tecmanic.gogrocer.Adapters.PagerOrderAdapter;
 import com.tecmanic.gogrocer.Config.BaseURL;
-import com.tecmanic.gogrocer.ModelClass.NewPastOrderSubModel;
-import com.tecmanic.gogrocer.ModelClass.NewPendingDataModel;
 import com.tecmanic.gogrocer.R;
-import com.tecmanic.gogrocer.util.ForReorderListner;
+import com.tecmanic.gogrocer.util.CallToDeliveryBoy;
 import com.tecmanic.gogrocer.util.LocaleHelper;
-import com.tecmanic.gogrocer.util.MyPendingReorderClick;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.tecmanic.gogrocer.Config.BaseURL.KEY_MOBILE;
 
@@ -52,6 +40,7 @@ public class My_Order_activity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     String moblie;
     ProgressDialog progressDialog;
+    private String numberPhone = "";
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -63,12 +52,12 @@ public class My_Order_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my__oreder_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle("My Order");
-        progressDialog=new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this);
 
         toolbar.setNavigationOnClickListener(v -> {
 //            Intent intent = new Intent(My_Order_activity.this, MainActivity.class);
@@ -78,31 +67,36 @@ public class My_Order_activity extends AppCompatActivity {
 
         });
 
-        sharedPreferences = getSharedPreferences(BaseURL.MyPrefreance,MODE_PRIVATE);
-        moblie=sharedPreferences.getString(KEY_MOBILE ,null);
+        sharedPreferences = getSharedPreferences(BaseURL.MyPrefreance, MODE_PRIVATE);
+        moblie = sharedPreferences.getString(KEY_MOBILE, null);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
 
         tabLayout.addTab(tabLayout.newTab().setText("Pending"));
         tabLayout.addTab(tabLayout.newTab().setText("Past Order"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        final ViewPager viewPager = findViewById(R.id.pager);
         final PagerOrderAdapter adapter = new PagerOrderAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), pastOrderSubModelArrayList -> {
             Intent backresult = new Intent();
-            backresult.putExtra("actIdentfy","past");
+            backresult.putExtra("actIdentfy", "past");
             backresult.putExtra("datalist", pastOrderSubModelArrayList);
-            setResult(4,backresult);
+            setResult(4, backresult);
             finish();
         }, models -> {
             Intent backresult = new Intent();
-            backresult.putExtra("actIdentfy","pending");
+            backresult.putExtra("actIdentfy", "pending");
             backresult.putExtra("datalist", models);
-            setResult(4,backresult);
+            setResult(4, backresult);
             finish();
+        }, number -> {
+            numberPhone = number;
+            if (isPermissionGranted()) {
+                callAction(number);
+            }
         });
         viewPager.setAdapter(adapter);
-        wrapTabIndicatorToTitle(tabLayout,80,80);
+        wrapTabIndicatorToTitle(tabLayout, 80, 80);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -124,8 +118,53 @@ public class My_Order_activity extends AppCompatActivity {
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+
+            case 1: {
+
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(My_Order_activity.this, "Permission granted", Toast.LENGTH_SHORT).show();
+                    callAction(numberPhone);
+                } else {
+                    Toast.makeText(My_Order_activity.this, "Permission denied", Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    private void callAction(String number) {
+        try {
+            Intent callIntent = new Intent(Intent.ACTION_CALL);
+            callIntent.setData(Uri.parse("tel:" + number));
+            startActivity(callIntent);
+        }catch (SecurityException e){
+            e.printStackTrace();
+        }
+    }
+
+    public boolean isPermissionGranted() {
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.CALL_PHONE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                return true;
+            } else {
+                ActivityCompat.requestPermissions(My_Order_activity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+                return false;
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            return true;
+        }
+    }
+
+    @Override
     protected void onDestroy() {
-        overridePendingTransition(0,0);
+        overridePendingTransition(0, 0);
         super.onDestroy();
     }
 
@@ -134,17 +173,18 @@ public class My_Order_activity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-            Intent intent=new Intent(My_Order_activity.this,MainActivity.class);
+            Intent intent = new Intent(My_Order_activity.this, MainActivity.class);
             startActivity(intent);
-            overridePendingTransition(0,0);
+            overridePendingTransition(0, 0);
             finish();
             return true;
         }
 
         return super.onKeyDown(keyCode, event);
     }
+
     public void wrapTabIndicatorToTitle(TabLayout tabLayout, int externalMargin, int internalMargin) {
         View tabStrip = tabLayout.getChildAt(0);
         if (tabStrip instanceof ViewGroup) {

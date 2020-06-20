@@ -59,10 +59,10 @@ public class BaseURL {
     static final String APP_NAME = "GoGrocer";
 
 
-//    public static String BASE_URL = "https://gogrocer.tecmanic.com/api/";
-//    public static String IMG_URL = "https://gogrocer.tecmanic.com/";
-//    public static String BANN_IMG_URL = "https://gogrocer.tecmanic.com/";
-//    public static String BANNER_IMG_URL = "https://gogrocer.tecmanic.com/";
+//    public static String BASE_URL = "http://heritagefoodsonline.com/grocery/api/";
+//    public static String IMG_URL = "http://heritagefoodsonline.com/grocery/";
+//    public static String BANN_IMG_URL = "http://heritagefoodsonline.com/grocery/";
+//    public static String BANNER_IMG_URL = "http://heritagefoodsonline.com/grocery/";
 
     public static String BASE_URL = "https://thecodecafe.in/gogrocer-ver2.0/api/";
     public static String IMG_URL = "https://thecodecafe.in/gogrocer-ver2.0/";
