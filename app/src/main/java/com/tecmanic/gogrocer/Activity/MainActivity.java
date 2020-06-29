@@ -74,18 +74,15 @@ import com.tecmanic.gogrocer.Fragments.SearchFragment;
 import com.tecmanic.gogrocer.Fragments.Terms_and_Condition_fragment;
 import com.tecmanic.gogrocer.Fragments.Wallet_fragment;
 import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
-import com.tecmanic.gogrocer.ModelClass.NewPastOrderSubModel;
 import com.tecmanic.gogrocer.ModelClass.NewPendingDataModel;
 import com.tecmanic.gogrocer.ModelClass.NotifyModelUser;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.network.ApiInterface;
-import com.tecmanic.gogrocer.util.ConnectivityReceiver;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
 import com.tecmanic.gogrocer.util.FetchAddressTask;
 import com.tecmanic.gogrocer.util.GPSTracker;
 import com.tecmanic.gogrocer.util.Session_management;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -315,19 +312,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 if (sessionManagement.isLoggedIn()) {
                     drawer.closeDrawer(GravityCompat.START);
-                    if (sessionManagement.userBlockStatus().equalsIgnoreCase("2")){
+                    if (sessionManagement.userBlockStatus().equalsIgnoreCase("2")) {
                         Wallet_fragment fm = new Wallet_fragment();
                         FragmentManager manager = getSupportFragmentManager();
                         FragmentTransaction transaction = manager.beginTransaction();
                         transaction.replace(R.id.contentPanel, fm);
                         transaction.commit();
-                    }else {
+                    } else {
                         showBloackDialog();
                     }
-
-
-
-
 
 
 //                    Wallet_fragment fm = new Wallet_fragment();
@@ -645,14 +638,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onResponse(@NonNull Call<NotifyModelUser> call, @NonNull retrofit2.Response<NotifyModelUser> response) {
 
-                if (response.isSuccessful()){
-                    if (response.body()!=null){
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
                         NotifyModelUser modelUser = response.body();
-                        if (modelUser.getStatus().equalsIgnoreCase("1")){
+                        if (modelUser.getStatus().equalsIgnoreCase("1")) {
                             sessionManagement.setEmailServer(modelUser.getData().getEmail());
                             sessionManagement.setUserSMSService(modelUser.getData().getSms());
                             sessionManagement.setUserInAppService(modelUser.getData().getApp());
-                        }else {
+                        } else {
                             sessionManagement.setEmailServer("0");
                             sessionManagement.setUserSMSService("0");
                             sessionManagement.setUserInAppService("0");
@@ -774,6 +767,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } */
         else if (id == R.id.nav_my_profile) {
             fm = new Edit_profile_fragment();
+
+//            startActivity(new Intent(this, MidtransPaymentGateway.class));
+
 //        } else if (id == R.id.nav_support) {
 //            String smsNumber = "9889887711";
 //            Intent sendIntent = new Intent("android.intent.action.MAIN");
@@ -1009,8 +1005,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     dbcart.clearCart();
                     for (int i = 0; i < orderSubModels.size(); i++) {
                         NewPendingDataModel odModel = orderSubModels.get(i);
-                        if (odModel.getDescription()!=null && !odModel.getDescription().equalsIgnoreCase("")){
-                            double price = Double.parseDouble(odModel.getPrice())/Double.parseDouble(odModel.getQty());
+                        if (odModel.getDescription() != null && !odModel.getDescription().equalsIgnoreCase("")) {
+                            double price = Double.parseDouble(odModel.getPrice()) / Double.parseDouble(odModel.getQty());
                             HashMap<String, String> map = new HashMap<>();
                             map.put("varient_id", odModel.getVarient_id());
                             map.put("product_name", odModel.getProduct_name());
@@ -1021,7 +1017,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             map.put("product_image", odModel.getVarient_image());
                             map.put("status", "1");
                             map.put("in_stock", "");
-                            map.put("unit_value", odModel.getQuantity()+""+odModel.getUnit());
+                            map.put("unit_value", odModel.getQuantity() + "" + odModel.getUnit());
                             map.put("unit", "");
                             map.put("increament", "0");
                             map.put("rewards", "0");
@@ -1051,18 +1047,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private void getCurrency(){
+    private void getCurrency() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, currencyApi, response -> {
             Log.d("currency api", response);
 
             try {
 
                 JSONObject currencyObject = new JSONObject(response);
-                if (currencyObject.getString("status").equalsIgnoreCase("1") && currencyObject.getString("message").equalsIgnoreCase("currency")){
+                if (currencyObject.getString("status").equalsIgnoreCase("1") && currencyObject.getString("message").equalsIgnoreCase("currency")) {
 
                     JSONObject dataObject = currencyObject.getJSONObject("data");
 
-                    sessionManagement.setCurrency(dataObject.getString("currency_name"),dataObject.getString("currency_sign"));
+                    sessionManagement.setCurrency(dataObject.getString("currency_name"), dataObject.getString("currency_sign"));
 
                 }
 

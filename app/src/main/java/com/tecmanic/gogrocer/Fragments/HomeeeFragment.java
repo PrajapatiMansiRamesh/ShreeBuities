@@ -447,10 +447,9 @@ public class HomeeeFragment extends Fragment implements View.OnClickListener {
                     startActivity(new Intent(Intent.ACTION_VIEW,
                             Uri.parse("http://play.google.com/store/apps/details?id=" + getActivity().getPackageName())));
                 }
-                Log.i(TAG, "onClick: fab two");
                 break;
             case R.id.fabThree:
-                String smsNumber = "9889887711";
+                    String smsNumber = "9889887711";
 //                Intent sendIntent = new Intent("android.intent.action.MAIN");
 //                sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
 //                sendIntent.putExtra("jid", PhoneNumberUtils.stripSeparators(smsNumber) + "@s.whatsapp.net");//phone number without "+" prefix

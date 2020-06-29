@@ -84,9 +84,15 @@ public class Timing_Adapter extends RecyclerView.Adapter<Timing_Adapter.MyViewHo
             @Override
             public void onClick(View view) {
                 try{
-                    lastSelectedPosition = position;
-                    notifyDataSetChanged();
-                    forClicktimings.getTimeSlot(OfferList.get(lastSelectedPosition).getTiming());
+                    if (!holder.time.isChecked()){
+                        lastSelectedPosition = -1;
+                        notifyDataSetChanged();
+                        forClicktimings.getTimeSlot("");
+                    }else {
+                        lastSelectedPosition = position;
+                        notifyDataSetChanged();
+                        forClicktimings.getTimeSlot(OfferList.get(lastSelectedPosition).getTiming());
+                    }
                 }catch (IndexOutOfBoundsException ex){
                     ex.printStackTrace();
                 }

@@ -22,6 +22,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
+        <activity android:name=".Activity.MidtransPaymentGateway"/>
+        <activity android:name="com.midtrans.sdk.uikit.activities.PaymentMethodsActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
         <activity android:name=".Activity.DealActivity" />
         <activity android:name=".Activity.MainActivityAgain" />
         <activity android:name=".Activity.add_address" />

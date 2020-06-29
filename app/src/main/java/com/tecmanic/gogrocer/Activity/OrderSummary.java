@@ -291,7 +291,13 @@ public class OrderSummary extends AppCompatActivity implements ForClicktimings {
                         Snackbar.make(v, "Please order less than" + " " + maxValue, Snackbar.LENGTH_LONG).show();
                         progressDialog.dismiss();
                     } else {
-                        continueUrl(todaydatee, timeslot, map);
+                        if (timeslot!=null && !timeslot.equalsIgnoreCase("")){
+                            continueUrl(todaydatee, timeslot, map);
+                        }else {
+                            progressDialog.dismiss();
+                            Snackbar.make(v, "Please select time slot for placed order!", Snackbar.LENGTH_LONG).show();
+                        }
+
                     }
                 }else {
                     Snackbar.make(v, "Please wait", Snackbar.LENGTH_LONG).show();
