@@ -1,0 +1,40 @@
+
+?
+java:S1604¾"(Make this anonymous inner class a lambda(Î¬¯”
+?
+java:S1604È"(Make this anonymous inner class a lambda(Î¬¯”
+h
+java:S2259i"MA "NullPointerException" could be thrown; "locationManager" is nullable here.(ý¡­Ôûÿÿÿÿ
+s
+java:S1104"XMake isGPSEnabled a static final constant or non-public and provide accessors if needed.(’³ˆÄúÿÿÿÿ
+p
+java:S1104$"ZMake canGetLocation a static final constant or non-public and provide accessors if needed.(¶£ä‰
+o
+java:S1104'"TMake latitude a static final constant or non-public and provide accessors if needed.(ÕÏùÜùÿÿÿÿ
+p
+java:S1104("UMake longitude a static final constant or non-public and provide accessors if needed.(žžèãþÿÿÿÿ
+R
+java:S2589h"7Remove this expression which always evaluates to "true"(êÿ×¤ùÿÿÿÿ
+˜
+java:S1186Ó"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(­íÖ«
+˜
+java:S1186×"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÁïÕÒ
+˜
+java:S1186Û"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(çÅðÙ
+˜
+java:S1186ß"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÀÄÞ’
+
+java:S1845ª"tRename method "canGetLocation" to prevent any misunderstanding/clash with field "canGetLocation" defined on line 36.(í˜åþÿÿÿÿ
+m
+java:S3776>"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(øˆ÷Ãùÿÿÿÿ
+D
+java:S1125O")Remove the literal "false" boolean value.(“Ò¬åüÿÿÿÿ
+D
+java:S1125O")Remove the literal "false" boolean value.(“Ò¬åüÿÿÿÿ
+a
+java:S1874ß"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(ÀÄÞ’
+V	java:S125."<This block of commented-out lines of code should be removed.(Ž®ãîûÿÿÿÿ
+V	java:S125a"<This block of commented-out lines of code should be removed.(ßáõúÿÿÿÿ
+V	java:S125u"<This block of commented-out lines of code should be removed.(ßáõúÿÿÿÿ
+W	java:S125ë"<This block of commented-out lines of code should be removed.(÷ÇÈ»ýÿÿÿÿ
+R	java:S125–"<This block of commented-out lines of code should be removed.(§§º²

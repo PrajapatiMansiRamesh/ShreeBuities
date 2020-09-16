@@ -1,0 +1,19 @@
+
+L
+java:S18744"6Remove this use of "ProgressDialog"; it is deprecated.(£‚ä
+k	java:S117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óè¼ğûÿÿÿÿ
+w	java:S116+"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+Q	java:S110$"<This class has 9 parents which is greater than 5 authorized.(ïÕ»è
+k	java:S117N"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸õ´Äşÿÿÿÿ
+b	java:S101$"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ïÕ»è
+C
+java:S1604o"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+M
+java:S18746"2Remove this use of "setMessage"; it is deprecated.(ñËÄİÿÿÿÿÿ
+f	java:S117R"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û§’Ü
+k	java:S117L"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ê ıÿÿÿÿÿ
+C
+java:S1604>"(Make this anonymous inner class a lambda(´ùà€ùÿÿÿÿ
+L
+java:S1874("6Remove this use of "ProgressDialog"; it is deprecated.(ğİıº
+]	java:S125^"<This block of commented-out lines of code should be removed.(ØıØåÿÿÿÿÿ8õÔÜ«¹.

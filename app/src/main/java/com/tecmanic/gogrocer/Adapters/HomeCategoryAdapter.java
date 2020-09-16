@@ -1,7 +1,6 @@
 package com.tecmanic.gogrocer.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,12 +14,11 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.tecmanic.gogrocer.Activity.CategoryPage;
+import com.squareup.picasso.Picasso;
 import com.tecmanic.gogrocer.ModelClass.HomeCate;
 import com.tecmanic.gogrocer.ModelClass.SubCatModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.util.CategoryFragmentClick;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,10 +35,12 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
     private List<HomeCate> homeCateList;
     private Context context;
     private List<SubCatModel> subCatModels = new ArrayList<>();
+    private CategoryFragmentClick categoryFragmentClick;
 
-    public HomeCategoryAdapter(List<HomeCate> homeCateList, Context context) {
+    public HomeCategoryAdapter(List<HomeCate> homeCateList, Context context, CategoryFragmentClick categoryFragmentClick) {
         this.homeCateList = homeCateList;
         this.context = context;
+        this.categoryFragmentClick = categoryFragmentClick;
     }
 
     @Override
@@ -73,13 +73,9 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         holder.prodNAme.setText(cc.getName());
         holder.pdetails.setText(cc.getDetail());
         holder.image.setImageResource(R.drawable.splashicon);
-        Glide.with(context)
+        Picasso.with(context)
                 .load(IMG_URL + cc.getImages())
-                .centerCrop()
                 .placeholder(R.drawable.splashicon)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
                 .into(holder.image);
 
         if (cc.getSub_array() == null || cc.getSub_array().length() == 0) {
@@ -127,9 +123,12 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         JSONArray array = response;
 
         if (array.length() == 0) {
-            Intent intent = new Intent(context, CategoryPage.class);
-            intent.putExtra("cat_id", cat_id);
-            context.startActivity(intent);
+//            Intent intent = new Intent(context, CategoryPage.class);
+//            intent.putExtra("cat_id", cat_id);
+//            context.startActivity(intent);
+            if (categoryFragmentClick != null) {
+                categoryFragmentClick.onClick(cat_id);
+            }
         } else {
 
 
@@ -152,22 +151,17 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
                     if (object.has("subchild")) {
                         model.setSub_array(object.getJSONArray("subchild"));
                     }
-
-
                     subCatModels.add(model);
-
-                    SubCatAdapter cateAdapter = new SubCatAdapter(subCatModels, context);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(context));
-                    recyclerView.setAdapter(cateAdapter);
-                    cateAdapter.notifyDataSetChanged();
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             }
 
+            SubCatAdapter cateAdapter = new SubCatAdapter(subCatModels, context, categoryFragmentClick);
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setAdapter(cateAdapter);
+            cateAdapter.notifyDataSetChanged();
 
         }
     }
@@ -247,7 +241,7 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 //                .load(IMG_URL+ cc.getImages())
 //                .centerCrop()
 //                .placeholder(R.drawable.splashicon)
-//                .crossFade()
+//
 //                .diskCacheStrategy(DiskCacheStrategy.ALL)
 //                .dontAnimate()
 //                .into(holder.image);

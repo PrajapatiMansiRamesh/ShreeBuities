@@ -1,0 +1,48 @@
+
+b	java:S101,"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¾®˜Ú
+g	java:S117‹"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù°»
+l	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬­’˜ùÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÎÒ•¸
+C
+java:S1604T"(Make this anonymous inner class a lambda(°’ñ«øÿÿÿÿ
+C
+java:S1604\"(Make this anonymous inner class a lambda(¿æªûÿÿÿÿ
+D
+java:S1604Ž"(Make this anonymous inner class a lambda(¢äÇýÿÿÿÿ
+D
+java:S1604°"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+l
+java:S14501"VRemove the "iv_Call" field and declare it as a local variable in the relevant methods.(‚Ùü“
+o
+java:S14501"YRemove the "iv_Whatspp" field and declare it as a local variable in the relevant methods.(‚Ùü“
+d
+java:S3008."NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ‡Ë
+>
+java:S16591"(Declare "iv_Whatspp" on a separate line.(‚Ùü“
+>
+java:S16591"(Declare "iv_reviews" on a separate line.(‚Ùü“
+@
+java:S16591"*Declare "iv_share_via" on a separate line.(‚Ùü“
+g	java:S1160"RRename this field "tv_info" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ²Ø‰
+g	java:S1161"RRename this field "iv_Call" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Ùü“
+j	java:S1161"URename this field "iv_Whatspp" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Ùü“
+j	java:S1161"URename this field "iv_reviews" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Ùü“
+l	java:S1161"WRename this field "iv_share_via" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Ùü“
+>
+java:S11859"(Remove this method to simply inherit it.(ßìê¯
+h	java:S100~"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ£ð±øÿÿÿÿ
+f
+java:S1854š"JRemove this useless assignment to local variable "support_info_modelList".(¬­’˜ùÿÿÿÿ
+U
+java:S1854£"9Remove this useless assignment to local variable "title".(ÙÎ—Øûÿÿÿÿ
+L
+java:S1874¥"0Remove this use of "fromHtml"; it is deprecated.(í¶šÃþÿÿÿÿ
+F
+java:S1481£"*Remove this unused "title" local variable.(ÙÎ—Øûÿÿÿÿ
+D
+java:S10681".Remove this unused "iv_reviews" private field.(‚Ùü“
+F
+java:S10681"0Remove this unused "iv_share_via" private field.(‚Ùü“
+V	java:S125F"<This block of commented-out lines of code should be removed.(³îœâûÿÿÿÿ
+Q	java:S125N"<This block of commented-out lines of code should be removed.(®›µ£
+R	java:S125´"<This block of commented-out lines of code should be removed.(ç—­

@@ -13,8 +13,7 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.squareup.picasso.Picasso;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.Category_model;
 import com.tecmanic.gogrocer.R;
@@ -81,11 +80,8 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.MyViewHolder
         int clr1 = Color.rgb(red, green, blue);                                 //pastel colors
         holder.linearLayout.setBackgroundColor(clr1);
 
-        Glide.with(context)
+        Picasso.with(context)
                 .load(BaseURL.IMG_URL + mList.getImage())
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
                 .into(holder.image);
         preferences = context.getSharedPreferences("lan", MODE_PRIVATE);
         language=preferences.getString("language","");

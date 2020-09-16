@@ -1,0 +1,8 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¬À¯¦úÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÁÊüûÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ôä¯’ûÿÿÿÿ
+k	java:S116	"QRename this field "cat_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©‰×ëûÿÿÿÿ
+e	java:S116"PRename this field "Count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ©Š
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î«¼
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÁÊüûÿÿÿÿ

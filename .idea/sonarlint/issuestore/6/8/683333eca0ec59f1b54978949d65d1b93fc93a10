@@ -1,0 +1,266 @@
+
+u	java:S116w"TRename this field "ContactUs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“ëìÙÿÿÿÿÿ8¯û¾¾.
+K
+java:S1604Ö"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8À—Ò­À.
+Y	java:S125Ë"<This block of commented-out lines of code should be removed.(òÍ¥¬8À—Ò­À.
+^	java:S125Ö"<This block of commented-out lines of code should be removed.(Ş³ª€ÿÿÿÿÿ8À—Ò­À.
+d
+java:S2142Å"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8À—Ò­À.
+Y	java:S125˜"<This block of commented-out lines of code should be removed.(ˆ†’8À—Ò­À.
+^	java:S125Ç"<This block of commented-out lines of code should be removed.(ˆ’ã£ùÿÿÿÿ8£À¢­À.
+Y	java:S125ö"<This block of commented-out lines of code should be removed.(ğ¾çú8À—Ò­À.
+}	java:S116œ"[Rename this field "map_access_token" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§‡…æüÿÿÿÿ8£À¢­À.
+^	java:S125à"<This block of commented-out lines of code should be removed.(Ş³ª€ÿÿÿÿÿ8À—Ò­À.
+^	java:S125È"<This block of commented-out lines of code should be removed.(¢«›ÿÿÿÿÿ8À—Ò­À.
+a
+java:S2130“
+">Use "Double.parseDouble" for this string-to-double conversion.(ªóàÌüÿÿÿÿ8Èü’É¹.
+\
+java:S1117ı">Rename "addresses" which hides the field declared at line 128.(é¤³8À—Ò­À.
+a
+java:S1117">Rename "longitude" which hides the field declared at line 130.(üÛ‡ùúÿÿÿÿ8À—Ò­À.
+K
+java:S1659w")Declare "TermsPolicy" on a separate line.(“ëìÙÿÿÿÿÿ8¯û¾¾.
+d
+java:S3252š"AUse static access with "com.android.volley.Request" for "Method".(‘Ó‘ºúÿÿÿÿ8£À¢­À.
+C
+java:S1659"%Declare "address" on a separate line.(ğèË…8¯û¾¾.
+Y	java:S125¡"<This block of commented-out lines of code should be removed.(ˆ³¾8£À¢­À.
+K
+java:S1604©"(Make this anonymous inner class a lambda(Æ—î–ÿÿÿÿÿ8£À¢­À.
+A
+java:S1659"#Declare "state" on a separate line.(ğèË…8¯û¾¾.
+s
+java:S1104t"VMake navigation a static final constant or non-public and provide accessors if needed.(„Øµ8¯û¾¾.
+^	java:S125·	"<This block of commented-out lines of code should be removed.(Ú†äºúÿÿÿÿ8À—Ò­À.
+^	java:S125Î"<This block of commented-out lines of code should be removed.(áÌ­Åıÿÿÿÿ8£À¢­À.
+u
+java:S3776Ä"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(øˆ÷Ãùÿÿÿÿ8À—Ò­À.
+\
+java:S2130ñ">Use "Double.parseDouble" for this string-to-double conversion.(ş¨Üñ8£À¢­À.
+^	java:S125Á"<This block of commented-out lines of code should be removed.( –şàşÿÿÿÿ8£À¢­À.
+Y	java:S125™"<This block of commented-out lines of code should be removed.(‚æõæ8À—Ò­À.
+^	java:S125å	"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8À—Ò­À.
+Y	java:S125Ï"<This block of commented-out lines of code should be removed.(ò´ü›8À—Ò­À.
+Y	java:S125”	"<This block of commented-out lines of code should be removed.(øğµ¹8À—Ò­À.
+m	java:S116v"SRename this field "My_Order" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ã»Õıÿÿÿÿ
+\
+java:S2130Ì">Use "Double.parseDouble" for this string-to-double conversion.(ş¨Üñ8À—Ò­À.
+^	java:S125ş"<This block of commented-out lines of code should be removed.(Áã¨ˆøÿÿÿÿ8À—Ò­À.
+^	java:S125–"<This block of commented-out lines of code should be removed.(›ğÃãÿÿÿÿÿ8À—Ò­À.
+k
+java:S1871¹"MThis branch's code block is the same as the block for the branch on line 950.(ÄÀ˜8Èü’É¹.
+@
+java:S1659""Declare "city" on a separate line.(ğèË…8¯û¾¾.
+M
+java:S1066È"/Merge this if statement with the enclosing one.(Á¢Ë8À—Ò­À.
+^	java:S125ö"<This block of commented-out lines of code should be removed.(½Æë•ıÿÿÿÿ8£À¢­À.
+T
+java:S1874n"7Remove this use of "GoogleApiClient"; it is deprecated.(ÀÙ˜×8”ĞíıÂ.
+\
+java:S2130”
+">Use "Double.parseDouble" for this string-to-double conversion.(ş¨Üñ8À—Ò­À.
+^	java:S125Ÿ"<This block of commented-out lines of code should be removed.(°Ä®šùÿÿÿÿ8À—Ò­À.
+e
+java:S1192Å"GDefine a constant instead of duplicating this literal "status" 3 times.(©©­ı8À—Ò­À.
+|
+java:S1450‹"^Remove the "locationManager" field and declare it as a local variable in the relevant methods.(ô­âº8÷‘‘¶.
+F
+java:S1659{"$Declare "signup" on a separate line.(–ºúÿÿÿÿ8¯û¾¾.
+^	java:S125ú"<This block of commented-out lines of code should be removed.(Å”ÆÄÿÿÿÿÿ8À—Ò­À.
+^	java:S125—	"<This block of commented-out lines of code should be removed.(áÌ­Åıÿÿÿÿ8À—Ò­À.
+^	java:S125‚"<This block of commented-out lines of code should be removed.(çßáÀÿÿÿÿÿ8£À¢­À.
+^	java:S125À"<This block of commented-out lines of code should be removed.(á²¸‘ûÿÿÿÿ8£À¢­À.
+k
+java:S2259à"MA "NullPointerException" could be thrown; "locationManager" is nullable here.(¡ßÒŠ8À—Ò­À.
+w	java:S116w"VRename this field "TermsPolicy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“ëìÙÿÿÿÿÿ8¯û¾¾.
+^	java:S125…"<This block of commented-out lines of code should be removed.(¡²‘ûüÿÿÿÿ8¯û¾¾.
+a
+java:S2130Ë">Use "Double.parseDouble" for this string-to-double conversion.(ªóàÌüÿÿÿÿ8Èü’É¹.
+Y	java:S125Î"<This block of commented-out lines of code should be removed.(›¹ñ8À—Ò­À.
+^	java:S125Ì"<This block of commented-out lines of code should be removed.(¢«›ÿÿÿÿÿ8À—Ò­À.
+Y	java:S125›	"<This block of commented-out lines of code should be removed.(¥»ü8À—Ò­À.
+{
+java:S1450˜"^Remove the "locationRequest" field and declare it as a local variable in the relevant methods.(¢¢ B8¯û¾¾.
+^	java:S125‡	"<This block of commented-out lines of code should be removed.(£ Æ€úÿÿÿÿ8À—Ò­À.
+^	java:S125¦"<This block of commented-out lines of code should be removed.(ÀÑÕ÷ıÿÿÿÿ8À—Ò­À.
+b
+java:S1854¿"?Remove this useless assignment to local variable "subMenuItem".(µøü’øÿÿÿÿ8£À¢­À.
+Y	java:S125"<This block of commented-out lines of code should be removed.(½×¾¸8À—Ò­À.
+D	java:S131ò""Add a default case to this switch.(øå´¡ÿÿÿÿÿ8À—Ò­À.
+^	java:S125‡"<This block of commented-out lines of code should be removed.(ş÷¨®ùÿÿÿÿ8£À¢­À.
+^	java:S125ú"<This block of commented-out lines of code should be removed.(¯ÌËÔÿÿÿÿÿ8À—Ò­À.
+K
+java:S1604˜"(Make this anonymous inner class a lambda(Ï„‰¥ùÿÿÿÿ8£À¢­À.
+n	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üøÔ8£À¢­À.
+A
+java:S1659z"&Declare "username" on a separate line.(ÚŸŠñúÿÿÿÿ
+^	java:S125ß	"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8À—Ò­À.
+Y	java:S125Æ"<This block of commented-out lines of code should be removed.(­äß”8À—Ò­À.
+C
+java:S1659"%Declare "country" on a separate line.(ğèË…8¯û¾¾.
+K
+java:S1604¬"(Make this anonymous inner class a lambda(­İÁşÿÿÿÿ8£À¢­À.
+^	java:S125‹	"<This block of commented-out lines of code should be removed.(½ˆ¡çÿÿÿÿÿ8À—Ò­À.
+?
+java:S1659"(Declare "longitudea" on a separate line.(ğèË…
+v
+java:S1450’"YRemove the "iv_profile" field and declare it as a local variable in the relevant methods.(áÔp8¯û¾¾.
+p
+java:S3776¿"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(©– 8À—Ò­À.
+R
+java:S1481È"/Remove this unused "headerView" local variable.(›å¢»øÿÿÿÿ8£À¢­À.
+X	java:S125¸"<This block of commented-out lines of code should be removed.(€ÁÃ8À—Ò­À.
+^	java:S125Í"<This block of commented-out lines of code should be removed.(Úé’“ıÿÿÿÿ8À—Ò­À.
+K
+java:S1604¿"(Make this anonymous inner class a lambda(ÿÍş±ûÿÿÿÿ8À—Ò­À.
+`
+java:S1117ø"=Rename "location" which hides the field declared at line 153.(ôÍ¿ıÿÿÿÿ8À—Ò­À.
+_
+java:S1874n"BRemove this use of "OnConnectionFailedListener"; it is deprecated.(ÀÙ˜×8”ĞíıÂ.
+K
+java:S1604ı"(Make this anonymous inner class a lambda(áü´¨øÿÿÿÿ8£À¢­À.
+^	java:S125Ş"<This block of commented-out lines of code should be removed.(ä“µ°ıÿÿÿÿ8À—Ò­À.
+Y	java:S125Ò"<This block of commented-out lines of code should be removed.(¥»ü8£À¢­À.
+b
+java:S1124o"EReorder the modifiers to comply with the Java Language Specification.(öĞÕŞ8¯û¾¾.
+Y	java:S125”"<This block of commented-out lines of code should be removed.(ßÌ²¦8À—Ò­À.
+Y
+java:S1874É"6Remove this use of "setColorFilter"; it is deprecated.(Ö©¯ûÿÿÿÿ8£À¢­À.
+G
+java:S1659w"%Declare "aboutUs" on a separate line.(“ëìÙÿÿÿÿÿ8¯û¾¾.
+Y	java:S125İ	"<This block of commented-out lines of code should be removed.(ŞŸÃş8À—Ò­À.
+^	java:S125¾"<This block of commented-out lines of code should be removed.(ÆÙÚ«ûÿÿÿÿ8À—Ò­À.
+`
+java:S1068•"=Remove this unused "mbottomNavigationMenuView" private field.(¯ğœÓúÿÿÿÿ8¯û¾¾.
+R
+java:S1066ß"/Merge this if statement with the enclosing one.(êÿ×¤ùÿÿÿÿ8À—Ò­À.
+\
+java:S1117Š"9Rename "city" which hides the field declared at line 129.(ÀÎõÀşÿÿÿÿ8À—Ò­À.
+C
+java:S1659v"(Declare "My_Walllet" on a separate line.(×Ã»Õıÿÿÿÿ
+F
+java:S1659"(Declare "postalCode" on a separate line.(ğèË…8¯û¾¾.
+Y	java:S125À"<This block of commented-out lines of code should be removed.(øúÿü8£À¢­À.
+l
+java:S1192Ë"IDefine a constant instead of duplicating this literal "cardqnty" 4 times.(…‡‰˜øÿÿÿÿ8£À¢­À.
+`
+java:S1117ğ"=Rename "latitude" which hides the field declared at line 130.(ªóàÌüÿÿÿÿ8Èü’É¹.
+Y	java:S125ä"<This block of commented-out lines of code should be removed.(±íÿ÷8À—Ò­À.
+o
+java:S3776Ü	"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(¹Î¾8À—Ò­À.
+@
+java:S1659v"%Declare "My_Cart" on a separate line.(×Ã»Õıÿÿÿÿ
+Y	java:S125Ä"<This block of commented-out lines of code should be removed.(¿²—Ö8£À¢­À.
+Y	java:S125Œ"<This block of commented-out lines of code should be removed.(”°üÑ8À—Ò­À.
+Y	java:S125Û"<This block of commented-out lines of code should be removed.(”Òµö8£À¢­À.
+^	java:S125 "<This block of commented-out lines of code should be removed.(Å©õ½ûÿÿÿÿ8À—Ò­À.
+s	java:S116v"RRename this field "My_Cart" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ã»Õıÿÿÿÿ8¯û¾¾.
+\
+java:S1874´"9Remove this use of "setDrawerListener"; it is deprecated.(ø¶Âßÿÿÿÿÿ8£À¢­À.
+E
+java:S1659w"#Declare "share" on a separate line.(“ëìÙÿÿÿÿÿ8¯û¾¾.
+\
+java:S1117Ì">Rename "longitude" which hides the field declared at line 130.(ş¨Üñ8À—Ò­À.
+^	java:S125º	"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8À—Ò­À.
+^	java:S125À	"<This block of commented-out lines of code should be removed.(„êŞÚıÿÿÿÿ8À—Ò­À.
+u	java:S116‘"SRename this field "nav_menu" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Üˆ­úÿÿÿÿ8Èü’É¹.
+\
+java:S1117”
+">Rename "longitude" which hides the field declared at line 130.(ş¨Üñ8À—Ò­À.
+^	java:S125ë"<This block of commented-out lines of code should be removed.(öíÒûÿÿÿÿ8À—Ò­À.
+n
+java:S1192î"KDefine a constant instead of duplicating this literal "##.#######" 3 times.(ª£’ìÿÿÿÿÿ8£À¢­À.
+^	java:S125Å"<This block of commented-out lines of code should be removed.(úôúÿÿÿÿ8£À¢­À.
+`
+java:S1117€"=Rename "latitude" which hides the field declared at line 130.(îğäûÿÿÿÿÿ8Á†û¾¾.
+E
+java:S1659‚"'Declare "longitude" on a separate line.(îÅÑØ8¯û¾¾.
+Y	java:S125§	"<This block of commented-out lines of code should be removed.(¢–´Ù8À—Ò­À.
+Y	java:S125Ä"<This block of commented-out lines of code should be removed.( Àÿï8À—Ò­À.
+Y	java:S125Á"<This block of commented-out lines of code should be removed.(¡ä«„8À—Ò­À.
+^	java:S125»"<This block of commented-out lines of code should be removed.(·äõüÿÿÿÿ8À—Ò­À.
+‚
+java:S1450"_Remove the "isNetworkEnabled" field and declare it as a local variable in the relevant methods.(æ¤Àçşÿÿÿÿ8¯û¾¾.
+S
+java:S1481¿"0Remove this unused "subMenuItem" local variable.(µøü’øÿÿÿÿ8£À¢­À.
+B
+java:S1659v"'Declare "My_Reward" on a separate line.(×Ã»Õıÿÿÿÿ
+^	java:S125ç"<This block of commented-out lines of code should be removed.(Ü‹Õèÿÿÿÿÿ8À—Ò­À.
+Y	java:S125¡"<This block of commented-out lines of code should be removed.(ßõòÁ8À—Ò­À.
+^	java:S125¥"<This block of commented-out lines of code should be removed.(±úàüÿÿÿÿ8À—Ò­À.
+s
+java:S1450"VRemove the "profile" field and declare it as a local variable in the relevant methods.(Úæ±_8¯û¾¾.
+^	java:S125"<This block of commented-out lines of code should be removed.(­çÒøÿÿÿÿ8£À¢­À.
+I
+java:S1659w"'Declare "ContactUs" on a separate line.(“ëìÙÿÿÿÿÿ8¯û¾¾.
+^	java:S125ô"<This block of commented-out lines of code should be removed.(î¸½ÿÿÿÿÿ8£À¢­À.
+X	java:S125˜
+"<This block of commented-out lines of code should be removed.(ƒÑñ}8À—Ò­À.
+K
+java:S1185½
+"(Remove this method to simply inherit it.(ÜÁ×¥üÿÿÿÿ8À—Ò­À.
+`
+java:S1117“
+"=Rename "latitude" which hides the field declared at line 130.(ªóàÌüÿÿÿÿ8Èü’É¹.
+^	java:S125Õ"<This block of commented-out lines of code should be removed.(íÙ¤Åùÿÿÿÿ8À—Ò­À.
+\
+java:S1117ñ">Rename "longitude" which hides the field declared at line 130.(ş¨Üñ8£À¢­À.
+a
+java:S2130ğ">Use "Double.parseDouble" for this string-to-double conversion.(ªóàÌüÿÿÿÿ8Èü’É¹.
+K
+java:S1185Û"(Remove this method to simply inherit it.(èüù±ùÿÿÿÿ8À—Ò­À.
+^	java:S125"<This block of commented-out lines of code should be removed.(½Æë•ıÿÿÿÿ8£À¢­À.
+Y	java:S125›"<This block of commented-out lines of code should be removed.(¥çŒ8À—Ò­À.
+n	java:S116v"TRename this field "My_Reward" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ã»Õıÿÿÿÿ
+X	java:S125–"<This block of commented-out lines of code should be removed.(ÖöÈJ8£À¢­À.
+X	java:S125‡"<This block of commented-out lines of code should be removed.(úƒí|8¯û¾¾.
+M
+java:S1066¡"/Merge this if statement with the enclosing one.(Á¢Ë8À—Ò­À.
+F
+java:S1659w"$Declare "logout" on a separate line.(“ëìÙÿÿÿÿÿ8¯û¾¾.
+F
+java:S1481Æ"(Remove this unused "msg" local variable.(Ü„8À—Ò­À.
+Y	java:S125"<This block of commented-out lines of code should be removed.(ó—çŒ8À—Ò­À.
+^	java:S125š"<This block of commented-out lines of code should be removed.(´¬Àôûÿÿÿÿ8£À¢­À.
+Y	java:S125‡"<This block of commented-out lines of code should be removed.(ßõòÁ8À—Ò­À.
+K
+java:S1604ß"(Make this anonymous inner class a lambda(©‹Ù™ÿÿÿÿÿ8£À¢­À.
+X	java:S125Œ"<This block of commented-out lines of code should be removed.(¨Ÿßm8£À¢­À.
+`
+java:S1117Ë"=Rename "latitude" which hides the field declared at line 130.(ªóàÌüÿÿÿÿ8Èü’É¹.
+Y	java:S125¯"<This block of commented-out lines of code should be removed.(ŒÑÂ8À—Ò­À.
+^	java:S125Ñ"<This block of commented-out lines of code should be removed.(ÌÕ­ùÿÿÿÿ8À—Ò­À.
+h
+java:S1874÷"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(ÀÄŞ’8À—Ò­À.
+~
+java:S1450Œ"[Remove the "isGPSEnabled" field and declare it as a local variable in the relevant methods.(Ö¤šùûÿÿÿÿ8÷‘‘¶.
+X
+java:S1874n";Remove this use of "ConnectionCallbacks"; it is deprecated.(ÀÙ˜×8”ĞíıÂ.
+d
+java:S1192Ó"FDefine a constant instead of duplicating this literal "title" 3 times.(Â•¶É8À—Ò­À.
+a
+java:S1854È">Remove this useless assignment to local variable "headerView".(›å¢»øÿÿÿÿ8£À¢­À.
+Y	java:S125ª"<This block of commented-out lines of code should be removed.(õÍ‘û8À—Ò­À.
+T
+java:S1874n"7Remove this use of "GoogleApiClient"; it is deprecated.(ÀÙ˜×8”ĞíıÂ.
+K
+java:S1604ˆ"(Make this anonymous inner class a lambda(ƒ¡ÂÊşÿÿÿÿ8£À¢­À.
+K
+java:S1604ò"(Make this anonymous inner class a lambda(©‹Ù™ÿÿÿÿÿ8£À¢­À.
+F
+java:S1604Ã"(Make this anonymous inner class a lambda(ÅÅàÑ8£À¢­À.
+^	java:S125â	"<This block of commented-out lines of code should be removed.(¢²áöùÿÿÿÿ8À—Ò­À.
+^	java:S125‘"<This block of commented-out lines of code should be removed.(Ÿô¦õüÿÿÿÿ8£À¢­À.
+v	java:S116v"URename this field "My_Walllet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×Ã»Õıÿÿÿÿ8¯û¾¾.
+U
+java:S1854Æ"7Remove this useless assignment to local variable "msg".(Ü„8À—Ò­À.
+q	java:S116’"URename this field "iv_profile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áÔp8¯û¾¾.
+Y
+java:S1117ü";Rename "drawer" which hides the field declared at line 150.(…üµø8À—Ò­À.
+£
+java:S1862¹"„This branch can not be reached because the condition duplicates a previous condition in the same sequence of "if/else if" statements(ÄÀ˜8À—Ò­À.
+u
+java:S3776ª"RRefactor this method to reduce its Cognitive Complexity from 56 to the 15 allowed.(¨Œşÿÿÿÿ8£À¢­À.
+^	java:S125š"<This block of commented-out lines of code should be removed.(Ÿœº­øÿÿÿÿ8À—Ò­À.
+^	java:S125¾"<This block of commented-out lines of code should be removed.(µÔùùÿÿÿÿ8À—Ò­À.

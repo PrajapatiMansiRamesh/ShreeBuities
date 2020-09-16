@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.tecmanic.gogrocer"
     android:installLocation="auto">
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <permission
+        android:name="com.tecmanic.gogrocer.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="com.tecmanic.gogrocer.permission.MAPS_RECEIVE" />
 
     <application
         android:name=".util.AppController"
@@ -20,48 +32,70 @@
         android:roundIcon="@drawable/splashicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        tools:replace="android:allowBackup">
-        <activity android:name=".Activity.MidtransPaymentGateway"/>
-        <activity android:name="com.midtrans.sdk.uikit.activities.PaymentMethodsActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
-        <activity android:name=".Activity.DealActivity" />
-        <activity android:name=".Activity.MainActivityAgain" />
-        <activity android:name=".Activity.add_address" />
-        <activity android:name=".Activity.ViewAll_Whatsnew" />
-        <activity android:name=".Activity.ViewAll_Deals" />
-        <activity android:name=".Activity.ViewAll_Recent" />
-        <activity android:name=".Activity.ViewAll_TopDeals" />
-        <activity android:name=".Activity.Forget_otp_verify" />
-        <activity android:name=".Activity.About_us" />
-        <activity android:name=".Activity.Coupen" />
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".Activity.Myorderdetails"
+            android:name=".activity.MapboxActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
-        <activity android:name=".Activity.Cancel_Order" />
         <activity
-            android:name=".Activity.ForgotPassOtp"
+            android:name=".activity.FlagActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name=".activity.GameWebActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".activity.AddressLocationActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" /> <!-- <activity -->
+        <activity
+            android:name=".activity.DealActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity android:name=".activity.MainActivityAgain" />
+        <activity android:name=".activity.add_address"
+            android:theme="@style/StatusBarOrange" />
+        <activity android:name=".activity.ViewAll_Whatsnew" />
+        <activity android:name=".activity.ViewAll_Deals" />
+        <activity android:name=".activity.ViewAll_Recent" />
+        <activity
+            android:name=".activity.ViewAll_TopDeals"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity android:name=".activity.Forget_otp_verify" />
+        <activity
+            android:name=".activity.AboutUs"
+            android:parentActivityName=".activity.MainActivity">
+
+        </activity>
+        <activity android:name=".activity.Coupen" />
+        <activity
+            android:name=".activity.Myorderdetails"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity android:name=".activity.Cancel_Order" />
+        <activity
+            android:name=".activity.ForgotPassOtp"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.My_Order_activity"
+            android:name=".activity.My_Order_activity"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.NewPassword"
+            android:name=".activity.NewPassword"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.RechargeWallet"
+            android:name=".activity.RechargeWallet"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.ForgotPAssword"
+            android:name=".activity.ForgotPAssword"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.SelectAddress"
+            android:name=".activity.SelectAddress"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.OrderSummary"
+            android:name=".activity.OrderSummary"
             android:theme="@style/StatusBarOrange" />
 
-        <service android:name=".Activity.MyFirebaseMessagingService">
+        <service android:name=".activity.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -73,9 +107,15 @@
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_test_7fnnn7WTaard4h" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_api_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".Activity.PaymentGatWay"
+            android:name=".activity.PaymentGatWay"
             android:theme="@style/AppTheme.NoActionBar" />
         <!--
   <activity
@@ -85,9 +125,9 @@
             android:windowSoftInputMode="stateHidden"
             tools:ignore="LockedOrientationActivity" />
         -->
-        <activity android:name=".Activity.Paytm" />
+        <activity android:name=".activity.Paytm" />
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <!--
@@ -99,50 +139,56 @@
             -->
         </activity>
         <activity
-            android:name=".Activity.AddAddress"
+            android:name=".activity.EditAddress"
+            android:theme="@style/StatusBarOrange" /> <!-- <activity -->
+        <!-- android:name=".Fragments.CartFragment" -->
+        <!-- android:theme="@style/StatusBarGreen" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Fragments.SearchFragment" -->
+        <!-- android:theme="@style/StatusBarGreen" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Fragments.CategoryFragment" -->
+        <!-- android:theme="@style/StatusBarGreen" /> -->
+        <activity
+            android:name=".activity.ChooseLocatioin"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Fragments.CartFragment"
+            android:name=".activity.OtpVerification"
             android:theme="@style/StatusBarGreen" />
         <activity
-            android:name=".Fragments.SearchFragment"
-            android:theme="@style/StatusBarGreen" />
-        <activity
-            android:name=".Fragments.CategoryFragment"
-            android:theme="@style/StatusBarGreen" />
-        <activity
-            android:name=".Activity.ChooseLocatioin"
+            android:name=".activity.OrderSuccessful"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.OtpVerification"
-            android:theme="@style/StatusBarGreen" />
-        <activity
-            android:name=".Activity.OrderSuccessful"
+            android:name=".activity.EmptyCart"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.EmptyCart"
-            android:theme="@style/StatusBarOrange" />
-        <activity
-            android:name=".Activity.PaymentDetails"
+            android:name=".activity.PaymentDetails"
             android:theme="@style/StatusBarOrange"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Activity.InternetConnection"
+            android:name=".activity.InternetConnection"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.CategoryPage"
+            android:name=".activity.CategoryPage"
             android:theme="@style/StatusBarGreen" />
         <activity
-            android:name=".Activity.ProductDetails"
+            android:name=".activity.ProductDetails"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.SignUpActivity"
+            android:name=".activity.SignUpActivity"
             android:theme="@style/StatusBarOrange" />
         <activity
-            android:name=".Activity.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:theme="@style/StatusBarOrange" />
+
+        <activity android:name=".activity.FireOtpPageAuthentication"
+            android:screenOrientation="portrait"/>
         <activity
-            android:name=".Activity.Splash"
+            android:name=".activity.PaystackPayment"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity
+            android:name=".activity.Splash"
             android:theme="@style/StatusBarWhite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

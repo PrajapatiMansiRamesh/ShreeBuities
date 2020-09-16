@@ -17,12 +17,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.tecmanic.gogrocer.Activity.ProductDetails;
-import com.tecmanic.gogrocer.ModelClass.CartModel;
+import com.squareup.picasso.Picasso;
+import com.tecmanic.gogrocer.activity.ProductDetails;
+import com.tecmanic.gogrocer.ModelClass.NewCartModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
+import com.tecmanic.gogrocer.util.Session_management;
+import com.tecmanic.gogrocer.util.ViewNotifier;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,12 +33,23 @@ import static com.tecmanic.gogrocer.Config.BaseURL.IMG_URL;
 public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyViewHolder> {
     Context context;
     private DatabaseHandler dbcart;
-    private List<CartModel> cartList;
+    private List<NewCartModel> cartList;
+    private Session_management session_management;
+    private ViewNotifier viewNotifier;
 
-    public ViewAll_Adapter(List<CartModel> cartList, Context context) {
+    public ViewAll_Adapter(List<NewCartModel> cartList, Context context) {
         this.cartList = cartList;
         this.context = context;
         dbcart = new DatabaseHandler(context);
+        session_management = new Session_management(context);
+    }
+
+    public ViewAll_Adapter(List<NewCartModel> cartList, Context context, ViewNotifier viewNotifier) {
+        this.cartList = cartList;
+        this.context = context;
+        this.viewNotifier = viewNotifier;
+        dbcart = new DatabaseHandler(context);
+        session_management = new Session_management(context);
     }
 
     @NonNull
@@ -45,78 +57,102 @@ public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyView
     public ViewAll_Adapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.layout_product_add, parent, false);
+        context = parent.getContext();
+     /*   dbcart = new DatabaseHandler(context);
+        session_management = new Session_management(context);
+*/
         dbcart = new DatabaseHandler(context);
+        if (session_management == null){
+            session_management = new Session_management(context);
+        }
         return new ViewAll_Adapter.MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(ViewAll_Adapter.MyViewHolder holder, int position) {
-        CartModel cc = cartList.get(position);
-        holder.prodNAme.setText(cc.getpNAme());
-        holder.pDescrptn.setText(cc.getpDes());
-        holder.pQuan.setText(cc.getpQuan());
-        holder.pPrice.setText(cc.getpPrice());
-        holder.pdiscountOff.setText(cc.getDiscountOff());
-        holder.pMrp.setText(cc.getpMrp());
+        NewCartModel cc = cartList.get(position);
+
+        holder.currency_indicator.setText(session_management.getCurrency());
+        holder.currency_indicator_2.setText(session_management.getCurrency());
+        holder.prodNAme.setText(cc.getProduct_name());
+        holder.pDescrptn.setText(cc.getDescription());
+        holder.pQuan.setText(cc.getQuantity());
+        holder.pPrice.setText(cc.getPrice());
+        String totalOff = String.valueOf(Integer.parseInt(cc.getMrp()) - Integer.parseInt(cc.getPrice()));
+        holder.pdiscountOff.setText(session_management.getCurrency() + totalOff + " " + "Off");
+//        holder.pdiscountOff.setText(cc.());
+        holder.pMrp.setText(cc.getMrp());
         holder.pMrp.setPaintFlags(holder.pMrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
 
+        session_management.setStoreId(cc.getStore_id());
+
+        if (Integer.parseInt(cc.getStock()) > 0) {
+            holder.outofs.setVisibility(View.GONE);
+            holder.outofs_in.setVisibility(View.VISIBLE);
+        } else {
+            holder.outofs_in.setVisibility(View.GONE);
+            holder.outofs.setVisibility(View.VISIBLE);
+        }
 
         int qtyd = Integer.parseInt(dbcart.getInCartItemQtys(cartList.get(position).getVarient_id()));
         if (qtyd > 0) {
             holder.btn_Add.setVisibility(View.GONE);
             holder.ll_addQuan.setVisibility(View.VISIBLE);
             holder.txtQuan.setText("" + qtyd);
-            double priced = Double.parseDouble(cc.getpPrice());
-            double mrpd = Double.parseDouble(cc.getpMrp());
+            double priced = Double.parseDouble(cc.getPrice());
+            double mrpd = Double.parseDouble(cc.getMrp());
             holder.pPrice.setText("" + (priced * qtyd));
             holder.pMrp.setText("" + (mrpd * qtyd));
         } else {
             holder.btn_Add.setVisibility(View.VISIBLE);
             holder.ll_addQuan.setVisibility(View.GONE);
-            holder.pPrice.setText(cc.getpPrice());
-            holder.pMrp.setText(cc.getpMrp());
+            holder.pPrice.setText(cc.getPrice());
+            holder.pMrp.setText(cc.getMrp());
             holder.txtQuan.setText("" + 0);
         }
 
-        Glide.with(context)
-                .load(IMG_URL + cc.getpImage())
-                .centerCrop()
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
+        Picasso.with(context)
+                .load(IMG_URL + cc.getProduct_image())
                 .into(holder.image);
-        holder.image.setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), ProductDetails.class);
-            intent.putExtra("sId", cartList.get(position).getpId());
-            intent.putExtra("sVariant_id", cartList.get(position).getVarient_id());
-            intent.putExtra("sName", cartList.get(position).getpNAme());
-            intent.putExtra("descrip", cartList.get(position).getpDes());
-            intent.putExtra("price", cartList.get(position).getpPrice());
-            intent.putExtra("mrp", cartList.get(position).getpMrp());
-            intent.putExtra("unit", cartList.get(position).getUnit());
-            intent.putExtra("qty", cartList.get(position).getpQuan());
-            intent.putExtra("image", cartList.get(position).getpImage());
-
-            v.getContext().startActivity(intent);
-
-        });
+//        holder.image.setOnClickListener(v -> {
+//
+//        });
 
 //        Double items = Double.parseDouble(dbcart.getInCartItemQty(cartList.get(position).getVarient_id()));
-        double price = Double.parseDouble(cartList.get(position).getpPrice());
-        double mrp = Double.parseDouble(cartList.get(position).getpMrp());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), ProductDetails.class);
+            intent.putExtra("sId", cartList.get(position).getProduct_id());
+            intent.putExtra("sVariant_id", cartList.get(position).getVarient_id());
+            intent.putExtra("sName", cartList.get(position).getProduct_name());
+            intent.putExtra("descrip", cartList.get(position).getDescription());
+            intent.putExtra("price", cartList.get(position).getPrice());
+            intent.putExtra("mrp", cartList.get(position).getMrp());
+            intent.putExtra("unit", cartList.get(position).getUnit());
+            intent.putExtra("qty", cartList.get(position).getQuantity());
+            intent.putExtra("stock", cartList.get(position).getStock());
+            intent.putExtra("image", cartList.get(position).getProduct_image());
+
+            v.getContext().startActivity(intent);
+        });
+
+        double price = Double.parseDouble(cartList.get(position).getPrice());
+        double mrp = Double.parseDouble(cartList.get(position).getMrp());
 
 
         holder.plus.setOnClickListener(v -> {
             holder.btn_Add.setVisibility(View.GONE);
             holder.ll_addQuan.setVisibility(View.VISIBLE);
             int i = Integer.parseInt(dbcart.getInCartItemQtys(cartList.get(position).getVarient_id()));
-//            cartList.get(position).setpQuan(String.valueOf(i + 1));
-            holder.txtQuan.setText("" + (i + 1));
-            holder.pPrice.setText("" + (price * (i + 1)));
-            holder.pMrp.setText("" + (mrp * (i + 1)));
-            updateMultiply(position,(i+1));
+            if (i < Integer.parseInt(cc.getStock())) {
+                //            cartList.get(position).setpQuan(String.valueOf(i + 1));
+                holder.txtQuan.setText("" + (i + 1));
+                holder.pPrice.setText("" + (price * (i + 1)));
+                holder.pMrp.setText("" + (mrp * (i + 1)));
+                updateMultiply(position, (i + 1));
 //            notifyItemChanged(position);
+            }
         });
         holder.minus.setOnClickListener(v -> {
             int i = Integer.parseInt(dbcart.getInCartItemQtys(cartList.get(position).getVarient_id()));
@@ -128,12 +164,12 @@ public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyView
                 holder.txtQuan.setText("" + (i - 1));
                 holder.pPrice.setText("" + price);
                 holder.pMrp.setText("" + mrp);
-            }else {
+            } else {
                 holder.txtQuan.setText("" + (i - 1));
                 holder.pPrice.setText("" + (price * (i - 1)));
                 holder.pMrp.setText("" + (mrp * (i - 1)));
             }
-            updateMultiply(position, (i-1));
+            updateMultiply(position, (i - 1));
         });
         holder.btn_Add.setOnClickListener(v -> {
             holder.btn_Add.setVisibility(View.GONE);
@@ -153,25 +189,25 @@ public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyView
         HashMap<String, String> map = new HashMap<>();
 //            map.put("varient_id",cartList.get(position).getpId());
         map.put("varient_id", cartList.get(pos).getVarient_id());
-        map.put("product_name", cartList.get(pos).getpNAme());
-        map.put("category_id", cartList.get(pos).getpId());
-        map.put("title", cartList.get(pos).getpNAme());
-        map.put("price", cartList.get(pos).getpPrice());
-        map.put("mrp", cartList.get(pos).getpMrp());
-        Log.d("fd", cartList.get(pos).getpImage());
-        map.put("product_image", cartList.get(pos).getpImage());
-        map.put("status", cartList.get(pos).getStatus());
-        map.put("in_stock", cartList.get(pos).getIn_stock());
-        map.put("unit_value", cartList.get(pos).getpQuan());
+        map.put("product_name", cartList.get(pos).getProduct_name());
+        map.put("category_id", cartList.get(pos).getProduct_id());
+        map.put("title", cartList.get(pos).getProduct_name());
+        map.put("price", cartList.get(pos).getPrice());
+        map.put("mrp", cartList.get(pos).getMrp());
+//        Log.d("fd", cartList.get(pos).getProduct_image());
+        map.put("product_image", cartList.get(pos).getProduct_image());
+        map.put("status", "0");
+        map.put("in_stock", "0");
+        map.put("unit_value", "0");
         map.put("unit", cartList.get(pos).getUnit());
         map.put("increament", "0");
         map.put("rewards", "0");
-        map.put("stock", "0");
-        map.put("product_description", cartList.get(pos).getpDes());
+        map.put("stock", cartList.get(pos).getStock());
+        map.put("product_description", cartList.get(pos).getDescription());
 
 //        Log.d("fgh",cartList.get(position).getUnit()+cartList.get(position).getpQuan());
 //        Log.d("fghfgh",cartList.get(position).getpPrice());
-        if (i>0) {
+        if (i > 0) {
             if (dbcart.isInCart(map.get("varient_id"))) {
                 dbcart.setCart(map, i);
             } else {
@@ -191,6 +227,9 @@ public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyView
 //            txtQuan.setText("" + items);
 //            pMrp.setText("" + mrp* items );
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                if (viewNotifier != null) {
+                    viewNotifier.onViewNotify();
+                }
                 SharedPreferences preferences = context.getSharedPreferences("GOGrocer", Context.MODE_PRIVATE);
                 preferences.edit().putInt("cardqnty", dbcart.getCartCount()).apply();
             }
@@ -200,15 +239,18 @@ public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyView
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView prodNAme, pDescrptn, pQuan, pPrice, pdiscountOff, pMrp, minus, plus, txtQuan;
+        public TextView prodNAme, pDescrptn, pQuan, pPrice, pdiscountOff, pMrp, minus, plus, txtQuan, currency_indicator, currency_indicator_2;
         ImageView image;
-        LinearLayout btn_Add, ll_addQuan;
+        LinearLayout btn_Add, ll_addQuan, outofs, outofs_in;
         int minteger = 0;
         RelativeLayout rlQuan;
         String catId, catName;
 
         public MyViewHolder(View view) {
             super(view);
+            currency_indicator = view.findViewById(R.id.currency_indicator);
+            currency_indicator_2 = view.findViewById(R.id.currency_indicator_2);
+
             prodNAme = view.findViewById(R.id.txt_pName);
             pDescrptn = view.findViewById(R.id.txt_pInfo);
             pQuan = view.findViewById(R.id.txt_unit);
@@ -222,6 +264,8 @@ public class ViewAll_Adapter extends RecyclerView.Adapter<ViewAll_Adapter.MyView
             txtQuan = view.findViewById(R.id.txtQuan);
             minus = view.findViewById(R.id.minus);
             plus = view.findViewById(R.id.plus);
+            outofs = view.findViewById(R.id.outofs);
+            outofs_in = view.findViewById(R.id.outofs_in);
         }
     }
 }

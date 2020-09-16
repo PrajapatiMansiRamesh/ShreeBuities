@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,15 +20,16 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
-import com.tecmanic.gogrocer.Activity.ViewAll_TopDeals;
+import com.tecmanic.gogrocer.activity.ViewAll_TopDeals;
 import com.tecmanic.gogrocer.Adapters.CartAdapter;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
+import com.tecmanic.gogrocer.ModelClass.NewCartModel;
 import com.tecmanic.gogrocer.R;
-import com.tecmanic.gogrocer.util.PagerNotifier;
 import com.tecmanic.gogrocer.util.Session_management;
 
 import org.json.JSONArray;
@@ -65,8 +65,7 @@ public class Whats_New_Fragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_whats__new_, container, false);
         session_management = new Session_management(container.getContext());
@@ -94,11 +93,11 @@ public class Whats_New_Fragment extends Fragment {
         mm.setVisibility(View.VISIBLE);
         viewall.setVisibility(View.VISIBLE);
         no_data.setVisibility(View.GONE);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, whatsnew, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, whatsnew, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("homeRecent", response);
-                progressDialog.dismiss();
+//                Log.d("homeRecent", response);
+//                progressDialog.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String status = jsonObject.getString("status");
@@ -118,16 +117,19 @@ public class Whats_New_Fragment extends Fragment {
                             String product_image = jsonObject1.getString("varient_image");
                             String mmrp = jsonObject1.getString("mrp");
                             String unit = jsonObject1.getString("unit");
+                            String storeId = jsonObject1.getString("store_id");
 //                            String count = jsonObject1.getString("count");
                             String totalOff = String.valueOf(Integer.parseInt(mmrp) - Integer.parseInt(pprice));
 
-                            CartModel recentData = new CartModel(product_id, product_name, description, pprice, quantity + " " + unit, product_image, session_management.getCurrency() + totalOff + " " + "Off", mmrp, "", unit);
+                            CartModel recentData = new CartModel(product_id, product_name, description, pprice, quantity + " " + unit, product_image, session_management.getCurrency() + totalOff + " " + "Off", mmrp, "", unit,storeId);
                             recentData.setVarient_id(varient_id);
                             recentList.add(recentData);
 
                         }
-                        recentAdapter = new CartAdapter(recentList, context);
-                        recyclerWhatNew.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+//                        recentAdapter = new CartAdapter(recentList, context);
+                        List<NewCartModel> cartModels = new ArrayList<>();
+                        recentAdapter = new CartAdapter(context,cartModels);
+                        recyclerWhatNew.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
                         recyclerWhatNew.setAdapter(recentAdapter);
                         recentAdapter.notifyDataSetChanged();
 
@@ -140,11 +142,13 @@ public class Whats_New_Fragment extends Fragment {
 //                        String msg = resultObj.getString("message");
                         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                     }
-                    progressDialog.dismiss();
+//                    progressDialog.dismiss();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                } finally {
+                    progressDialog.dismiss();
                 }
-                progressDialog.dismiss();
+
 
             }
         }, new Response.ErrorListener() {
@@ -159,12 +163,31 @@ public class Whats_New_Fragment extends Fragment {
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String, String> params = new HashMap<>();
+                Map<String, String> params = new HashMap<>();
+                params.put("lat", session_management.getLatPref());
+                params.put("lng", session_management.getLangPref());
+                params.put("city", session_management.getLocationCity());
                 return params;
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        RequestQueue requestQueue = Volley.newRequestQueue(requireActivity());
+        stringRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 60000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 2;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
         requestQueue.getCache().clear();
         requestQueue.add(stringRequest);
 

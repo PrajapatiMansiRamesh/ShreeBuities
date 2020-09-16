@@ -29,7 +29,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.tecmanic.gogrocer.Activity.Myorderdetails;
+import com.tecmanic.gogrocer.activity.Myorderdetails;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.My_Past_order_model;
 import com.tecmanic.gogrocer.ModelClass.NewPastOrderSubModel;
@@ -164,7 +164,7 @@ public class My_Past_Order extends Fragment {
 
             @Override
             public void onResponse(JSONArray response) {
-                Log.d("asdf", response.toString());
+                    Log.d("asdf", response.toString());
 
                 try {
                     JSONObject object = response.getJSONObject(0);

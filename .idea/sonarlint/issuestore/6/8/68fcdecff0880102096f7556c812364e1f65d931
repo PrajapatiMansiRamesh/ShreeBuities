@@ -1,0 +1,287 @@
+
+p	java:S100Ü	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ˆ®Âùÿÿÿÿ8ÑØŞıÂ.
+Y	java:S125Ï"<This block of commented-out lines of code should be removed.(ˆ³¾8ÑØŞıÂ.
+^	java:S125“"<This block of commented-out lines of code should be removed.(ƒûÉúÿÿÿÿ8ÑØŞıÂ.
+A
+java:S1659›"%Declare "country" on a separate line.(àˆÁşÿÿÿÿ
+s	java:S117²"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á—¦Îÿÿÿÿÿ8ÑØŞıÂ.
+r	java:S116©"URename this field "change_loc" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÃõ8„İû¹.
+i
+java:S1192²	"FDefine a constant instead of duplicating this literal "extra" 3 times.(„½Í†øÿÿÿÿ8ÑØŞıÂ.
+O
+java:S1068¤",Remove this unused "isSubcat" private field.(Ü™—Úøÿÿÿÿ8ÿ£ÄÜ·.
+t	java:S116Â"WRename this field "bottom_sheet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øì®ë8¬û¥Á.
+9
+java:S1659‰""Declare "tab2" on a separate line.(¯Ë»é
+^	java:S125Ô"<This block of commented-out lines of code should be removed.(œª¹ûÿÿÿÿ8ÑØŞıÂ.
+e
+java:S1192º"GDefine a constant instead of duplicating this literal "status" 7 times.(©©­ı8ÑØŞıÂ.
+^	java:S125Ú"<This block of commented-out lines of code should be removed.(©Ëûßıÿÿÿÿ8ÑØŞıÂ.
+}
+java:S1450¨"ZRemove the "not_product" field and declare it as a local variable in the relevant methods.(¡‹÷Íùÿÿÿÿ8½Æ—‚¹.
+K
+java:S1604æ"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8ÑØŞıÂ.
+^	java:S125¬"<This block of commented-out lines of code should be removed.(Ğ‹‡©ûÿÿÿÿ8ÑØŞıÂ.
+n	java:S117Ş	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿¥«8ÑØŞıÂ.
+Y	java:S125¶"<This block of commented-out lines of code should be removed.(Ë÷Ññ8ÑØŞıÂ.
+y
+java:S1450Â"[Remove the "bottom_sheet" field and declare it as a local variable in the relevant methods.(Øì®ë8¬û¥Á.
+‚
+java:S1450¦"_Remove the "viewpager_layout" field and declare it as a local variable in the relevant methods.(„êØÎşÿÿÿÿ8ù À„¹.
+x	java:S116¢"]Rename this field "category_modelList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÄÄ¨ùÿÿÿÿ
+s	java:S117¢	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ã¾²ıÿÿÿÿ8ÑØŞıÂ.
+_
+java:S1874	"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8ÑØŞıÂ.
+^	java:S125º	"<This block of commented-out lines of code should be removed.(œë§Œüÿÿÿÿ8ÑØŞıÂ.
+n
+java:S1301ï"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8ÑØŞıÂ.
+N
+java:S1444Æ"+Make this "public static cancl" field final(—â´Öøÿÿÿÿ8¬û¥Á.
+Y	java:S125ƒ"<This block of commented-out lines of code should be removed.(ÒÚŠö8ÑØŞıÂ.
+{	java:S116§"YRename this field "change_loc_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ Ù¶üÿÿÿÿ8óş“‚¹.
+9
+java:S1659‰""Declare "tab3" on a separate line.(¯Ë»é
+X	java:S125«"<This block of commented-out lines of code should be removed.(€Àñ8ÑØŞıÂ.
+L
+java:S1659»".Declare "recycler_product" on a separate line.(úßÃà8¬û¥Á.
+n	java:S117š
+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿¥«8ÑØŞıÂ.
+^	java:S125Ø"<This block of commented-out lines of code should be removed.(ƒûÉúÿÿÿÿ8ÑØŞıÂ.
+L
+java:S1444Å")Make this "public static txt" field final(¦ƒŒ·ûÿÿÿÿ8¬û¥Á.
+	java:S116¬"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ8ÿŞ‚¶.
+{
+java:S1488Ñ	"]Immediately return this expression instead of assigning it to the temporary variable "param".(Èš€8ÑØŞıÂ.
+n
+java:S1192Ÿ"KDefine a constant instead of duplicating this literal "WHAT'S NEW" 3 times.(›¯ğüÿÿÿÿ8ÑØŞıÂ.
+^	java:S125ø	"<This block of commented-out lines of code should be removed.(ñ×¯ßûÿÿÿÿ8ÑØŞıÂ.
+s	java:S117±
+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ¶¬Êÿÿÿÿÿ8ÑØŞıÂ.
+W
+java:S1117²":Rename "getid" which hides the field declared at line 185.(¡æ½n8ÑØŞıÂ.
+P
+java:S1199ñ"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ÑØŞıÂ.
+Q
+java:S1068À"3Remove this unused "varientProducts" private field.(ƒ×òÒ8¬û¥Á.
+^	java:S125Ã"<This block of commented-out lines of code should be removed.(ÄÊó‘şÿÿÿÿ8ÑØŞıÂ.
+^	java:S125Ì"<This block of commented-out lines of code should be removed.(ö´Š§ÿÿÿÿÿ8ÑØŞıÂ.
+Q
+java:S1444Ä"3Make this "public static recyler_popup" field final(Ô´ÛÉ8¬û¥Á.
+o
+java:S1192£	"LDefine a constant instead of duplicating this literal "banner_name" 5 times.(Åâ—ûÿÿÿÿ8Ê¼„Â½.
+;
+java:S1659‹"$Declare "fabOne" on a separate line.(ŒÇÇ”
+F
+java:S1604–	"(Make this anonymous inner class a lambda(ÑÂğ8ÑØŞıÂ.
+>
+java:S1659›""Declare "city" on a separate line.(àˆÁşÿÿÿÿ
+v	java:S116¦"[Rename this field "viewpager_layout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„êØÎşÿÿÿÿ
+s	java:S117î	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ã¾²ıÿÿÿÿ8ÑØŞıÂ.
+K
+java:S1604†
+"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8ÑØŞıÂ.
+w
+java:S1450©"YRemove the "change_loc" field and declare it as a local variable in the relevant methods.(óÃõ8üšü¹.
+D	java:S131ï""Add a default case to this switch.(×ö³–úÿÿÿÿ8ÑØŞıÂ.
+n	java:S117’	"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿¥«8ÑØŞıÂ.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÎÒ•¸
+X	java:S125¢
+"<This block of commented-out lines of code should be removed.(Üå8ÑØŞıÂ.
+Y	java:S125ô"<This block of commented-out lines of code should be removed.(îæ¿Ç8ÑØŞıÂ.
+p
+java:S1192’	"RDefine a constant instead of duplicating this literal "json_category_req" 3 times.(¿¥«8ÑØŞıÂ.
+M
+java:S1066ê"/Merge this if statement with the enclosing one.( ï»8ÑØŞıÂ.
+K
+java:S1604ˆ"(Make this anonymous inner class a lambda(ı…³½ÿÿÿÿÿ8ÑØŞıÂ.
+^	java:S125"<This block of commented-out lines of code should be removed.(áÃşºùÿÿÿÿ8¾ÿÓü¸.
+Y	java:S125‹"<This block of commented-out lines of code should be removed.(şİôˆ8ÑØŞıÂ.
+A
+java:S1659›"%Declare "address" on a separate line.(àˆÁşÿÿÿÿ
+^	java:S125¸"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ÑØŞıÂ.
+K
+java:S1604™"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8ÑØŞıÂ.
+Y	java:S125¤"<This block of commented-out lines of code should be removed.(şİôˆ8ÑØŞıÂ.
+;
+java:S1659‹"$Declare "fabTwo" on a separate line.(ŒÇÇ”
+s
+java:S1450¤"WRemove the "isSubcat" field and declare it as a local variable in the relevant methods.(Ü™—Úøÿÿÿÿ
+F
+java:S1659º"#Declare "lltop" on a separate line.(°ê«Ùşÿÿÿÿ8¬û¥Á.
+K
+java:S1604ˆ"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8ÑØŞıÂ.
+F
+java:S1604à
+"(Make this anonymous inner class a lambda(ÂÙÆ8ÑØŞıÂ.
+^	java:S125³"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ÑØŞıÂ.
+m
+java:S1192¤	"JDefine a constant instead of duplicating this literal "banner_id" 4 times.(ÃÂşÿÿÿÿ8å›Î­À.
+e
+java:S1128Y"HRemove this unused import 'com.tecmanic.gogrocer.activity.MainActivity'.(˜Õ£8ìÏ½­À.
+s	java:S116"XRename this field "Search_layout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íô¬øıÿÿÿÿ
+}	java:S116™"[Rename this field "viewall_topdeals" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë«÷ëûÿÿÿÿ8’’ßß·.
+S
+java:S2696í"6Make the enclosing method "static" or remove this set.(ë¡İw8¬û¥Á.
+Y
+java:S2696î"6Make the enclosing method "static" or remove this set.(²ªç˜şÿÿÿÿ8ÑØŞıÂ.
+^	java:S125Ô"<This block of commented-out lines of code should be removed.(ş÷¨®ùÿÿÿÿ8ÑØŞıÂ.
+Y	java:S125®"<This block of commented-out lines of code should be removed.(ïûøÅ8ÑØŞıÂ.
+=
+java:S1659‹"&Declare "fabThree" on a separate line.(ŒÇÇ”
+^	java:S125ú"<This block of commented-out lines of code should be removed.(·Ÿ–‘ÿÿÿÿÿ8²«ëıÂ.
+9
+java:S3626ú"Remove this redundant jump.(ûÁİ…8ÑØŞıÂ.
+^	java:S125¡"<This block of commented-out lines of code should be removed.(¥Ç£±ûÿÿÿÿ8ÿ£ÄÜ·.
+K
+java:S1604Ê	"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8ÑØŞıÂ.
+u
+java:S3776å"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(™­²©ùÿÿÿÿ8ÑØŞıÂ.
+O
+java:S1481Ş	"1Remove this unused "tag_json_obj" local variable.(¿¥«8ÑØŞıÂ.
+Y	java:S125±"<This block of commented-out lines of code should be removed.(À¦¿½8ÑØŞıÂ.
+j
+java:S1192‰"LDefine a constant instead of duplicating this literal "action_name" 4 times.(¿½­é8ÑØŞıÂ.
+M
+java:S1066÷"/Merge this if statement with the enclosing one.( ï»8ÑØŞıÂ.
+Y	java:S125È"<This block of commented-out lines of code should be removed.(‚‹çŸ8ÑØŞıÂ.
+m	java:S117Ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆãğ8ÑØŞıÂ.
+t
+java:S1104Æ"QMake cancl a static final constant or non-public and provide accessors if needed.(—â´Öøÿÿÿÿ8¬û¥Á.
+^	java:S125—"<This block of commented-out lines of code should be removed.(¨¬©ıÿÿÿÿ8ÑØŞıÂ.
+v
+java:S3008Ä"XRename this field "recyler_popup" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô´ÛÉ8¬û¥Á.
+V
+java:S1874	"3Remove this use of "isConnected"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8ÑØŞıÂ.
+D
+java:S1659›"(Declare "postalCode" on a separate line.(àˆÁşÿÿÿÿ
+U
+java:S1854é
+"7Remove this useless assignment to local variable "msg".(Ü„8ÑØŞıÂ.
+^	java:S125ï"<This block of commented-out lines of code should be removed.(¨¬©ıÿÿÿÿ8ÑØŞıÂ.
+X	java:S125Ù"<This block of commented-out lines of code should be removed.(¨Ÿßm8ÑØŞıÂ.
+s	java:S116’"XRename this field "banner_slider" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ€ç‘ûÿÿÿÿ
+^	java:S125ü"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8²«ëıÂ.
+„
+java:S1192Œ"aDefine a constant instead of duplicating this literal "No Order found in your location!" 4 times.(°–×ºúÿÿÿÿ8ÑØŞıÂ.
+Y
+java:S1874¯"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8ÿ£ÄÜ·.
+U
+java:S1874 "2Remove this use of "setMessage"; it is deprecated.(ÔòÌøÿÿÿÿ8ÑØŞıÂ.
+x	java:S116»"[Rename this field "recycler_product" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úßÃà8¬û¥Á.
+^	java:S125"<This block of commented-out lines of code should be removed.( ’¼Óÿÿÿÿÿ8ÑØŞıÂ.
+O
+java:S1481¶	",Remove this unused "sub_cat" local variable.(í¹¶ÿûÿÿÿÿ8ÑØŞıÂ.
+p	java:S100‚	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óĞÕ›şÿÿÿÿ8ÑØŞıÂ.
+p
+java:S3776÷"RRefactor this method to reduce its Cognitive Complexity from 30 to the 15 allowed.(«ÃÀ÷8ÑØŞıÂ.
+_
+java:S1874	"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8ÑØŞıÂ.
+G
+java:S1659¹"$Declare "cat_id" on a separate line.(¾ö²¦ÿÿÿÿÿ8¬û¥Á.
+^
+java:S1854Ş	"@Remove this useless assignment to local variable "tag_json_obj".(¿¥«8ÑØŞıÂ.
+<
+java:S1659‹"%Declare "fabfour" on a separate line.(ŒÇÇ”
+?	java:S131ş""Add a default case to this switch.(ºÖ8ÑØŞıÂ.
+C
+java:S1659›"'Declare "longitude" on a separate line.(àˆÁşÿÿÿÿ
+Y	java:S125ó"<This block of commented-out lines of code should be removed.(€ÁÕÃ8²«ëıÂ.
+F
+java:S1604®"(Make this anonymous inner class a lambda(†ÿÊ8ÑØŞıÂ.
+Y	java:S125"<This block of commented-out lines of code should be removed.(ä¹–8ÑØŞıÂ.
+Y	java:S125¨"<This block of commented-out lines of code should be removed.(ÖÈ·ª8ÑØŞıÂ.
+X	java:S125"<This block of commented-out lines of code should be removed.(ëÇ-8ÑØŞıÂ.
+p	java:S100İ
+"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«Äà¸ıÿÿÿÿ8ÑØŞıÂ.
+^	java:S125´	"<This block of commented-out lines of code should be removed.(ôÊ©İüÿÿÿÿ8ÑØŞıÂ.
+^	java:S125ƒ"<This block of commented-out lines of code should be removed.(¨¬©ıÿÿÿÿ8ÑØŞıÂ.
+^
+java:S1854’	"@Remove this useless assignment to local variable "tag_json_obj".(¿¥«8ÑØŞıÂ.
+u	java:S116»"XRename this field "rv_populrcate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úßÃà8¬û¥Á.
+K
+java:S1604Ê"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8ÑØŞıÂ.
+Y	java:S125‡"<This block of commented-out lines of code should be removed.(ÿê”¨8ÑØŞıÂ.
+^	java:S125Ä
+"<This block of commented-out lines of code should be removed.(£‰êªùÿÿÿÿ8ÑØŞıÂ.
+C
+java:S1659¥",Declare "bannerAdapter1" on a separate line.(ÿÊ‹
+^	java:S125Î"<This block of commented-out lines of code should be removed.(ğçä«ûÿÿÿÿ8ÑØŞıÂ.
+n	java:S116‘"SRename this field "rv_items" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôùõøÿÿÿÿ
+{
+java:S1488
+"]Immediately return this expression instead of assigning it to the temporary variable "param".(Èš€8ÑØŞıÂ.
+^	java:S125Â"<This block of commented-out lines of code should be removed.(ˆşøÿÿÿÿ8ÑØŞıÂ.
+w
+java:S1104Ä"YMake recyler_popup a static final constant or non-public and provide accessors if needed.(Ô´ÛÉ8¬û¥Á.
+K
+java:S1185Ó"(Remove this method to simply inherit it.(ø´´øÿÿÿÿ8ÑØŞıÂ.
+m
+java:S1192¶"ODefine a constant instead of duplicating this literal "HomeTopSelling" 4 times.(õ´¸Ø8ÑØŞıÂ.
+F
+java:S1604â	"(Make this anonymous inner class a lambda(ÑÂğ8ÑØŞıÂ.
+P
+java:S1874ÿ"2Remove this use of "setMessage"; it is deprecated.(³„™8ÑØŞıÂ.
+^	java:S125¼"<This block of commented-out lines of code should be removed.(ƒûÉúÿÿÿÿ8ÑØŞıÂ.
+^	java:S125 "<This block of commented-out lines of code should be removed.(íøŒ™ÿÿÿÿÿ8ÑØŞıÂ.
+p	java:S100Ğ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À•¼åùÿÿÿÿ8ÑØŞıÂ.
+K	java:S108Ú")Either remove or fill this block of code.(™²¨©ûÿÿÿÿ8ÑØŞıÂ.
+O
+java:S1068 ",Remove this unused "cateList" private field.(˜Ê£Îúÿÿÿÿ8ÿ£ÄÜ·.
+^	java:S125©"<This block of commented-out lines of code should be removed.(¨¬©ıÿÿÿÿ8ÑØŞıÂ.
+^	java:S125÷"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8²«ëıÂ.
+X	java:S125…"<This block of commented-out lines of code should be removed.(ëÇ-8ÑØŞıÂ.
+K
+java:S1604·	"(Make this anonymous inner class a lambda(Ï‡Âøÿÿÿÿ8ÑØŞıÂ.
+Q
+java:S1444Ã".Make this "public static totalOff" field final(Ô’ÊŒüÿÿÿÿ8¬û¥Á.
+F
+java:S1068…"(Remove this unused "TAG1" private field.(–‘Û²8ÿ£ÄÜ·.
+H
+java:S1659’",Declare "featuredslider" on a separate line.(æ€ç‘ûÿÿÿÿ
+^	java:S125´"<This block of commented-out lines of code should be removed.(Ã†Èùÿÿÿÿ8ÑØŞıÂ.
+^	java:S125ó
+"<This block of commented-out lines of code should be removed.(çâò¶ùÿÿÿÿ8ÑØŞıÂ.
+K
+java:S1604¡"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8ÑØŞıÂ.
+n	java:S117Ì"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€œÊ8ÑØŞıÂ.
+^	java:S125Á	"<This block of commented-out lines of code should be removed.(½Æë•ıÿÿÿÿ8ÑØŞıÂ.
+O
+java:S1481’	"1Remove this unused "tag_json_obj" local variable.(¿¥«8ÑØŞıÂ.
+9
+java:S1659‰""Declare "tab4" on a separate line.(¯Ë»é
+k
+java:S1192¥	"MDefine a constant instead of duplicating this literal "banner_image" 7 times.(äüğ¸8ÑØŞıÂ.
+k	java:S116Œ"URename this field "parent_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬§ª
+^	java:S125÷"<This block of commented-out lines of code should be removed.(ƒûÉúÿÿÿÿ8ÑØŞıÂ.
+r
+java:S1104Å"OMake txt a static final constant or non-public and provide accessors if needed.(¦ƒŒ·ûÿÿÿÿ8¬û¥Á.
+w
+java:S1104Ã"TMake totalOff a static final constant or non-public and provide accessors if needed.(Ô’ÊŒüÿÿÿÿ8¬û¥Á.
+F
+java:S1604«"(Make this anonymous inner class a lambda(Òî¦İ8ÑØŞıÂ.
+Y
+java:S1874ş"6Remove this use of "ProgressDialog"; it is deprecated.(ò„ŠËùÿÿÿÿ8œªß·.
+^	java:S125¸"<This block of commented-out lines of code should be removed.(­¾èÿÿÿÿÿ8ÑØŞıÂ.
+?
+java:S1659›"#Declare "state" on a separate line.(àˆÁşÿÿÿÿ
+Y	java:S125ª"<This block of commented-out lines of code should be removed.(–¹´ó8ÑØŞıÂ.
+J
+java:S1659•".Declare "recyclerViewDEal" on a separate line.(æ‹Åùÿÿÿÿ
+s	java:S116¹"QRename this field "cat_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ö²¦ÿÿÿÿÿ8¬û¥Á.
+n	java:S117¤"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ßùœ8ÑØŞıÂ.
+e
+java:S1192´"GDefine a constant instead of duplicating this literal "cat_id" 3 times.(¬ô÷¸8ÑØŞıÂ.
+d
+java:S3252È"AUse static access with "com.android.volley.Request" for "Method".(‘Ó‘ºúÿÿÿÿ8ÑØŞıÂ.
+F
+java:S1481é
+"(Remove this unused "msg" local variable.(Ü„8ÑØŞıÂ.
+Y	java:S125”"<This block of commented-out lines of code should be removed.(ïûøÅ8ÑØŞıÂ.
+Q
+java:S1068¸".Remove this unused "tabCounter" private field.(ñŒÑŒûÿÿÿÿ8Ô®‚¹.
+Y	java:S125õ"<This block of commented-out lines of code should be removed.(áæû8²«ëıÂ.
+K
+java:S1604Ô"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8ÑØŞıÂ.
+x	java:S116¨"VRename this field "not_product" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡‹÷Íùÿÿÿÿ8·ü—©¸.
+^
+java:S1854¶	";Remove this useless assignment to local variable "sub_cat".(í¹¶ÿûÿÿÿÿ8ÑØŞıÂ.

@@ -1,0 +1,16 @@
+
+V	java:S107x"<Method has 8 parameters, which is greater than 7 authorized.(¹àíŸıÿÿÿÿ
+|
+java:S1488™"`Immediately return this expression instead of assigning it to the temporary variable "myBitmap".(ˆÜ¬¦ûÿÿÿÿ
+d
+java:S3008*"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à˜Ì
+E
+java:S1874H"/Remove this use of "Builder"; it is deprecated.(ç™µ“
+F
+java:S1874{"0Remove this use of "fromHtml"; it is deprecated.(Éãš„
+n
+java:S3776°"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(™‹§ùûÿÿÿÿ
+S
+java:S1874¿"7Remove this use of "getRunningTasks"; it is deprecated.(‚²±Ãüÿÿÿÿ
+=
+java:S1068*"'Remove this unused "TAG" private field.(à˜Ì

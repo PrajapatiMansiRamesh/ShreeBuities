@@ -1,0 +1,15 @@
+
+w
+java:S1450"\Remove the "homeViewModel" field and declare it as a local variable in the relevant methods.(¿ž­¶üÿÿÿÿ
+w
+java:S1488"\Immediately return this expression instead of assigning it to the temporary variable "root".(¼…¼€ùÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Æ‘˜÷úÿÿÿÿ
+U
+java:S1161":Add the "@Override" annotation above this method signature(î•Éðûÿÿÿÿ
+U
+java:S1874":Remove this use of "ViewModelProviders"; it is deprecated.(¶ÓÇÿÿÿÿÿÿ
+L
+java:S1068"1Remove this unused "homeViewModel" private field.(¿ž­¶üÿÿÿÿ
+E
+java:S1874"*Remove this use of "of"; it is deprecated.(¶ÓÇÿÿÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ÂÚñÿÿÿÿÿ

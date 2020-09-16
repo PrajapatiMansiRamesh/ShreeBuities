@@ -1,0 +1,41 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÎÒ•¸
+l	java:S117—"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¼ÛÀúÿÿÿÿ
+N
+java:S1874}"3Remove this use of "isConnected"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+
+java:S4165C"kRemove this useless assignment; "pagerNotifier" already holds the assigned value along all execution paths.(½ûì³
+Q
+java:S1874P"6Remove this use of "ProgressDialog"; it is deprecated.(¬¶­İúÿÿÿÿ
+w	java:S116>"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+D
+java:S1604‚"(Make this anonymous inner class a lambda(Éößùøÿÿÿÿ
+W	java:S125"<This block of commented-out lines of code should be removed.(Ç…ÿúÿÿÿÿ
+W	java:S125®"<This block of commented-out lines of code should be removed.(Ù«¥„úÿÿÿÿ
+W
+java:S1874}"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+¤
+java:S1186ç"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö èşÿÿÿÿ8êó‰Š¶.
+s	java:S116:"YRename this field "rv_top_selling" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÚ ´ùÿÿÿÿ
+L
+java:S18747"6Remove this use of "ProgressDialog"; it is deprecated.(ğİıº
+Q	java:S125^"<This block of commented-out lines of code should be removed.(é™µä
+W	java:S125¡"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+W
+java:S1874}"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+N
+java:S1481—"2Remove this unused "varient_image" local variable.(Ù¼ÛÀúÿÿÿÿ
+D
+java:S1604Ä"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+l	java:S117‘"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸õ´Äşÿÿÿÿ
+l	java:S117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óè¼ğûÿÿÿÿ
+M
+java:S1874Q"2Remove this use of "setMessage"; it is deprecated.(ñËÄİÿÿÿÿÿ
+@
+java:S16599"%Declare "catName" on a separate line.(å¼ ÷ıÿÿÿÿ
+g	java:S1014"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ˆÊ¹Šúÿÿÿÿ
+l	java:S117“"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥á¼Úûÿÿÿÿ
+g	java:S116="RRename this field "no_data" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ‘±à
+]
+java:S1854—"ARemove this useless assignment to local variable "varient_image".(Ù¼ÛÀúÿÿÿÿ
+s	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ê ıÿÿÿÿÿ8›Ú‚à½.

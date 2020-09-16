@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">GoGrocer</string>
-<!--    <string name="app_name">Heritage Food</string>-->
+    <string name="app_name">Shree beauties</string>
+    <!--    <string name="app_name">Heritage Food</string>-->
     <string name="currency" translatable="false">\u20B9</string>
     <string name="emptyCart">NO items in the cart</string>
     <string name="tv_order_rs">Rs.</string>
@@ -30,13 +30,20 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-
+    <string name="map_api_key">AIzaSyBvTaVufSFg8S4Buq1d0KzYZMDW_qd0L7Q</string>
     <string name="home_second">Home Second</string>
     <string name="status_stop">Powered By <font color="#f7941e">GoGrocer</font></string>
     <string name="nav_terms" translatable="false">Terms &amp; Privacy</string>
     <string name="cart" translatable="false">Cart</string>
+    <string-array name="selectAction">
+        <item>Resend OTP</item>
+        <item>Enter OTP Manually</item>
+    </string-array>
+
+    <string name="selected_place_info">Selected location information:\n%1$s</string>
 
     <string name="nav_home" translatable="false">Shop Now</string>
+    <string name="outOfStock" translatable="false">Out of stock</string>
     <string name="nav_chat" translatable="false">Chat With Us</string>
     <string name="nav_user" translatable="false">User</string>
     <string name="nav_order" translatable="false">My Orders</string>
@@ -52,6 +59,7 @@
     <string name="nav_logout" translatable="false">Logout</string>
     <string name="btn_continue" translatable="false">Continue</string>
     <string name="btn_Register" translatable="false">Register</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoidGVjbWFuaWMiLCJhIjoiY2tkbzk4czBqMGh2czJ4dGEyZHE2emhhcSJ9.z68ISkju1nCXg1kSGavvBg</string>
 
     <!--  <string name="currency" translatable="false">\u20B9</string>
     <string name="title_activity_main" translatable="false">MainActivity</string>
@@ -130,6 +138,13 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_icon">menu icon</string>
     <string name="top_category">Top Category</string>
+
+    <string name="card_number">Card Number</string>
+    <string name="dummy_card">0000 0000 0000</string>
+    <string name="card_expiry">Card Expiry</string>
+    <string name="card_cvv">CVV</string>
+    <string name="payment_prompt">Enter your card details to complete the payment</string>
+    <string name="make_payment">Make Payment</string>
 
 
 </resources>

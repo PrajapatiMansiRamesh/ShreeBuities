@@ -1,0 +1,43 @@
+
+o
+java:S1104,"YMake product_image a static final constant or non-public and provide accessors if needed.(Š¿¶
+L
+java:S1874-"6Remove this use of "ProgressDialog"; it is deprecated.(ğİıº
+M
+java:S1874W"2Remove this use of "setMessage"; it is deprecated.(ñËÄİÿÿÿÿÿ
+I
+java:S1444,"3Make this "public static product_image" field final(Š¿¶
+R
+java:S2696€"6Make the enclosing method "static" or remove this set.(Ì¼”Ñûÿÿÿÿ
+C
+java:S1604l"(Make this anonymous inner class a lambda(´ùà€ùÿÿÿÿ
+g
+java:S14502"QRemove the "db" field and declare it as a local variable in the relevant methods.(Ğü¸ë
+~	java:S116A"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ8¢´äŒ¶.
+b	java:S101+"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ö Ñì
+^	java:S125Œ"<This block of commented-out lines of code should be removed.(ØıØåÿÿÿÿÿ8¬çÛ«¹.
+L
+java:S1874V"6Remove this use of "ProgressDialog"; it is deprecated.(øâ¯á
+k	java:S117z"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ê ıÿÿÿÿÿ
+D
+java:S1604"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+t	java:S1161"ZRename this field "recycler_recent" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é×Ş‡úÿÿÿÿ
+W
+java:S1874c"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+k	java:S117|"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óè¼ğûÿÿÿÿ
+V	java:S125e"<This block of commented-out lines of code should be removed.(ªóúŞøÿÿÿÿ
+>	java:S108<")Either remove or fill this block of code.(–´’ª
+=
+java:S1604K"(Make this anonymous inner class a lambda(ší¥
+@
+java:S1659/"%Declare "catName" on a separate line.(å¼ ÷ıÿÿÿÿ
+N
+java:S1874c"3Remove this use of "isConnected"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+W
+java:S1874c"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+Q	java:S110+"<This class has 9 parents which is greater than 5 authorized.(ö Ñì
+<
+java:S10682"&Remove this unused "db" private field.(Ğü¸ë
+k	java:S117{"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸õ´Äşÿÿÿÿ
+n
+java:S3008,"XRename this field "product_image" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¿¶

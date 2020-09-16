@@ -1,0 +1,52 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ç ñ¦
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÎÒ•¸
+C
+java:S1604E"(Make this anonymous inner class a lambda(ú…Í©ıÿÿÿÿ
+r
+java:S1450"WRemove the "rv_items" field and declare it as a local variable in the relevant methods.(¼ŒË¦şÿÿÿÿ
+œ
+java:S1186%"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(“¸ªüÿÿÿÿ
+i
+java:S3008"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¬ß»ùÿÿÿÿ
+m	java:S116"SRename this field "rv_items" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼ŒË¦şÿÿÿÿ
+w	java:S116"]Rename this field "category_modelList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”Í¯Íüÿÿÿÿ
+l	java:S116!"WRename this field "getcat_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ––­
+F
+java:S1874"0Remove this use of "Fragment"; it is deprecated.(ç ñ¦
+e
+java:S1874%"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(“¸ªüÿÿÿÿ
+`
+java:S1874*"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(ßìê¯
+>
+java:S1185*"(Remove this method to simply inherit it.(ßìê¯
+K
+java:S1874+"0Remove this use of "onCreate"; it is deprecated.(î±¨Ôøÿÿÿÿ
+`
+java:S1874/"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(«ÃÀ÷
+T
+java:S18741"9Remove this use of "setHasOptionsMenu"; it is deprecated.(Ï™ñşÿÿÿÿ
+N
+java:S18743"3Remove this use of "getActivity"; it is deprecated.(»Ç£­øÿÿÿÿ
+I
+java:S1874<"3Remove this use of "getActivity"; it is deprecated.(µÔÇ€
+N
+java:S1874Q"3Remove this use of "getActivity"; it is deprecated.(®‘¦Ÿûÿÿÿÿ
+œ
+java:S1186b"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Í¢ÄÁøÿÿÿÿ
+K
+java:S1874Ï"4Remove this use of "getResources"; it is deprecated.(Ñû€º
+B
+java:S1068"'Remove this unused "TAG" private field.(Â¬ß»ùÿÿÿÿ
+G
+java:S1068",Remove this unused "isSubcat" private field.(Ü™—Úøÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(Â²Ÿ¶ùÿÿÿÿ
+Q	java:S1257"<This block of commented-out lines of code should be removed.(Ø°Ä
+V	java:S125>"<This block of commented-out lines of code should be removed.(û´Ùùÿÿÿÿ
+V	java:S125I"<This block of commented-out lines of code should be removed.(ƒëå‚øÿÿÿÿ
+Q	java:S125V"<This block of commented-out lines of code should be removed.(¼ÑüŞ
+V	java:S125m"<This block of commented-out lines of code should be removed.(˜µĞ”ıÿÿÿÿ
+V	java:S125{"<This block of commented-out lines of code should be removed.(ÏÚƒ‚ıÿÿÿÿ
+W	java:S125"<This block of commented-out lines of code should be removed.(æÀö€øÿÿÿÿ
+B
+java:S1144Î"+Remove this unused private "dpToPx" method.(õ›üØ

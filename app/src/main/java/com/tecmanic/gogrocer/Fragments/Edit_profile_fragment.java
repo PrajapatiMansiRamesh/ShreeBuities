@@ -35,7 +35,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
-import com.tecmanic.gogrocer.Activity.MainActivity;
+import com.tecmanic.gogrocer.activity.MainActivity;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.ForgotEmailModel;
 import com.tecmanic.gogrocer.ModelClass.NotifyModelUser;
@@ -485,7 +485,7 @@ public class Edit_profile_fragment extends Fragment implements View.OnClickListe
 //                    .load(IMG_PROFILE_URL + getimage)
 //                    .centerCrop()
 //                    .placeholder(R.drawable.splashicon)
-//                    .crossFade()
+//
 //                    .into(iv_profile);
         }
 

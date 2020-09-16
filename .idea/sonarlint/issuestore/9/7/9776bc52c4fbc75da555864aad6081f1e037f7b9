@@ -1,0 +1,12 @@
+
+f
+java:S1301/"KReplace this "switch" statement by "if" statements to increase readability.(ñ­“ÿÿÿÿÿ
+a
+java:S1301A"KReplace this "switch" statement by "if" statements to increase readability.( ÔË
+J
+java:S3740"/Provide the parametrized type for this generic.(¸ğÒÀûÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ûÛš
+<	java:S131/""Add a default case to this switch.(ñ­“ÿÿÿÿÿ
+7	java:S131A""Add a default case to this switch.( ÔË
+p	java:S116P"VRename this field "assign_recy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñ«åûÿÿÿÿ
+m	java:S116Y"XRename this field "unAssign_recy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø©€ç

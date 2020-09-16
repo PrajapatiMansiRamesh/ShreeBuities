@@ -1,0 +1,9 @@
+
+4
+java:S2119E"Save and re-use this "Random".(–áÍÈ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ûÛš
+g
+java:S1104%"QMake title a static final constant or non-public and provide accessors if needed.(á¢Ù™
+l
+java:S1104&"QMake image a static final constant or non-public and provide accessors if needed.(·ñŽþùÿÿÿÿ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(˜Æ½¯

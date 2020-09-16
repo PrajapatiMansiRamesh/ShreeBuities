@@ -9,7 +9,6 @@ import com.tecmanic.gogrocer.Fragments.Deals_Fragment;
 import com.tecmanic.gogrocer.Fragments.Recent_Details_Fragment;
 import com.tecmanic.gogrocer.Fragments.Top_Deals_Fragment;
 import com.tecmanic.gogrocer.Fragments.Whats_New_Fragment;
-import com.tecmanic.gogrocer.util.PagerNotifier;
 
 public class PageAdapter extends FragmentPagerAdapter {
     private int numsoftabs;

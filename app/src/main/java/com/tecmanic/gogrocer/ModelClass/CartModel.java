@@ -35,6 +35,7 @@ public class CartModel implements Serializable {
     String increament;
     String rewards;
     String stock;
+    String store_id;
     public  String varient_id;
 
 
@@ -50,7 +51,7 @@ public class CartModel implements Serializable {
         this.pMrp=pMrp;
     }
 
-    public CartModel(String product_id, String product_name, String description, String s, String s1, String varient_image, String s2, String s3, String count,String unit) {
+    public CartModel(String product_id, String product_name, String description, String s, String s1, String varient_image, String s2, String s3, String count,String unit, String store_id) {
         this.pImage=varient_image;
         this.pNAme=product_name;
         this.pId=product_id;
@@ -61,8 +62,16 @@ public class CartModel implements Serializable {
         this.pMrp=s3;
         this.stock=count;
         this.unit=unit;
+        this.store_id=store_id;
     }
 
+    public String getStore_id() {
+        return store_id;
+    }
+
+    public void setStore_id(String store_id) {
+        this.store_id = store_id;
+    }
 
     public Long getHoursmin() {
         return hoursmin;

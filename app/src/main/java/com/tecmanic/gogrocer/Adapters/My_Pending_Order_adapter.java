@@ -1,38 +1,28 @@
 package com.tecmanic.gogrocer.Adapters;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.Uri;
-import android.os.Build;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tecmanic.gogrocer.Activity.Cancel_Order;
-import com.tecmanic.gogrocer.Activity.Myorderdetails;
 import com.tecmanic.gogrocer.ModelClass.My_Pending_order_model;
 import com.tecmanic.gogrocer.ModelClass.NewPendingOrderModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.CallToDeliveryBoy;
 import com.tecmanic.gogrocer.util.MyPendingReorderClick;
 import com.tecmanic.gogrocer.util.Session_management;
+import com.tecmanic.gogrocer.util.TodayOrderClickListner;
 
 import java.util.List;
 
@@ -50,6 +40,7 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
     private Session_management session_management;
     private MyPendingReorderClick myPendingReorderClick;
     private CallToDeliveryBoy callToDeliveryBoy;
+    private TodayOrderClickListner todayOrderClickListner;
 
     public My_Pending_Order_adapter(Context context, List<My_Pending_order_model> modemodelList, final Fragment currentFragment) {
 
@@ -65,6 +56,11 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         this.modelList = modelList;
         this.myPendingReorderClick = myPendingReorderClick;
         this.callToDeliveryBoy = callToDeliveryBoy;
+    }
+
+    public My_Pending_Order_adapter(List<NewPendingOrderModel> modelList, TodayOrderClickListner todayOrderClickListner) {
+        this.modelList = modelList;
+        this.todayOrderClickListner = todayOrderClickListner;
     }
 
     @NonNull
@@ -176,23 +172,15 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
             holder.order_assing_lay.setVisibility(View.GONE);
         }
 
-        holder.iv_order_detail_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (holder.delivery_boy_details.getVisibility() == View.VISIBLE) {
-                    holder.delivery_boy_details.setVisibility(View.GONE);
-                } else {
-                    holder.delivery_boy_details.setVisibility(View.VISIBLE);
-                }
+        holder.iv_order_detail_img.setOnClickListener(v -> {
+            if (holder.delivery_boy_details.getVisibility() == View.VISIBLE) {
+                holder.delivery_boy_details.setVisibility(View.GONE);
+            } else {
+                holder.delivery_boy_details.setVisibility(View.VISIBLE);
             }
         });
 
-        holder.iv_call_order.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callToDeliveryBoy.onCallToDeliveryBoy(mList.getDboy_phone());
-            }
-        });
+        holder.iv_call_order.setOnClickListener(v -> todayOrderClickListner.onCallToDeliveryBoy(mList.getDboy_phone()));
 
         holder.info_price.setOnClickListener(v -> {
             if (holder.price_deatils.getVisibility() == View.VISIBLE) {
@@ -291,34 +279,20 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         holder.order_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sale_id = modelList.get(position).getCart_id();
-                String date = modelList.get(position).getDelivery_date();
-                String time = modelList.get(position).getTime_slot();
-                String total = modelList.get(position).getPrice();
-                String status = modelList.get(position).getOrder_status();
-                String deli_charge = modelList.get(position).getDel_charge();
-                Intent intent = new Intent(v.getContext(), Myorderdetails.class);
-                intent.putExtra("sale_id", sale_id);
-                intent.putExtra("pastorder", "false");
-                intent.putExtra("date", date);
-                intent.putExtra("time", time);
-                intent.putExtra("total", total);
-                intent.putExtra("status", status);
-                intent.putExtra("deli_charge", deli_charge);
-                intent.putExtra("data", mList.getData());
-                v.getContext().startActivity(intent);
+                todayOrderClickListner.onClickForOrderDetails(holder.getAdapterPosition(),"pending");
             }
         });
 
         holder.reorder_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myPendingReorderClick.onReorderClick(modelList.get(position).getData());
+                todayOrderClickListner.onReorderClick(position,"pending");
             }
         });
 
         holder.canclebtn.setOnClickListener(v -> {
-            showDeleteDialog(position);
+//            showDeleteDialog(position);
+            todayOrderClickListner.onCancelClick(position,"pending");
         });
 
     }
@@ -327,21 +301,6 @@ public class My_Pending_Order_adapter extends RecyclerView.Adapter<My_Pending_Or
         modelList.remove(postion);
         notifyItemRemoved(postion);
         notifyItemRangeChanged(postion, getItemCount());
-    }
-
-    private void showDeleteDialog(int position) {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-        alertDialog.setMessage(context.getResources().getString(R.string.cancle_order_note));
-        alertDialog.setNegativeButton(context.getResources().getString(R.string.no), (dialogInterface, i) -> dialogInterface.dismiss());
-        alertDialog.setPositiveButton(context.getResources().getString(R.string.yes), (dialogInterface, i) -> {
-
-            Intent intent = new Intent(context, Cancel_Order.class);
-            intent.putExtra("cart_id", modelList.get(position).getCart_id());
-            context.startActivity(intent);
-            dialogInterface.dismiss();
-        });
-
-        alertDialog.show();
     }
 
     @Override

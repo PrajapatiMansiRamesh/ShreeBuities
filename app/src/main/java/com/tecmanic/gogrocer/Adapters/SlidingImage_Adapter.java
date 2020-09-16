@@ -1,7 +1,6 @@
 package com.tecmanic.gogrocer.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +9,7 @@ import android.widget.ImageView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.squareup.picasso.Picasso;
 import com.tecmanic.gogrocer.R;
 
 import java.util.ArrayList;
@@ -51,10 +48,7 @@ public class SlidingImage_Adapter extends PagerAdapter {
 
 
 //        imageView.setImageResource(imageModelArrayList.get(position).getImage_drawable());
-        Glide.with(context).load(imageModelArrayList.get(position).toString())
-                .thumbnail(0.5f)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
+        Picasso.with(context).load(imageModelArrayList.get(position).toString())
                 .into(imageView);
         view.addView(imageLayout, 0);
 

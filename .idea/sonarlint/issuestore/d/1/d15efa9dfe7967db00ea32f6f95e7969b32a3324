@@ -1,0 +1,26 @@
+
+f	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆƒÕâ
+k	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø«˜¤ùÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ôä¯’ûÿÿÿÿ
+;
+java:S1659" Declare "id" on a separate line.(çÀğÛúÿÿÿÿ
+C
+java:S1659"(Declare "varient_id" on a separate line.(çÀğÛúÿÿÿÿ
+A
+java:S1659"&Declare "quantity" on a separate line.(çÀğÛúÿÿÿÿ
+=
+java:S1659""Declare "unit" on a separate line.(çÀğÛúÿÿÿÿ
+<
+java:S1659"!Declare "mrp" on a separate line.(çÀğÛúÿÿÿÿ
+>
+java:S1659"#Declare "price" on a separate line.(çÀğÛúÿÿÿÿ
+D
+java:S1659")Declare "description" on a separate line.(çÀğÛúÿÿÿÿ
+F
+java:S1659"+Declare "varient_image" on a separate line.(çÀğÛúÿÿÿÿ
+o	java:S116"URename this field "varient_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÀğÛúÿÿÿÿ
+r	java:S116"XRename this field "varient_image" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çÀğÛúÿÿÿÿ
+h	java:S100	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Éñ’øÿÿÿÿ
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆƒÕâ
+h	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ì¼¤øÿÿÿÿ
+h	java:S100="NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø«˜¤ùÿÿÿÿ

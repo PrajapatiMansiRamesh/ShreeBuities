@@ -8,7 +8,7 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 
-import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -20,11 +20,13 @@ public class FetchAddressTask extends AsyncTask<Location, Void, String> {
 
     private Context mContext;
     private OnTaskCompleted mListener;
+    private Session_management session_management;
 
 
     public FetchAddressTask(Context applicationContext, OnTaskCompleted listener) {
         mContext = applicationContext;
         mListener = listener;
+        session_management = new Session_management(applicationContext);
     }
 
     private final String TAG = FetchAddressTask.class.getSimpleName();
@@ -41,16 +43,13 @@ public class FetchAddressTask extends AsyncTask<Location, Void, String> {
         String resultMessage = "";
 
         try {
-            addresses = geocoder.getFromLocation(
-                    location.getLatitude(),
-                    location.getLongitude(),
-                    // In this sample, get just a single address
-                    1);
-        } catch (IOException ioException) {
-            // Catch network or other I/O problems
-//            resultMessage = mContext.getString(R.string.service_not_available);
 
-            Log.e(TAG, resultMessage, ioException);
+//            addresses = geocoder.getFromLocation(
+//                    location.getLatitude(),
+//                    location.getLongitude(),
+//                    // In this sample, get just a single address
+//                    1);
+            addresses = getAddress(location);
         } catch (IllegalArgumentException illegalArgumentException) {
             // Catch invalid latitude or longitude values
 //            resultMessage = mContext.getString(R.string.invalid_lat_long_used);
@@ -96,6 +95,40 @@ public class FetchAddressTask extends AsyncTask<Location, Void, String> {
     protected void onPostExecute(String address) {
         mListener.onTaskCompleted(address);
         super.onPostExecute(address);
+    }
+
+    private List<Address> getAddress(Location location) {
+        Geocoder geocoder;
+        List<Address> addresses = null;
+        geocoder = new Geocoder(mContext, Locale.getDefault());
+        DecimalFormat dFormat = new DecimalFormat("#.######");
+        double latitude = Double.parseDouble(dFormat.format(location.getLatitude()));
+        double longitude = Double.parseDouble(dFormat.format(location.getLongitude()));
+
+        try {
+            addresses = geocoder.getFromLocation(latitude, longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+            Address returnedAddress = addresses.get(0);
+            StringBuilder strReturnedAddress = new StringBuilder("Address:\n");
+            for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
+                strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+            }
+            String city = addresses.get(0).getLocality();
+
+            String state = addresses.get(0).getAdminArea();
+            String country = addresses.get(0).getCountryName();
+            String postalCode = addresses.get(0).getPostalCode();
+
+            String address = addresses.get(0).getAddressLine(0);
+            String knownName = addresses.get(0).getSubAdminArea();
+
+            session_management.setLocationCity(city);
+            session_management.setLocationPref(String.valueOf(latitude), String.valueOf(longitude));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return addresses;
     }
 
    public interface OnTaskCompleted {

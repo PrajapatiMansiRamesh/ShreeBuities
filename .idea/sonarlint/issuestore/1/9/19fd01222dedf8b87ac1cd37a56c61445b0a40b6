@@ -1,0 +1,17 @@
+
+X
+java:S1444"BMake this "public static connectivityReceiverListener" field final(²Ί’
+~
+java:S1104"hMake connectivityReceiverListener a static final constant or non-public and provide accessors if needed.(²Ί’
+N
+java:S1874"3Remove this use of "NetworkInfo"; it is deprecated.(Υ¥—γωÿÿÿÿ
+W
+java:S1874"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Υ¥—γωÿÿÿÿ
+U
+java:S1874"?Remove this use of "isConnectedOrConnecting"; it is deprecated.(ÿΰΥ‡
+N
+java:S1874'"3Remove this use of "NetworkInfo"; it is deprecated.(Υ¥—γωÿÿÿÿ
+W
+java:S1874'"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(Υ¥—γωÿÿÿÿ
+U
+java:S1874)"?Remove this use of "isConnectedOrConnecting"; it is deprecated.(ÿΰΥ‡

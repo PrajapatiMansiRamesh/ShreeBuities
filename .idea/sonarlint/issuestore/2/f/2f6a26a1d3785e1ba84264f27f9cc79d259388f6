@@ -1,0 +1,25 @@
+
+f	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ñ˜¨
+k
+java:S1192W"PDefine a constant instead of duplicating this literal "Select *  from " 7 times.(©ã‡¿ıÿÿÿÿ
+
+java:S1319="kThe type of the "map" object should be an interface such as "Map" rather than the implementation "HashMap".(½ñ˜¨
+p
+java:S3008 "URename this field "DB_VERSION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ÎÁ‚ıÿÿÿÿ
+h
+java:S3008"RRename this field "DB_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íúÊ
+g
+java:S1192."QDefine a constant instead of duplicating this literal " TEXT NOT NULL, " 3 times.(î‡¸â
+V	java:S125"<This block of commented-out lines of code should be removed.(ûßÆøÿÿÿÿ
+‡
+java:S1319§"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ãí³
+p
+java:S1192Å"TUse already-defined constant 'COLUMN_REWARDS' instead of duplicating its value here.(„Ä¢Èùÿÿÿÿ
+i
+java:S11920"SDefine a constant instead of duplicating this literal " DOUBLE NOT NULL, " 5 times.(‡×ªå
+c
+java:S1192W"HDefine a constant instead of duplicating this literal " where " 5 times.(©ã‡¿ıÿÿÿÿ
+8
+java:S1643Ø"Use a StringBuilder instead.(‚‚Ïüÿÿÿÿ
+
+java:S1186ê"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÄÜ»ûÿÿÿÿ

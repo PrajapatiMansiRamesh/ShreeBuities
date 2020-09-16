@@ -1,0 +1,82 @@
+
+G
+java:S1659Ğ"$Declare "mprice" on a separate line.(ËòÑâûÿÿÿÿ8È¹Éª¹.
+o	java:S101Í"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(åÍÜ¨úÿÿÿÿ8È¹Éª¹.
+F
+java:S1659Ò"(Declare "ll_addQuan" on a separate line.(”ÓäÍ8È¹Éª¹.
+X	java:S125"<This block of commented-out lines of code should be removed.(Úä¥58É¹Éª¹.
+x
+java:S3923«"[Remove this conditional structure or edit its code blocks so that they're not all the same.(øæâq8È¹Éª¹.
+q	java:S116Ò"TRename this field "outofs_in" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÓäÍ8È¹Éª¹.
+F
+java:S1659Ï"#Declare "minus" on a separate line.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+Y	java:S125¸"<This block of commented-out lines of code should be removed.(€£¨š8È¹Éª¹.
+E
+java:S1659Ò"'Declare "outofs_in" on a separate line.(”ÓäÍ8È¹Éª¹.
+G
+java:S1659Ï"$Declare "pPrice" on a separate line.(¨ù¨ıÿÿÿÿ8Œ¦é©¹.
+M
+java:S1659Ï"*Declare "pdiscountOff" on a separate line.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+^	java:S125â"<This block of commented-out lines of code should be removed.(³µ¶ßûÿÿÿÿ8É¹Éª¹.
+E
+java:S1659Ï""Declare "plus" on a separate line.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+^	java:S125ö"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8É¹Éª¹.
+J
+java:S1659Ğ"'Declare "unitvalue" on a separate line.(ËòÑâûÿÿÿÿ8È¹Éª¹.
+x
+java:S1104Ï"UMake pDescrptn a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+s
+java:S1104Ï"PMake pMrp a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+t
+java:S1104Ï"QMake minus a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+J
+java:S1659Ï"'Declare "pDescrptn" on a separate line.(¨ù¨ıÿÿÿÿ8Œ¦é©¹.
+^	java:S125 "<This block of commented-out lines of code should be removed.(†×™˜ÿÿÿÿÿ8È¹Éª¹.
+F
+java:S1659Ï"#Declare "pQuan" on a separate line.(¨ù¨ıÿÿÿÿ8Œ¦é©¹.
+Y	java:S125‰"<This block of commented-out lines of code should be removed.(ïñ¦®8È¹Éª¹.
+^	java:S125ƒ"<This block of commented-out lines of code should be removed.(ÌßÌûÿÿÿÿ8È¹Éª¹.
+^	java:S125è"<This block of commented-out lines of code should be removed.(Ï©ôáıÿÿÿÿ8É¹Éª¹.
+]	java:S125q"<This block of commented-out lines of code should be removed.(ŒÚÜúÿÿÿÿ8È¹Éª¹.
+u
+java:S1104Ï"RMake pPrice a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+s
+java:S1104Ï"PMake plus a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+{
+java:S1104Ï"XMake pdiscountOff a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+D
+java:S1659Ğ"!Declare "mrp" on a separate line.(ËòÑâûÿÿÿÿ8È¹Éª¹.
+]	java:S125N"<This block of commented-out lines of code should be removed.(õËµ«şÿÿÿÿ8È¹Éª¹.
+z	java:S116Ï"XRename this field "txt_unitvalue" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+Y	java:S125Œ"<This block of commented-out lines of code should be removed.(öŞ±Ÿ8È¹Éª¹.
+^	java:S125ù"<This block of commented-out lines of code should be removed.(ÆõØúûÿÿÿÿ8É¹Éª¹.
+B
+java:S1659Ò"$Declare "outofs" on a separate line.(”ÓäÍ8È¹Éª¹.
+Y	java:S125Û"<This block of commented-out lines of code should be removed.(Í¼Œç8É¹Éª¹.
+n
+java:S1192š"KDefine a constant instead of duplicating this literal "varient_id" 3 times.(¯Ê‘ªÿÿÿÿÿ8È¹Éª¹.
+r	java:S116Ò"URename this field "ll_addQuan" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÓäÍ8È¹Éª¹.
+|
+java:S1104Ï"YMake txt_unitvalue a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+Y	java:S125û"<This block of commented-out lines of code should be removed.(®ƒ÷8É¹Éª¹.
+w	java:S116%"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+w
+java:S1104Ï"TMake prodNAme a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+E
+java:S1659Ï""Declare "pMrp" on a separate line.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+o	java:S116Ò"RRename this field "btn_Add" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÓäÍ8È¹Éª¹.
+a	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ï¢Ğ7
+N
+java:S1659Ï"+Declare "txt_unitvalue" on a separate line.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+t
+java:S1104Ï"QMake pQuan a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+^	java:S125"<This block of commented-out lines of code should be removed.(ªÖ±Éùÿÿÿÿ8È¹Éª¹.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ûÛš
+^	java:S125­"<This block of commented-out lines of code should be removed.(«Öúÿÿÿÿ8È¹Éª¹.
+v
+java:S1104Ï"SMake txtQuan a static final constant or non-public and provide accessors if needed.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+^	java:S125±"<This block of commented-out lines of code should be removed.(“Õ²öûÿÿÿÿ8È¹Éª¹.
+H
+java:S1659Ï"%Declare "txtQuan" on a separate line.(¨ù¨ıÿÿÿÿ8È¹Éª¹.
+^	java:S125¢"<This block of commented-out lines of code should be removed.(—³æ¥ıÿÿÿÿ8È¹Éª¹.
+^	java:S125"<This block of commented-out lines of code should be removed.(šä›şÿÿÿÿ8È¹Éª¹.

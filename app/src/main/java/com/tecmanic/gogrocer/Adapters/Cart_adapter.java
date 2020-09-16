@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Paint;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,8 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.squareup.picasso.Picasso;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
 import com.tecmanic.gogrocer.util.Session_management;
@@ -67,12 +65,8 @@ public class Cart_adapter extends RecyclerView.Adapter<Cart_adapter.ProductHolde
     public void onBindViewHolder(final ProductHolder holder, final int position) {
         HashMap<String, String> map = list.get(position);
         holder.currency_indicator.setText(session_management.getCurrency());
-        Glide.with(activity)
+        Picasso.with(activity)
                 .load(IMG_URL + map.get("product_image"))
-                .centerCrop()
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
                 .into(holder.iv_logo);
 
         holder.tv_title.setText(map.get("product_name"));

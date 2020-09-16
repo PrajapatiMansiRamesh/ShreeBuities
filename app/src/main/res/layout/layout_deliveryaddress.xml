@@ -58,7 +58,7 @@
                         android:layout_width="15dp"
                         android:layout_height="15dp"
                         android:id="@+id/edit_address"
-                        android:background="@drawable/ic_edit"></ImageView>
+                        android:background="@drawable/ic_edit"/>
                 </LinearLayout>
 
             </LinearLayout>

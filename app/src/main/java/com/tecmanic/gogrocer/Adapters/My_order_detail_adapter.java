@@ -9,8 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.squareup.picasso.Picasso;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.NewPendingDataModel;
 import com.tecmanic.gogrocer.R;
@@ -47,13 +46,9 @@ public class My_order_detail_adapter extends RecyclerView.Adapter<My_order_detai
     public void onBindViewHolder(My_order_detail_adapter.MyViewHolder holder, int position) {
         NewPendingDataModel mList = modelList.get(position);
 
-        Glide.with(context)
+        Picasso.with(context)
                 .load(BaseURL.IMG_URL + mList.getVarient_image())
-                .centerCrop()
                 .placeholder(R.drawable.splashicon)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
                 .into(holder.iv_img);
 
         if (mList.getDescription() != null && !mList.getDescription().equalsIgnoreCase("")) {

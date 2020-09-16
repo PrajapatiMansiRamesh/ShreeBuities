@@ -1,0 +1,28 @@
+
+P	java:S110%"<This class has 9 parents which is greater than 5 authorized.(Úü¡R
+f	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ßùœ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+D
+java:S1604€"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+y
+java:S1450+"^Remove the "complainAdapter" field and declare it as a local variable in the relevant methods.(¥‚Ò‹ÿÿÿÿÿ
+|
+java:S1450*"aRemove the "session_management" field and declare it as a local variable in the relevant methods.(«éØíüÿÿÿÿ
+t	java:S116("ZRename this field "coupen_recycler" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ïˆèùÿÿÿÿ
+g	java:S116)"RRename this field "cart_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßˆÚµ
+w	java:S116*"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+c	java:S100D"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²×ü»
+t
+java:S2293G"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ
+Q	java:S125a"<This block of commented-out lines of code should be removed.(’”Ç÷
+Q	java:S125c"<This block of commented-out lines of code should be removed.(ïƒÁÌ
+P	java:S125e"<This block of commented-out lines of code should be removed.(¨é¿8
+P	java:S125g"<This block of commented-out lines of code should be removed.(•Ïü+
+Q	java:S125i"<This block of commented-out lines of code should be removed.(Õ¡·ä
+V	java:S125m"<This block of commented-out lines of code should be removed.(Ëùô‡ûÿÿÿÿ
+V	java:S125o"<This block of commented-out lines of code should be removed.(º°ıõşÿÿÿÿ
+V	java:S125u"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+V	java:S125w"<This block of commented-out lines of code should be removed.(ÚÓ¡·üÿÿÿÿ
+V	java:S125y"<This block of commented-out lines of code should be removed.(¢Ş­úÿÿÿÿ
+V	java:S125{"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+W	java:S125›"<This block of commented-out lines of code should be removed.(–“Åıÿÿÿÿ

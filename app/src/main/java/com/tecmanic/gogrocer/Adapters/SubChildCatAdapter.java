@@ -1,19 +1,19 @@
 package com.tecmanic.gogrocer.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tecmanic.gogrocer.Activity.CategoryPage;
 import com.tecmanic.gogrocer.ModelClass.SubChildCatModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.util.CategoryFragmentClick;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,7 @@ public class SubChildCatAdapter extends RecyclerView.Adapter<SubChildCatAdapter.
 
     private List<SubChildCatModel> subChildCatModels = new ArrayList<>();
     Context context;
+    private CategoryFragmentClick categoryFragmentClick;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView prodNAme, pdetails;
@@ -40,11 +41,13 @@ public class SubChildCatAdapter extends RecyclerView.Adapter<SubChildCatAdapter.
     }
 
 
-    public SubChildCatAdapter(List<SubChildCatModel> subChildCatModels, Context context) {
+    public SubChildCatAdapter(List<SubChildCatModel> subChildCatModels, Context context, CategoryFragmentClick categoryFragmentClick) {
         this.subChildCatModels = subChildCatModels;
         this.context = context;
+        this.categoryFragmentClick = categoryFragmentClick;
     }
 
+    @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -60,16 +63,13 @@ public class SubChildCatAdapter extends RecyclerView.Adapter<SubChildCatAdapter.
         holder.pdetails.setText(cc.getDetail());
         holder.image.setImageResource(R.drawable.splashicon);
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                Intent intent = new Intent(context, CategoryPage.class);
-                intent.putExtra("cat_id",cc.getId());
-                context.startActivity(intent);
-
-            }
+        holder.cardView.setOnClickListener(v -> {
+if (categoryFragmentClick!=null){
+    categoryFragmentClick.onClick(cc.getId());
+}
+//                Intent intent = new Intent(context, CategoryPage.class);
+//                intent.putExtra("cat_id",cc.getId());
+//                context.startActivity(intent);
 
         });
     }

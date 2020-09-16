@@ -1,0 +1,130 @@
+
+^	java:S125û"<This block of commented-out lines of code should be removed.(¯ÌËÔÿÿÿÿÿ8–˜×À.
+k
+java:S2259Ï"MA "NullPointerException" could be thrown; "locationManager" is nullable here.(¡ßÒŠ8–˜×À.
+v	java:S116p"URename this field "search_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ´Î‹ÿÿÿÿÿ8’Ò€ô¹.
+n
+java:S1301€"KReplace this "switch" statement by "if" statements to increase readability.(öÛ«°şÿÿÿÿ8–˜×À.
+^	java:S125Á"<This block of commented-out lines of code should be removed.(õïÉ’ÿÿÿÿÿ8–˜×À.
+_
+java:S3252Á"AUse static access with "com.android.volley.Request" for "Method".(Îâ“á8–˜×À.
+h
+java:S1874‰"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(ÀÄŞ’8–˜×À.
+Ÿ
+java:S1186“"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÁïÕÒ8–˜×À.
+¤
+java:S1186»"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(•Š¯¿úÿÿÿÿ8–˜×À.
+Ÿ
+java:S1186¡"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±8–˜×À.
+\
+java:S2130Ù">Use "Double.parseDouble" for this string-to-double conversion.(ş¨Üñ8ÃŠ½À.
+D	java:S131€""Add a default case to this switch.(öÛ«°şÿÿÿÿ8–˜×À.
+F
+java:S1604ı"(Make this anonymous inner class a lambda(Î¬¯”8–˜×À.
+H
+java:S1068u"+Remove this unused "handler" private field.(ïóî‘8’Ò€ô¹.
+^	java:S125Å"<This block of commented-out lines of code should be removed.(à˜ş¯ıÿÿÿÿ8–˜×À.
+i
+java:S2184¥"FCast one of the operands of this multiplication operation to a "long".(Ó­Àùÿÿÿÿ8ÃŠ½À.
+Ÿ
+java:S1186à"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½ë¿í8–˜×À.
+¤
+java:S1186ß"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ö¾¨¶ùÿÿÿÿ8–˜×À.
+L
+java:S1874u"/Remove this use of "Handler"; it is deprecated.(ïóî‘8’Ò€ô¹.
+Ÿ
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(çÅğÙ8–˜×À.
+i
+java:S2184¤"FCast one of the operands of this multiplication operation to a "long".(ù¡£İùÿÿÿÿ8–˜×À.
+t	java:S116s"SRename this field "save_loc" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä¦¾§ıÿÿÿÿ8’Ò€ô¹.
+n	java:S117¬"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í¥×8–˜×À.
+F
+java:S1185ƒ"(Remove this method to simply inherit it.(Ù«µ§8–˜×À.
+Y	java:S125ˆ"<This block of commented-out lines of code should be removed.(ˆ•æÒ8–˜×À.
+Y	java:S125Ø"<This block of commented-out lines of code should be removed.(Àÿøø8–˜×À.
+\
+java:S1854¹">Remove this useless assignment to local variable "statusCode".(ó‡øÂ8–˜×À.
+M
+java:S1481¹"/Remove this unused "statusCode" local variable.(ó‡øÂ8–˜×À.
+t	java:S116f"SRename this field "back_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉŒÓúøÿÿÿÿ8’Ò€ô¹.
+Y	java:S125ô"<This block of commented-out lines of code should be removed.(€òî¸8–˜×À.
+Y	java:S125©"<This block of commented-out lines of code should be removed.(¢æ÷ş8–˜×À.
+d
+java:S2142Ò"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8–˜×À.
+^	java:S125£"<This block of commented-out lines of code should be removed.(Ö™³àùÿÿÿÿ8–˜×À.
+^	java:S125Ï"<This block of commented-out lines of code should be removed.(Ö™³àùÿÿÿÿ8–˜×À.
+Z
+java:S1611‡"7Remove the parentheses around the "exception" parameter(¶ˆØ¦ıÿÿÿÿ8–˜×À.
+F
+java:S1604œ"(Make this anonymous inner class a lambda(¡à«¡8–˜×À.
+Y	java:S125…"<This block of commented-out lines of code should be removed.(ˆ•æÒ8–˜×À.
+}
+java:S1450b"[Remove the "isGPSEnabled" field and declare it as a local variable in the relevant methods.(Ö¤šùûÿÿÿÿ8½”î¸¶.
+K
+java:S1604³"(Make this anonymous inner class a lambda(œÁÈÌşÿÿÿÿ8–˜×À.
+y	java:S116"WRename this field "progress_bar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÅÏûşÿÿÿÿ8ø”ÄÀ.
+
+java:S1450n"_Remove the "search_view_recy" field and declare it as a local variable in the relevant methods.(Ëä¦Œûÿÿÿÿ8’Ò€ô¹.
+~	java:S116h"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ8Œíú¸¶.
+y
+java:S1450f"WRemove the "back_btn" field and declare it as a local variable in the relevant methods.(ÉŒÓúøÿÿÿÿ8’Ò€ô¹.
+y
+java:S1450s"WRemove the "save_loc" field and declare it as a local variable in the relevant methods.(Ä¦¾§ıÿÿÿÿ8’Ò€ô¹.
+¤
+java:S1186à"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö èşÿÿÿÿ8–˜×À.
+F
+java:S1068y")Remove this unused "queue" private field.(®¤œé8’Ò€ô¹.
+x	java:S116r"WRename this field "address_text" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ÁÉ—ıÿÿÿÿ8’Ò€ô¹.
+X	java:S125¡"<This block of commented-out lines of code should be removed.(ˆì¦8–˜×À.
+d
+java:S2259õ"FA "NullPointerException" could be thrown; "location" is nullable here.(°½÷‚8–˜×À.
+
+java:S1450c"_Remove the "isNetworkEnabled" field and declare it as a local variable in the relevant methods.(æ¤Àçşÿÿÿÿ8’Ò€ô¹.
+|	java:S116n"[Rename this field "search_view_recy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëä¦Œûÿÿÿÿ8’Ò€ô¹.
+P
+java:S1144ê"2Remove this unused private "displayDialog" method.(¼úĞ›8–˜×À.
+R
+java:S1066Ã"/Merge this if statement with the enclosing one.(äñğÓÿÿÿÿÿ8–˜×À.
+w	java:S116o"VRename this field "search_text" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú×ÙÜüÿÿÿÿ8’Ò€ô¹.
+^	java:S125Á"<This block of commented-out lines of code should be removed.(–“Åıÿÿÿÿ8–˜×À.
+Ÿ
+java:S1186‰"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÀÄŞ’8–˜×À.
+Y	java:S125ç"<This block of commented-out lines of code should be removed.(¢¶ûÎ8–˜×À.
+p
+java:S3776Ë"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(©– 8–˜×À.
+^	java:S125ß"<This block of commented-out lines of code should be removed.(ô×‹òşÿÿÿÿ8–˜×À.
+F
+java:S1604î"(Make this anonymous inner class a lambda(úˆ¨—8–˜×À.
+X	java:S110["<This class has 9 parents which is greater than 5 authorized.(áûœß8’Ò€ô¹.
+^	java:S125–"<This block of commented-out lines of code should be removed.(¯ÌËÔÿÿÿÿÿ8–˜×À.
+N
+java:S1068€"+Remove this unused "mapView" private field.(·Àºúÿÿÿÿ8îµ‰¹¾.
+z
+java:S1450i"^Remove the "locationRequest" field and declare it as a local variable in the relevant methods.(¢¢ B8’Ò€ô¹.
+^	java:S125®"<This block of commented-out lines of code should be removed.(Î«­íúÿÿÿÿ8–˜×À.
+u
+java:S3776ä"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(Ó»×¶şÿÿÿÿ8–˜×À.
+q
+java:S1450y"TRemove the "queue" field and declare it as a local variable in the relevant methods.(®¤œé8’Ò€ô¹.
+{
+java:S1450a"^Remove the "locationManager" field and declare it as a local variable in the relevant methods.(ô­âº8’Ò€ô¹.
+r	java:S116q"VRename this field "address_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÁ®ç8’Ò€ô¹.
+¤
+java:S1186¦"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ8–˜×À.
+R
+java:S1066Î"/Merge this if statement with the enclosing one.(êÿ×¤ùÿÿÿÿ8–˜×À.
+a
+java:S2130Ø">Use "Double.parseDouble" for this string-to-double conversion.(ªóàÌüÿÿÿÿ8–˜×À.
+^	java:S125‚"<This block of commented-out lines of code should be removed.(ßî¶¬øÿÿÿÿ8¾ãõº¾.
+Y	java:S125È"<This block of commented-out lines of code should be removed.(îê…ì8–˜×À.
+Y	java:S125 "<This block of commented-out lines of code should be removed.(˜¢‘Ğ8–˜×À.
+Y	java:S125Ü"<This block of commented-out lines of code should be removed.(Øç’é8–˜×À.
+u
+java:S3776·"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(øˆ÷Ãùÿÿÿÿ8–˜×À.
+K
+java:S1604Œ"(Make this anonymous inner class a lambda(«æ•·ÿÿÿÿÿ8–˜×À.
+Y	java:S125ı"<This block of commented-out lines of code should be removed.(ŒöÇ÷8–˜×À.
+€
+java:S1450g"cRemove the "mFusedLocationClient" field and declare it as a local variable in the relevant methods.(Ğ×°ş8Œíú¸¶.
+T
+java:S1611"6Remove the parentheses around the "response" parameter(°‰„8–˜×À.

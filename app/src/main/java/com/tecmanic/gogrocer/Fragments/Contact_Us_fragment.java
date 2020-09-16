@@ -21,16 +21,14 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
-import com.android.volley.NoConnectionError;
 import com.android.volley.Request;
 import com.android.volley.Response;
-import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.tecmanic.gogrocer.Activity.MainActivity;
+import com.tecmanic.gogrocer.activity.MainActivity;
 import com.tecmanic.gogrocer.ModelClass.Support_info_model;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.AppController;

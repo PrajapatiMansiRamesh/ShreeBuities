@@ -1,0 +1,39 @@
+
+?
+java:S1444.")Make this "public static TAG" field final(Ø™½‰
+i
+java:S1192¿"RDefine a constant instead of duplicating this literal "Please try again!" 3 times.(´ßØ
+V	java:S110-"<This class has 9 parents which is greater than 5 authorized.(‰ğµŠüÿÿÿÿ
+k	java:S117q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¥Ÿ™ûÿÿÿÿ
+l	java:S117¨"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­—î·øÿÿÿÿ
+l	java:S117¨"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­—î·øÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+>
+java:S1604x"(Make this anonymous inner class a lambda(õ¯­™
+D
+java:S1604•"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+e
+java:S1104."OMake TAG a static final constant or non-public and provide accessors if needed.(Ø™½‰
+d
+java:S3008."NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø™½‰
+C
+java:S16594"(Declare "txt_mobile" on a separate line.(°ïŒıÿÿÿÿ
+m	java:S116/"XRename this field "et_req_mobile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡™Şê
+m	java:S1161"SRename this field "cv_email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ö«Ü¤ÿÿÿÿÿ
+o	java:S1164"URename this field "txt_mobile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ïŒıÿÿÿÿ
+l	java:S1165"RRename this field "ll_edit" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒŞ·Âşÿÿÿÿ
+f	java:S1166"QRename this field "et_otp" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¡Œõ
+l	java:S1167"RRename this field "et_mail" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï‹šíüÿÿÿÿ
+m	java:S1168"SRename this field "MobileNO" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÖĞ¾ÿÿÿÿÿ
+w	java:S116:"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+L
+java:S18742"6Remove this use of "ProgressDialog"; it is deprecated.(ğİıº
+m
+java:S3776="RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¨Œşÿÿÿÿ
+Q
+java:S1874F"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ
+H
+java:S1874G"2Remove this use of "setMessage"; it is deprecated.(ç‡ŸÇ
+t
+java:S2293s"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ
+W	java:S125"<This block of commented-out lines of code should be removed.(Íì§Åıÿÿÿÿ

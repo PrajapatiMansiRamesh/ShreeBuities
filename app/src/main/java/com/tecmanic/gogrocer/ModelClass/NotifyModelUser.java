@@ -1,7 +1,5 @@
 package com.tecmanic.gogrocer.ModelClass;
 
-import java.util.List;
-
 public class NotifyModelUser {
 
     private String status;

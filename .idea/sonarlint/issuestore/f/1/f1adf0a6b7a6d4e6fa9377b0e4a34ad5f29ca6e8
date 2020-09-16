@@ -1,0 +1,38 @@
+
+~	java:S116"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ8î‡´Œ¶.
+[
+java:S1854u"9Remove this useless assignment to local variable "state".(š©»¼øÿÿÿÿ8ÁÓµŒ¶.
+N
+java:S1481v",Remove this unused "country" local variable.(ÄÕÃ…ûÿÿÿÿ8ÁÓµŒ¶.
+V	java:S1257"<This block of commented-out lines of code should be removed.(—ÖıŒşÿÿÿÿ
+V	java:S125A"<This block of commented-out lines of code should be removed.(‹ù¶úÿÿÿÿ
+`
+java:S1854w">Remove this useless assignment to local variable "postalCode".(ŞšÜûÿÿÿÿ8ÁÓµŒ¶.
+L
+java:S1481u"*Remove this unused "state" local variable.(š©»¼øÿÿÿÿ8ÁÓµŒ¶.
+J
+java:S1481z".Remove this unused "knownName" local variable.(¡øòK8ÁÓµŒ¶.
+h	java:S116 "NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„²˜Êúÿÿÿÿ
+Y
+java:S1854z"=Remove this useless assignment to local variable "knownName".(¡øòK8ÁÓµŒ¶.
+N
+java:S1481y",Remove this unused "address" local variable.(€Â¸íûÿÿÿÿ8ÁÓµŒ¶.
+^
+java:S1854%"<Remove this useless assignment to local variable "geocoder".(Ñ¸Öèúÿÿÿÿ8û§ºŒ¶.
+X	java:S1253"<This block of commented-out lines of code should be removed.(×Ò›8û§ºŒ¶.
+Q
+java:S1481w"/Remove this unused "postalCode" local variable.(ŞšÜûÿÿÿÿ8ÁÓµŒ¶.
+]
+java:S1854y";Remove this useless assignment to local variable "address".(€Â¸íûÿÿÿÿ8ÁÓµŒ¶.
+]
+java:S1854v";Remove this useless assignment to local variable "country".(ÄÕÃ…ûÿÿÿÿ8ÁÓµŒ¶.
+T
+java:S1155?">Use isEmpty() to check whether the collection is empty or not.(ÎÓÇû
+O
+java:S1481%"-Remove this unused "geocoder" local variable.(Ñ¸Öèúÿÿÿÿ8û§ºŒ¶.
+S
+java:S1874"1Remove this use of "AsyncTask"; it is deprecated.(’‹“şúÿÿÿÿ8ÂÛ‚à½.
+l
+java:S1874_"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(Ãí¿‹ıÿÿÿÿ8ÂÛ‚à½.
+W
+java:S1874a"5Remove this use of "onPostExecute"; it is deprecated.(áÁ®Äûÿÿÿÿ8ÂÛ‚à½.

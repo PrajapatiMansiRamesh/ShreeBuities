@@ -1,0 +1,16 @@
+
+Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(ò¸É¥
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+>
+java:S1604#"(Make this anonymous inner class a lambda(·¥¹
+i
+java:S1450"SRemove the "pref" field and declare it as a local variable in the relevant methods.(†”Á¾
+v
+java:S1450"`Remove the "sessionManagement" field and declare it as a local variable in the relevant methods.(Ôõ´é
+k	java:S116"WRename this field "btn_ShopMore" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§£8
+>
+java:S1068"(Remove this unused "pref" private field.(†”Á¾
+K
+java:S1068"5Remove this unused "sessionManagement" private field.(Ôõ´é
+V	java:S125"<This block of commented-out lines of code should be removed.(™¥üæÿÿÿÿÿ
+V	java:S1251"<This block of commented-out lines of code should be removed.(–“Åıÿÿÿÿ

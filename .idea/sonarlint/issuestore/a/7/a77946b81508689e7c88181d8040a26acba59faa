@@ -1,0 +1,47 @@
+
+V	java:S125^"<This block of commented-out lines of code should be removed.(àòŠ·şÿÿÿÿ
+Y	java:S125£"<This block of commented-out lines of code should be removed.(é©Èù8ÒÏùŠ¶.
+R	java:S125‡"<This block of commented-out lines of code should be removed.(—¢Ê£
+Y	java:S125Ÿ"<This block of commented-out lines of code should be removed.(¦ªÑà8ÒÏùŠ¶.
+V	java:S125u"<This block of commented-out lines of code should be removed.(àòŠ·şÿÿÿÿ
+Q	java:S125Z"<This block of commented-out lines of code should be removed.(—¢Ê£
+^	java:S125«"<This block of commented-out lines of code should be removed.(àòŠ·şÿÿÿÿ8ÒÏùŠ¶.
+^	java:S125ñ"<This block of commented-out lines of code should be removed.(èŠĞÎüÿÿÿÿ8ÒÏùŠ¶.
+w
+java:S2293¨"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºãûó8ÒÏùŠ¶.
+Y	java:S125¹"<This block of commented-out lines of code should be removed.(ËÃ–‘8ÒÏùŠ¶.
+s	java:S117ô"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıØĞÉùÿÿÿÿ8ÒÏùŠ¶.
+^	java:S125Á"<This block of commented-out lines of code should be removed.(”œñÀøÿÿÿÿ8ÒÏùŠ¶.
+W	java:S125‹"<This block of commented-out lines of code should be removed.(àòŠ·şÿÿÿÿ
+^	java:S125¶"<This block of commented-out lines of code should be removed.(àòŠ·şÿÿÿÿ8ÒÏùŠ¶.
+X	java:S125ü"<This block of commented-out lines of code should be removed.(×ğ¡8ÒÏùŠ¶.
+Q	java:S125q"<This block of commented-out lines of code should be removed.(—¢Ê£
+w
+java:S2293Î"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºãûó8ÒÏùŠ¶.
+Y	java:S125±"<This block of commented-out lines of code should be removed.(ËÃ–‘8ÒÏùŠ¶.
+P	java:S1258"<This block of commented-out lines of code should be removed.(¼˜èL
+n	java:S117©"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıÖÒš8ÒÏùŠ¶.
+n	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æÚ·Š8ÒÏùŠ¶.
+k	java:S116B"WRename this field "PRIVATE_MODE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š™èo
+g	java:S1012"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ìùáÿÿÿÿÿ
+s	java:S117ô"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıØĞÉùÿÿÿÿ8ÒÏùŠ¶.
+‹
+java:S1319Í"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(¶êÖú8ÒÏùŠ¶.
+@
+java:S1172h"*Remove this unused method parameter "any".(ºÒ¿¿
+Q	java:S125H"<This block of commented-out lines of code should be removed.(À×è™
+^	java:S125ª"<This block of commented-out lines of code should be removed.(¶¦Çëÿÿÿÿÿ8ÒÏùŠ¶.
+^	java:S125è"<This block of commented-out lines of code should be removed.(À¸´ùşÿÿÿÿ8ÒÏùŠ¶.
+
+java:S1319§"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ÃõÜÖÿÿÿÿÿ8ÒÏùŠ¶.
+^	java:S125ø"<This block of commented-out lines of code should be removed.(èŠĞÎüÿÿÿÿ8ÒÏùŠ¶.
+^	java:S125õ"<This block of commented-out lines of code should be removed.(İÖšúÿÿÿÿ8ÒÏùŠ¶.
+Y	java:S125¾"<This block of commented-out lines of code should be removed.(ÇƒÇ8ÒÏùŠ¶.
+X	java:S125œ"<This block of commented-out lines of code should be removed.(Òò¿x8ÒÏùŠ¶.
+z
+java:S1488¨"\Immediately return this expression instead of assigning it to the temporary variable "user".(ºãûó8ÒÏùŠ¶.
+X	java:S125Æ"<This block of commented-out lines of code should be removed.(Ÿ½äY8ÒÏùŠ¶.
+R	java:S125Ä"<This block of commented-out lines of code should be removed.( Ú´
+V	java:S1255"<This block of commented-out lines of code should be removed.(ÖÀâ‘ùÿÿÿÿ
+P	java:S125K"<This block of commented-out lines of code should be removed.(—ô‹`
+X	java:S125Œ"<This block of commented-out lines of code should be removed.(×ğ¡8ÒÏùŠ¶.

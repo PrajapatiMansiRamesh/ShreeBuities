@@ -1,0 +1,59 @@
+
+l	java:S116<"WRename this field "bottom_sheet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øì®ë
+~	java:S116B"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ8Ëšüİ¶.
+^	java:S125Ÿ"<This block of commented-out lines of code should be removed.(ˆşøÿÿÿÿ8Â¢İª¹.
+K	java:S108´")Either remove or fill this block of code.(™²¨©ûÿÿÿÿ8Â¢İª¹.
+u	java:S1164"[Rename this field "recycler_product" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿§Û„ûÿÿÿÿ
+^	java:S125Õ"<This block of commented-out lines of code should be removed.(‰‡Œ†ùÿÿÿÿ8ºÍ•«¹.
+^	java:S125ï"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ºÍ•«¹.
+V	java:S1102"<This class has 9 parents which is greater than 5 authorized.(ÈâÆÿÿÿÿÿ
+n	java:S117ÿ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ™œ8Â¢İª¹.
+9
+java:S16599"#Declare "image" on a separate line.(†ÜŠÓ
+9
+java:S16599"#Declare "title" on a separate line.(†ÜŠÓ
+|
+java:S2293„"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ8Â¢İª¹.
+n
+java:S1450="SRemove the "back" field and declare it as a local variable in the relevant methods.(Û²Ãèıÿÿÿÿ
+¤
+java:S1186Æ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö èşÿÿÿÿ8Â¢İª¹.
+^	java:S125ê"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ºÍ•«¹.
+^	java:S125í"<This block of commented-out lines of code should be removed.(ûöÊîıÿÿÿÿ8ºÍ•«¹.
+K
+java:S1604¯"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8Â¢İª¹.
+Y	java:S125µ"<This block of commented-out lines of code should be removed.(””÷8ºÍ•«¹.
+^	java:S125ß"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ºÍ•«¹.
+^	java:S125•"<This block of commented-out lines of code should be removed.(­¾èÿÿÿÿÿ8Â¢İª¹.
+Y	java:S125×"<This block of commented-out lines of code should be removed.(®ê§¯8ºÍ•«¹.
+F
+java:S1604‹"(Make this anonymous inner class a lambda(Òî¦İ8Â¢İª¹.
+{
+java:S1450A"^Remove the "continue_tocart" field and declare it as a local variable in the relevant methods.(¹„ˆã8ö©¢ß¶.
+Y	java:S125»"<This block of commented-out lines of code should be removed.(¤¢ñú8ºÍ•«¹.
+^	java:S125®"<This block of commented-out lines of code should be removed.(ºˆØ‹øÿÿÿÿ8ºÍ•«¹.
+Y	java:S125á"<This block of commented-out lines of code should be removed.(¡Õ±š8ºÍ•«¹.
+w	java:S116>"[Rename this field "bottom_lay_total" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìîÀ™8»¶Ÿß¶.
+X	java:S125"<This block of commented-out lines of code should be removed.(«ºÓú8Â¢İª¹.
+f	java:S1169"QRename this field "cat_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ÜŠÓ
+J
+java:S3740:"/Provide the parametrized type for this generic.(½ûãˆÿÿÿÿÿ
+^	java:S125ò"<This block of commented-out lines of code should be removed.(±ÕÙÙüÿÿÿÿ8ºÍ•«¹.
+f	java:S117u"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ„ÇÕ
+^	java:S125Ú"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ºÍ•«¹.
+q
+java:S1450<"[Remove the "bottom_sheet" field and declare it as a local variable in the relevant methods.(Øì®ë
+r	java:S116@"VRename this field "total_price" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„îç8èÇ¡ß¶.
+Y	java:S125Æ"<This block of commented-out lines of code should be removed.(Ö®€º8Â¢İª¹.
+`
+java:S1874W">Remove this use of "setBottomSheetCallback"; it is deprecated.(³˜Æùÿÿÿÿ8º­”©¹.
+^	java:S125«"<This block of commented-out lines of code should be removed.(Ş¥‚…üÿÿÿÿ8ºÍ•«¹.
+n	java:S117‚"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ßùœ8Â¢İª¹.
+^	java:S125å"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ºÍ•«¹.
+Y	java:S125ú"<This block of commented-out lines of code should be removed.(ìÖ¶ù8ºÍ•«¹.
+Y	java:S125°"<This block of commented-out lines of code should be removed.(›†™Õ8ºÍ•«¹.
+w	java:S116?"VRename this field "total_count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É¹‡÷ıÿÿÿÿ8¡˜¡ß¶.
+v	java:S116A"ZRename this field "continue_tocart" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹„ˆã8¬ô¡ß¶.
+X	java:S1256"<This block of commented-out lines of code should be removed.(…‹›È8º­”©¹.
+Y	java:S125É"<This block of commented-out lines of code should be removed.(¨ğÆî8ºÍ•«¹.
+^	java:S125Ó"<This block of commented-out lines of code should be removed.(‡ÕÓúÿÿÿÿ8Â¢İª¹.

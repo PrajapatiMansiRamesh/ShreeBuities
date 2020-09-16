@@ -7,7 +7,7 @@
     android:layout_weight="3"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Activity.OrderSummary">
+    tools:context=".activity.OrderSummary">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -329,16 +329,6 @@
                         android:layout_marginTop="10dp"
                         android:background="@color/lightGrey" />
 
-
-                    <devs.mulham.horizontalcalendar.HorizontalCalendarView
-                        android:id="@+id/calendarView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginRight="8dp"
-                        android:background="@color/white"
-                        android:visibility="gone"
-                        app:textColorSelected="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/calendarview2"

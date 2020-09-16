@@ -1,0 +1,129 @@
+
+l	java:S116G"RRename this field "city_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ¤Áûÿÿÿÿ
+=
+java:S1659@""Declare "name" on a separate line.(Öˆ¬ãûÿÿÿÿ
+<
+java:S1659J"&Declare "cityName" on a separate line.(Àœ˜
+<
+java:S1659J"&Declare "socetyId" on a separate line.(Àœ˜
+B
+java:S1659A"'Declare "talterMob" on a separate line.(¨Öúÿÿÿÿ
+>
+java:S1659J"(Declare "SocetyName" on a separate line.(Àœ˜
+q	java:S116I"WRename this field "area_spinner" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ŠœĞıÿÿÿÿ
+N
+java:S1481Ã"+Remove this unused "cityId" local variable.(îÚöÿÿÿÿÿ8é’Á€Á.
+^	java:S125«"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ê  ÷¹.
+^	java:S125î"<This block of commented-out lines of code should be removed.(ÿ™¬’ÿÿÿÿÿ8Í‚ºã½.
+^	java:S125§"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8Í‚ºã½.
+@
+java:S1659@"%Declare "houseNo" on a separate line.(Öˆ¬ãûÿÿÿÿ
+n	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ˜Ÿ8£ÙÏã½.
+=
+java:S1659J"'Declare "addressId" on a separate line.(Àœ˜
+{
+java:S1488ß"]Immediately return this expression instead of assigning it to the temporary variable "param".(Èš€8Í‚ºã½.
+	java:S116I"eRename this field "register_vehicletype_brand" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ŠœĞıÿÿÿÿ
+Q	java:S125i"<This block of commented-out lines of code should be removed.(‰¸Ù»
+X	java:S125p"<This block of commented-out lines of code should be removed.(„ô–ö8ÆÉÙ­¸.
+A
+java:S1659A"&Declare "thouseNo" on a separate line.(¨Öúÿÿÿÿ
+n	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëøİò8£ÙÏã½.
+r	java:S116="]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÒéß
+]
+java:S1117Ã":Rename "cityId" which hides the field declared at line 74.(îÚöÿÿÿÿÿ8Í‚ºã½.
+>
+java:S1659@"#Declare "mobNo" on a separate line.(Öˆ¬ãûÿÿÿÿ
+^	java:S125ê"<This block of commented-out lines of code should be removed.(éµÊŸÿÿÿÿÿ8³‚À€Á.
+[
+java:S1117æ"8Rename "city" which hides the field declared at line 64.(ÀÎõÀşÿÿÿÿ8Í‚ºã½.
+M
+java:S1144ş"/Remove this unused private "societyURl" method.(Ìëê¾8é’Á€Á.
+b	java:S101;"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(²Ÿ­×
+E
+java:S1659I"*Declare "area_spinner" on a separate line.(’ŠœĞıÿÿÿÿ
+p	java:S116@"ORename this field "Area" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Öˆ¬ãûÿÿÿÿ8À’§‚Á.
+X	java:S125¦"<This block of commented-out lines of code should be removed.(™’Ş8ê  ÷¹.
+L
+java:S1659H"1Declare "recyclerViewSociety" on a separate line.(Ãÿ¯úÿÿÿÿ
+@
+java:S1659?"%Declare "EditBtn" on a separate line.(·Üêıøÿÿÿÿ
+@
+java:S1659J"*Declare "landmaarkkkk" on a separate line.(Àœ˜
+=
+java:S1659@""Declare "Area" on a separate line.(Öˆ¬ãûÿÿÿÿ
+A
+java:S1659@"&Declare "alterMob" on a separate line.(Öˆ¬ãûÿÿÿÿ
+F
+java:S1604Š"(Make this anonymous inner class a lambda(ÉÁş8Í‚ºã½.
+l	java:S116F"RRename this field "user_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¡úÆúÿÿÿÿ
+>
+java:S1659A"#Declare "tname" on a separate line.(¨Öúÿÿÿÿ
+B
+java:S1659@"'Declare "landmaark" on a separate line.(Öˆ¬ãûÿÿÿÿ
+C
+java:S1659A"(Declare "tlandmaark" on a separate line.(¨Öúÿÿÿÿ
+?
+java:S1659A"$Declare "tstate" on a separate line.(¨Öúÿÿÿÿ
+]
+java:S1854Ã":Remove this useless assignment to local variable "cityId".(îÚöÿÿÿÿÿ8é’Á€Á.
+Y	java:S125Ä"<This block of commented-out lines of code should be removed.(¿‚±™8é’Á€Á.
+_
+java:S1874ì"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8Í‚ºã½.
+^	java:S125¶"<This block of commented-out lines of code should be removed.(¹€‡Ëúÿÿÿÿ8Í‚ºã½.
+V
+java:S1874ì"3Remove this use of "isConnected"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8Í‚ºã½.
+R
+java:S3740˜"/Provide the parametrized type for this generic.(²„ ûÿÿÿÿ8Æ˜ıÿÀ.
+=
+java:S1659@""Declare "city" on a separate line.(Öˆ¬ãûÿÿÿÿ
+Q	java:S125ƒ"<This block of commented-out lines of code should be removed.(Óñªc
+o	java:S116P"SRename this field "city_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶‰æ»8¿¨Ø­¸.
+s	java:S117™"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’€‡¦ûÿÿÿÿ8Í‚ºã½.
+^	java:S125¡"<This block of commented-out lines of code should be removed.(ê‚•‹úÿÿÿÿ8Í‚ºã½.
+Q	java:S110;"<This class has 9 parents which is greater than 5 authorized.(²Ÿ­×
+_
+java:S1874ì"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8Í‚ºã½.
+9
+java:S1659D"#Declare "rWork" on a separate line.(—ÀŒĞ
+^	java:S125¡"<This block of commented-out lines of code should be removed.(äóµşıÿÿÿÿ8ê  ÷¹.
+T
+java:S4973f"9Use the "equals" method if value comparison was intended.(¢À€„ûÿÿÿÿ
+>
+java:S1659A"#Declare "tcity" on a separate line.(¨Öúÿÿÿÿ
+^	java:S125¥"<This block of commented-out lines of code should be removed.(Õ­¬÷øÿÿÿÿ8Í‚ºã½.
+Y	java:S125Â"<This block of commented-out lines of code should be removed.(§¼Á8Í‚ºã½.
+f
+java:S1192Ã"HDefine a constant instead of duplicating this literal "message" 3 times.(Ü„8Òé•§¹.
+K
+java:S1604×"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8Í‚ºã½.
+>
+java:S1659A"#Declare "tArea" on a separate line.(¨Öúÿÿÿÿ
+i	java:S116?"ORename this field "Save" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·Üêıøÿÿÿÿ
+K
+java:S1144é"-Remove this unused private "isOnline" method.(â˜‹Æ8Í‚ºã½.
+>
+java:S1659@"#Declare "state" on a separate line.(Öˆ¬ãûÿÿÿÿ
+M
+java:S1874d"2Remove this use of "setMessage"; it is deprecated.(ñËÄİÿÿÿÿÿ
+j	java:S116J"URename this field "SocetyName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Àœ˜
+V	java:S125z"<This block of commented-out lines of code should be removed.(ˆûùüÿÿÿÿ
+^	java:S125¤"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ÒÎë¤¹.
+O
+java:S1144‰",Remove this unused private "cityUrl" method.(Ú÷±éøÿÿÿÿ8Í‚ºã½.
+Q
+java:S1874c"6Remove this use of "ProgressDialog"; it is deprecated.(§¯Òˆüÿÿÿÿ
+^	java:S125“"<This block of commented-out lines of code should be removed.(Î¦·‚ûÿÿÿÿ8ê  ÷¹.
+l	java:S116?"RRename this field "EditBtn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·Üêıøÿÿÿÿ
+?
+java:S1659A"$Declare "tmobNo" on a separate line.(¨Öúÿÿÿÿ
+Y	java:S125¿"<This block of commented-out lines of code should be removed.(ôŞšô8Í‚ºã½.
+Y	java:S125»"<This block of commented-out lines of code should be removed.(Ú°à¬8Å¡¾¢¹.
+:
+java:S1659J"$Declare "updtae" on a separate line.(Àœ˜
+G
+java:S1659L",Declare "societyAdapter" on a separate line.(¹§——şÿÿÿÿ
+L
+java:S1874K"6Remove this use of "ProgressDialog"; it is deprecated.(ğİıº
+R
+java:S3740˜"/Provide the parametrized type for this generic.(²„ ûÿÿÿÿ8Æ˜ıÿÀ.

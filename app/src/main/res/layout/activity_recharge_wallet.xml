@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -55,7 +55,6 @@
             android:text="Enter Wallet Amount"
             android:fontFamily="@font/opensans_regular"
             android:textSize="14sp" />
-
         <EditText
             android:id="@+id/et_wallet_ammount"
             android:layout_width="match_parent"
@@ -70,6 +69,152 @@
             android:textColor="@color/black"
             android:textColorHint="@color/darkGrey"
             android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/pay_lay"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/border_rounded1"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/llcards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtcards"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Payment Option"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:id="@+id/dropdown"
+                    android:layout_width="35dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/ic_arrow_righ_new"
+                    android:layout_height="35dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/payment_opt"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/razor_pay"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="25dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/raz_txt"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="RazorPay"
+                        android:textColor="@color/black" />
+
+                    <CheckBox
+                        android:id="@+id/use_razorpay"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:linksClickable="false"
+                        android:gravity="center"
+                        style="@android:style/Widget.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGrey" />
+                <LinearLayout
+                    android:id="@+id/paypal_lay"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="25dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/paypal_txt"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="Paypal"
+                        android:textColor="@color/black" />
+
+                    <CheckBox
+                        android:id="@+id/use_paypal"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:linksClickable="false"
+                        android:gravity="center"
+                        style="@android:style/Widget.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightGrey" />
+                <LinearLayout
+                    android:id="@+id/paystack_lay"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="25dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/paypaystack_txt"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="Paystack"
+                        android:textColor="@color/black" />
+
+                    <CheckBox
+                        android:id="@+id/use_paystack"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:linksClickable="false"
+                        android:gravity="center"
+                        style="@android:style/Widget.CompoundButton.RadioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
         <RelativeLayout
             android:id="@+id/recharge_button"
             android:layout_width="match_parent"

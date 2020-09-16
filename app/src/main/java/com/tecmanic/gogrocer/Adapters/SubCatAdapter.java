@@ -1,7 +1,6 @@
 package com.tecmanic.gogrocer.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +11,10 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.tecmanic.gogrocer.Activity.CategoryPage;
 import com.tecmanic.gogrocer.ModelClass.SubCatModel;
 import com.tecmanic.gogrocer.ModelClass.SubChildCatModel;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.util.CategoryFragmentClick;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,10 +28,12 @@ public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.MyViewHold
     Context context;
     private List<SubChildCatModel> subChildCatModels = new ArrayList<>();
     private List<SubCatModel> homeCateList;
+    private CategoryFragmentClick categoryFragmentClick;
 
-    public SubCatAdapter(List<SubCatModel> homeCateList, Context context) {
+    public SubCatAdapter(List<SubCatModel> homeCateList, Context context, CategoryFragmentClick categoryFragmentClick) {
         this.homeCateList = homeCateList;
         this.context = context;
+        this.categoryFragmentClick = categoryFragmentClick;
     }
 
     @Override
@@ -70,9 +71,13 @@ public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.MyViewHold
         JSONArray array = response;
 
         if (array.length() == 0) {
-            Intent intent = new Intent(context, CategoryPage.class);
-            intent.putExtra("cat_id", cat_id);
-            context.startActivity(intent);
+//            Intent intent = new Intent(context, CategoryPage.class);
+//            intent.putExtra("cat_id", cat_id);
+//            context.startActivity(intent);
+            if (categoryFragmentClick!=null){
+                categoryFragmentClick.onClick(cat_id);
+            }
+
         } else {
 
 
@@ -90,20 +95,17 @@ public class SubCatAdapter extends RecyclerView.Adapter<SubCatAdapter.MyViewHold
                     model.setId(object.getString("cat_id"));
                     model.setImages(object.getString("image"));
                     model.setName(object.getString("title"));
-
                     subChildCatModels.add(model);
-
-                    SubChildCatAdapter cateAdapter = new SubChildCatAdapter(subChildCatModels, context);
-                    recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-                    recyclerView.setAdapter(cateAdapter);
-                    cateAdapter.notifyDataSetChanged();
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             }
+
+            SubChildCatAdapter cateAdapter = new SubChildCatAdapter(subChildCatModels, context,categoryFragmentClick);
+            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+            recyclerView.setAdapter(cateAdapter);
+            cateAdapter.notifyDataSetChanged();
 
         }
 

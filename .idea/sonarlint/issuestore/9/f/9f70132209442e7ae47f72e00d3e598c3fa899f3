@@ -1,0 +1,19 @@
+
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(§á±ùÿÿÿÿ8Êñÿ‚¶.
+|
+java:S1450["ZRemove the "scaleFactor" field and declare it as a local variable in the relevant methods.(²ıÏéúÿÿÿÿ8Êñÿ‚¶.
+T
+java:S2589("7Remove this expression which always evaluates to "true"(ÇÊÕ¹8Êñÿ‚¶.
+]	java:S125b"<This block of commented-out lines of code should be removed.(á²ƒêÿÿÿÿÿ8Êñÿ‚¶.
+X	java:S1250"<This block of commented-out lines of code should be removed.(Ï–¤8Êñÿ‚¶.
+]	java:S125h"<This block of commented-out lines of code should be removed.(×ŠÕ…ûÿÿÿÿ8Êñÿ‚¶.
+]	java:S125l"<This block of commented-out lines of code should be removed.(øÁİışÿÿÿÿ8Êñÿ‚¶.
+>	java:S131 ""Add a default case to this switch.(úé¢å8Êñÿ‚¶.
+E
+java:S1185{"(Remove this method to simply inherit it.(¾¦¸…8Êñÿ‚¶.
+L
+java:S1481)"/Remove this unused "zoomCenter" local variable.(–åà×8Êñÿ‚¶.
+]	java:S125u"<This block of commented-out lines of code should be removed.(Ò°®„üÿÿÿÿ8Êñÿ‚¶.
+[
+java:S1854)">Remove this useless assignment to local variable "zoomCenter".(–åà×8Êñÿ‚¶.

@@ -1,0 +1,120 @@
+
+K
+java:S1604‰"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ8š¢†şÂ.
+q	java:S116T"URename this field "paypal_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú”–8š¢†şÂ.
+Y	java:S125İ"<This block of commented-out lines of code should be removed.(¯¡Ì™8š¢†şÂ.
+m
+java:S1192Ê"ODefine a constant instead of duplicating this literal "paymentExample" 4 times.(™¬Á”8š¢†şÂ.
+V
+java:S1874»"3Remove this use of "getDrawable"; it is deprecated.(³ÿôçøÿÿÿÿ8š¢†şÂ.
+N
+java:S1874Ë"0Remove this use of "getColor"; it is deprecated.(üü¨Ã8š¢†şÂ.
+y
+java:S1192Ò"[Define a constant instead of duplicating this literal "Wallet Recharge Successful" 3 times.(ŠÂœÀ8š¢†şÂ.
+q	java:S116Q"URename this field "use_paypal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ıÑŠ8š¢†şÂ.
+Y	java:S125"<This block of commented-out lines of code should be removed.(¡Õ±š8š¢†şÂ.
+Y	java:S125Õ"<This block of commented-out lines of code should be removed.(€¦Îâ8š¢†şÂ.
+{	java:S116E"ZRename this field "Recharge_Button" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀğÕßûÿÿÿÿ8š¢†şÂ.
+v	java:S116P"ZRename this field "paypaystack_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß¹†ø8š¢†şÂ.
+p
+java:S3776ã"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(Üô·×8š¢†şÂ.
+M
+java:S1066ó"/Merge this if statement with the enclosing one.(Á¢Ë8š¢†şÂ.
+S
+java:S1874ô"0Remove this use of "getColor"; it is deprecated.(•ö«ÿÿÿÿÿ8š¢†şÂ.
+^	java:S125Ó"<This block of commented-out lines of code should be removed.(çÈÂıÿÿÿÿ8š¢†şÂ.
+n	java:S117¿"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š‹»…8š¢†şÂ.
+N
+java:S1874Õ"0Remove this use of "getColor"; it is deprecated.(„é÷8š¢†şÂ.
+N
+java:S1874"0Remove this use of "getColor"; it is deprecated.(üü¨Ã8š¢†şÂ.
+K
+java:S1604Ã"(Make this anonymous inner class a lambda(ÂŠ¿şÿÿÿÿ8š¢†şÂ.
+N
+java:S1874Ï"0Remove this use of "getColor"; it is deprecated.(ÉÎä¯8š¢†şÂ.
+K
+java:S1604Ş"(Make this anonymous inner class a lambda(ÉİÈıùÿÿÿÿ8š¢†şÂ.
+Y	java:S125Ä"<This block of commented-out lines of code should be removed.(€¦Îâ8š¢†şÂ.
+j	java:S100æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š™œF8š¢†şÂ.
+N
+java:S1874è"0Remove this use of "getColor"; it is deprecated.(©†À8š¢†şÂ.
+Y	java:S125ı"<This block of commented-out lines of code should be removed.(á”Ô·8š¢†şÂ.
+v	java:S116M"URename this field "paypal_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ı”ûÿÿÿÿ8š¢†şÂ.
+^	java:S125ü"<This block of commented-out lines of code should be removed.(îõøÿÿÿÿ8š¢†şÂ.
+F
+java:S1604•"(Make this anonymous inner class a lambda(ÁÜä 8š¢†şÂ.
+N
+java:S1874ê"0Remove this use of "getColor"; it is deprecated.(ÉÎä¯8š¢†şÂ.
+x	java:S116N"WRename this field "paystack_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÑñÌúÿÿÿÿ8š¢†şÂ.
+z	java:S116D"YRename this field "Wallet_Ammount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷÷ıûÿÿÿÿ8š¢†şÂ.
+^	java:S125»"<This block of commented-out lines of code should be removed.(™í¨‰ÿÿÿÿÿ8š¢†şÂ.
+N
+java:S1874ò"0Remove this use of "getColor"; it is deprecated.(ÉÎä¯8š¢†şÂ.
+E
+java:S1604ù"(Make this anonymous inner class a lambda(éŸ'8š¢†şÂ.
+o	java:S116L"TRename this field "razor_pay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ùò8š¢†şÂ.
+F
+java:S1604©"(Make this anonymous inner class a lambda(°§ÎØ8š¢†şÂ.
+r	java:S116K"VRename this field "payment_opt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±”ÖÖ8š¢†şÂ.
+e
+java:S1192â"GDefine a constant instead of duplicating this literal "failed" 3 times.(ùÙ¥§8š¢†şÂ.
+I
+java:S1172²"+Remove this unused method parameter "name".(£Ö×‚8š¢†şÂ.
+^	java:S125ƒ"<This block of commented-out lines of code should be removed.(îõøÿÿÿÿ8š¢†şÂ.
+T
+java:S1874w"2Remove this use of "setMessage"; it is deprecated.(ñËÄİÿÿÿÿÿ8š¢†şÂ.
+N
+java:S1874ƒ"0Remove this use of "getColor"; it is deprecated.(©†À8š¢†şÂ.
+o
+java:S3776´"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(¹Î¾8š¢†şÂ.
+N
+java:S1874‹"0Remove this use of "getColor"; it is deprecated.(üü¨Ã8š¢†şÂ.
+N
+java:S1874"0Remove this use of "getColor"; it is deprecated.(©†À8š¢†şÂ.
+N
+java:S1874ğ"0Remove this use of "getColor"; it is deprecated.(üü¨Ã8š¢†şÂ.
+N
+java:S1874Í"0Remove this use of "getColor"; it is deprecated.(©†À8š¢†şÂ.
+f
+java:S1192Ñ"HDefine a constant instead of duplicating this literal "success" 5 times.(ÍŞâ8š¢†şÂ.
+X
+java:S1874v"6Remove this use of "ProgressDialog"; it is deprecated.(Œˆßıÿÿÿÿ8š¢†şÂ.
+V
+java:S1874¾"3Remove this use of "getDrawable"; it is deprecated.(åãñªùÿÿÿÿ8š¢†şÂ.
+V	java:S106"9Replace this use of System.out or System.err by a logger.(ÿÉë£8š¢†şÂ.
+N
+java:S1874Ù"0Remove this use of "getColor"; it is deprecated.(©†À8š¢†şÂ.
+N
+java:S1874…"0Remove this use of "getColor"; it is deprecated.(ÉÎä¯8š¢†şÂ.
+X	java:S125¬"<This block of commented-out lines of code should be removed.(„é;8š¢†şÂ.
+x	java:S116R"WRename this field "use_razorpay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ú¢®¢ıÿÿÿÿ8š¢†şÂ.
+K
+java:S1604ë"(Make this anonymous inner class a lambda(±æÿÚıÿÿÿÿ8š¢†şÂ.
+s	java:S116S"RRename this field "raz_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–Âİ¸ùÿÿÿÿ8š¢†şÂ.
+N
+java:S1874×"0Remove this use of "getColor"; it is deprecated.(ÉÎä¯8š¢†şÂ.
+M
+java:S1874"0Remove this use of "getColor"; it is deprecated.(áà‹58š¢†şÂ.
+X
+java:S1874H"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ8š¢†şÂ.
+^	java:S125ƒ"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8š¢†şÂ.
+V
+java:S1874©"3Remove this use of "getDrawable"; it is deprecated.(åãñªùÿÿÿÿ8š¢†şÂ.
+M
+java:S1066İ"/Merge this if statement with the enclosing one.(ğ²¦¡8š¢†şÂ.
+s	java:S116J"RRename this field "pay_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ğã¾ûÿÿÿÿ8š¢†şÂ.
+t
+java:S3776`"RRefactor this method to reduce its Cognitive Complexity from 50 to the 15 allowed.(¨Œşÿÿÿÿ8š¢†şÂ.
+N
+java:S1874æ"0Remove this use of "getColor"; it is deprecated.(üü¨Ã8š¢†şÂ.
+n	java:S117²"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£Ö×‚8š¢†şÂ.
+F
+java:S1604¶"(Make this anonymous inner class a lambda(Í†åé8š¢†şÂ.
+x	java:S116O"WRename this field "use_paystack" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òĞˆ¹úÿÿÿÿ8š¢†şÂ.
+_
+java:S2259¸"BA "NullPointerException" could be thrown; "data" is nullable here.(»›ô8š¢†şÂ.
+]	java:S125?"<This block of commented-out lines of code should be removed.(ü¤µÅıÿÿÿÿ8š¢†şÂ.
+|
+java:S2293”"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ8š¢†şÂ.
+X
+java:S1141¿"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8š¢†şÂ.

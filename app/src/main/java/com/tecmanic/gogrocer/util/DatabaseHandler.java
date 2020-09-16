@@ -15,28 +15,22 @@ import java.util.HashMap;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-    private static String DB_NAME = "demhynnjf";
-    private static int DB_VERSION = 2;
-    private SQLiteDatabase db;
-
     public static final String CART_TABLE = "cart";
-
-//    public static final String COLUMN_ID = "product_id";
+    //    public static final String COLUMN_ID = "product_id";
     public static final String VARIENT_ID = "varient_id";
-
     public static final String COLUMN_QTY = "qty";
-
     public static final String COLUMN_IMAGE = "product_image";
-
     public static final String COLUMN_NAME = "product_name";
     public static final String COLUMN_PRICE = "price";
     public static final String COLUMN_REWARDS = "rewards";
     public static final String COLUMN_INCREAMENT = "increament";
     public static final String COLUMN_UNIT_VALUE = "unit_value";
-    ;
     public static final String COLUMN_STOCK = "stock";
     public static final String COLUMN_TITLE = "title";
     public static final String COLUMN_DESCRIPTION = "product_description";
+    private static String DB_NAME = "demhynnjf";
+    private static int DB_VERSION = 2;
+    private SQLiteDatabase db;
 
     public DatabaseHandler(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -93,9 +87,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String qry = "Select *  from " + CART_TABLE + " where " + VARIENT_ID + " = " + id;
         Cursor cursor = db.rawQuery(qry, null);
         cursor.moveToFirst();
-        if (cursor.getCount() > 0) return true;
-
-        return false;
+        return cursor.getCount() > 0;
     }
 
     public String getCartItemQty(String id) {
@@ -134,10 +126,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public int getCartCount() {
+        int count = 0;
+        boolean inExp = false;
         db = getReadableDatabase();
         String qry = "Select *  from " + CART_TABLE;
         Cursor cursor = db.rawQuery(qry, null);
-        return cursor.getCount();
+        try {
+            count = cursor.getCount();
+        } catch (Exception e) {
+            inExp = true;
+            e.printStackTrace();
+        } finally {
+            cursor.close();
+            if (inExp) {
+                db = getReadableDatabase();
+                cursor = db.rawQuery(qry, null);
+                count = cursor.getCount();
+                cursor.close();
+            }
+
+        }
+        return count;
     }
 
     public String getTotalAmount() {
@@ -182,7 +191,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     public String getColumnRewards() {
         db = getReadableDatabase();
-        String qry = "SELECT rewards FROM "+ CART_TABLE;
+        String qry = "SELECT rewards FROM " + CART_TABLE;
         Cursor cursor = db.rawQuery(qry, null);
         cursor.moveToFirst();
         String reward = cursor.getString(cursor.getColumnIndex("rewards"));
@@ -223,8 +232,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-
 
 
     }

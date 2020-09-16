@@ -1,47 +1,27 @@
 package com.tecmanic.gogrocer.Fragments;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.NoConnectionError;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.TimeoutError;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.tecmanic.gogrocer.Activity.MainActivity;
+import com.tecmanic.gogrocer.activity.MainActivity;
 import com.tecmanic.gogrocer.Constans.RecyclerTouchListener;
 import com.tecmanic.gogrocer.ModelClass.ShopNow_model;
 import com.tecmanic.gogrocer.R;
-import com.tecmanic.gogrocer.util.AppController;
 import com.tecmanic.gogrocer.util.ConnectivityReceiver;
-import com.tecmanic.gogrocer.util.CustomVolleyJsonRequest;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Shop_Now_fragment extends Fragment {
     private static String TAG = Shop_Now_fragment.class.getSimpleName();

@@ -1,0 +1,210 @@
+
+^
+java:S1192b"HDefine a constant instead of duplicating this literal "Pending" 3 times.(Ë„ØÉ
+a	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÆŠâS
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ûÛš
+=
+java:S1604O"(Make this anonymous inner class a lambda(äÒÒ
+r
+java:S1104İ"VMake tv_orderno a static final constant or non-public and provide accessors if needed.(ƒûºÓúÿÿÿÿ
+q
+java:S1104İ"UMake tv_status a static final constant or non-public and provide accessors if needed.(ƒûºÓúÿÿÿÿ
+o
+java:S1104İ"SMake tv_date a static final constant or non-public and provide accessors if needed.(ƒûºÓúÿÿÿÿ
+o
+java:S1104İ"SMake tv_time a static final constant or non-public and provide accessors if needed.(ƒûºÓúÿÿÿÿ
+p
+java:S1104İ"TMake tv_price a static final constant or non-public and provide accessors if needed.(ƒûºÓúÿÿÿÿ
+o
+java:S1104İ"SMake tv_item a static final constant or non-public and provide accessors if needed.(ƒûºÓúÿÿÿÿ
+z
+java:S1104İ"^Make relativetextstatus a static final constant or non-public and provide accessors if needed.(ƒûºÓúÿÿÿÿ
+x
+java:S1104İ"\Make tv_tracking_date a static final constant or non-public and provide accessors if needed.(ƒûºÓúÿÿÿÿ
+w
+java:S1104Ş"[Make tv_pending_date a static final constant or non-public and provide accessors if needed.(ôİä¯øÿÿÿÿ
+w
+java:S1104Ş"[Make tv_pending_time a static final constant or non-public and provide accessors if needed.(ôİä¯øÿÿÿÿ
+w
+java:S1104Ş"[Make tv_confirm_date a static final constant or non-public and provide accessors if needed.(ôİä¯øÿÿÿÿ
+w
+java:S1104Ş"[Make tv_confirm_time a static final constant or non-public and provide accessors if needed.(ôİä¯øÿÿÿÿ
+y
+java:S1104Ş"]Make tv_delevered_date a static final constant or non-public and provide accessors if needed.(ôİä¯øÿÿÿÿ
+y
+java:S1104Ş"]Make tv_delevered_time a static final constant or non-public and provide accessors if needed.(ôİä¯øÿÿÿÿ
+v
+java:S1104Ş"ZMake tv_cancel_date a static final constant or non-public and provide accessors if needed.(ôİä¯øÿÿÿÿ
+v
+java:S1104Ş"ZMake tv_cancel_time a static final constant or non-public and provide accessors if needed.(ôİä¯øÿÿÿÿ
+m
+java:S1104ß"VMake tv_methid1 a static final constant or non-public and provide accessors if needed.(İ·Ñœ
+t
+java:S1104à"]Make tv_pay_ableamount a static final constant or non-public and provide accessors if needed.(¿“ì
+s
+java:S1104à"\Make tv_order_price_2 a static final constant or non-public and provide accessors if needed.(¿“ì
+s
+java:S1104à"\Make tv_wallet_amount a static final constant or non-public and provide accessors if needed.(¿“ì
+s
+java:S1104à"\Make tv_coupon_amount a static final constant or non-public and provide accessors if needed.(¿“ì
+u
+java:S1104à"^Make tv_delivery_amount a static final constant or non-public and provide accessors if needed.(¿“ì
+o
+java:S1104à"XMake tv_total_pay a static final constant or non-public and provide accessors if needed.(¿“ì
+h
+java:S1104á"QMake view1 a static final constant or non-public and provide accessors if needed.(¸Ş¡«
+h
+java:S1104á"QMake view2 a static final constant or non-public and provide accessors if needed.(¸Ş¡«
+h
+java:S1104á"QMake view3 a static final constant or non-public and provide accessors if needed.(¸Ş¡«
+h
+java:S1104á"QMake view4 a static final constant or non-public and provide accessors if needed.(¸Ş¡«
+h
+java:S1104á"QMake view5 a static final constant or non-public and provide accessors if needed.(¸Ş¡«
+h
+java:S1104á"QMake view6 a static final constant or non-public and provide accessors if needed.(¸Ş¡«
+v
+java:S1104â"_Make relative_background a static final constant or non-public and provide accessors if needed.(ŒŞ…
+j
+java:S1104ã"NMake rr a static final constant or non-public and provide accessors if needed.(©ƒ¿ãúÿÿÿÿ
+u
+java:S1104ã"YMake price_deatils a static final constant or non-public and provide accessors if needed.(©ƒ¿ãúÿÿÿÿ
+j
+java:S1104ä"SMake Confirm a static final constant or non-public and provide accessors if needed.(‡¨Îª
+t
+java:S1104ä"]Make Out_For_Deliverde a static final constant or non-public and provide accessors if needed.(‡¨Îª
+l
+java:S1104ä"UMake Delivered a static final constant or non-public and provide accessors if needed.(‡¨Îª
+k
+java:S1104å"TMake Confirm1 a static final constant or non-public and provide accessors if needed.( Åî›
+u
+java:S1104å"^Make Out_For_Deliverde1 a static final constant or non-public and provide accessors if needed.( Åî›
+m
+java:S1104å"VMake Delivered1 a static final constant or non-public and provide accessors if needed.( Åî›
+r
+java:S1104æ"VMake info_price a static final constant or non-public and provide accessors if needed.(¬‘·Ôùÿÿÿÿ
+B
+java:S1659 "'Declare "valuepref" on a separate line.(¾¼²ìüÿÿÿÿ
+w	java:S116""]Rename this field "Used_Wallet_amount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹¤ÕÉúÿÿÿÿ
+j	java:S116("URename this field "getuser_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š£÷¾
+w	java:S116)"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+h
+java:S3776J"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(‰è¬¿
+H
+java:S1602Î",Remove useless curly braces around statement(İË¢áúÿÿÿÿ
+C
+java:S1659İ"'Declare "tv_status" on a separate line.(ƒûºÓúÿÿÿÿ
+A
+java:S1659İ"%Declare "tv_date" on a separate line.(ƒûºÓúÿÿÿÿ
+A
+java:S1659İ"%Declare "tv_time" on a separate line.(ƒûºÓúÿÿÿÿ
+B
+java:S1659İ"&Declare "tv_price" on a separate line.(ƒûºÓúÿÿÿÿ
+A
+java:S1659İ"%Declare "tv_item" on a separate line.(ƒûºÓúÿÿÿÿ
+L
+java:S1659İ"0Declare "relativetextstatus" on a separate line.(ƒûºÓúÿÿÿÿ
+J
+java:S1659İ".Declare "tv_tracking_date" on a separate line.(ƒûºÓúÿÿÿÿ
+I
+java:S1659Ş"-Declare "tv_pending_time" on a separate line.(ôİä¯øÿÿÿÿ
+I
+java:S1659Ş"-Declare "tv_confirm_date" on a separate line.(ôİä¯øÿÿÿÿ
+I
+java:S1659Ş"-Declare "tv_confirm_time" on a separate line.(ôİä¯øÿÿÿÿ
+K
+java:S1659Ş"/Declare "tv_delevered_date" on a separate line.(ôİä¯øÿÿÿÿ
+K
+java:S1659Ş"/Declare "tv_delevered_time" on a separate line.(ôİä¯øÿÿÿÿ
+H
+java:S1659Ş",Declare "tv_cancel_date" on a separate line.(ôİä¯øÿÿÿÿ
+H
+java:S1659Ş",Declare "tv_cancel_time" on a separate line.(ôİä¯øÿÿÿÿ
+E
+java:S1659à".Declare "tv_order_price_2" on a separate line.(¿“ì
+E
+java:S1659à".Declare "tv_wallet_amount" on a separate line.(¿“ì
+E
+java:S1659à".Declare "tv_coupon_amount" on a separate line.(¿“ì
+G
+java:S1659à"0Declare "tv_delivery_amount" on a separate line.(¿“ì
+A
+java:S1659à"*Declare "tv_total_pay" on a separate line.(¿“ì
+:
+java:S1659á"#Declare "view2" on a separate line.(¸Ş¡«
+:
+java:S1659á"#Declare "view3" on a separate line.(¸Ş¡«
+:
+java:S1659á"#Declare "view4" on a separate line.(¸Ş¡«
+:
+java:S1659á"#Declare "view5" on a separate line.(¸Ş¡«
+:
+java:S1659á"#Declare "view6" on a separate line.(¸Ş¡«
+G
+java:S1659ã"+Declare "price_deatils" on a separate line.(©ƒ¿ãúÿÿÿÿ
+F
+java:S1659ä"/Declare "Out_For_Deliverde" on a separate line.(‡¨Îª
+>
+java:S1659ä"'Declare "Delivered" on a separate line.(‡¨Îª
+G
+java:S1659å"0Declare "Out_For_Deliverde1" on a separate line.( Åî›
+?
+java:S1659å"(Declare "Delivered1" on a separate line.( Åî›
+E
+java:S1659è")Declare "reorder_btn" on a separate line.(²ú…ıÿÿÿÿ
+G
+java:S1659è"+Declare "order_details" on a separate line.(²ú…ıÿÿÿÿ
+B
+java:S1659é"+Declare "coupon_layout" on a separate line.(õÂŸŞ
+D
+java:S1659é"-Declare "delivery_layout" on a separate line.(õÂŸŞ
+p	java:S116İ"URename this field "tv_orderno" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒûºÓúÿÿÿÿ
+o	java:S116İ"TRename this field "tv_status" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒûºÓúÿÿÿÿ
+m	java:S116İ"RRename this field "tv_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒûºÓúÿÿÿÿ
+m	java:S116İ"RRename this field "tv_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒûºÓúÿÿÿÿ
+n	java:S116İ"SRename this field "tv_price" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒûºÓúÿÿÿÿ
+m	java:S116İ"RRename this field "tv_item" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒûºÓúÿÿÿÿ
+v	java:S116İ"[Rename this field "tv_tracking_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒûºÓúÿÿÿÿ
+u	java:S116Ş"ZRename this field "tv_pending_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôİä¯øÿÿÿÿ
+u	java:S116Ş"ZRename this field "tv_pending_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôİä¯øÿÿÿÿ
+u	java:S116Ş"ZRename this field "tv_confirm_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôİä¯øÿÿÿÿ
+u	java:S116Ş"ZRename this field "tv_confirm_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôİä¯øÿÿÿÿ
+w	java:S116Ş"\Rename this field "tv_delevered_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôİä¯øÿÿÿÿ
+w	java:S116Ş"\Rename this field "tv_delevered_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôİä¯øÿÿÿÿ
+t	java:S116Ş"YRename this field "tv_cancel_date" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôİä¯øÿÿÿÿ
+t	java:S116Ş"YRename this field "tv_cancel_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôİä¯øÿÿÿÿ
+k	java:S116ß"URename this field "tv_methid1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ·Ñœ
+r	java:S116à"\Rename this field "tv_pay_ableamount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿“ì
+q	java:S116à"[Rename this field "tv_order_price_2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿“ì
+q	java:S116à"[Rename this field "tv_wallet_amount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿“ì
+q	java:S116à"[Rename this field "tv_coupon_amount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿“ì
+s	java:S116à"]Rename this field "tv_delivery_amount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿“ì
+m	java:S116à"WRename this field "tv_total_pay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿“ì
+t	java:S116â"^Rename this field "relative_background" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒŞ…
+s	java:S116ã"XRename this field "price_deatils" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ƒ¿ãúÿÿÿÿ
+h	java:S116ä"RRename this field "Confirm" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡¨Îª
+r	java:S116ä"\Rename this field "Out_For_Deliverde" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡¨Îª
+j	java:S116ä"TRename this field "Delivered" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡¨Îª
+i	java:S116å"SRename this field "Confirm1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Åî›
+s	java:S116å"]Rename this field "Out_For_Deliverde1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Åî›
+k	java:S116å"URename this field "Delivered1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( Åî›
+p	java:S116æ"URename this field "info_price" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬‘·Ôùÿÿÿÿ
+q	java:S116è"VRename this field "reorder_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ú…ıÿÿÿÿ
+s	java:S116è"XRename this field "order_details" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ú…ıÿÿÿÿ
+n	java:S116é"XRename this field "wallet_layout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÂŸŞ
+n	java:S116é"XRename this field "coupon_layout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÂŸŞ
+p	java:S116é"ZRename this field "delivery_layout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÂŸŞ
+m	java:S116ê"RRename this field "btn_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÅäöÜüÿÿÿÿ
+B
+java:S1068%",Remove this unused "inflater" private field.(Ÿ†õ
+N
+java:S1068&"3Remove this unused "currentFragment" private field.(Ô‡³ºùÿÿÿÿ
+D
+java:S1068(".Remove this unused "getuser_id" private field.(š£÷¾
+Q	java:S125-"<This block of commented-out lines of code should be removed.(¡îø÷
+V	java:S125/"<This block of commented-out lines of code should be removed.(ôöÙŸúÿÿÿÿ
+V	java:S125;"<This block of commented-out lines of code should be removed.(õµ«ôøÿÿÿÿ
+W	java:S125"<This block of commented-out lines of code should be removed.(³æ¯úÿÿÿÿ
+W	java:S125‘"<This block of commented-out lines of code should be removed.(Ì«„ìøÿÿÿÿ
+R	java:S125“"<This block of commented-out lines of code should be removed.(î‰•Ì
+W	java:S125•"<This block of commented-out lines of code should be removed.(íª«øÿÿÿÿ

@@ -1,0 +1,40 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+U
+java:S1155Æ">Use isEmpty() to check whether the collection is empty or not.(É†¦È
+|
+java:S1450+"aRemove the "get_wallet_ammount" field and declare it as a local variable in the relevant methods.(·Éïòıÿÿÿÿ
+Q
+java:S1068+"6Remove this unused "get_wallet_ammount" private field.(·Éïòıÿÿÿÿ
+W	java:S125°"<This block of commented-out lines of code should be removed.(ÕÃğ•øÿÿÿÿ
+w	java:S116+"]Rename this field "get_wallet_ammount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·Éïòıÿÿÿÿ
+W	java:S125´"<This block of commented-out lines of code should be removed.(Àµ®ãüÿÿÿÿ
+D
+java:S1604î"(Make this anonymous inner class a lambda(Úïœæşÿÿÿÿ
+V	java:S125L"<This block of commented-out lines of code should be removed.(œ¡¥ıÿÿÿÿ
+j	java:S116."URename this field "getuser_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š£÷¾
+f	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¿Çş
+D
+java:S1604ü"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+o
+java:S1450."YRemove the "getuser_id" field and declare it as a local variable in the relevant methods.(š£÷¾
+l	java:S1160"RRename this field "user_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ì‰¿øÿÿÿÿ
+g	java:S116'"RRename this field "db_cart" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù
+l	java:S117ã"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ĞÂ¥ùÿÿÿÿ
+R	java:S125º"<This block of commented-out lines of code should be removed.(Ÿ‚ó’
+q
+java:S14500"VRemove the "user_id" field and declare it as a local variable in the relevant methods.(“Ì‰¿øÿÿÿÿ
+g	java:S117ä"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ÿ—
+F
+java:S10680"+Remove this unused "user_id" private field.(“Ì‰¿øÿÿÿÿ
+W	java:S125­"<This block of commented-out lines of code should be removed.(Œ¼Ğ¬üÿÿÿÿ
+A
+java:S5411õ"*Use the primitive boolean expression here.(šÀ›÷
+u
+java:S2293å"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ
+R	java:S125‡"<This block of commented-out lines of code should be removed.(¬éÖ¦
+R	java:S125"<This block of commented-out lines of code should be removed.(ç—­
+n	java:S116("YRename this field "getlocation_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÉŠ”
+p	java:S116)"VRename this field "getstore_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒúÚ†şÿÿÿÿ
+W	java:S125•"<This block of commented-out lines of code should be removed.(õ…¿Óøÿÿÿÿ
+^	java:S125ª"<This block of commented-out lines of code should be removed.(¿ƒ¼¡úÿÿÿÿ8ÀÜ‚à½.

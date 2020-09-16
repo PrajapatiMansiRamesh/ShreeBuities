@@ -28,7 +28,15 @@ public class BaseURL {
     public static final String USER_SKIP = "user_skip";
     public static final String USER_CURRENCY_CNTRY = "user_currency_country";
     public static final String USER_CURRENCY = "user_currency";
+    public static final String USER_LAT = "user_lat";
+    public static final String USER_LANG = "user_lang";
+    public static final String USER_CITY = "user_city";
+    public static final String USER_STOREID = "user_storeid";
+    public static final String PAYMENT_PAYPAL = "payment_paypal";
+    public static final String PAYMENT_RAZORPZY = "payment_razorpay";
+    public static final String PAYMENT_PAYSTACK = "payment_paystack";
     public static final String APP_OTP_STATUS = "user_otp_search";
+    public static final String COUNTRY_CODE = "country_code";
     public static final String ADDRESS = "address";
 
 
@@ -50,6 +58,7 @@ public class BaseURL {
     public static final String KEY_PASSWORD = "password";
     public static final String USER_STATUS = "user_status";
     public static final String USER_OTP = "user_otp";
+    public static final String MAP_SELECTION = "map_selection";
     public static final String USER_EMAIL_SERVICE = "user_email_service";
     public static final String USER_SMS_SERVICE = "user_sms_service";
     public static final String USER_INAPP_SERVICE = "user_inapp_service";
@@ -58,23 +67,14 @@ public class BaseURL {
     public static final String STORE_ID = "STORE_ID";
     static final String APP_NAME = "GoGrocer";
 
+    public static String BASE_URL = "http://shreebeauties.in/myadmin2/api/";
+    public static String IMG_URL = "http://shreebeauties.in/myadmin2/";
+    public static String BANN_IMG_URL = "http://shreebeauties.in/myadmin2/";
+    public static String BANNER_IMG_URL = "http://shreebeauties.in/myadmin2/";
 
-//    public static String BASE_URL = "https://gogrocer.tecmanic.com/api/";
-//    public static String IMG_URL = "https://gogrocer.tecmanic.com/";
-//    public static String BANN_IMG_URL = "https://gogrocer.tecmanic.com/";
-//    public static String BANNER_IMG_URL = "https://gogrocer.tecmanic.com/";
+    public static String BASE_URL_Map = BASE_URL;
 
-    public static String BASE_URL = "https://thecodecafe.in/gogrocer-ver2.0/api/";
-    public static String IMG_URL = "https://thecodecafe.in/gogrocer-ver2.0/";
-    public static String BANN_IMG_URL = "https://gogrocer.tecmanic.com/";
-    public static String BANNER_IMG_URL = "https://thecodecafe.in/gogrocer-ver2.0/";
-
-//    public static String BASE_URL = "http://heritagefoodsonline.com/grocery/api/";
-//    public static String IMG_URL = "http://heritagefoodsonline.com/grocery/";
-//    public static String BANN_IMG_URL = "http://heritagefoodsonline.com/grocery/";
-//    public static String BANNER_IMG_URL = "http://heritagefoodsonline.com/grocery/";
-
-    public static String SignUp = BASE_URL + "register";
+    public static String SignUp = BASE_URL + "signup";
     public static String SignUpOtp = BASE_URL + "verify_phone";
 
     public static String Login = BASE_URL + "login";
@@ -114,6 +114,7 @@ public class BaseURL {
 
     public static String AboutUrl = BASE_URL + "appaboutus";
     public static String topsix = BASE_URL + "topsix";
+    public static String popularcateHome = BASE_URL + "homecat";
     public static String TermsUrl = BASE_URL + "appterms";
 
     public static String delete_all_notification = BASE_URL + "delete_all_notification";
@@ -134,5 +135,8 @@ public class BaseURL {
     public static String NoticeURl = BASE_URL + "notificationlist";
     public static String updatenotifyby = BASE_URL + "updatenotifyby";
     public static String currencyApi = BASE_URL + "currency";
+
+    public static String GOOGLEMAP_KEY = BASE_URL + "google_map";
+    public static String MAPBOX_KEY = BASE_URL + "mapbox";
 
 }

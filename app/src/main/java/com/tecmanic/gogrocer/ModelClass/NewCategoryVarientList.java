@@ -14,6 +14,9 @@ public class NewCategoryVarientList implements Serializable {
     private String deal_price;
     private String valid_from;
     private String valid_to;
+    private String store_id;
+    private String stock;
+
 
     public String getVarient_id() {
         return varient_id;
@@ -93,5 +96,21 @@ public class NewCategoryVarientList implements Serializable {
 
     public void setValid_to(String valid_to) {
         this.valid_to = valid_to;
+    }
+
+    public String getStore_id() {
+        return store_id;
+    }
+
+    public void setStore_id(String store_id) {
+        this.store_id = store_id;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
     }
 }

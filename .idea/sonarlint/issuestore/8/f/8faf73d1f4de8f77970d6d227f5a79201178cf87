@@ -1,0 +1,40 @@
+
+U
+java:S1155É">Use isEmpty() to check whether the collection is empty or not.(É†¦È
+f	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¿Çş
+l	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ĞÂ¥ùÿÿÿÿ
+g	java:S117ç"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ÿ—
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+A
+java:S5411ø"*Use the primitive boolean expression here.(šÀ›÷
+D
+java:S1604ñ"(Make this anonymous inner class a lambda(Úïœæşÿÿÿÿ
+D
+java:S1604ÿ"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+|
+java:S1450."aRemove the "get_wallet_ammount" field and declare it as a local variable in the relevant methods.(·Éïòıÿÿÿÿ
+o
+java:S14501"YRemove the "getuser_id" field and declare it as a local variable in the relevant methods.(š£÷¾
+q
+java:S14503"VRemove the "user_id" field and declare it as a local variable in the relevant methods.(“Ì‰¿øÿÿÿÿ
+g	java:S116*"RRename this field "db_cart" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù
+n	java:S116+"YRename this field "getlocation_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÉŠ”
+p	java:S116,"VRename this field "getstore_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒúÚ†şÿÿÿÿ
+w	java:S116."]Rename this field "get_wallet_ammount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·Éïòıÿÿÿÿ
+j	java:S1161"URename this field "getuser_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š£÷¾
+l	java:S1163"RRename this field "user_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ì‰¿øÿÿÿÿ
+u
+java:S2293è"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ
+Q
+java:S1068."6Remove this unused "get_wallet_ammount" private field.(·Éïòıÿÿÿÿ
+F
+java:S10683"+Remove this unused "user_id" private field.(“Ì‰¿øÿÿÿÿ
+V	java:S125O"<This block of commented-out lines of code should be removed.(œ¡¥ıÿÿÿÿ
+R	java:S125Š"<This block of commented-out lines of code should be removed.(¬éÖ¦
+W	java:S125˜"<This block of commented-out lines of code should be removed.(õ…¿Óøÿÿÿÿ
+W	java:S125­"<This block of commented-out lines of code should be removed.(¿ƒ¼¡úÿÿÿÿ
+W	java:S125°"<This block of commented-out lines of code should be removed.(Œ¼Ğ¬üÿÿÿÿ
+W	java:S125³"<This block of commented-out lines of code should be removed.(ÕÃğ•øÿÿÿÿ
+W	java:S125·"<This block of commented-out lines of code should be removed.(Àµ®ãüÿÿÿÿ
+R	java:S125½"<This block of commented-out lines of code should be removed.(Ÿ‚ó’
+R	java:S125„"<This block of commented-out lines of code should be removed.(ç—­

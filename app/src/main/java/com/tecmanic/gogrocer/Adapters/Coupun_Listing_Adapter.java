@@ -1,27 +1,20 @@
 package com.tecmanic.gogrocer.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tecmanic.gogrocer.Activity.PaymentDetails;
 import com.tecmanic.gogrocer.ModelClass.CoupunModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.CoupounClickListner;
 
 import java.util.List;
-import java.util.Map;
 
 public class Coupun_Listing_Adapter extends RecyclerView.Adapter<Coupun_Listing_Adapter.MyViewHolder> {
 

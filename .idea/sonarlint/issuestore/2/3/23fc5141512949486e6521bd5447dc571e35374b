@@ -1,0 +1,52 @@
+
+l
+java:S1192š"PDefine a constant instead of duplicating this literal "PaystackPayment" 3 times.(®ÉÚôıÿÿÿÿ
+W	java:S125"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ
+n
+java:S14509"SRemove the "name" field and declare it as a local variable in the relevant methods.(–™¬õùÿÿÿÿ
+W	java:S125¬"<This block of commented-out lines of code should be removed.(Éÿ¶øÿÿÿÿ
+l	java:S117Î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šûòèøÿÿÿÿ
+l	java:S117Î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šûòèøÿÿÿÿ
+l	java:S117Î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šûòèøÿÿÿÿ
+D
+java:S1604Û"(Make this anonymous inner class a lambda(Úïœæşÿÿÿÿ
+Z
+java:S1854å">Remove this useless assignment to local variable "jsonObject".(àÒšìùÿÿÿÿ
+l	java:S116>"XRename this field "wallet_status" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÈ‰
+j	java:S1161"URename this field "getuser_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š£÷¾
+Z
+java:S1854í">Remove this useless assignment to local variable "jsonObject".(àÒšìùÿÿÿÿ
+k
+java:S14508"URemove the "mobile" field and declare it as a local variable in the relevant methods.(åçİø
+d
+java:S1871ë"MThis branch's code block is the same as the block for the branch on line 227.(Ÿ¸ˆÑ
+R	java:S125×"<This block of commented-out lines of code should be removed.(Œ˜æ©
+p
+java:S14506"ZRemove the "makePayment" field and declare it as a local variable in the relevant methods.(œë½õ
+g	java:S117Ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ÿ—
+R	java:S125ƒ"<This block of commented-out lines of code should be removed.(ç—­
+n	java:S116="YRename this field "payment_method" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò¢ƒ„
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ€ó»ûÿÿÿÿ
+^
+java:S1192®"GDefine a constant instead of duplicating this literal "wallet" 3 times.(‰ô¢­
+w	java:S1160"]Rename this field "get_wallet_ammount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·Éïòıÿÿÿÿ
+W
+java:S1172«";Remove this unused method parameter "transactionReference".(”©ÆÙÿÿÿÿÿ
+K
+java:S1481å"/Remove this unused "jsonObject" local variable.(àÒšìùÿÿÿÿ
+l	java:S117Î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šûòèøÿÿÿÿ
+q	java:S1162"WRename this field "progress_bar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÅÏûşÿÿÿÿ
+Q	java:S125Y"<This block of commented-out lines of code should be removed.(¾µÄö
+@
+java:S10688"*Remove this unused "mobile" private field.(åçİø
+C
+java:S10689"(Remove this unused "name" private field.(–™¬õùÿÿÿÿ
+K
+java:S1481í"/Remove this unused "jsonObject" local variable.(àÒšìùÿÿÿÿ
+D
+java:S1604ı"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+W	java:S125À"<This block of commented-out lines of code should be removed.(–“Åıÿÿÿÿ
+g	java:S116;"RRename this field "db_cart" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ù
+u
+java:S2293Ñ"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ
+g	java:S116<"RRename this field "cart_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«”¬’

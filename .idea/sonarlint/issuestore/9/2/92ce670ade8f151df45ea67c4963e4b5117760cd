@@ -1,0 +1,10 @@
+
+”
+java:S1319"~The type of the "imageModelArrayList" object should be an interface such as "List" rather than the implementation "ArrayList".(‹ÊŒ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(×ÕıÃ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ûÛš
+—
+java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„Ç‘ö
+S
+java:S18583"="get" returns a string, there's no need to call "toString()".(£Âßë
+V	java:S1252"<This block of commented-out lines of code should be removed.(ãŞÒ¾ıÿÿÿÿ

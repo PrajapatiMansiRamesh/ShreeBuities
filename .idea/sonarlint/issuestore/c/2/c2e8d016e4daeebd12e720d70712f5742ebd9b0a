@@ -1,0 +1,54 @@
+
+J
+java:S3740'"/Provide the parametrized type for this generic.(Øÿìªüÿÿÿÿ
+J
+java:S3740'"/Provide the parametrized type for this generic.(Øÿìªüÿÿÿÿ
+f	java:S117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¿Çş
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+v
+java:S1450 "`Remove the "sessionManagement" field and declare it as a local variable in the relevant methods.(Ôõ´é
+C
+java:S1659%"(Declare "edt_mobile" on a separate line.(èˆÈûÿÿÿÿ
+C
+java:S1659%"(Declare "edt_amount" on a separate line.(èˆÈûÿÿÿÿ
+A
+java:S1659("&Declare "order_id" on a separate line.(ëºá¤şÿÿÿÿ
+@
+java:S1659("%Declare "cust_id" on a separate line.(ëºá¤şÿÿÿÿ
+A
+java:S1659("&Declare "callback" on a separate line.(ëºá¤şÿÿÿÿ
+F
+java:S1659("+Declare "industry_type" on a separate line.(ëºá¤şÿÿÿÿ
+C
+java:S1659("(Declare "txn_amount" on a separate line.(ëºá¤şÿÿÿÿ
+A
+java:S1659("&Declare "checksum" on a separate line.(ëºá¤şÿÿÿÿ
+?
+java:S1659("$Declare "mobile" on a separate line.(ëºá¤şÿÿÿÿ
+>
+java:S1659("#Declare "email" on a separate line.(ëºá¤şÿÿÿÿ
+C
+java:S1659("(Declare "channel_id" on a separate line.(ëºá¤şÿÿÿÿ
+B
+java:S1659*"'Declare "get_email" on a separate line.(í–‚¹üÿÿÿÿ
+A
+java:S1659*"&Declare "gte_phoe" on a separate line.(í–‚¹üÿÿÿÿ
+l	java:S116#"WRename this field "order_id_txt" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÙş½
+i	java:S116$"TRename this field "order_res" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ‡Û™
+n	java:S116%"TRename this field "edt_email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èˆÈûÿÿÿÿ
+o	java:S116%"URename this field "edt_mobile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èˆÈûÿÿÿÿ
+o	java:S116%"URename this field "edt_amount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èˆÈûÿÿÿÿ
+m	java:S116("SRename this field "order_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëºá¤şÿÿÿÿ
+l	java:S116("RRename this field "cust_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëºá¤şÿÿÿÿ
+r	java:S116("XRename this field "industry_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëºá¤şÿÿÿÿ
+o	java:S116("URename this field "txn_amount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëºá¤şÿÿÿÿ
+o	java:S116("URename this field "channel_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëºá¤şÿÿÿÿ
+o	java:S116*"URename this field "getuser_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í–‚¹üÿÿÿÿ
+n	java:S116*"TRename this field "get_email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í–‚¹üÿÿÿÿ
+m	java:S116*"SRename this field "gte_phoe" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(í–‚¹üÿÿÿÿ
+N
+java:S1135½"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+N
+java:S1135"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(ª¬Ğüüÿÿÿÿ
+V	java:S125X"<This block of commented-out lines of code should be removed.(êàÂøÿÿÿÿ

@@ -1,0 +1,104 @@
+
+_
+java:S1192…"HDefine a constant instead of duplicating this literal "Error: " 3 times.(¢çàï
+b
+java:S1192s"GDefine a constant instead of duplicating this literal "status" 3 times.( õËÁüÿÿÿÿ
+V	java:S110:"<This class has 9 parents which is greater than 5 authorized.(·õÆ­úÿÿÿÿ
+f	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç¿Çş
+f	java:S117t"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ‘­„
+g	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ßùœ
+g	java:S117Ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿¥«
+g	java:S117¡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ßùœ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+D
+java:S1604Æ"(Make this anonymous inner class a lambda(óîˆ‘úÿÿÿÿ
+?
+java:S1604Ì"(Make this anonymous inner class a lambda(‰İ±”
+?
+java:S1604ì"(Make this anonymous inner class a lambda(™èê¿
+D
+java:S1604‚"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+D
+java:S1604Ó"(Make this anonymous inner class a lambda(«íáŞıÿÿÿÿ
+D
+java:S1604»"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+s
+java:S1450D"XRemove the "back_tool" field and declare it as a local variable in the relevant methods.(«ï¥‚ıÿÿÿÿ
+t
+java:S1450B"^Remove the "rv_cancel_order" field and declare it as a local variable in the relevant methods.(Ì÷ˆõ
+i
+java:S3008;"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯äÿçûÿÿÿÿ
+p	java:S116<"VRename this field "back_button" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’°óÓıÿÿÿÿ
+j	java:S116@"URename this field "btn_cancle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îâàˆ
+t	java:S116A"ZRename this field "rv_detail_order" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ñü¬ÿÿÿÿÿ
+o	java:S116B"ZRename this field "rv_cancel_order" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì÷ˆõ
+l	java:S116C"RRename this field "sale_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ùóÁÿÿÿÿÿ
+n	java:S116D"TRename this field "back_tool" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«ï¥‚ıÿÿÿÿ
+y	java:S116G"dRename this field "my_order_detail_modelList" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ‘
+o	java:S116I"URename this field "cancel_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÚ©Âøÿÿÿÿ
+Q
+java:S1874E"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ
+U
+java:S1854t"?Remove this useless assignment to local variable "deli_charge".(Ğ‘­„
+S
+java:S1854q"8Remove this useless assignment to local variable "date".(İ‚Ò³ûÿÿÿÿ
+R
+java:S1854p"<Remove this useless assignment to local variable "total_rs".(Ç¿Çş
+O
+java:S1854"8Remove this useless assignment to local variable "time".(ŸÒŠ¾
+Q
+java:S1874d"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ğúÿÿÿÿ
+H
+java:S1874e"2Remove this use of "setMessage"; it is deprecated.(êøç¢
+
+java:S1186¢"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Í¢ÄÁøÿÿÿÿ
+u
+java:S2293è"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ
+D	java:S108†")Either remove or fill this block of code.(™²¨©ûÿÿÿÿ
+i	java:S100Ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛöˆÍùÿÿÿÿ
+Q
+java:S1117Û":Rename "status" which hides the field declared at line 80.(åÉå­
+u
+java:S2293£"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ
+Q
+java:S1117­":Rename "status" which hides the field declared at line 80.(åÉå­
+D	java:S108Á")Either remove or fill this block of code.(™²¨©ûÿÿÿÿ
+n
+java:S3776Û"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(œƒƒ©ùÿÿÿÿ
+C
+java:S1481p"-Remove this unused "total_rs" local variable.(Ç¿Çş
+D
+java:S1481q")Remove this unused "date" local variable.(İ‚Ò³ûÿÿÿÿ
+F
+java:S1481t"0Remove this unused "deli_charge" local variable.(Ğ‘­„
+I
+java:S1068K".Remove this unused "modelsList" private field.(€„Îîøÿÿÿÿ
+C
+java:S1068L"-Remove this unused "pastorder" private field.(§´Æ¦
+V	java:S125?"<This block of commented-out lines of code should be removed.(Ãª…Ïüÿÿÿÿ
+Q	java:S125F"<This block of commented-out lines of code should be removed.(»ôÜ
+V	java:S125H"<This block of commented-out lines of code should be removed.(Š®‚ôùÿÿÿÿ
+V	java:S125n"<This block of commented-out lines of code should be removed.(¢°›ªÿÿÿÿÿ
+V	java:S125v"<This block of commented-out lines of code should be removed.(Ş¦³öıÿÿÿÿ
+V	java:S125{"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+W	java:S125…"<This block of commented-out lines of code should be removed.(ïãĞêøÿÿÿÿ
+W	java:S125‡"<This block of commented-out lines of code should be removed.(ÇØ‰Õúÿÿÿÿ
+W	java:S125"<This block of commented-out lines of code should be removed.(ş¼”÷şÿÿÿÿ
+W	java:S125‘"<This block of commented-out lines of code should be removed.(ş¼”÷şÿÿÿÿ
+W	java:S125§"<This block of commented-out lines of code should be removed.(‰ôÑ¸ùÿÿÿÿ
+W	java:S125®"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+W	java:S125·"<This block of commented-out lines of code should be removed.(í¸ºüÿÿÿÿ
+W	java:S125Ğ"<This block of commented-out lines of code should be removed.(µËğúÿÿÿÿ
+R	java:S125“"<This block of commented-out lines of code should be removed.(ÒµÍÑ
+R	java:S125–"<This block of commented-out lines of code should be removed.(‹ôÇõ
+R	java:S125˜"<This block of commented-out lines of code should be removed.(Ë´ï
+R	java:S125"<This block of commented-out lines of code should be removed.(’ˆØğ
+R	java:S125 "<This block of commented-out lines of code should be removed.(Å¯ßá
+W	java:S125£"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ
+R	java:S125ª"<This block of commented-out lines of code should be removed.(ìĞ
+R	java:S125¯"<This block of commented-out lines of code should be removed.(¡Õ±š
+W	java:S125¿"<This block of commented-out lines of code should be removed.(ûöÊîıÿÿÿÿ
+W	java:S125Ç"<This block of commented-out lines of code should be removed.(Ë€Æüÿÿÿÿ
+W	java:S125Ê"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+T
+java:S1144ã">Remove this unused private "makeGetOrderDetailRequest" method.(ñÂõ

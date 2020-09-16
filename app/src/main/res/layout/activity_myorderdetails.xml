@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -38,8 +37,20 @@
         android:id="@+id/rv_order_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:layout_below="@id/app_bar" />
+    <LinearLayout
+        android:id="@+id/cancel_lay"
+        android:layout_below="@id/app_bar"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cancel_order"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
         <RelativeLayout
             android:id="@+id/btn_order_detail_cancle"

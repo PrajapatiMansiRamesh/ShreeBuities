@@ -16,9 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.tecmanic.gogrocer.Activity.ProductDetails;
+import com.squareup.picasso.Picasso;
+import com.tecmanic.gogrocer.activity.ProductDetails;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
@@ -83,18 +82,14 @@ public class NewCartAdapter extends RecyclerView.Adapter<NewCartAdapter.MyNewCar
             holder.txtQuan.setText("" + 0);
         }
 
-        Glide.with(context)
+        Picasso.with(context)
                 .load(IMG_URL + cc.getpImage())
-                .centerCrop()
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .dontAnimate()
                 .into(holder.image);
 
         double price = Double.parseDouble(cartList.get(position).getpPrice());
         double mrp = Double.parseDouble(cartList.get(position).getpMrp());
 
-        holder.image.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), ProductDetails.class);
@@ -105,6 +100,7 @@ public class NewCartAdapter extends RecyclerView.Adapter<NewCartAdapter.MyNewCar
                 intent.putExtra("price", cartList.get(position).getpPrice());
                 intent.putExtra("mrp", cartList.get(position).getpMrp());
                 intent.putExtra("unit", cartList.get(position).getUnit());
+                intent.putExtra("stock", cartList.get(position).getStock());
                 intent.putExtra("qty", cartList.get(position).getpQuan());
                 intent.putExtra("image", cartList.get(position).getpImage());
                 v.getContext().startActivity(intent);

@@ -1,0 +1,30 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(÷›€ûýÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ûÛš
+o
+java:S1104I"TMake tv_title a static final constant or non-public and provide accessors if needed.(±Ì÷ÿüÿÿÿÿ
+o
+java:S1104I"TMake tv_price a static final constant or non-public and provide accessors if needed.(±Ì÷ÿüÿÿÿÿ
+m
+java:S1104I"RMake tv_qty a static final constant or non-public and provide accessors if needed.(±Ì÷ÿüÿÿÿÿ
+m
+java:S1104I"RMake txtQty a static final constant or non-public and provide accessors if needed.(±Ì÷ÿüÿÿÿÿ
+v
+java:S1104I"[Make tv_order_descrp a static final constant or non-public and provide accessors if needed.(±Ì÷ÿüÿÿÿÿ
+m
+java:S1104J"RMake iv_img a static final constant or non-public and provide accessors if needed.(¬ƒ–·ýÿÿÿÿ
+w	java:S116"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+A
+java:S1659I"&Declare "tv_price" on a separate line.(±Ì÷ÿüÿÿÿÿ
+?
+java:S1659I"$Declare "tv_qty" on a separate line.(±Ì÷ÿüÿÿÿÿ
+?
+java:S1659I"$Declare "txtQty" on a separate line.(±Ì÷ÿüÿÿÿÿ
+H
+java:S1659I"-Declare "tv_order_descrp" on a separate line.(±Ì÷ÿüÿÿÿÿ
+m	java:S116I"SRename this field "tv_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ì÷ÿüÿÿÿÿ
+m	java:S116I"SRename this field "tv_price" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ì÷ÿüÿÿÿÿ
+k	java:S116I"QRename this field "tv_qty" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ì÷ÿüÿÿÿÿ
+t	java:S116I"ZRename this field "tv_order_descrp" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Ì÷ÿüÿÿÿÿ
+k	java:S116J"QRename this field "iv_img" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ƒ–·ýÿÿÿÿ
+P	java:S125P"<This block of commented-out lines of code should be removed.(Ÿ é

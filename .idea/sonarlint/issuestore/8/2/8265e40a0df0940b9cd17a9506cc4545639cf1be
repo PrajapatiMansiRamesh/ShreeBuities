@@ -1,0 +1,35 @@
+
+P	java:S110+"<This class has 9 parents which is greater than 5 authorized.(þ‘¨
+a	java:S101+"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(þ‘¨
+f	java:S117_"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ž¿¥«
+g	java:S117¦"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¾ßùœ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+C
+java:S1604c"(Make this anonymous inner class a lambda(«íáÞýÿÿÿÿ
+D
+java:S1604Ž"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+D
+java:S1604­"(Make this anonymous inner class a lambda(ŒÆ„„ÿÿÿÿÿ
+D
+java:S1604Ä"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+D
+java:S1604ß"(Make this anonymous inner class a lambda(ƒ¡ÂÊþÿÿÿÿ
+k	java:S116,"VRename this field "rc_complain" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÅ’˜
+g	java:S1163"RRename this field "cart_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßˆÚµ
+Q
+java:S18740"6Remove this use of "ProgressDialog"; it is deprecated.(·á…Çùÿÿÿÿ
+Q
+java:S1874<"6Remove this use of "ProgressDialog"; it is deprecated.(¿Ú•ðúÿÿÿÿ
+H
+java:S1874="2Remove this use of "setMessage"; it is deprecated.(êøç¢
+œ
+java:S1186S"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Í¢ÄÁøÿÿÿÿ
+h	java:S100["NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛöˆÍùÿÿÿÿ
+D	java:S108“")Either remove or fill this block of code.(™²¨©ûÿÿÿÿ
+u
+java:S2293¨"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô›Óíüÿÿÿÿ
+D	java:S108Ê")Either remove or fill this block of code.(™²¨©ûÿÿÿÿ
+Q	java:S125;"<This block of commented-out lines of code should be removed.(Âûâ²
+R	java:S125Ù"<This block of commented-out lines of code should be removed.(ãð«ó
+W	java:S125Û"<This block of commented-out lines of code should be removed.(þ÷¨®ùÿÿÿÿ
+W	java:S125î"<This block of commented-out lines of code should be removed.(–“Åýÿÿÿÿ

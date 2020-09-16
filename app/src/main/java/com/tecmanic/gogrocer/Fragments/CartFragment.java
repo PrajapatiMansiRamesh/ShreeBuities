@@ -1,14 +1,11 @@
 package com.tecmanic.gogrocer.Fragments;
 
 import android.app.AlertDialog;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,50 +13,24 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.tecmanic.gogrocer.Activity.LoginActivity;
-import com.tecmanic.gogrocer.Activity.MainActivity;
-import com.tecmanic.gogrocer.Activity.OrderSummary;
-import com.tecmanic.gogrocer.Adapters.CartAdapter;
+import com.tecmanic.gogrocer.activity.LoginActivity;
+import com.tecmanic.gogrocer.activity.MainActivity;
+import com.tecmanic.gogrocer.activity.OrderSummary;
 import com.tecmanic.gogrocer.Adapters.Cart_adapter;
 import com.tecmanic.gogrocer.Adapters.NewCartAdapter;
-import com.tecmanic.gogrocer.Adapters.Timing_Adapter;
-import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
-import com.tecmanic.gogrocer.ModelClass.timing_model;
 import com.tecmanic.gogrocer.R;
-import com.tecmanic.gogrocer.util.AppController;
-import com.tecmanic.gogrocer.util.ConnectivityReceiver;
-import com.tecmanic.gogrocer.util.CustomVolleyJsonRequest;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
 import com.tecmanic.gogrocer.util.Session_management;
-import com.tecmanic.gogrocer.util.ViewNotifier;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import static com.tecmanic.gogrocer.Activity.NewPassword.TAG;
-import static com.tecmanic.gogrocer.Config.BaseURL.CalenderUrl;
 
 public class CartFragment extends Fragment {
 
@@ -165,9 +136,9 @@ public class CartFragment extends Fragment {
     public void updateData() {
         tv_total.setText(sessionManagement.getCurrency()+ " " + db.getTotalAmount());
         totalItems.setText("" + db.getCartCount()+"  Total Items:");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
            // ((MainActivity) getActivity()).setCartCounter("" + db.getCartCount());
-        }
+//        }
 
     }
 

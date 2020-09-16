@@ -1,0 +1,6 @@
+
+V	java:S110"<This class has 9 parents which is greater than 5 authorized.(¬∫√ù¸ˇˇˇˇ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ë‚Ï‹¸ˇˇˇˇ
+>
+java:S1604"(Make this anonymous inner class a lambda(∑•πç
+k	java:S116"WRename this field "btn_ShopMore" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çß£8

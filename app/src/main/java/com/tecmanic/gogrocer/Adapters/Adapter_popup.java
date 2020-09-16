@@ -16,8 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
-import com.tecmanic.gogrocer.ModelClass.varient_product;
+import com.tecmanic.gogrocer.ModelClass.NewCategoryVarientList;
 import com.tecmanic.gogrocer.R;
+import com.tecmanic.gogrocer.util.Communicator;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
 import com.tecmanic.gogrocer.util.Session_management;
 
@@ -28,18 +29,20 @@ import static com.tecmanic.gogrocer.Config.BaseURL.IMG_URL;
 
 public class Adapter_popup extends RecyclerView.Adapter<Adapter_popup.holder> {
 
-    List<varient_product> varientProductList;
+    List<NewCategoryVarientList> varientProductList;
     Context context;
     String id;
     int minteger = 0;
     private DatabaseHandler dbcart;
     private Session_management session_management;
+    private Communicator communicator;
 
-    public Adapter_popup(Context context, List<varient_product> varientProductList, String id) {
+    public Adapter_popup(Context context, List<NewCategoryVarientList> varientProductList, String id, Communicator communicator) {
         this.varientProductList = varientProductList;
         this.id = id;
         this.dbcart = new DatabaseHandler(context);
         this.context = context;
+        this.communicator = communicator;
         session_management = new Session_management(context);
     }
 
@@ -58,47 +61,55 @@ public class Adapter_popup extends RecyclerView.Adapter<Adapter_popup.holder> {
     @Override
     public void onBindViewHolder(@NonNull final holder holder, int i) {
 
-        final varient_product selectAreaModel = varientProductList.get(i);
+        final NewCategoryVarientList selectAreaModel = varientProductList.get(i);
 
 
-        holder.unit.setText(selectAreaModel.getVariant_unit());
+        if (Integer.parseInt(selectAreaModel.getStock()) > 0) {
+            holder.outofs.setVisibility(View.GONE);
+            holder.outofs_in.setVisibility(View.VISIBLE);
+        } else {
+            holder.outofs_in.setVisibility(View.GONE);
+            holder.outofs.setVisibility(View.VISIBLE);
+        }
 
-        holder.unitvalue.setText(selectAreaModel.getVariant_unit_value());
+        holder.unit.setText(selectAreaModel.getQuantity());
+
+        holder.unitvalue.setText(selectAreaModel.getUnit());
 //        holder.mrp.setText("" + selectAreaModel.getVariant_mrp());
-        Picasso.with(context).load(IMG_URL + selectAreaModel.getVarient_imqge()).into(holder.prodImage);
+        Picasso.with(context).load(IMG_URL + selectAreaModel.getVarient_image()).into(holder.prodImage);
 
-        double price = Double.parseDouble(varientProductList.get(i).getVariant_price());
-        double mrp = Double.parseDouble(varientProductList.get(i).getVariant_mrp());
+        double price = Double.parseDouble(varientProductList.get(i).getPrice());
+        double mrp = Double.parseDouble(varientProductList.get(i).getMrp());
 
-        int qtyd = Integer.parseInt(dbcart.getInCartItemQtys(selectAreaModel.getVariant_id()));
+        int qtyd = Integer.parseInt(dbcart.getInCartItemQtys(selectAreaModel.getVarient_id()));
         if (qtyd > 0) {
             holder.btn_Add.setVisibility(View.GONE);
             holder.ll_addQuan.setVisibility(View.VISIBLE);
-            holder.txtQuan.setText("" +qtyd);
+            holder.txtQuan.setText("" + qtyd);
             holder.mprice.setText(session_management.getCurrency() + " " + (price * qtyd));
             holder.mrp.setText(session_management.getCurrency() + " " + (mrp * qtyd));
             holder.mrp.setPaintFlags(holder.mrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } else {
             holder.btn_Add.setVisibility(View.VISIBLE);
             holder.ll_addQuan.setVisibility(View.GONE);
-            holder.mprice.setText(session_management.getCurrency() + " " + selectAreaModel.getVariant_price());
-            holder.mrp.setText(session_management.getCurrency() + " " + selectAreaModel.getVariant_mrp());
+            holder.mprice.setText(session_management.getCurrency() + " " + selectAreaModel.getPrice());
+            holder.mrp.setText(session_management.getCurrency() + " " + selectAreaModel.getMrp());
             holder.mrp.setPaintFlags(holder.mrp.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            holder.txtQuan.setText("" +0);
+            holder.txtQuan.setText("" + 0);
         }
         holder.plus.setOnClickListener(v -> {
-            int qnty = (int) Double.parseDouble(dbcart.getInCartItemQty(selectAreaModel.getVariant_id()));
-            holder.btn_Add.setVisibility(View.GONE);
-            holder.ll_addQuan.setVisibility(View.VISIBLE);
-            //            varientProductList.get(i).setpQuan(String.valueOf(i+1));
-            holder.txtQuan.setText("" + (qnty + 1));
-            holder.mprice.setText("" + (price * (qnty + 1)));
-            holder.mrp.setText(""+(mrp*(qnty +1)) );
-            updateMultiply(i, holder);
-//            notifyItemChanged(position);
+            int qnty = (int) Double.parseDouble(dbcart.getInCartItemQty(selectAreaModel.getVarient_id()));
+            if (qnty < Integer.parseInt(selectAreaModel.getStock())) {
+                holder.btn_Add.setVisibility(View.GONE);
+                holder.ll_addQuan.setVisibility(View.VISIBLE);
+                holder.txtQuan.setText("" + (qnty + 1));
+                holder.mprice.setText("" + (price * (qnty + 1)));
+                holder.mrp.setText("" + (mrp * (qnty + 1)));
+                updateMultiply(i, holder);
+            }
         });
         holder.minus.setOnClickListener(v -> {
-            int qnty = (int) Double.parseDouble(dbcart.getInCartItemQty(selectAreaModel.getVariant_id()));
+            int qnty = (int) Double.parseDouble(dbcart.getInCartItemQty(selectAreaModel.getVarient_id()));
             //            cartList.get(position).setpQuan(String.valueOf(i-1));
 //            holder.pMrp.setText(""+(mrp*(qnty -1)) );
             if ((qnty - 1) < 0 || (qnty - 1) == 0) {
@@ -106,11 +117,11 @@ public class Adapter_popup extends RecyclerView.Adapter<Adapter_popup.holder> {
                 holder.ll_addQuan.setVisibility(View.GONE);
                 holder.txtQuan.setText("" + 0);
                 holder.mprice.setText("" + price);
-                holder.mrp.setText(""+mrp);
+                holder.mrp.setText("" + mrp);
             } else {
                 holder.txtQuan.setText("" + (qnty - 1));
                 holder.mprice.setText("" + (price * (qnty - 1)));
-                holder.mrp.setText(""+(mrp*(qnty -1)) );
+                holder.mrp.setText("" + (mrp * (qnty - 1)));
             }
             updateMultiply(i, holder);
         });
@@ -140,22 +151,22 @@ public class Adapter_popup extends RecyclerView.Adapter<Adapter_popup.holder> {
 
     private void updateMultiply(int pos, holder holder) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("varient_id", varientProductList.get(pos).getVariant_id());
+        map.put("varient_id", varientProductList.get(pos).getVarient_id());
         map.put("product_name", id);
         map.put("title", id);
-        map.put("price", varientProductList.get(pos).getVariant_price());
+        map.put("price", varientProductList.get(pos).getPrice());
 //            Log.d("dsfa", CategoryGridList.get(position).getPrice());
-        map.put("mrp", varientProductList.get(pos).getVariant_mrp());
+        map.put("mrp", varientProductList.get(pos).getMrp());
 //            Log.d("fd", CategoryGridList.get(position).getImage());
-        map.put("product_image", varientProductList.get(pos).getVarient_imqge());
+        map.put("product_image", varientProductList.get(pos).getVarient_image());
 //            map.put("status",CategoryGridList.get(position).get());
 //            map.put("in_stock",CategoryGridList.get(position).getIn_stock());
-        map.put("unit_value", varientProductList.get(pos).getVariant_unit());
-        map.put("unit", varientProductList.get(pos).getVariant_unit());
+        map.put("unit_value", varientProductList.get(pos).getUnit());
+        map.put("unit", varientProductList.get(pos).getUnit());
         map.put("increament", "0");
         map.put("rewards", "0");
         map.put("stock", "0");
-        map.put("product_description", varientProductList.get(pos).getProductdescription());
+        map.put("product_description", varientProductList.get(pos).getDescription());
         if (!holder.txtQuan.getText().toString().equalsIgnoreCase("0")) {
             if (dbcart.isInCart(map.get("varient_id"))) {
                 dbcart.setCart(map, Integer.valueOf(holder.txtQuan.getText().toString()));
@@ -180,6 +191,9 @@ public class Adapter_popup extends RecyclerView.Adapter<Adapter_popup.holder> {
 //            txtQuan.setText("" + items);
 //                pMrp.setText("" + mrp * items);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                if (communicator != null) {
+                    communicator.onClick(pos);
+                }
                 SharedPreferences preferences = context.getSharedPreferences("GOGrocer", Context.MODE_PRIVATE);
                 preferences.edit().putInt("cardqnty", dbcart.getCartCount()).apply();
             }
@@ -193,7 +207,7 @@ public class Adapter_popup extends RecyclerView.Adapter<Adapter_popup.holder> {
         public TextView prodNAme, pDescrptn, pQuan, pPrice, pdiscountOff, pMrp, minus, plus, txtQuan, txt_unitvalue;
         TextView unit, unitvalue, mprice, mrp;
         ImageView prodImage;
-        LinearLayout btn_Add, ll_addQuan;
+        LinearLayout btn_Add, ll_addQuan, outofs_in, outofs;
 
         public holder(@NonNull View itemView) {
             super(itemView);
@@ -207,6 +221,8 @@ public class Adapter_popup extends RecyclerView.Adapter<Adapter_popup.holder> {
             mrp = itemView.findViewById(R.id.producrmrp);
             prodImage = itemView.findViewById(R.id.prodImage);
             btn_Add = itemView.findViewById(R.id.btn_Add);
+            outofs_in = itemView.findViewById(R.id.outofs_in);
+            outofs = itemView.findViewById(R.id.outofs);
 //            rlQuan = itemView.findViewById(R.id.rlQuan);
 //            btn_Add = itemView.findViewById(R.id.btn_Add);
             ll_addQuan = itemView.findViewById(R.id.ll_addQuan);

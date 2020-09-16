@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:gravity="center"
-    tools:context=".Activity.ForgotPAssword">
+    tools:context=".activity.ForgotPAssword">
 
     <RelativeLayout
         android:id="@+id/rl2"

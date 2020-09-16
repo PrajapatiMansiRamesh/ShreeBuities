@@ -1,7 +1,6 @@
 package com.tecmanic.gogrocer.ModelClass;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class SubCatModel {
     String name,id,detail;

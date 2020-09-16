@@ -1,0 +1,79 @@
+
+t
+java:S3252]"WUse static access with "androidx.core.content.ContextCompat" for "checkSelfPermission".(¥êêí8åõ‘À.
+q	java:S116O"VRename this field "search_view" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂÑäO8ºÎ»¾.
+K
+java:S1144v")Remove this unused private "show" method.(Öœ“úÿÿÿÿ8ÏÒ ®À.
+Y	java:S125¦"<This block of commented-out lines of code should be removed.(ıˆ«¤8ÏÒ ®À.
+|	java:S116W"[Rename this field "map_access_token" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§‡…æüÿÿÿÿ8íş¦À.
+t	java:S116K"SRename this field "save_loc" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä¦¾§ıÿÿÿÿ8ºÎ»¾.
+v	java:S116G"URename this field "search_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ´Î‹ÿÿÿÿÿ8Å¤Ô–¾.
+Y	java:S125Ø"<This block of commented-out lines of code should be removed.(¶‚Ó8ØÈƒ­À.
+~	java:S116L"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ8ºÎ»¾.
+Y	java:S125À"<This block of commented-out lines of code should be removed.(İÖä8ÏÒ ®À.
+x
+java:S1450A"VRemove the "mapView" field and declare it as a local variable in the relevant methods.(·Àºúÿÿÿÿ8Ø ¯­À.
+u
+java:S3252×"WUse static access with "androidx.core.content.ContextCompat" for "checkSelfPermission".(¥êêí8êÓ–®À.
+E
+java:S1068S"(Remove this unused "work" private field.(Àœõô8åõ‘À.
+_
+java:S1144Ò"<Remove this unused private "enableLocationComponent" method.(•–ÃÃøÿÿÿÿ8ÌÖ÷®À.
+w	java:S116F"VRename this field "search_text" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–Ô§ıøÿÿÿÿ8åõ‘À.
+Y	java:S125„"<This block of commented-out lines of code should be removed.(Èæ¨â8æÿŸ­À.
+^	java:S125»"<This block of commented-out lines of code should be removed.(Šüâÿÿÿÿÿ8ÏÒ ®À.
+w	java:S116I"VRename this field "current_Loc" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ï«Ó¾úÿÿÿÿ8¸º®À.
+{
+java:S1450G"YRemove the "search_lay" field and declare it as a local variable in the relevant methods.(œ´Î‹ÿÿÿÿÿ8Øò›­À.
+y
+java:S1450K"WRemove the "save_loc" field and declare it as a local variable in the relevant methods.(Ä¦¾§ıÿÿÿÿ8Øò›­À.
+t
+java:S3252]"WUse static access with "androidx.core.content.ContextCompat" for "checkSelfPermission".(¥êêí8åõ‘À.
+z
+java:S1450V"]Remove the "locationEngine" field and declare it as a local variable in the relevant methods.(‘¹Ó­8»Ÿ‚À.
+J
+java:S1068R"(Remove this unused "home" private field.(Ÿöœ«şÿÿÿÿ8åõ‘À.
+^	java:S125Û"<This block of commented-out lines of code should be removed.(Ü’ûúÿÿÿÿ8Ø¹Ì®À.
+O
+java:S1602ı",Remove useless curly braces around statement(ù­·Øıÿÿÿÿ8§Ïö®À.
+u
+java:S3252×"WUse static access with "androidx.core.content.ContextCompat" for "checkSelfPermission".(¥êêí8êÓ–®À.
+u
+java:S1450R"SRemove the "home" field and declare it as a local variable in the relevant methods.(Ÿöœ«şÿÿÿÿ8åõ‘À.
+Y	java:S125ñ"<This block of commented-out lines of code should be removed.(†ùÒ£8Ø¹Ì®À.
+
+java:S1450E"_Remove the "search_view_recy" field and declare it as a local variable in the relevant methods.(Ëä¦Œûÿÿÿÿ8ƒç­À.
+|	java:S116E"[Rename this field "search_view_recy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëä¦Œûÿÿÿÿ8åõ‘À.
+r	java:S116H"VRename this field "address_lay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌÁ®ç8Å¤Ô–¾.
+Y	java:S125³"<This block of commented-out lines of code should be removed.(àÊÙ8ÏÒ ®À.
+^	java:S125¶"<This block of commented-out lines of code should be removed.(¹Î…íûÿÿÿÿ8ÏÒ ®À.
+^	java:S125Â"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ÏÒ ®À.
+K
+java:S1604œ"(Make this anonymous inner class a lambda(¥ßÙúÿÿÿÿ8Ì¨»®À.
+p
+java:S1450S"SRemove the "work" field and declare it as a local variable in the relevant methods.(Àœõô8Ğ£ç¾¾.
+y
+java:S1450D"WRemove the "back_btn" field and declare it as a local variable in the relevant methods.(ÉŒÓúøÿÿÿÿ8Øò›­À.
+Y	java:S125Ÿ"<This block of commented-out lines of code should be removed.(™µÜŠ8¾´¼®À.
+R
+java:S1066¥"/Merge this if statement with the enclosing one.(äñğÓÿÿÿÿÿ8ØÈƒ­À.
+x	java:S116J"WRename this field "address_text" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ÁÉ—ıÿÿÿÿ8Å¤Ô–¾.
+M
+java:S1068@"0Remove this unused "REQUEST_CODE" private field.(Öç”8åõ‘À.
+Q
+java:S1068F"/Remove this unused "search_text" private field.(–Ô§ıøÿÿÿÿ8åõ‘À.
+|
+java:S1450I"ZRemove the "current_Loc" field and declare it as a local variable in the relevant methods.(Ï«Ó¾úÿÿÿÿ8ìÆº®À.
+^	java:S125Í"<This block of commented-out lines of code should be removed.(–ğ¾½üÿÿÿÿ8ØÈƒ­À.
+^	java:S125æ"<This block of commented-out lines of code should be removed.(–“Åıÿÿÿÿ8Ø¹Ì®À.
+^	java:S125ş"<This block of commented-out lines of code should be removed.(óúİôşÿÿÿÿ8§Ïö®À.
+|
+java:S1450F"ZRemove the "search_text" field and declare it as a local variable in the relevant methods.(–Ô§ıøÿÿÿÿ8ƒç­À.
+^	java:S125Æ"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8ÏÒ ®À.
+^	java:S125à"<This block of commented-out lines of code should be removed.(óúİôşÿÿÿÿ8ÌÖ÷®À.
+^	java:S125Ÿ"<This block of commented-out lines of code should be removed.(İ‚·Áúÿÿÿÿ8ØÈƒ­À.
+v
+java:S1450O"ZRemove the "search_view" field and declare it as a local variable in the relevant methods.(ÂÑäO8Øò›­À.
+t	java:S116D"SRename this field "back_btn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÉŒÓúøÿÿÿÿ8åõ‘À.
+^	java:S125È"<This block of commented-out lines of code should be removed.(¿†æïúÿÿÿÿ8ØÈƒ­À.
+x	java:S116P"WRename this field "progress_bar" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÅÏûşÿÿÿÿ8š˜²À.

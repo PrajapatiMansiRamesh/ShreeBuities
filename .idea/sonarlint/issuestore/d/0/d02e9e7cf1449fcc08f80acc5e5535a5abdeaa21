@@ -1,0 +1,55 @@
+
+M
+java:S1874f"2Remove this use of "setMessage"; it is deprecated.(ñËÄİÿÿÿÿÿ
+D
+java:S1604È"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+V	java:S125~"<This block of commented-out lines of code should be removed.(â†ğàÿÿÿÿÿ
+O
+java:S1874‹"3Remove this use of "isConnected"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+s	java:S117¦"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óè¼ğûÿÿÿÿ8–ÃìŒ¶.
+Y	java:S125µ"<This block of commented-out lines of code should be removed.(‚î‡É8üÂŒß·.
+>	java:S108F")Either remove or fill this block of code.(–´’ª
+n
+java:S30083"XRename this field "product_image" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š¿¶
+V	java:S125l"<This block of commented-out lines of code should be removed.(ªğ€ßşÿÿÿÿ
+d
+java:S1117«"ARename "product_image" which hides the field declared at line 51.(¥á¼Úûÿÿÿÿ8´ç‡Ş·.
+
+java:S1186ç"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö èşÿÿÿÿ
+r
+java:S1450>"VRemove the "context" field and declare it as a local variable in the relevant methods.(êİç8´ç‡Ş·.
+s	java:S117«"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥á¼Úûÿÿÿÿ8–ÃìŒ¶.
+g
+java:S14509"QRemove the "db" field and declare it as a local variable in the relevant methods.(Ğü¸ë
+<
+java:S10689"&Remove this unused "db" private field.(Ğü¸ë
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÎÒ•¸
+g	java:S116<"RRename this field "no_data" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ‘±à
+L
+java:S18744"6Remove this use of "ProgressDialog"; it is deprecated.(ğİıº
+]	java:S125_"<This block of commented-out lines of code should be removed.(ÎÀö øÿÿÿÿ8ÚÛèŒ¶.
+W	java:S125"<This block of commented-out lines of code should be removed.(ªóúŞøÿÿÿÿ
+I
+java:S14443"3Make this "public static product_image" field final(Š¿¶
+b	java:S1011"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¢˜ÍÙ
+X
+java:S1874‹"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+R	java:S125€"<This block of commented-out lines of code should be removed.(øÈƒ—
+o
+java:S11043"YMake product_image a static final constant or non-public and provide accessors if needed.(Š¿¶
+Q
+java:S1874e"6Remove this use of "ProgressDialog"; it is deprecated.(ğíµüÿÿÿÿ
+—
+java:S1186M"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(éÑ€î
+Y	java:S125¾"<This block of commented-out lines of code should be removed.(êÇïâ8–ÃìŒ¶.
+w	java:S116="]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+s	java:S117¥"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸õ´Äşÿÿÿÿ8–ÃìŒ¶.
+@
+java:S16596"%Declare "catName" on a separate line.(å¼ ÷ıÿÿÿÿ
+t	java:S1168"ZRename this field "recycler_recent" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é×Ş‡úÿÿÿÿ
+R
+java:S1068:"5Remove this unused "sessionManagement" private field.(Ôõ´é8“¬éŒ¶.
+X
+java:S1874‹"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+s	java:S117¤"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ê ıÿÿÿÿÿ8§Ş‚à½.
+s	java:S117ª"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù¼ÛÀúÿÿÿÿ8§Ş‚à½.

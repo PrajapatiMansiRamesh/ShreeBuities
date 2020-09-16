@@ -2,7 +2,6 @@ package com.tecmanic.gogrocer.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,8 +28,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
-import com.tecmanic.gogrocer.Activity.Cancel_Order;
-import com.tecmanic.gogrocer.Activity.MainActivity;
+import com.tecmanic.gogrocer.activity.MainActivity;
 import com.tecmanic.gogrocer.Config.BaseURL;
 import com.tecmanic.gogrocer.ModelClass.notice;
 import com.tecmanic.gogrocer.R;
@@ -47,8 +45,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.content.Context.MODE_PRIVATE;
-import static com.tecmanic.gogrocer.Config.BaseURL.MyPrefreance;
 import static com.tecmanic.gogrocer.Config.BaseURL.NoticeURl;
 
 public class NotificationFragment extends Fragment {

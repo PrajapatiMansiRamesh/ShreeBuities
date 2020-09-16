@@ -1,9 +1,5 @@
 package com.tecmanic.gogrocer.ModelClass;
 
-import com.google.gson.annotations.SerializedName;
-
-import java.util.ArrayList;
-
 /**
  * Created by Rajesh Dabhi on 24/6/2017.
  */

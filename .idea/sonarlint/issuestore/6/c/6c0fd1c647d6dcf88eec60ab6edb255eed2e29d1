@@ -1,0 +1,112 @@
+
+W	java:S125›"<This block of commented-out lines of code should be removed.(êÀ ƒüÿÿÿÿ
+a
+java:S1192K"FDefine a constant instead of duplicating this literal "price" 4 times.(¼Á¡™úÿÿÿÿ
+>
+java:S1659š"'Declare "pDescrptn" on a separate line.(œì¼™
+O
+java:S1854J"9Remove this useless assignment to local variable "items".(¸„«•
+U
+java:S1854l":Remove this useless assignment to local variable "reward".(º…Óûûÿÿÿÿ
+G
+java:S1659š"0Declare "currency_indicator" on a separate line.(œì¼™
+U
+java:S1117Å"?Rename "preferences" which hides the field declared at line 39.(îóÖ
+h	java:S116š"RRename this field "iv_plus" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œì¼™
+s	java:S116š"]Rename this field "currency_indicator" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œì¼™
+Q	java:S125\"<This block of commented-out lines of code should be removed.(ôÁ¡ 
+W	java:S125æ"<This block of commented-out lines of code should be removed.(˜ì‹¦ùÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(à Ê~
+B
+java:S1659š"+Declare "tv_unit_value" on a separate line.(œì¼™
+O
+java:S1144Î"3Remove this unused private "updateMultiply" method.(’ùÏÿùÿÿÿÿ
+:
+java:S1659š"#Declare "pQuan" on a separate line.(œì¼™
+A
+java:S1659š"*Declare "pdiscountOff" on a separate line.(œì¼™
+i
+java:S1104š"RMake pPrice a static final constant or non-public and provide accessors if needed.(œì¼™
+<
+java:S1659š"%Declare "iv_plus" on a separate line.(œì¼™
+U
+java:S1117‰"?Rename "preferences" which hides the field declared at line 39.(îóÖ
+Q	java:S125X"<This block of commented-out lines of code should be removed.(¯–áÐ
+;
+java:S1659š"$Declare "pPrice" on a separate line.(œì¼™
+@
+java:S1481J"*Remove this unused "items" local variable.(¸„«•
+g	java:S101#"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¹êç«ùÿÿÿÿ
+p
+java:S1104š"YMake tv_unit_value a static final constant or non-public and provide accessors if needed.(œì¼™
+g
+java:S1104š"PMake pMrp a static final constant or non-public and provide accessors if needed.(œì¼™
+Š
+java:S1319/"oThe type of the "list" object should be an interface such as "List" rather than the implementation "ArrayList".(…†ð¡øÿÿÿÿ
+a
+java:S1192J"KDefine a constant instead of duplicating this literal "varient_id" 9 times.(¸„«•
+m	java:S116&"SRename this field "price_tx" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö”¤ýÿÿÿÿ
+>
+java:S1604c"(Make this anonymous inner class a lambda(ÛòŒ—
+w	java:S116,"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+W	java:S125Ü"<This block of commented-out lines of code should be removed.(ÉÙµüÿÿÿÿ
+k
+java:S1104š"TMake tv_title a static final constant or non-public and provide accessors if needed.(œì¼™
+h	java:S116š"RRename this field "tv_unit" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œì¼™
+W	java:S125¯"<This block of commented-out lines of code should be removed.(âñÌøøÿÿÿÿ
+i	java:S116š"SRename this field "iv_minus" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œì¼™
+9
+java:S1659š""Declare "pMrp" on a separate line.(œì¼™
+o
+java:S1104›"SMake iv_logo a static final constant or non-public and provide accessors if needed.(±å¥®ùÿÿÿÿ
+@
+java:S1659š")Declare "tv_contetiy" on a separate line.(œì¼™
+i	java:S116š"SRename this field "tv_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œì¼™
+W	java:S125â"<This block of commented-out lines of code should be removed.(†üÉ³øÿÿÿÿ
+l
+java:S1104š"UMake txt_close a static final constant or non-public and provide accessors if needed.(œì¼™
+R	java:S125‡"<This block of commented-out lines of code should be removed.(¤æÞý
+j
+java:S1104š"SMake iv_plus a static final constant or non-public and provide accessors if needed.(œì¼™
+u
+java:S1104š"^Make currency_indicator a static final constant or non-public and provide accessors if needed.(œì¼™
+V	java:S125`"<This block of commented-out lines of code should be removed.(ö¹¿Áýÿÿÿÿ
+=
+java:S1659š"&Declare "iv_minus" on a separate line.(œì¼™
+l	java:S116š"VRename this field "tv_contetiy" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œì¼™
+?
+java:S1659œ"(Declare "ll_addQuan" on a separate line.(‚Á£Æ
+<
+java:S1659š"%Declare "tv_unit" on a separate line.(œì¼™
+l
+java:S1104š"UMake pDescrptn a static final constant or non-public and provide accessors if needed.(œì¼™
+g	java:S116œ"QRename this field "tv_add" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Á£Æ
+n	java:S116š"XRename this field "tv_unit_value" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œì¼™
+m	java:S116›"RRename this field "iv_logo" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±å¥®ùÿÿÿÿ
+Q	java:S125¡"<This block of commented-out lines of code should be removed.(„ðñ
+>
+java:S1659š"'Declare "txt_close" on a separate line.(œì¼™
+R	java:S125¬"<This block of commented-out lines of code should be removed.(õÿÏ
+j	java:S116š"TRename this field "txt_close" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œì¼™
+W	java:S125™"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+n
+java:S1104š"WMake tv_contetiy a static final constant or non-public and provide accessors if needed.(œì¼™
+o
+java:S1104š"XMake pdiscountOff a static final constant or non-public and provide accessors if needed.(œì¼™
+=
+java:S1604|"(Make this anonymous inner class a lambda(ë“¬3
+h
+java:S1104š"QMake pQuan a static final constant or non-public and provide accessors if needed.(œì¼™
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ûÛš
+j
+java:S1104š"SMake tv_unit a static final constant or non-public and provide accessors if needed.(œì¼™
+W	java:S125Ø"<This block of commented-out lines of code should be removed.(˜Üüÿüÿÿÿÿ
+k	java:S116œ"URename this field "ll_addQuan" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Á£Æ
+R	java:S125µ"<This block of commented-out lines of code should be removed.(Åîâ¨
+k
+java:S1104š"TMake iv_minus a static final constant or non-public and provide accessors if needed.(œì¼™
+F
+java:S1481l"+Remove this unused "reward" local variable.(º…Óûûÿÿÿÿ
+V	java:S125n"<This block of commented-out lines of code should be removed.(€Õ†šøÿÿÿÿ
+X	java:S125S"<This block of commented-out lines of code should be removed.(æÒòž8úÝ‚à½.
+Y	java:S125‹"<This block of commented-out lines of code should be removed.(ªï‚8úÝ‚à½.

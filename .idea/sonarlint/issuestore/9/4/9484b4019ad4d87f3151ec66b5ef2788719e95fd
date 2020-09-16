@@ -1,0 +1,13 @@
+
+†
+java:S1319T"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Â¼Õœ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Âæä–
+f	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—Ë
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ôä¯’ûÿÿÿÿ
+j	java:S116"PRename this field "Count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ÉúØÿÿÿÿÿ
+f	java:S116"QRename this field "PCount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßº¶¹
+i	java:S116"TRename this field "arb_title" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë¦ìë
+w	java:S116"]Rename this field "category_sub_datas" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—ªÃ•şÿÿÿÿ
+h	java:S100D"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â–ûÿÿÿÿ
+c	java:S100H"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—Ë
+c	java:S100T"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â¼Õœ

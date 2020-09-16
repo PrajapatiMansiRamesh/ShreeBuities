@@ -1,0 +1,46 @@
+
+Y	java:S125³"<This block of commented-out lines of code should be removed.(¡Õ±š8 Ø û¹.
+|
+java:S1450@"ZRemove the "countryCode" field and declare it as a local variable in the relevant methods.(Ÿ†üÆøÿÿÿÿ8ÃÂŸû¹.
+_
+java:S1874×"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8­²¤¿¾.
+u	java:S116<"TRename this field "flag_view" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó”Ä¥úÿÿÿÿ8ßìôÊ¹.
+E
+java:S1604"(Make this anonymous inner class a lambda(ç˜ìm8­ÜƒË¹.
+L
+java:S1874:"6Remove this use of "ProgressDialog"; it is deprecated.(ğİıº
+s	java:S117Í"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìÊÀ–ûÿÿÿÿ8ØÂ’Ë¹.
+_
+java:S1874×"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8­²¤¿¾.
+^	java:S125ğ"<This block of commented-out lines of code should be removed.(¯¨­€üÿÿÿÿ8ÃÂŸû¹.
+T
+java:S1874{"2Remove this use of "setMessage"; it is deprecated.(ñËÄİÿÿÿÿÿ8­ÜƒË¹.
+u	java:S116="TRename this field "country_c" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£½Àãıÿÿÿÿ8‘Ã‡Ë¹.
+s	java:S117Î"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò’ÀÔıÿÿÿÿ8ØÂ’Ë¹.
+f	java:S1166"QRename this field "SignIn" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡¡îˆ
+?
+java:S16598"$Declare "etPass" on a separate line.(½Òíûÿÿÿÿ
+w
+java:S1450?"ZRemove the "countryFlag" field and declare it as a local variable in the relevant methods.(öã‹»8­ÜƒË¹.
+Q
+java:S1874z"6Remove this use of "ProgressDialog"; it is deprecated.(—Èôÿÿÿÿÿ
+M
+java:S1066é"/Merge this if statement with the enclosing one.(Á¢Ë8­²¤¿¾.
+F
+java:S1604•"(Make this anonymous inner class a lambda(Ø‘àş8­ÜƒË¹.
+A
+java:S16597"&Declare "btnignUp" on a separate line.(§«ô¦øÿÿÿÿ
+Y	java:S125°"<This block of commented-out lines of code should be removed.(‰ÄÒÿ8 Ø û¹.
+Y	java:S125ˆ"<This block of commented-out lines of code should be removed.(İ“¤®8˜Ÿ©û¹.
+p
+java:S3776¾"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¾Ëê€8ØÂ’Ë¹.
+L
+java:S1068?"/Remove this unused "countryFlag" private field.(öã‹»8­ÜƒË¹.
+n	java:S117Ğ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íË¤ì8¨Ë¹.
+M
+java:S1066‚"/Merge this if statement with the enclosing one.(„÷µÀ8­²¤¿¾.
+9
+java:S16599"#Declare "token" on a separate line.(€Ñ®
+m	java:S117Ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†Å t8ØÂ’Ë¹.
+V
+java:S1874×"3Remove this use of "isConnected"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ8­²¤¿¾.

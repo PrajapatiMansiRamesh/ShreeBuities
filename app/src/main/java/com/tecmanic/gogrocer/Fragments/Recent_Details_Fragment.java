@@ -27,12 +27,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
-import com.tecmanic.gogrocer.Activity.ViewAll_TopDeals;
+import com.tecmanic.gogrocer.activity.ViewAll_TopDeals;
 import com.tecmanic.gogrocer.Adapters.CartAdapter;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.DatabaseHandler;
-import com.tecmanic.gogrocer.util.PagerNotifier;
 import com.tecmanic.gogrocer.util.Session_management;
 
 import org.json.JSONArray;
@@ -93,8 +92,8 @@ public class Recent_Details_Fragment extends Fragment {
             startActivity(intent);
         });
 
-        sessionManagement = new Session_management(context);
-        sessionManagement.cleardatetime();
+//        sessionManagement = new Session_management(context);
+        session_management.cleardatetime();
         db = new DatabaseHandler(context);
         recycler_recent = view.findViewById(R.id.recyclerRecent);
         no_data = view.findViewById(R.id.no_data);
@@ -149,57 +148,55 @@ public class Recent_Details_Fragment extends Fragment {
         recycler_recent.setVisibility(View.VISIBLE);
         viewall.setVisibility(View.VISIBLE);
         no_data.setVisibility(View.GONE);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, HomeRecent, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("homeRecent", response);
-                progressDialog.dismiss();
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String status = jsonObject.getString("status");
-                    String message = jsonObject.getString("message");
-                    if (status.equals("1")) {
-                        recentList.clear();
-                        JSONArray jsonArray = jsonObject.getJSONArray("data");
-                        for (int i = 0; i < jsonArray.length(); i++) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, HomeRecent, response -> {
+            Log.d("homeRecent", response);
+            progressDialog.dismiss();
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                String status = jsonObject.getString("status");
+                String message = jsonObject.getString("message");
+                if (status.equals("1")) {
+                    recentList.clear();
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+                    for (int i = 0; i < jsonArray.length(); i++) {
 
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            String product_id = jsonObject1.getString("product_id");
-                            String varient_id = jsonObject1.getString("varient_id");
-                            String product_name = jsonObject1.getString("product_name");
-                            String description = jsonObject1.getString("description");
-                            String pprice = jsonObject1.getString("price");
-                            String quantity = jsonObject1.getString("quantity");
-                            String varient_image = jsonObject1.getString("varient_image");
-                            String product_image = jsonObject1.getString("product_image");
-                            String mmrp = jsonObject1.getString("mrp");
-                            String unit = jsonObject1.getString("unit");
-                            String count = jsonObject1.getString("count");
-                            String totalOff = String.valueOf(Integer.parseInt(mmrp) - Integer.parseInt(pprice));
-                            CartModel recentData = new CartModel(product_id, product_name, description, pprice, quantity + " " + unit, product_image, session_management.getCurrency() + totalOff + " " + "Off", mmrp, count, unit);
-                            recentData.setVarient_id(varient_id);
-                            recentList.add(recentData);
-                        }
-                        recentAdapter = new CartAdapter(recentList, context);
-                        recycler_recent.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-                        recycler_recent.setAdapter(recentAdapter);
-                        recentAdapter.notifyDataSetChanged();
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                        String product_id = jsonObject1.getString("product_id");
+                        String varient_id = jsonObject1.getString("varient_id");
+                        String product_name = jsonObject1.getString("product_name");
+                        String description = jsonObject1.getString("description");
+                        String pprice = jsonObject1.getString("price");
+                        String quantity = jsonObject1.getString("quantity");
+                        String varient_image = jsonObject1.getString("varient_image");
+                        String product_image = jsonObject1.getString("product_image");
+                        String mmrp = jsonObject1.getString("mrp");
+                        String unit = jsonObject1.getString("unit");
+                        String count = jsonObject1.getString("count");
+                        String storeId = jsonObject1.getString("store_id");
+                        String totalOff = String.valueOf(Integer.parseInt(mmrp) - Integer.parseInt(pprice));
+                        CartModel recentData = new CartModel(product_id, product_name, description, pprice, quantity + " " + unit, product_image, session_management.getCurrency() + totalOff + " " + "Off", mmrp, count, unit,storeId);
+                        recentData.setVarient_id(varient_id);
+                        recentList.add(recentData);
+                    }
+//                    recentAdapter = new CartAdapter(recentList, context);
+                    recycler_recent.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+                    recycler_recent.setAdapter(recentAdapter);
+                    recentAdapter.notifyDataSetChanged();
 
-                    } else {
-                        recycler_recent.setVisibility(View.GONE);
-                        viewall.setVisibility(View.GONE);
-                        no_data.setVisibility(View.VISIBLE);
+                } else {
+                    recycler_recent.setVisibility(View.GONE);
+                    viewall.setVisibility(View.GONE);
+                    no_data.setVisibility(View.VISIBLE);
 //                        JSONObject resultObj = jsonObject.getJSONObject("results");
 //                        String msg = resultObj.getString("message");
-                        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-                    }
-                    progressDialog.dismiss();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                    Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.dismiss();
-
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            progressDialog.dismiss();
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -212,7 +209,10 @@ public class Recent_Details_Fragment extends Fragment {
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String, String> params = new HashMap<>();
+                Map<String, String> params = new HashMap<>();
+                params.put("lat",session_management.getLatPref());
+                params.put("lng",session_management.getLangPref());
+                params.put("city",session_management.getLocationCity());
                 return params;
             }
         };
@@ -232,7 +232,7 @@ public class Recent_Details_Fragment extends Fragment {
 
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        RequestQueue requestQueue = Volley.newRequestQueue(requireActivity());
         requestQueue.getCache().clear();
         requestQueue.add(stringRequest);
 
@@ -242,14 +242,14 @@ public class Recent_Details_Fragment extends Fragment {
     public void onPause() {
         super.onPause();
         // unregister reciver
-        getActivity().unregisterReceiver(mCart);
+        requireActivity().unregisterReceiver(mCart);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         // register reciver
-        getActivity().registerReceiver(mCart, new IntentFilter("Grocery_cart"));
+        requireActivity().registerReceiver(mCart, new IntentFilter("Grocery_cart"));
     }
 
 }

@@ -1,12 +1,6 @@
 package com.tecmanic.gogrocer.ModelClass;
 
-import com.google.gson.annotations.SerializedName;
-
 import org.json.JSONArray;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomeCate {
     String name,id,detail;

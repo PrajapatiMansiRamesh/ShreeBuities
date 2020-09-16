@@ -2,6 +2,7 @@ package com.tecmanic.gogrocer.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,15 +19,17 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.tecmanic.gogrocer.Activity.MainActivity;
+import com.tecmanic.gogrocer.activity.CategoryPage;
 import com.tecmanic.gogrocer.Adapters.HomeCategoryAdapter;
 import com.tecmanic.gogrocer.ModelClass.HomeCate;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.CustomVolleyJsonRequest;
+import com.tecmanic.gogrocer.util.FragmentClickListner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,8 +53,10 @@ public class CategoryFragment extends Fragment {
     private List<HomeCate> cateList = new ArrayList<>();
     private List<HomeCate> subcateList = new ArrayList<>();
     private boolean isSubcat = false;
+    private FragmentClickListner fragmentClickListner;
 
-    public CategoryFragment() {
+    public CategoryFragment(FragmentClickListner fragmentClickListner) {
+        this.fragmentClickListner = fragmentClickListner;
         // Required empty public constructor
     }
 
@@ -73,20 +79,6 @@ public class CategoryFragment extends Fragment {
         if (isOnline()) {
             categoryUrl();
         }
-
-      /*  recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getContext(), recyclerView, new RecyclerTouchListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                catId = cateList.get(position).getId();
-                get_subcategory(catId);
-
-            }
-
-            @Override
-            public void onLongItemClick(View view, int position) {
-
-            }
-        }));*/
         return view;
     }
 
@@ -125,12 +117,14 @@ public class CategoryFragment extends Fragment {
 
                                 model.setSub_array(object.getJSONArray("subcategory"));
                                 cateList.add(model);
-
-                                cateAdapter = new HomeCategoryAdapter(cateList, getContext());
-                                recyclerView.setAdapter(cateAdapter);
-                                cateAdapter.notifyDataSetChanged();
                             }
-
+                            cateAdapter = new HomeCategoryAdapter(cateList, getContext(), cat_id -> {
+                                Intent intent = new Intent(requireActivity(), CategoryPage.class);
+                                intent.putExtra("cat_id", cat_id);
+                                startActivityForResult(intent, 24);
+                            });
+                            recyclerView.setAdapter(cateAdapter);
+                            cateAdapter.notifyDataSetChanged();
 //
 //                            Gson gson = new Gson();
 //                            Type listType = new TypeToken<List<HomeCate>>() {
@@ -158,120 +152,41 @@ public class CategoryFragment extends Fragment {
                 return param;
             }
         };
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+
+        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
         requestQueue.getCache().clear();
+        jsonObjReq.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 60000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 0;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
+            }
+        });
         requestQueue.add(jsonObjReq);
 
     }
 
-
-/*
-    private void categoryUrl() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Categories, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("Categories", response);
-                progressDialog.dismiss();
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    String status = jsonObject.getString("status");
-                    if (status.equals("1")) {
-                        cateList.clear();
-                        JSONArray jsonArray = jsonObject.getJSONArray("data");
-                        for (int i = 0; i < jsonArray.length(); i++) {
-
-                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                            String cat_id = jsonObject1.getString("cat_id");
-                            String title = jsonObject1.getString("title");
-                            String image = jsonObject1.getString("image");
-                            String description = jsonObject1.getString("description");
-
-                            JSONArray Subcategory = jsonObject1.getJSONArray("subcategory");
-                            for (int j = 0; j < Subcategory.length(); j++) {
-                                if(Subcategory!=null) {
-
-                                JSONObject jsonObject2 = Subcategory.getJSONObject(j);
-                                String sub_cat_id = jsonObject2.getString("cat_id");
-                                String sub_title = jsonObject2.getString("title");
-                                String sub_image = jsonObject2.getString("image");
-                                String sub_description = jsonObject2.getString("description");
-                              */
-/*  HomeCate subcate=new HomeCate(sub_image,sub_title,sub_cat_id,sub_description);
-                                subcateList.add(subcate);
-*//*
-
-                                  JSONArray Product = jsonObject2.getJSONArray("subchild");
-                                  for (int k = 0; k < Product.length(); k++) {
-                                      if (Subcategory!=null&&Product != null) {
-                                          JSONObject jsonObject3 = Product.getJSONObject(k);
-                                          String prod_cat_id = jsonObject3.getString("cat_id");
-                                          String prod_title = jsonObject3.getString("title");
-                                          String prod_image = jsonObject3.getString("image");
-                                          String prod_description = jsonObject3.getString("description");
-                                      } }
-                               }}
-                            HomeCate cate=new HomeCate(image,title,cat_id,description);
-                            cateList.add(cate);
-                        }
-                        cateAdapter = new HomeCategoryAdapter(cateList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                        recyclerView.setAdapter(cateAdapter);
-                        cateAdapter.notifyDataSetChanged();
-
-
-                    } else {
-                        JSONObject resultObj = jsonObject.getJSONObject("results");
-                        String msg = resultObj.getString("message");
-                        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-                    }
-
-
-                   */
-/* try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        String status = jsonObject.getString("status");
-                        if (status.equals("1")) {
-                                Gson gson = new Gson();
-                                Type listType = new TypeToken<List<HomeCate>>() {
-                                }.getType();
-                              //  cateList = gson.fromJson(response.getString("data"), listType);
-                            JSONArray jsonArray = jsonObject.getJSONArray("data");
-
-                            cateList = gson.fromJson(String.valueOf(jsonArray), listType);
-                                cateAdapter = new HomeCategoryAdapter(cateList);
-                                recyclerView.setAdapter(cateAdapter);
-                            cateAdapter.notifyDataSetChanged();
-                            }*//*
-
-
-
-                    progressDialog.dismiss();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 24) {
+            if (data != null && data.getBooleanExtra("open", false)){
+                if (fragmentClickListner != null) {
+                    fragmentClickListner.onFragmentClick(data.getBooleanExtra("open",false));
                 }
-                progressDialog.dismiss();
-
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                HashMap<String, String> params = new HashMap<>();
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        requestQueue.getCache().clear();
-        requestQueue.add(stringRequest);
-
+//            fragmentClickListner.onFragmentClick(data.getBooleanExtra("open", false));
+        }
     }
-*/
 
     private boolean isOnline() {
         ConnectivityManager cm = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -279,155 +194,5 @@ public class CategoryFragment extends Fragment {
         return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 
-/*
-    public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapter.MyViewHolder> {
-
-        private List<HomeCate> homeCateList;
-
-        public class MyViewHolder extends RecyclerView.ViewHolder {
-            public TextView prodNAme,pdetails;
-            ImageView image;
-
-            CardView cardView;
-
-            public MyViewHolder(View view) {
-                super(view);
-                prodNAme = (TextView) view.findViewById(R.id.pNAme);
-                pdetails = (TextView) view.findViewById(R.id.pDetails);
-                image = (ImageView) view.findViewById(R.id.Pimage);
-                recyclerSubCate=view.findViewById(R.id.recyclerSubCate);
-                cardView=view.findViewById(R.id.cardView);
-
-            }
-        }
-
-
-        public HomeCategoryAdapter(List<HomeCate> homeCateList) {
-            this.homeCateList = homeCateList;
-        }
-
-        @Override
-        public HomeCategoryAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.layout_homeshopcate, parent, false);
-
-            return new HomeCategoryAdapter.MyViewHolder(itemView);
-        }
-
-        @Override
-        public void onBindViewHolder(HomeCategoryAdapter.MyViewHolder holder, int position) {
-            HomeCate cc = homeCateList.get(position);
-            holder.prodNAme.setText(cc.getName());
-            holder.pdetails.setText(cc.getDetail());
-            Picasso.get().load(cc.getImages()).into(holder.image);
-
-            holder.cardView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    get_subcateory(cc.getId());
-                }
-
-                private void get_subcateory(String id) {
-                    StringRequest stringRequest = new StringRequest(Request.Method.GET, Categories, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Log.d("HomeTopSelling", response);
-                            progressDialog.dismiss();
-                            try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                String status = jsonObject.getString("status");
-                                if (status.equals("1")) {
-                                    cateList.clear();
-                                    JSONArray jsonArray = jsonObject.getJSONArray("data");
-                                    for (int i = 0; i < jsonArray.length(); i++) {
-
-                                        JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-                                        String cat_id = jsonObject1.getString("cat_id");
-                                        String title = jsonObject1.getString("title");
-                                        String image = jsonObject1.getString("image");
-                                        String description = jsonObject1.getString("description");
-
-                                        JSONArray Subcategory = jsonObject1.getJSONArray("subcategory");
-                                        for (int j = 0; j < Subcategory.length(); j++) {
-
-                                            JSONObject jsonObject2 = Subcategory.getJSONObject(j);
-                                            String sub_cat_id = jsonObject2.getString("cat_id");
-                                            String sub_title = jsonObject2.getString("title");
-                                            String sub_image = jsonObject2.getString("image");
-                                            String sub_description = jsonObject2.getString("description");
-
-                                            HomeCate subcate=new HomeCate(sub_image,sub_title,sub_cat_id,sub_description);
-                                            subcateList.add(subcate);
-
-                                            subCateAdapter = new HomeCategoryAdapter(subcateList);
-                                            recyclerSubCate.setLayoutManager(new LinearLayoutManager(getActivity()));
-                                            recyclerSubCate.setAdapter(subCateAdapter);
-                                            subCateAdapter.notifyDataSetChanged();
-
-                                            JSONArray Product = jsonObject2.getJSONArray("subchild");
-                                            for (int k = 0; k < Product.length(); k++) {
-
-                                                JSONObject jsonObject3 = Product.getJSONObject(k);
-                                                String prod_cat_id = jsonObject3.getString("cat_id");
-                                                String prod_title = jsonObject3.getString("title");
-                                                String prod_image = jsonObject3.getString("image");
-                                                String prod_description = jsonObject3.getString("description");
-
-                                                JSONArray SubProduct = jsonObject3.getJSONArray("subchild");
-                                                for (int l = 0; l < SubProduct.length(); l++) {
-
-                                                    JSONObject jsonObject4 = SubProduct.getJSONObject(l);
-                                                    String subprod_cat_id = jsonObject4.getString("product_id");
-                                                    String subprod_title = jsonObject4.getString("product_name");
-                                                    String subprod_image = jsonObject4.getString("product_image");
-
-                                                }
-                                            }
-
-                                        }
-
-                                    }
-
-
-                                } else {
-                                    JSONObject resultObj = jsonObject.getJSONObject("results");
-                                    String msg = resultObj.getString("message");
-                                    Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-                                }
-                                progressDialog.dismiss();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            progressDialog.dismiss();
-
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            progressDialog.dismiss();
-
-                        }
-                    }) {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            HashMap<String, String> params = new HashMap<>();
-                            return params;
-                        }
-                    };
-
-                    RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-                    requestQueue.getCache().clear();
-                    requestQueue.add(stringRequest);
-
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return homeCateList.size();
-        }
-    }
-*/
 
 }

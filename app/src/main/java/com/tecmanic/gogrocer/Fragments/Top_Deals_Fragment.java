@@ -1,7 +1,6 @@
 package com.tecmanic.gogrocer.Fragments;
 
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -28,9 +27,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
-import com.tecmanic.gogrocer.Activity.ViewAll_TopDeals;
+import com.tecmanic.gogrocer.activity.ViewAll_TopDeals;
 import com.tecmanic.gogrocer.Adapters.CartAdapter;
 import com.tecmanic.gogrocer.ModelClass.CartModel;
+import com.tecmanic.gogrocer.ModelClass.NewCartModel;
 import com.tecmanic.gogrocer.R;
 import com.tecmanic.gogrocer.util.PagerNotifier;
 import com.tecmanic.gogrocer.util.Session_management;
@@ -127,7 +127,7 @@ public class Top_Deals_Fragment extends Fragment {
     }
 
     private void topSellingUrl() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, HomeTopSelling, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, HomeTopSelling, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("HomeTopSelling", response);
@@ -152,20 +152,22 @@ public class Top_Deals_Fragment extends Fragment {
                             String mmrp = jsonObject1.getString("mrp");
                             String unit = jsonObject1.getString("unit");
                             String count = jsonObject1.getString("count");
+                            String storeId = jsonObject1.getString("store_id");
 
                             String totalOff = String.valueOf(Integer.parseInt(mmrp) - Integer.parseInt(pprice));
 //                            Activity activity = getActivity();
 //                            if (activity != null) {
 //
 //                            }
-                            CartModel recentData = new CartModel(product_id, product_name, description, pprice, quantity + " " + unit, product_image, session_management.getCurrency() + totalOff + " " + "Off", mmrp, count, unit);
+                            CartModel recentData = new CartModel(product_id, product_name, description, pprice, quantity + " " + unit, product_image, session_management.getCurrency() + totalOff + " " + "Off", mmrp, count, unit,storeId);
                             recentData.setVarient_id(varient_id);
                             topSellList.add(recentData);
                         }
                         rv_top_selling.setVisibility(View.VISIBLE);
                         viewall.setVisibility(View.VISIBLE);
                         no_data.setVisibility(View.GONE);
-                        topSellingAdapter = new CartAdapter(topSellList, contexts);
+                        List<NewCartModel> cartModels = new ArrayList<>();
+                        topSellingAdapter = new CartAdapter(contexts,cartModels);
                         rv_top_selling.setLayoutManager(new LinearLayoutManager(contexts,LinearLayoutManager.VERTICAL,false));
                         rv_top_selling.setAdapter(topSellingAdapter);
                         topSellingAdapter.notifyDataSetChanged();
@@ -203,19 +205,26 @@ public class Top_Deals_Fragment extends Fragment {
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                return new HashMap<>();
+                Map<String, String> params = new HashMap<>();
+                params.put("lat",session_management.getLatPref());
+                params.put("lng",session_management.getLangPref());
+                params.put("city",session_management.getLocationCity());
+                return params;
             }
         };
 
+
+        RequestQueue requestQueue = Volley.newRequestQueue(contexts != null ? contexts : requireActivity());
+        requestQueue.getCache().clear();
         stringRequest.setRetryPolicy(new RetryPolicy() {
             @Override
             public int getCurrentTimeout() {
-                return 50000;
+                return 60000;
             }
 
             @Override
             public int getCurrentRetryCount() {
-                return 5;
+                return 0;
             }
 
             @Override
@@ -223,8 +232,6 @@ public class Top_Deals_Fragment extends Fragment {
 
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(contexts != null ? contexts : getActivity());
-        requestQueue.getCache().clear();
         requestQueue.add(stringRequest);
     }
 }

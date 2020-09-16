@@ -3,13 +3,14 @@ package com.tecmanic.gogrocer.util;
 import android.content.Context;
 import android.content.Intent;
 
-import com.tecmanic.gogrocer.Activity.LoginActivity;
-import com.tecmanic.gogrocer.Activity.MainActivity;
+import com.tecmanic.gogrocer.activity.LoginActivity;
+import com.tecmanic.gogrocer.activity.MainActivity;
 
 import java.util.HashMap;
 
 import static com.tecmanic.gogrocer.Config.BaseURL.APP_OTP_STATUS;
 import static com.tecmanic.gogrocer.Config.BaseURL.CART_ID_FINAL;
+import static com.tecmanic.gogrocer.Config.BaseURL.COUNTRY_CODE;
 import static com.tecmanic.gogrocer.Config.BaseURL.IS_LOGIN;
 import static com.tecmanic.gogrocer.Config.BaseURL.KEY_EMAIL;
 import static com.tecmanic.gogrocer.Config.BaseURL.KEY_HOUSE;
@@ -24,15 +25,23 @@ import static com.tecmanic.gogrocer.Config.BaseURL.KEY_REWARDS_POINTS;
 import static com.tecmanic.gogrocer.Config.BaseURL.KEY_SOCITY_ID;
 import static com.tecmanic.gogrocer.Config.BaseURL.KEY_SOCITY_NAME;
 import static com.tecmanic.gogrocer.Config.BaseURL.KEY_WALLET_Ammount;
+import static com.tecmanic.gogrocer.Config.BaseURL.MAP_SELECTION;
+import static com.tecmanic.gogrocer.Config.BaseURL.PAYMENT_PAYPAL;
+import static com.tecmanic.gogrocer.Config.BaseURL.PAYMENT_PAYSTACK;
+import static com.tecmanic.gogrocer.Config.BaseURL.PAYMENT_RAZORPZY;
 import static com.tecmanic.gogrocer.Config.BaseURL.TOTAL_AMOUNT;
+import static com.tecmanic.gogrocer.Config.BaseURL.USER_CITY;
 import static com.tecmanic.gogrocer.Config.BaseURL.USER_CURRENCY;
 import static com.tecmanic.gogrocer.Config.BaseURL.USER_CURRENCY_CNTRY;
 import static com.tecmanic.gogrocer.Config.BaseURL.USER_EMAIL_SERVICE;
 import static com.tecmanic.gogrocer.Config.BaseURL.USER_INAPP_SERVICE;
+import static com.tecmanic.gogrocer.Config.BaseURL.USER_LANG;
+import static com.tecmanic.gogrocer.Config.BaseURL.USER_LAT;
 import static com.tecmanic.gogrocer.Config.BaseURL.USER_OTP;
 import static com.tecmanic.gogrocer.Config.BaseURL.USER_SKIP;
 import static com.tecmanic.gogrocer.Config.BaseURL.USER_SMS_SERVICE;
 import static com.tecmanic.gogrocer.Config.BaseURL.USER_STATUS;
+import static com.tecmanic.gogrocer.Config.BaseURL.USER_STOREID;
 
 /**
  * Created by Rajesh Dabhi on 28/6/2017.
@@ -136,6 +145,26 @@ public class Session_management {
 //        editor.commit();
     }
 
+    public void setLocationPref(String lat, String lang) {
+        pref.setString(USER_LAT, lat);
+        pref.setString(USER_LANG, lang);
+    }
+
+    public String getLatPref() {
+        return pref.getString(USER_LAT, "");
+    }
+
+    public String getLangPref() {
+        return pref.getString(USER_LANG, "");
+    }
+
+    public String getLocationCity() {
+        return pref.getString(USER_CITY, "");
+    }
+
+    public void setLocationCity(String city) {
+        pref.setString(USER_CITY, city);
+    }
 
     public void createotpSession(String useremail, String username, String user_phone) {
 
@@ -272,6 +301,14 @@ public class Session_management {
         return user;
     }
 
+    public String getCountryCode() {
+        return pref.getString(COUNTRY_CODE, "");
+    }
+
+    public void setCountryCode(String value) {
+        pref.setString(COUNTRY_CODE, value);
+    }
+
     // Get Login State
     public boolean isLoggedIn() {
         return pref.getBoolean(IS_LOGIN, false);
@@ -326,6 +363,14 @@ public class Session_management {
         pref.setString(USER_OTP, value);
     }
 
+    public String getMapSelection() {
+        return pref.getString(MAP_SELECTION, "0");
+    }
+
+    public void setMapSelection(String value) {
+        pref.setString(MAP_SELECTION, value);
+    }
+
     public String userId() {
         return pref.getString(KEY_ID, "");
     }
@@ -359,4 +404,29 @@ public class Session_management {
         pref.setString(APP_OTP_STATUS, value);
     }
 
+    public String getStoreId() {
+        return pref.getString(USER_STOREID, "");
+    }
+
+    public void setStoreId(String storeId) {
+        pref.setString(USER_STOREID, storeId);
+    }
+
+    public void setPaymentMethodOpt(String razorpay, String paypal,String paystack) {
+        pref.setString(PAYMENT_RAZORPZY, razorpay);
+        pref.setString(PAYMENT_PAYPAL, paypal);
+        pref.setString(PAYMENT_PAYSTACK, paystack);
+    }
+
+    public String getPayPal() {
+        return pref.getString(PAYMENT_PAYPAL, "0");
+    }
+
+    public String getRazorPay() {
+        return pref.getString(PAYMENT_RAZORPZY, "0");
+    }
+
+    public String getPayStack() {
+        return pref.getString(PAYMENT_PAYSTACK, "0");
+    }
 }

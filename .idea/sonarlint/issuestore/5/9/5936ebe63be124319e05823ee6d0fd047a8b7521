@@ -1,0 +1,42 @@
+
+n
+java:S1301é"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8ÙîÅ‘¶.
+i
+java:S1301ì"KReplace this "switch" statement by "if" statements to increase readability.(•öÀø8ÙîÅ‘¶.
+D	java:S131é""Add a default case to this switch.(×ö³–úÿÿÿÿ8ÙîÅ‘¶.
+?	java:S131ì""Add a default case to this switch.(•öÀø8ÙîÅ‘¶.
+T
+java:S1144n"7Remove this unused private "openDialogFunction" method.(ğÚÁÊ8ÙîÅ‘¶.
+u	java:S116+"`Rename this field "SPLASH_DISPLAY_LENGTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®äùÆ
+D
+java:S1604"(Make this anonymous inner class a lambda(’¿´;8ÙîÅ‘¶.
+M
+java:S1874"/Remove this use of "Handler"; it is deprecated.(„ÑñŒ8ĞŠçÃ½.
+^	java:S125Û"<This block of commented-out lines of code should be removed.(‰ÂÁÑÿÿÿÿÿ8ÙîÅ‘¶.
+l
+java:S1192u"JDefine a constant instead of duplicating this literal "connected" 4 times.(İ¬Àçøÿÿÿÿ8ÙîÅ‘¶.
+7
+java:S1170+"!Make this final field static too.(®äùÆ
+[
+java:S1124-"EReorder the modifiers to comply with the Java Language Specification.(¨öáº
+l
+java:S1192{"JDefine a constant instead of duplicating this literal "suspended" 4 times.(ù¡éÊıÿÿÿÿ8ÙîÅ‘¶.
+r	java:S116/"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÒéß
+F
+java:S1604"(Make this anonymous inner class a lambda(„ÑñŒ8ÙîÅ‘¶.
+T
+java:S1874,"7Remove this use of "GoogleApiClient"; it is deprecated.(©üß¦8Ğü½ÒÃ.
+Y
+java:S1874p"7Remove this use of "GoogleApiClient"; it is deprecated.(¡ƒöŒùÿÿÿÿ8Ğü½ÒÃ.
+Q
+java:S1874p"/Remove this use of "Builder"; it is deprecated.(¡ƒöŒùÿÿÿÿ8Ğü½ÒÃ.
+T
+java:S1874r"7Remove this use of "GoogleApiClient"; it is deprecated.(à»³¢8Ğü½ÒÃ.
+S
+java:S1874"7Remove this use of "GoogleApiClient"; it is deprecated.(’¿´;8Ğü½ÒÃ.
+U
+java:S1874¶"7Remove this use of "GoogleApiClient"; it is deprecated.(ú®Óª8Ğü½ÒÃ.
+M
+java:S1874¶"/Remove this use of "Builder"; it is deprecated.(ú®Óª8Ğü½ÒÃ.
+U
+java:S1874¶"7Remove this use of "GoogleApiClient"; it is deprecated.(ú®Óª8Ğü½ÒÃ.

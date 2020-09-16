@@ -1,0 +1,26 @@
+
+w	java:S116;"]Rename this field "session_management" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«éØíüÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÎÒ•¸
+g	java:S1011"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ô¼þ×ùÿÿÿÿ
+g	java:S116:"RRename this field "no_data" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ‘±à
+k	java:S117q"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸õ´Äþÿÿÿÿ
+Q	java:S125y"<This block of commented-out lines of code should be removed.(Ž«Öù
+k	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óè¼ðûÿÿÿÿ
+Q
+java:S1874T"6Remove this use of "ProgressDialog"; it is deprecated.(ðíµüÿÿÿÿ
+
+java:S1186»"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ö èþÿÿÿÿ
+Y	java:S125"<This block of commented-out lines of code should be removed.(‚î‡É8ñÒ™ß·.
+L
+java:S18746"6Remove this use of "ProgressDialog"; it is deprecated.(ðÝýº
+C
+java:S1604`"(Make this anonymous inner class a lambda(ˆ¶òØþÿÿÿÿ
+f	java:S117u"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û§’Ü
+R	java:S125"<This block of commented-out lines of code should be removed.(êÇïâ
+V	java:S125c"<This block of commented-out lines of code should be removed.(æ¨ùÑúÿÿÿÿ
+k	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼Ê ýÿÿÿÿÿ
+W	java:S125‘"<This block of commented-out lines of code should be removed.(ö´Š§ÿÿÿÿÿ
+D
+java:S1604š"(Make this anonymous inner class a lambda(´¸©”üÿÿÿÿ
+M
+java:S1874U"2Remove this use of "setMessage"; it is deprecated.(ñËÄÝÿÿÿÿÿ

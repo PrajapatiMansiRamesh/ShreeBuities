@@ -1,0 +1,7 @@
+
+n
+java:S2637'"XThis method's return value is marked "androidx.annotation.NonNull" but null is returned.(¥¹ï
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô×¥èûÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»ûÛš
+V
+java:S1874"ARemove this use of "FragmentStatePagerAdapter"; it is deprecated.(‘í›\

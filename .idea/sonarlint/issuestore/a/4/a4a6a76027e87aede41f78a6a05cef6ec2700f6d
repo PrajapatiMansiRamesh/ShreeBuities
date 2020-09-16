@@ -1,0 +1,12 @@
+
+V	java:S110"<This class has 9 parents which is greater than 5 authorized.(Í™‰ÿÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘âìÜüÿÿÿÿ
+C
+java:S1604"(Make this anonymous inner class a lambda(Ä­˜Ôÿÿÿÿÿ
+i	java:S116"TRename this field "et_MObile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Çø
+W
+java:S18744"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+W
+java:S18744"<Remove this use of "getActiveNetworkInfo"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ
+N
+java:S18744"3Remove this use of "isConnected"; it is deprecated.(ˆÛ¡Çøÿÿÿÿ

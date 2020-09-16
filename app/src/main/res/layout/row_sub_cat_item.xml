@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/border_rounded1">
 
@@ -29,8 +28,7 @@
                 android:background="@drawable/ic_plus"
                 android:visibility="gone"
                 android:backgroundTint="@color/black"
-                android:layout_gravity="center|left"
-                ></ImageView>
+                android:layout_gravity="center|left" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,7 +52,7 @@
                         android:gravity="center|left"
                         android:text="Product Name"
                         android:textColor="@color/black"
-                        android:textSize="15sp"></TextView>
+                        android:textSize="15sp"/>
 
                     <TextView
                         android:visibility="gone"
@@ -69,7 +67,7 @@
                         android:gravity="center|left"
                         android:text="Product Name"
                         android:textColor="@color/hintColor"
-                        android:textSize="13sp"></TextView>
+                        android:textSize="13sp"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -80,10 +78,9 @@
                         android:id="@+id/Pimage"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/ic_arrow_right"
+                        android:background="@drawable/ic_arrow_righ_new"
                         android:backgroundTint="@color/black"
-                        android:layout_gravity="center|left"
-                        ></ImageView>
+                        android:layout_gravity="center|left" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -100,5 +97,5 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        ></androidx.recyclerview.widget.RecyclerView>
+        />
 </LinearLayout>
